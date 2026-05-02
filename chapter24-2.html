@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24-2. Correcting Economic Variables for the Effects of Inflation</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fcfcfc;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        h2 {
+            color: #2980b9;
+            font-size: 1.8em;
+            margin-top: 50px;
+            border-left: 5px solid #2980b9;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #16a085;
+            font-size: 1.4em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #e1e8ed;
+            padding-bottom: 10px;
+        }
+        .paragraph-section { margin-bottom: 40px; }
+        .sentence-group { margin-bottom: 22px; padding-left: 10px; }
+        .english { font-size: 1.13em; font-weight: 500; color: #2c3e50; margin-bottom: 7px; }
+        .korean { font-size: 1.08em; color: #555; }
+
+        /* 툴팁 */
+        .tooltip {
+            position: relative; display: inline-block;
+            color: #c0392b; cursor: help;
+            border-bottom: 2px dotted #c0392b; font-weight: bold;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden; width: max-content; max-width: 260px;
+            background-color: #34495e; color: #fff; text-align: center;
+            border-radius: 6px; padding: 8px 12px; position: absolute;
+            z-index: 1; bottom: 130%; left: 50%; transform: translateX(-50%);
+            opacity: 0; transition: opacity 0.3s; font-size: 0.85em;
+            font-weight: normal; box-shadow: 0 3px 6px rgba(0,0,0,0.2); line-height: 1.4;
+        }
+        .tooltip .tooltiptext::after {
+            content: ""; position: absolute; top: 100%; left: 50%;
+            margin-left: -6px; border-width: 6px; border-style: solid;
+            border-color: #34495e transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+        /* 여백 노트 */
+        .margin-note {
+            background-color: #fdf2e9; padding: 18px 22px;
+            border-radius: 8px; margin-bottom: 30px;
+            border-left: 4px solid #e67e22;
+        }
+        .margin-note strong { color: #d35400; font-size: 1.05em; }
+
+        /* 수식 박스 */
+        .formula-box {
+            background-color: #f9fbfb; padding: 22px 28px;
+            border-radius: 8px; border: 1px solid #1abc9c;
+            margin: 28px 0; text-align: center; font-size: 1.1em;
+            color: #2c3e50; display: flex; align-items: center;
+            justify-content: center; flex-wrap: wrap; gap: 10px;
+        }
+        .fraction {
+            display: inline-block; vertical-align: middle;
+            margin: 0 10px; text-align: center;
+        }
+        .numerator { border-bottom: 2px solid #2c3e50; padding: 0 6px 5px 6px; }
+        .denominator { padding: 5px 6px 0 6px; }
+
+        /* 계산 박스 */
+        .calc-box {
+            background-color: #eaf4fb; border-radius: 8px;
+            padding: 20px 28px; margin: 20px 0;
+            border-left: 4px solid #2980b9; font-size: 1.05em;
+        }
+        .calc-box .calc-line { margin: 6px 0; color: #2c3e50; }
+
+        /* 스텝 블록 */
+        .step-block {
+            margin-top: 28px; padding: 22px;
+            background-color: #f9fbfb; border-radius: 8px;
+            border-left: 4px solid #1abc9c;
+        }
+        .step-title { font-size: 1.2em; font-weight: bold; color: #16a085; margin-bottom: 14px; }
+
+        /* FYI 박스 */
+        .fyi-box {
+            background-color: #f0f7ff; border: 2px solid #3498db;
+            border-radius: 10px; padding: 28px; margin-top: 50px;
+        }
+        .fyi-label {
+            display: inline-block; background-color: #3498db; color: white;
+            font-weight: bold; font-size: 0.9em; padding: 4px 14px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: 2px;
+        }
+        .fyi-box h3 { color: #2980b9; border-bottom: none; margin-top: 5px; }
+
+        /* Case Study 박스 */
+        .case-study-box {
+            background-color: #fef9f0; border: 2px solid #e67e22;
+            border-radius: 10px; padding: 28px; margin-top: 50px;
+        }
+        .case-label {
+            display: inline-block; background-color: #c0392b; color: white;
+            font-weight: bold; font-size: 0.85em; padding: 5px 14px;
+            border-radius: 50px; margin-bottom: 10px; letter-spacing: 1px;
+        }
+        .case-study-box h3 { color: #c0392b; border-bottom: none; margin-top: 5px; }
+
+        /* 불릿 리스트 예시 */
+        .example-list {
+            list-style: disc; padding-left: 24px; margin: 16px 0;
+        }
+        .example-list li { margin-bottom: 14px; }
+        .example-list .eng { font-weight: 500; color: #2c3e50; }
+        .example-list .kor { color: #555; font-size: 0.97em; }
+
+        /* QuickQuiz */
+        .quickquiz {
+            background-color: #fffde7; border: 2px solid #f9a825;
+            border-radius: 8px; padding: 20px 24px; margin-top: 40px;
+        }
+        .quickquiz-label {
+            display: inline-block; background-color: #f9a825; color: white;
+            font-weight: bold; padding: 3px 12px; border-radius: 4px; margin-bottom: 10px;
+        }
+
+        /* 용어 정리 */
+        .terminology {
+            background-color: #ebf5fb; padding: 28px;
+            border-radius: 8px; margin-top: 50px;
+        }
+        .terminology ul { list-style: disc; padding-left: 24px; margin: 0; }
+        .terminology li { margin-bottom: 12px; font-size: 1.04em; }
+        .terminology strong { color: #2980b9; font-size: 1.08em; }
+
+        /* 그래프 타이틀 박스 */
+        .table-title-box {
+            background-color: #fdf2e9; padding: 18px 22px;
+            border-left: 5px solid #e67e22; border-radius: 8px 8px 0 0; margin-top: 36px;
+        }
+        .table-title-box h4 { margin: 0 0 8px 0; color: #d35400; font-size: 1.15em; }
+        .table-title-box p { margin: 0; font-size: 0.93em; color: #555; }
+        .figure-caption {
+            background-color: #fdf2e9; padding: 10px 16px; border-radius: 6px;
+            font-size: 0.88em; color: #555; margin-top: 8px;
+            border-left: 3px solid #e67e22;
+        }
+        .figure-caption strong { color: #d35400; }
+
+        /* 비교 요약 표 */
+        .compare-table {
+            width: 100%; border-collapse: collapse;
+            font-size: 1em; margin: 20px 0;
+        }
+        .compare-table th {
+            background-color: #2980b9; color: white;
+            padding: 10px 14px; text-align: left;
+        }
+        .compare-table td { padding: 10px 14px; border-bottom: 1px solid #d6eaf8; }
+        .compare-table tr:nth-child(even) td { background-color: #f0f7ff; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h2>24-2. Correcting Economic Variables for the Effects of Inflation
+        <br><span style="font-size:0.65em; color:#7f8c8d;">(인플레이션의 영향에 대한 경제 변수 조정)</span>
+    </h2>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">The <span class="tooltip">purpose<span class="tooltiptext">목적, 의도</span></span> of measuring the overall level of prices in the economy is to allow us to <span class="tooltip">compare<span class="tooltiptext">비교하다</span></span> dollar figures from different times.</div>
+            <div class="korean">경제 전반의 물가 수준을 측정하는 목적은 서로 다른 시점의 달러 금액을 비교할 수 있도록 하기 위해서입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Now that we know how price <span class="tooltip">indexes<span class="tooltiptext">indexes / indices: 지수의 복수형. 물가지수처럼 특정 기준에 대한 상대적 수준을 나타내는 수치들</span></span> are <span class="tooltip">calculated<span class="tooltiptext">calculated: 계산된, 산출된</span></span>, let's see how we might use such an index to compare a dollar figure from the past to a dollar figure in the present.</div>
+            <div class="korean">이제 물가지수가 어떻게 계산되는지 알았으니, 이러한 지수를 활용하여 과거의 달러 금액을 현재의 달러 금액과 어떻게 비교할 수 있는지 살펴봅시다.</div>
+        </div>
+    </div>
+
+    <!-- ========== 24-2a ========== -->
+    <h3>24-2a. Dollar Figures from Different Times
+        <br><span style="font-size:0.75em; color:#7f8c8d;">(서로 다른 시점의 달러 금액 비교)</span>
+    </h3>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">We first return to the issue of Babe Ruth's <span class="tooltip">salary<span class="tooltiptext">salary: 연봉, 급여 (정기적으로 지급받는 보수)</span></span>. Was his salary of $80,000 in 1931 high or low compared to the salaries of today's players?</div>
+            <div class="korean">우선 베이브 루스(Babe Ruth)의 연봉 문제로 돌아가 봅시다. 1931년 그의 연봉 8만 달러는 오늘날 선수들의 연봉과 비교했을 때 높은 것일까요, 낮은 것일까요?</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">To answer this question, we need to know the level of prices in 1931 and the level of prices today. Part of the increase in baseball salaries <span class="tooltip">compensates<span class="tooltiptext">compensates: 보상하다, 상쇄하다 (높아진 물가에 대한 보상으로 급여가 오름)</span></span> players for higher prices today.</div>
+            <div class="korean">이 질문에 답하려면 1931년의 물가 수준과 오늘날의 물가 수준을 알아야 합니다. 야구 선수 연봉 인상의 일부는 오늘날의 더 높은 물가에 대한 보상입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">To compare Ruth's salary to those of today's players, we need to <span class="tooltip">inflate<span class="tooltiptext">inflate: (여기서는) 물가 상승을 반영해 금액을 부풀리다, 조정하다</span></span> Ruth's salary to turn 1931 dollars into today's dollars.</div>
+            <div class="korean">루스의 연봉을 오늘날 선수들의 연봉과 비교하려면, 1931년 달러를 오늘날 달러로 환산하기 위해 루스의 연봉을 물가 상승률만큼 조정해야 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The <span class="tooltip">formula<span class="tooltiptext">formula: 공식, 수식 (특정 계산을 위한 수학적 표현)</span></span> for turning dollar figures from year <em>T</em> into today's dollars is the following:</div>
+            <div class="korean">연도 <em>T</em>의 달러 금액을 오늘날 달러로 환산하는 공식은 다음과 같습니다:</div>
+        </div>
+
+        <div class="formula-box">
+            <strong>Amount in today's dollars</strong> &nbsp;= &nbsp;Amount in year <em>T</em> dollars &nbsp;×&nbsp;
+            <div class="fraction">
+                <div class="numerator">Price level today (오늘날의 물가 수준)</div>
+                <div class="denominator">Price level in year <em>T</em> (연도 T의 물가 수준)</div>
+            </div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">A price index such as the CPI measures the price level and thus determines the size of the inflation correction.</div>
+            <div class="korean">CPI와 같은 물가지수는 물가 수준을 측정하므로, 인플레이션 조정의 크기를 결정합니다.</div>
+        </div>
+    </div>
+
+    <!-- Babe Ruth 계산 예시 -->
+    <div class="step-block" style="border-left-color:#e74c3c;">
+        <div class="step-title" style="color:#c0392b;">📌 예시 1: Babe Ruth의 연봉 (1931 → 2015)</div>
+        <div class="sentence-group">
+            <div class="english">Let's <span class="tooltip">apply<span class="tooltiptext">apply: 적용하다 (공식이나 방법을 특정 상황에 사용하다)</span></span> this formula to Ruth's salary. Government statistics show a CPI of 15.2 for 1931 and 237 for 2015. Thus, the overall level of prices has risen by a <span class="tooltip">factor<span class="tooltiptext">factor: 배수, 인수 (여기서는 '~배' 의미. factor of 15.6 = 15.6배)</span></span> of 15.6 (calculated from 237/15.2).</div>
+            <div class="korean">이 공식을 루스의 연봉에 적용해 봅시다. 정부 통계에 따르면 1931년 CPI는 15.2이고 2015년 CPI는 237입니다. 따라서 전반적인 물가 수준은 15.6배(237/15.2) 상승했습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">We can use these numbers to <span class="tooltip">measure<span class="tooltiptext">measure: 측정하다, 환산하다</span></span> Ruth's salary in 2015 dollars, as follows:</div>
+            <div class="korean">이 수치들을 사용하여 루스의 연봉을 2015년 달러로 환산하면 다음과 같습니다:</div>
+        </div>
+
+        <div class="calc-box">
+            <div class="calc-line">Salary in 2015 dollars = Salary in 1931 dollars × <span style="font-size:0.95em;">(Price level in 2015 / Price level in 1931)</span></div>
+            <div class="calc-line" style="padding-left: 24px;">= $80,000 × (237 / 15.2)</div>
+            <div class="calc-line" style="padding-left: 24px; font-weight:bold; color:#c0392b;">= $1,247,368</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">We find that Babe Ruth's 1931 salary is <span class="tooltip">equivalent<span class="tooltiptext">equivalent: 동등한, ~에 해당하는 (같은 가치나 크기를 가진)</span></span> to a salary today of over $1.2 million. That is a good income, but it is only a third of the average player's salary today and only 4 percent of what the Dodgers pay Clayton Kershaw.</div>
+            <div class="korean">베이브 루스의 1931년 연봉은 오늘날 120만 달러 이상의 연봉에 해당한다는 것을 알 수 있습니다. 꽤 좋은 수입이지만, 이는 오늘날 평균 선수 연봉의 3분의 1에 불과하며 다저스가 클레이튼 커쇼에게 지급하는 금액의 4%에 지나지 않습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Various forces, including overall economic growth and the <span class="tooltip">increasing<span class="tooltiptext">increasing: 증가하는, 늘어나는</span></span> income <span class="tooltip">shares<span class="tooltiptext">shares: 몫, 비율 (전체 소득 중 특정 집단이 차지하는 비중)</span></span> earned by <span class="tooltip">superstars<span class="tooltiptext">superstars: 슈퍼스타 (최고 수준의 스타 플레이어)</span></span>, have <span class="tooltip">substantially<span class="tooltiptext">substantially: 상당히, 크게</span></span> raised the living standards of the best athletes.</div>
+            <div class="korean">전반적인 경제 성장과 슈퍼스타들이 차지하는 소득 비중 증가 등 다양한 요인들이 최고 선수들의 생활 수준을 크게 향상시켰습니다.</div>
+        </div>
+    </div>
+
+    <!-- Hoover 계산 예시 -->
+    <div class="step-block" style="border-left-color:#8e44ad; margin-top:24px;">
+        <div class="step-title" style="color:#7d3c98;">📌 예시 2: President Hoover의 연봉 (1931 → 2015)</div>
+        <div class="sentence-group">
+            <div class="english">Let's also <span class="tooltip">examine<span class="tooltiptext">examine: 검토하다, 살펴보다</span></span> President Hoover's 1931 salary of $75,000. To <span class="tooltip">translate<span class="tooltiptext">translate: (여기서는) 환산하다, 변환하다</span></span> that figure into 2015 dollars, we again multiply the <span class="tooltip">ratio<span class="tooltiptext">ratio: 비율, 비(比) (두 수의 상대적 크기 관계)</span></span> of the price levels in the two years.</div>
+            <div class="korean">후버(Hoover) 대통령의 1931년 연봉 75,000달러도 살펴봅시다. 이 금액을 2015년 달러로 환산하기 위해 두 연도의 물가 수준 비율을 다시 곱합니다.</div>
+        </div>
+
+        <div class="calc-box" style="background-color:#f5eef8; border-left-color:#8e44ad;">
+            <div class="calc-line">Salary in 2015 dollars = $75,000 × (237 / 15.2)</div>
+            <div class="calc-line" style="font-weight:bold; color:#7d3c98;">= $1,169,408</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">We find that Hoover's salary is equivalent to $75,000 × (237/15.2), or $1,169,408 in 2015 dollars. This is well above President Barack Obama's salary of $400,000. It seems that President Hoover did have a pretty good year after all.</div>
+            <div class="korean">후버의 연봉은 2015년 달러 기준으로 1,169,408달러에 해당합니다. 이는 버락 오바마 대통령의 연봉 400,000달러를 훨씬 상회합니다. 결국 후버 대통령은 꽤 좋은 한 해를 보냈던 것 같습니다.</div>
+        </div>
+    </div>
+
+    <!-- FYI: Mr. Index Goes to Hollywood -->
+    <div class="fyi-box">
+        <div class="fyi-label">FYI</div>
+        <h3>Mr. Index Goes to Hollywood
+            <br><span style="font-size:0.72em; color:#7f8c8d;">(물가지수, 할리우드에 가다)</span>
+        </h3>
+        <div class="sentence-group">
+            <div class="english">What is the most popular movie of all time? The answer might surprise you.</div>
+            <div class="korean">역대 가장 인기 있는 영화는 무엇일까요? 그 답은 여러분을 놀라게 할 수도 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Movie <span class="tooltip">popularity<span class="tooltiptext">popularity: 인기, 대중성</span></span> is usually <span class="tooltip">gauged<span class="tooltiptext">gauged: 측정되다, 평가되다 (gauge = 측정하다)</span></span> by box office <span class="tooltip">receipts<span class="tooltiptext">receipts: 수입, 수익 (box office receipts = 극장 티켓 판매 수입)</span></span>. By that measure, <em>Star Wars: The Force Awakens</em> is the number-one movie of all time with domestic receipts of $923 million, followed by <em>Avatar</em> ($761 million) and <em>Titanic</em> ($659 million).</div>
+            <div class="korean">영화 인기도는 보통 박스오피스 수익으로 측정합니다. 이 기준으로 보면 <em>스타워즈: 깨어난 포스</em>가 국내 수익 9억 2,300만 달러로 역대 1위를 차지하고, 이어서 <em>아바타</em>(7억 6,100만 달러)와 <em>타이타닉</em>(6억 5,900만 달러)이 뒤를 잇습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But this ranking <span class="tooltip">ignores<span class="tooltiptext">ignores: 무시하다, 간과하다</span></span> an obvious but important fact: Prices, including those of movie tickets, have been rising over time. <span class="tooltip">Inflation<span class="tooltiptext">inflation: 인플레이션, 물가 상승 (시간이 지날수록 물건값이 오르는 현상)</span></span> gives an <span class="tooltip">advantage<span class="tooltiptext">advantage: 유리함, 이점</span></span> to newer films.</div>
+            <div class="korean">그러나 이 순위는 명백하지만 중요한 사실을 무시합니다. 영화 티켓 가격을 포함한 모든 가격이 시간이 지남에 따라 상승해 왔다는 것입니다. 인플레이션은 신작 영화에 유리하게 작용합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When we <span class="tooltip">correct<span class="tooltiptext">correct for: ~을 보정하다, 조정하다 (어떤 요인의 영향을 제거하다)</span></span> box office receipts for the effects of inflation, the story is very different. The number-one movie is now <em>Gone with the Wind</em> ($1,758 million), followed by the original <em>Star Wars</em> ($1,550 million) and <em>The Sound of Music</em> ($1,239 million). <em>Star Wars: The Force Awakens</em> falls to number 11.</div>
+            <div class="korean">박스오피스 수익을 인플레이션 효과에 맞게 조정하면 이야기가 매우 달라집니다. 1위는 이제 <em>바람과 함께 사라지다</em>(17억 5,800만 달러)가 되고, 오리지널 <em>스타워즈</em>(15억 5,000만 달러)와 <em>사운드 오브 뮤직</em>(12억 3,900만 달러)이 뒤를 잇습니다. <em>스타워즈: 깨어난 포스</em>는 11위로 떨어집니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english"><em>Gone with the Wind</em> was released in 1939, before everyone had <span class="tooltip">televisions<span class="tooltiptext">televisions: 텔레비전 (당시에는 TV가 일반 가정에 보급되기 전이라 영화관이 주요 오락 수단)</span></span> in their homes. In the 1930s, about 90 million Americans went to the <span class="tooltip">cinema<span class="tooltiptext">cinema: 영화관 (= movie theater)</span></span> each week, compared to about 25 million today.</div>
+            <div class="korean"><em>바람과 함께 사라지다</em>는 모든 가정에 TV가 보급되기 전인 1939년에 개봉했습니다. 1930년대에는 약 9,000만 명의 미국인이 매주 영화관을 찾았는데, 이는 오늘날의 약 2,500만 명과 비교됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But the movies from that era don't show up in <span class="tooltip">conventional<span class="tooltiptext">conventional: 전통적인, 관례적인, 일반적인</span></span> popularity rankings because ticket prices were only a <span class="tooltip">quarter<span class="tooltiptext">quarter: 25센트 (미국 동전 단위로, 1달러의 4분의 1)</span></span>. And indeed, in the ranking based on <span class="tooltip">nominal<span class="tooltiptext">nominal: 명목상의 (물가 변화를 반영하지 않은 액면 그대로의 숫자)</span></span> box office receipts, <em>Gone with the Wind</em> does not make the top 100 films. Scarlett and Rhett <span class="tooltip">fare<span class="tooltiptext">fare: (결과가) ~하게 되다 (fare a lot better = 훨씬 더 좋은 결과를 보이다)</span></span> a lot better once we correct for the effects of inflation.</div>
+            <div class="korean">그러나 그 시대의 영화들은 티켓 가격이 25센트에 불과했기 때문에 일반적인 인기 순위에 나타나지 않습니다. 실제로 명목 박스오피스 수익 기준 순위에서 <em>바람과 함께 사라지다</em>는 100위 안에도 들지 못합니다. 인플레이션 효과를 보정하고 나서야 스칼렛과 레트는 훨씬 더 좋은 성적을 보입니다.</div>
+        </div>
+    </div>
+
+    <!-- ========== CASE STUDY: Regional Differences ========== -->
+    <div class="case-study-box" style="margin-top: 50px;">
+        <div class="case-label">CASE STUDY</div>
+        <h3>Regional Differences in the Cost of Living
+            <br><span style="font-size:0.72em; color:#888;">(생계비의 지역적 차이)</span>
+        </h3>
+        <div class="sentence-group">
+            <div class="english">When you <span class="tooltip">graduate<span class="tooltiptext">graduate: 졸업하다</span></span> from college, you may well have several job <span class="tooltip">offers<span class="tooltiptext">offers: 제안, 제의 (job offer = 취업 제안)</span></span> from which to choose. Not surprisingly, some jobs pay more than others. If the jobs are located in different places, however, be careful when <span class="tooltip">comparing<span class="tooltiptext">comparing: 비교하다</span></span> them.</div>
+            <div class="korean">대학을 졸업하면 여러 취업 제안을 받을 수 있습니다. 당연히 어떤 직장은 다른 곳보다 더 많은 임금을 제공합니다. 그러나 직장들이 서로 다른 지역에 위치한다면, 비교할 때 주의해야 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The cost of living <span class="tooltip">varies<span class="tooltiptext">varies: 다양하다, 달라지다 (vary = 변하다, 차이가 나다)</span></span> not only over time but also over <span class="tooltip">geography<span class="tooltiptext">geography: 지리, 지역 (over geography = 지역에 따라서)</span></span>. What seems like a larger <span class="tooltip">paycheck<span class="tooltiptext">paycheck: 급여, 봉급 (직접 지급받는 임금 금액)</span></span> might not turn out to be so once you take into account regional differences in the prices of goods and services.</div>
+            <div class="korean">생계비는 시간에 따라서만 달라지는 것이 아니라 지역에 따라서도 달라집니다. 더 큰 급여처럼 보이는 것도 재화와 서비스 가격의 지역적 차이를 고려하면 그렇지 않을 수도 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The <span class="tooltip">Bureau of Economic Analysis<span class="tooltiptext">Bureau of Economic Analysis (BEA): 경제분석국. 미국 상무부 산하 기관으로 GDP 등 주요 경제 통계를 산출함</span></span> has used the data collected for the CPI to compare prices around the United States. The resulting <span class="tooltip">statistic<span class="tooltiptext">statistic: 통계치, 통계 수치 (특정 목적으로 계산·수집된 수치)</span></span> is called <span class="tooltip">regional price parities<span class="tooltiptext">regional price parities: 지역 물가 동등지수. 주(州)별 생계비를 미국 평균(=100)과 비교한 지수</span></span>.</div>
+            <div class="korean">경제분석국(Bureau of Economic Analysis)은 CPI를 위해 수집된 데이터를 활용하여 미국 각 지역의 물가를 비교했습니다. 이 결과로 나온 통계를 지역 물가 동등지수(regional price parities)라고 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Just as the CPI measures variation in the cost of living from year to year, regional price parities measure variation in the cost of living from state to state.</div>
+            <div class="korean">CPI가 연도별 생계비 변화를 측정하듯이, 지역 물가 동등지수는 주(州)별 생계비 차이를 측정합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Figure 3 shows the regional price parities for 2013. For example, living in the state of New York costs 115.3 percent of what it costs to live in the typical place in the United States (that is, New York is 15.3 percent more expensive than average). Living in Mississippi costs 86.8 percent of what it costs to live in the typical place (that is, Mississippi is 13.2 percent less expensive than average).</div>
+            <div class="korean">그림 3은 2013년 지역 물가 동등지수를 보여줍니다. 예를 들어, 뉴욕주에서 생활하는 비용은 미국 평균적인 지역 생활비의 115.3%에 해당합니다(즉, 뉴욕은 평균보다 15.3% 더 비쌉니다). 미시시피주에서 생활하는 비용은 미국 평균적인 지역 생활비의 86.8%에 해당합니다(즉, 미시시피는 평균보다 13.2% 더 저렴합니다).</div>
+        </div>
+
+        <!-- Figure 3: 수평 막대 그래프 (SVG) -->
+        <div class="table-title-box" style="margin-top:24px;">
+            <h4>FIGURE 3. Regional Variation in the Cost of Living (2013)<br>
+            <span style="font-size:0.8em; color:#e67e22;">2013 Regional Price Parities by State (US = 100)</span></h4>
+            <p>This figure shows how the cost of living in the fifty U.S. states and the District of Columbia compares to the U.S. average.<br>
+            (이 그림은 미국 50개 주와 컬럼비아 특별구의 생계비가 미국 평균과 어떻게 비교되는지 보여줍니다.)</p>
+        </div>
+        <div style="background:#fff; border:1px solid #e1e8ed; border-top:none; border-radius:0 0 8px 8px; padding:16px; overflow-x:auto;">
+        <svg viewBox="0 0 560 860" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:sans-serif; font-size:10px;">
+            <!-- 데이터: 주, 값 (교재 기준) -->
+            <!-- x 범위: 80(=80) to 290(=120), 200px = 40단위, 5px = 1단위 -->
+            <!-- bar_start = 140, bar_x(v) = 140 + (v-80)*5 -->
+            <!-- US average line = 140 + (100-80)*5 = 240 -->
+
+            <!-- 배경 -->
+            <rect x="140" y="10" width="300" height="840" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+
+            <!-- 그리드 라인 및 X축 레이블 -->
+            <!-- 80 -->  <line x1="140" y1="10" x2="140" y2="850" stroke="#ddd" stroke-width="0.8"/>
+            <!-- 85 -->  <line x1="165" y1="10" x2="165" y2="850" stroke="#eee" stroke-width="0.5"/>
+            <!-- 90 -->  <line x1="190" y1="10" x2="190" y2="850" stroke="#ddd" stroke-width="0.8"/>
+            <!-- 95 -->  <line x1="215" y1="10" x2="215" y2="850" stroke="#eee" stroke-width="0.5"/>
+            <!-- 100 --> <line x1="240" y1="10" x2="240" y2="850" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <!-- 105 --> <line x1="265" y1="10" x2="265" y2="850" stroke="#eee" stroke-width="0.5"/>
+            <!-- 110 --> <line x1="290" y1="10" x2="290" y2="850" stroke="#ddd" stroke-width="0.8"/>
+            <!-- 115 --> <line x1="315" y1="10" x2="315" y2="850" stroke="#eee" stroke-width="0.5"/>
+            <!-- 120 --> <line x1="340" y1="10" x2="340" y2="850" stroke="#ddd" stroke-width="0.8"/>
+
+            <!-- X축 레이블 -->
+            <text x="140" y="858" text-anchor="middle" fill="#555">80</text>
+            <text x="190" y="858" text-anchor="middle" fill="#555">90</text>
+            <text x="240" y="858" text-anchor="middle" fill="#555">95</text>
+            <text x="265" y="858" text-anchor="middle" fill="#555">100</text>
+            <text x="290" y="858" text-anchor="middle" fill="#555">105</text>
+            <text x="340" y="858" text-anchor="middle" fill="#555">120</text>
+            <text x="240" y="8" text-anchor="middle" fill="#e74c3c" font-weight="bold" font-size="9">U.S. average</text>
+
+            <!-- 막대 데이터 (위→아래 = 높은 값→낮은 값) -->
+            <!-- 각 행 y = 18 + i*16, 높이 12px -->
+            <!-- bar_width = (value - 80) * 5 -->
+
+            <!-- 1 DC 117.7 --> <rect x="140" y="18" width="188.5" height="12" fill="#2980b9" opacity="0.85"/>
+            <text x="134" y="28" text-anchor="end" fill="#333">District of Columbia</text>
+            <text x="332" y="28" fill="#555">117.7</text>
+
+            <!-- 2 Hawaii 116.2 --> <rect x="140" y="34" width="181" height="12" fill="#2980b9" opacity="0.8"/>
+            <text x="134" y="44" text-anchor="end" fill="#333">Hawaii</text>
+            <text x="325" y="44" fill="#555">116.2</text>
+
+            <!-- 3 New York 115.3 --> <rect x="140" y="50" width="176.5" height="12" fill="#2980b9" opacity="0.8"/>
+            <text x="134" y="60" text-anchor="end" fill="#333">New York</text>
+            <text x="320" y="60" fill="#555">115.3</text>
+
+            <!-- 4 New Jersey 114.5 --> <rect x="140" y="66" width="172.5" height="12" fill="#2980b9" opacity="0.75"/>
+            <text x="134" y="76" text-anchor="end" fill="#333">New Jersey</text>
+            <text x="316" y="76" fill="#555">114.5</text>
+
+            <!-- 5 California 112.3 --> <rect x="140" y="82" width="161.5" height="12" fill="#2980b9" opacity="0.75"/>
+            <text x="134" y="92" text-anchor="end" fill="#333">California</text>
+            <text x="305" y="92" fill="#555">112.3</text>
+
+            <!-- 6 Maryland 110.9 --> <rect x="140" y="98" width="154.5" height="12" fill="#2980b9" opacity="0.7"/>
+            <text x="134" y="108" text-anchor="end" fill="#333">Maryland</text>
+            <text x="298" y="108" fill="#555">110.9</text>
+
+            <!-- 7 Connecticut 108.5 --> <rect x="140" y="114" width="142.5" height="12" fill="#2980b9" opacity="0.7"/>
+            <text x="134" y="124" text-anchor="end" fill="#333">Connecticut</text>
+            <text x="286" y="124" fill="#555">108.5</text>
+
+            <!-- 8 Massachusetts 107.3 --> <rect x="140" y="130" width="136.5" height="12" fill="#2980b9" opacity="0.65"/>
+            <text x="134" y="140" text-anchor="end" fill="#333">Massachusetts</text>
+            <text x="280" y="140" fill="#555">107.3</text>
+
+            <!-- 9 Alaska 106.0 --> <rect x="140" y="146" width="130" height="12" fill="#2980b9" opacity="0.65"/>
+            <text x="134" y="156" text-anchor="end" fill="#333">Alaska</text>
+            <text x="274" y="156" fill="#555">106.0</text>
+
+            <!-- 10 New Hampshire 105.9 --> <rect x="140" y="162" width="129.5" height="12" fill="#2980b9" opacity="0.6"/>
+            <text x="134" y="172" text-anchor="end" fill="#333">New Hampshire</text>
+            <text x="273" y="172" fill="#555">105.9</text>
+
+            <!-- 11 Washington 103.2 --> <rect x="140" y="178" width="116" height="12" fill="#3498db" opacity="0.55"/>
+            <text x="134" y="188" text-anchor="end" fill="#333">Washington</text>
+            <text x="260" y="188" fill="#555">103.2</text>
+
+            <!-- 12 Virginia 103.0 --> <rect x="140" y="194" width="115" height="12" fill="#3498db" opacity="0.55"/>
+            <text x="134" y="204" text-anchor="end" fill="#333">Virginia</text>
+            <text x="259" y="204" fill="#555">103.0</text>
+
+            <!-- 13 Colorado 102.2 --> <rect x="140" y="210" width="111" height="12" fill="#3498db" opacity="0.5"/>
+            <text x="134" y="220" text-anchor="end" fill="#333">Colorado</text>
+            <text x="255" y="220" fill="#555">102.2</text>
+
+            <!-- 14 Delaware 101.4 --> <rect x="140" y="226" width="107" height="12" fill="#3498db" opacity="0.5"/>
+            <text x="134" y="236" text-anchor="end" fill="#333">Delaware</text>
+            <text x="251" y="236" fill="#555">101.4</text>
+
+            <!-- 15 Louisiana (near avg) 101.0 --> <rect x="140" y="242" width="105" height="12" fill="#3498db" opacity="0.45"/>
+            <text x="134" y="252" text-anchor="end" fill="#333">Louisiana</text>
+            <text x="249" y="252" fill="#555">101.0</text>
+
+            <!-- 16 Illinois 100.4 --> <rect x="140" y="258" width="102" height="12" fill="#3498db" opacity="0.45"/>
+            <text x="134" y="268" text-anchor="end" fill="#333">Illinois</text>
+            <text x="246" y="268" fill="#555">100.4</text>
+
+            <!-- 17 Vermont 100.2 --> <rect x="140" y="274" width="101" height="12" fill="#95a5a6" opacity="0.8"/>
+            <text x="134" y="284" text-anchor="end" fill="#333">Vermont</text>
+            <text x="245" y="284" fill="#555">100.2</text>
+
+            <!-- 18 Florida 98.8 --> <rect x="140" y="290" width="94" height="12" fill="#27ae60" opacity="0.55"/>
+            <text x="134" y="300" text-anchor="end" fill="#333">Florida</text>
+            <text x="238" y="300" fill="#555">98.8</text>
+
+            <!-- 19 Oregon 98.7 --> <rect x="140" y="306" width="93.5" height="12" fill="#27ae60" opacity="0.55"/>
+            <text x="134" y="316" text-anchor="end" fill="#333">Oregon</text>
+            <text x="237" y="316" fill="#555">98.7</text>
+
+            <!-- 20 Pennsylvania 98.6 --> <rect x="140" y="322" width="93" height="12" fill="#27ae60" opacity="0.55"/>
+            <text x="134" y="332" text-anchor="end" fill="#333">Pennsylvania</text>
+            <text x="237" y="332" fill="#555">98.6</text>
+
+            <!-- 21 Nevada 98.2 --> <rect x="140" y="338" width="91" height="12" fill="#27ae60" opacity="0.5"/>
+            <text x="134" y="348" text-anchor="end" fill="#333">Nevada</text>
+            <text x="235" y="348" fill="#555">98.2</text>
+
+            <!-- 22 Rhode Island 98.1 --> <rect x="140" y="354" width="90.5" height="12" fill="#27ae60" opacity="0.5"/>
+            <text x="134" y="364" text-anchor="end" fill="#333">Rhode Island</text>
+            <text x="234" y="364" fill="#555">98.1</text>
+
+            <!-- 23 Maine 97.7 --> <rect x="140" y="370" width="88.5" height="12" fill="#27ae60" opacity="0.5"/>
+            <text x="134" y="380" text-anchor="end" fill="#333">Maine</text>
+            <text x="232" y="380" fill="#555">97.7</text>
+
+            <!-- 24 Minnesota 97.6 --> <rect x="140" y="386" width="88" height="12" fill="#27ae60" opacity="0.5"/>
+            <text x="134" y="396" text-anchor="end" fill="#333">Minnesota</text>
+            <text x="232" y="396" fill="#555">97.6</text>
+
+            <!-- 25 Utah 97.2 --> <rect x="140" y="402" width="86" height="12" fill="#27ae60" opacity="0.45"/>
+            <text x="134" y="412" text-anchor="end" fill="#333">Utah</text>
+            <text x="230" y="412" fill="#555">97.2</text>
+
+            <!-- 26 Arizona 97.1 --> <rect x="140" y="418" width="85.5" height="12" fill="#27ae60" opacity="0.45"/>
+            <text x="134" y="428" text-anchor="end" fill="#333">Arizona</text>
+            <text x="229" y="428" fill="#555">97.1</text>
+
+            <!-- 27 Texas 96.7 --> <rect x="140" y="434" width="83.5" height="12" fill="#27ae60" opacity="0.45"/>
+            <text x="134" y="444" text-anchor="end" fill="#333">Texas</text>
+            <text x="227" y="444" fill="#555">96.7</text>
+
+            <!-- 28 Wyoming 95.8 --> <rect x="140" y="450" width="79" height="12" fill="#27ae60" opacity="0.4"/>
+            <text x="134" y="460" text-anchor="end" fill="#333">Wyoming</text>
+            <text x="223" y="460" fill="#555">95.8</text>
+
+            <!-- 29 New Mexico 95.0 --> <rect x="140" y="466" width="75" height="12" fill="#27ae60" opacity="0.4"/>
+            <text x="134" y="476" text-anchor="end" fill="#333">New Mexico</text>
+            <text x="219" y="476" fill="#555">95.0</text>
+
+            <!-- 30 Montana 94.4 --> <rect x="140" y="482" width="72" height="12" fill="#27ae60" opacity="0.4"/>
+            <text x="134" y="492" text-anchor="end" fill="#333">Montana</text>
+            <text x="216" y="492" fill="#555">94.4</text>
+
+            <!-- 31 Michigan 94.2 --> <rect x="140" y="498" width="71" height="12" fill="#27ae60" opacity="0.35"/>
+            <text x="134" y="508" text-anchor="end" fill="#333">Michigan</text>
+            <text x="215" y="508" fill="#555">94.2</text>
+
+            <!-- 32 Wisconsin 92.9 --> <rect x="140" y="514" width="64.5" height="12" fill="#27ae60" opacity="0.35"/>
+            <text x="134" y="524" text-anchor="end" fill="#333">Wisconsin</text>
+            <text x="208" y="524" fill="#555">92.9</text>
+
+            <!-- 33 Idaho 92.8 --> <rect x="140" y="530" width="64" height="12" fill="#27ae60" opacity="0.35"/>
+            <text x="134" y="540" text-anchor="end" fill="#333">Idaho</text>
+            <text x="208" y="540" fill="#555">92.8</text>
+
+            <!-- 34 Georgia 91.9 --> <rect x="140" y="546" width="59.5" height="12" fill="#e67e22" opacity="0.5"/>
+            <text x="134" y="556" text-anchor="end" fill="#333">Georgia</text>
+            <text x="203" y="556" fill="#555">91.9</text>
+
+            <!-- 35 North Carolina 91.7 --> <rect x="140" y="562" width="58.5" height="12" fill="#e67e22" opacity="0.5"/>
+            <text x="134" y="572" text-anchor="end" fill="#333">North Carolina</text>
+            <text x="202" y="572" fill="#555">91.7</text>
+
+            <!-- 36 Indiana 91.4 --> <rect x="140" y="578" width="57" height="12" fill="#e67e22" opacity="0.5"/>
+            <text x="134" y="588" text-anchor="end" fill="#333">Indiana</text>
+            <text x="201" y="588" fill="#555">91.4</text>
+
+            <!-- 37 North Dakota 91.4 --> <rect x="140" y="594" width="57" height="12" fill="#e67e22" opacity="0.5"/>
+            <text x="134" y="604" text-anchor="end" fill="#333">North Dakota</text>
+            <text x="201" y="604" fill="#555">91.4</text>
+
+            <!-- 38 Louisiana(dup?) -> Kansas 90.8 --> <rect x="140" y="610" width="54" height="12" fill="#e67e22" opacity="0.45"/>
+            <text x="134" y="620" text-anchor="end" fill="#333">Kansas</text>
+            <text x="198" y="620" fill="#555">90.8</text>
+
+            <!-- 39 Tennessee 90.6 --> <rect x="140" y="626" width="53" height="12" fill="#e67e22" opacity="0.45"/>
+            <text x="134" y="636" text-anchor="end" fill="#333">Tennessee</text>
+            <text x="197" y="636" fill="#555">90.6</text>
+
+            <!-- 40 Nebraska 90.5 --> <rect x="140" y="642" width="52.5" height="12" fill="#e67e22" opacity="0.45"/>
+            <text x="134" y="652" text-anchor="end" fill="#333">Nebraska</text>
+            <text x="196" y="652" fill="#555">90.5</text>
+
+            <!-- 41 South Carolina 90.5 --> <rect x="140" y="658" width="52.5" height="12" fill="#e67e22" opacity="0.4"/>
+            <text x="134" y="668" text-anchor="end" fill="#333">South Carolina</text>
+            <text x="196" y="668" fill="#555">90.5</text>
+
+            <!-- 42 Iowa 90.3 --> <rect x="140" y="674" width="51.5" height="12" fill="#e67e22" opacity="0.4"/>
+            <text x="134" y="684" text-anchor="end" fill="#333">Iowa</text>
+            <text x="195" y="684" fill="#555">90.3</text>
+
+            <!-- 43 Oklahoma 89.9 --> <rect x="140" y="690" width="49.5" height="12" fill="#e67e22" opacity="0.4"/>
+            <text x="134" y="700" text-anchor="end" fill="#333">Oklahoma</text>
+            <text x="193" y="700" fill="#555">89.9</text>
+
+            <!-- 44 Ohio 89.6 --> <rect x="140" y="706" width="48" height="12" fill="#e67e22" opacity="0.38"/>
+            <text x="134" y="716" text-anchor="end" fill="#333">Ohio</text>
+            <text x="192" y="716" fill="#555">89.6</text>
+
+            <!-- 45 Missouri 89.2 --> <rect x="140" y="722" width="46" height="12" fill="#e74c3c" opacity="0.45"/>
+            <text x="134" y="732" text-anchor="end" fill="#333">Missouri</text>
+            <text x="190" y="732" fill="#555">89.2</text>
+
+            <!-- 46 Kentucky 89.1 --> <rect x="140" y="738" width="45.5" height="12" fill="#e74c3c" opacity="0.45"/>
+            <text x="134" y="748" text-anchor="end" fill="#333">Kentucky</text>
+            <text x="189" y="748" fill="#555">89.1</text>
+
+            <!-- 47 West Virginia 88.4 --> <rect x="140" y="754" width="42" height="12" fill="#e74c3c" opacity="0.45"/>
+            <text x="134" y="764" text-anchor="end" fill="#333">West Virginia</text>
+            <text x="186" y="764" fill="#555">88.4</text>
+
+            <!-- 48 Alabama 87.7 --> <rect x="140" y="770" width="38.5" height="12" fill="#e74c3c" opacity="0.4"/>
+            <text x="134" y="780" text-anchor="end" fill="#333">Alabama</text>
+            <text x="182" y="780" fill="#555">87.7</text>
+
+            <!-- 49 South Dakota 87.6 --> <rect x="140" y="786" width="38" height="12" fill="#e74c3c" opacity="0.4"/>
+            <text x="134" y="796" text-anchor="end" fill="#333">South Dakota</text>
+            <text x="182" y="796" fill="#555">87.6</text>
+
+            <!-- 50 Arkansas 87.5 --> <rect x="140" y="802" width="37.5" height="12" fill="#e74c3c" opacity="0.4"/>
+            <text x="134" y="812" text-anchor="end" fill="#333">Arkansas</text>
+            <text x="181" y="812" fill="#555">87.5</text>
+
+            <!-- 51 Mississippi 86.8 --> <rect x="140" y="818" width="34" height="12" fill="#e74c3c" opacity="0.55"/>
+            <text x="134" y="828" text-anchor="end" fill="#333">Mississippi</text>
+            <text x="178" y="828" fill="#555">86.8</text>
+
+            <!-- X축 레이블 하단 -->
+            <text x="240" y="848" text-anchor="middle" font-size="9" fill="#888">Cost of Living Relative to U.S. Average</text>
+        </svg>
+        </div>
+        <div class="figure-caption">
+            <strong>Source:</strong> U.S. Department of Commerce. Data are for 2013.<br>
+            뉴욕, 하와이, DC 등 대도시·해안 지역이 비싸고, 미시시피, 아칸소 등 내륙 남부 주들이 가장 저렴합니다.
+        </div>
+
+        <!-- Regional 설명 계속 -->
+        <div class="sentence-group" style="margin-top:20px;">
+            <div class="english">What <span class="tooltip">accounts for<span class="tooltiptext">accounts for: ~을 설명하다, ~의 원인이 되다</span></span> these differences? It turns out that the prices of goods, such as food and clothing, explain only a small part of these regional differences. Most goods are <span class="tooltip">tradable<span class="tooltiptext">tradable: 교역 가능한 (한 지역에서 다른 지역으로 쉽게 운송·거래될 수 있는 재화)</span></span>: They can be easily <span class="tooltip">transported<span class="tooltiptext">transported: 운송된 (transport = 수송하다, 이동시키다)</span></span> from one state to another. As a <span class="tooltip">consequence<span class="tooltiptext">consequence: 결과 (as a consequence = 그 결과로)</span></span> of regional trade, large price <span class="tooltip">disparities<span class="tooltiptext">disparities: 격차, 불균형 (두 집단 사이의 큰 차이)</span></span> are unlikely to <span class="tooltip">persist<span class="tooltiptext">persist: 지속되다, 계속되다</span></span> for long.</div>
+            <div class="korean">이러한 차이를 설명하는 것은 무엇일까요? 음식과 의류 같은 재화의 가격은 이러한 지역적 차이의 극히 일부만 설명한다는 것이 밝혀졌습니다. 대부분의 재화는 교역 가능합니다(tradable). 즉, 한 주에서 다른 주로 쉽게 운송될 수 있습니다. 지역 간 무역의 결과로, 큰 가격 격차는 오래 지속되기 어렵습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Services explain a larger part of these regional differences. A haircut, for example, can cost more in one state than another. If barbers were willing to move to where the price of a haircut is high, or if customers were willing to fly across the country in search of cheap haircuts, then the prices of haircuts across regions might well <span class="tooltip">converge<span class="tooltiptext">converge: 수렴하다 (지역 간 가격 차이가 사라져 같아지는 것)</span></span>. But because <span class="tooltip">transporting<span class="tooltiptext">transporting: 운송하는 (이발 서비스는 '운송'이 불가능하다는 비유적 표현)</span></span> haircuts is so costly, large price disparities can persist.</div>
+            <div class="korean">서비스가 이러한 지역적 차이를 더 크게 설명합니다. 예를 들어, 이발은 한 주에서 다른 주보다 더 비쌀 수 있습니다. 만약 이발사들이 이발 가격이 높은 곳으로 이동하거나 고객들이 저렴한 이발을 찾아 전국을 날아다닐 의향이 있다면, 지역 간 이발 가격은 수렴할 것입니다. 그러나 이발을 '운송'하는 것은 매우 비용이 많이 들기 때문에, 큰 가격 격차가 지속될 수 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Housing services are particularly important for understanding regional differences in the cost of living. Such services <span class="tooltip">represent<span class="tooltiptext">represent: 차지하다, 나타내다 (전체에서 특정 비중을 차지함)</span></span> a large share of a typical consumer's <span class="tooltip">budget<span class="tooltiptext">budget: 예산, 지출 가능한 총액</span></span>. Moreover, once built, a house or apartment building can't easily be moved, and the land on which it sits is completely <span class="tooltip">immobile<span class="tooltiptext">immobile: 움직일 수 없는, 고정된 (im- 부정 접두사 + mobile 이동 가능한)</span></span>. As a result, differences in housing costs can be <span class="tooltip">persistently<span class="tooltiptext">persistently: 지속적으로, 끊임없이</span></span> large. For example, <span class="tooltip">rents<span class="tooltiptext">rents: 임대료 (건물이나 공간을 빌리는 대가로 지불하는 돈)</span></span> in New York are almost twice what they are in Mississippi.</div>
+            <div class="korean">주거 서비스는 생계비의 지역적 차이를 이해하는 데 특히 중요합니다. 이러한 서비스는 전형적인 소비자 예산의 큰 부분을 차지합니다. 더욱이, 일단 건축된 주택이나 아파트는 쉽게 이동할 수 없으며, 그 위에 위치한 토지는 완전히 움직일 수 없습니다. 그 결과, 주거비 차이는 지속적으로 크게 유지될 수 있습니다. 예를 들어, 뉴욕의 임대료는 미시시피의 거의 두 배에 달합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Keep these facts in mind when it comes time to compare job offers. Look not only at the dollar salaries but also at the local prices of goods and services, especially housing.</div>
+            <div class="korean">취업 제안을 비교할 때 이러한 사실들을 염두에 두십시오. 달러 연봉뿐만 아니라 특히 주거를 포함한 해당 지역의 재화와 서비스 가격도 살펴보십시오.</div>
+        </div>
+    </div>
+
+    <!-- ========== 24-2b: Indexation ========== -->
+    <h3 style="margin-top:50px;">24-2b. Indexation
+        <br><span style="font-size:0.75em; color:#7f8c8d;">(물가 연동제)</span>
+    </h3>
+
+    <div class="margin-note">
+        <p><strong>indexation (물가 연동제)</strong><br>
+        the automatic correction by law or contract of a dollar amount for the effects of inflation<br>
+        (법률이나 계약에 의해 인플레이션의 영향에 맞춰 달러 금액을 자동으로 조정하는 것)</p>
+    </div>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">As we have just seen, price indexes are used to correct for the effects of inflation when comparing dollar figures from different times. This type of <span class="tooltip">correction<span class="tooltiptext">correction: 보정, 수정 (인플레이션의 영향을 제거하는 조정)</span></span> shows up in many places in the economy.</div>
+            <div class="korean">방금 살펴보았듯이, 물가지수는 서로 다른 시점의 달러 금액을 비교할 때 인플레이션의 영향을 보정하는 데 사용됩니다. 이러한 종류의 보정은 경제의 여러 곳에서 나타납니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When some dollar amount is <span class="tooltip">automatically<span class="tooltiptext">automatically: 자동으로 (별도의 조치 없이 스스로 이루어지는)</span></span> corrected for changes in the price level by law or contract, the amount is said to be <span class="tooltip">indexed for inflation<span class="tooltiptext">indexed for inflation: 물가 연동 (법률이나 계약에 의해 물가 수준 변화에 맞게 자동으로 조정되는 것)</span></span>.</div>
+            <div class="korean">어떤 달러 금액이 법률이나 계약에 의해 물가 수준의 변화에 맞게 자동으로 조정될 때, 그 금액은 인플레이션에 연동(indexed for inflation)되었다고 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">For example, many long-term <span class="tooltip">contracts<span class="tooltiptext">contracts: 계약서, 계약 (법적 구속력이 있는 합의)</span></span> between firms and <span class="tooltip">unions<span class="tooltiptext">unions: 노동조합 (근로자들의 권익 향상을 위한 단체)</span></span> include partial or complete indexation of the wage to the CPI. Such a <span class="tooltip">provision<span class="tooltiptext">provision: 조항, 규정 (계약이나 법률 내의 특정 내용)</span></span>, called a <span class="tooltip">cost-of-living allowance (COLA)<span class="tooltiptext">COLA (Cost-of-Living Allowance): 생계비 수당. CPI가 오를 때 임금이 자동으로 인상되도록 하는 계약 조항</span></span>, automatically raises the wage when the CPI rises.</div>
+            <div class="korean">예를 들어, 기업과 노동조합 사이의 많은 장기 계약에는 CPI에 대한 임금의 부분적 또는 완전한 연동이 포함됩니다. 생계비 수당(COLA, cost-of-living allowance)이라고 불리는 이 조항은 CPI가 오를 때 자동으로 임금을 인상합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Indexation is also a feature of many laws. <span class="tooltip">Social Security<span class="tooltiptext">Social Security: 사회보장제도 (미국의 노후·장애·유족 연금 제도)</span></span> benefits, for instance, are <span class="tooltip">adjusted<span class="tooltiptext">adjusted: 조정된 (물가 상승에 맞게 금액이 변경되는)</span></span> every year to <span class="tooltip">compensate<span class="tooltiptext">compensate: 보상하다, 상쇄하다</span></span> the elderly for increases in prices. The <span class="tooltip">brackets<span class="tooltiptext">brackets: (세금) 구간 (소득 수준에 따라 적용되는 세율의 범위)</span></span> of the federal income tax—the income levels at which the tax rates change—are also indexed for inflation.</div>
+            <div class="korean">물가 연동제는 많은 법률의 특징이기도 합니다. 예를 들어, 사회보장(Social Security) 급여는 물가 상승에 대한 노인들의 보상을 위해 매년 조정됩니다. 세율이 변경되는 소득 수준인 연방 소득세 구간도 인플레이션에 연동됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">There are, however, many ways in which the tax system is not indexed for inflation, even when perhaps it should be. We discuss these issues more fully when we discuss the costs of inflation later in this book.</div>
+            <div class="korean">그러나 세금 제도가 연동되어야 할 때조차 인플레이션에 연동되지 않는 경우가 많이 있습니다. 이 책의 뒷부분에서 인플레이션의 비용을 논의할 때 이러한 문제들을 더 자세히 다룹니다.</div>
+        </div>
+    </div>
+
+    <!-- ========== 24-2c: Real and Nominal Interest Rates ========== -->
+    <h3>24-2c. Real and Nominal Interest Rates
+        <br><span style="font-size:0.75em; color:#7f8c8d;">(실질 이자율과 명목 이자율)</span>
+    </h3>
+
+    <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:28px;">
+        <div class="margin-note" style="flex:1 1 200px;">
+            <p><strong>nominal interest rate (명목 이자율)</strong><br>
+            the interest rate as usually reported without a correction for the effects of inflation<br>
+            (인플레이션 효과의 보정 없이 통상적으로 보고되는 이자율)</p>
+        </div>
+        <div class="margin-note" style="flex:1 1 200px;">
+            <p><strong>real interest rate (실질 이자율)</strong><br>
+            the interest rate corrected for the effects of inflation<br>
+            (인플레이션 효과를 보정한 이자율)</p>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">Correcting economic variables for the effects of inflation is particularly important, and somewhat tricky, when we look at data on interest rates.</div>
+            <div class="korean">이자율 데이터를 살펴볼 때, 인플레이션의 영향에 맞게 경제 변수를 조정하는 것은 특히 중요하고 다소 까다롭습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The very concept of an interest rate necessarily involves comparing amounts of money at different points in time. When you deposit your savings in a bank account, you give the bank some money now, and the bank returns your deposit with interest in the future. Similarly, when you borrow from a bank, you get some money now, but you will have to repay the loan with interest in the future.</div>
+            <div class="korean">이자율이라는 개념 자체는 서로 다른 시점의 금액을 비교하는 것을 필연적으로 포함합니다. 저축을 은행 계좌에 예금하면, 지금 은행에 돈을 맡기고 나중에 이자와 함께 예금을 돌려받습니다. 마찬가지로, 은행에서 대출을 받으면 지금 돈을 받지만 나중에 이자와 함께 대출금을 상환해야 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">In both cases, to fully understand the deal between you and the bank, it is crucial to acknowledge that future dollars could have a different value than today's dollars. That is, you have to correct for the effects of inflation.</div>
+            <div class="korean">두 경우 모두, 당신과 은행 사이의 거래를 완전히 이해하기 위해서는 미래의 달러가 오늘날의 달러와 다른 가치를 가질 수 있다는 것을 인식하는 것이 중요합니다. 즉, 인플레이션의 영향을 보정해야 합니다.</div>
+        </div>
+    </div>
+
+    <!-- Sally Saver 예시 -->
+    <div class="step-block" style="border-left-color:#9b59b6;">
+        <div class="step-title" style="color:#7d3c98;">📌 예시: Sally Saver의 저축 (Sally의 구매력 변화)</div>
+        <div class="sentence-group">
+            <div class="english">Let's consider an example. Suppose Sally Saver <span class="tooltip">deposits<span class="tooltiptext">deposits: 예금하다 (은행에 돈을 맡기다)</span></span> $1,000 in a bank account that pays an annual interest rate of 10 percent. A year later, after Sally has <span class="tooltip">accumulated<span class="tooltiptext">accumulated: 축적된, 쌓인 (accumulate = 점차 쌓이다)</span></span> $100 in interest, she <span class="tooltip">withdraws<span class="tooltiptext">withdraws: 인출하다 (은행에서 돈을 꺼내다)</span></span> her $1,100. Is Sally $100 richer than she was when she made the deposit a year earlier?</div>
+            <div class="korean">예를 들어봅시다. Sally Saver가 연 이자율 10%를 지급하는 은행 계좌에 1,000달러를 예금한다고 가정합시다. 1년 후 Sally는 100달러의 이자를 쌓아 1,100달러를 인출합니다. Sally는 1년 전 예금했을 때보다 100달러 더 부유해진 것일까요?</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The answer depends on what we mean by "richer." Sally does have $100 more than she had before. In other words, the number of dollars in her <span class="tooltip">possession<span class="tooltiptext">possession: 소유, 보유 (자신이 가지고 있는 것)</span></span> has risen by 10 percent. But Sally does not care about the amount of money itself: She cares about what she can buy with it.</div>
+            <div class="korean">그 답은 "더 부유해졌다"는 것이 무엇을 의미하느냐에 달려 있습니다. Sally는 이전보다 100달러 더 가지고 있습니다. 즉, 그녀가 보유한 달러의 수가 10% 증가했습니다. 그러나 Sally는 돈의 양 자체에는 관심이 없습니다. 그녀는 그 돈으로 무엇을 살 수 있는지에 관심이 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">If prices have risen while her money was in the bank, each dollar now buys less than it did a year ago. In this case, her <span class="tooltip">purchasing power<span class="tooltiptext">purchasing power: 구매력 (일정한 금액으로 구입할 수 있는 재화와 서비스의 양)</span></span>—the amount of goods and services she can buy—has not risen by 10 percent.</div>
+            <div class="korean">그녀의 돈이 은행에 있는 동안 물가가 오른다면, 각 달러는 1년 전보다 더 적게 구입할 수 있습니다. 이 경우 그녀의 구매력(purchasing power)—그녀가 구입할 수 있는 재화와 서비스의 양—은 10% 증가하지 않은 것입니다.</div>
+        </div>
+
+        <!-- DVD 예시 불릿 -->
+        <div class="sentence-group" style="margin-top:12px;">
+            <div class="english">To keep things simple, let's suppose that Sally is a movie fan and buys only DVDs. When Sally made her deposit, a DVD cost $10. Her deposit of $1,000 was equivalent to 100 DVDs. A year later, after her 10 percent interest, she has $1,100. How many DVDs can she buy now? It depends on what has happened to the price of a DVD. Here are some examples:</div>
+            <div class="korean">단순화를 위해 Sally가 영화광이라 DVD만 구입한다고 가정합시다. Sally가 예금할 때 DVD 한 장의 가격은 10달러였습니다. 그녀의 예금 1,000달러는 DVD 100장에 해당했습니다. 10% 이자가 붙은 1년 후, 그녀는 1,100달러를 가지고 있습니다. 이제 DVD를 몇 장이나 살 수 있을까요? 그것은 DVD 가격에 어떤 변화가 생겼는지에 달려 있습니다. 다음은 몇 가지 예시입니다:</div>
+        </div>
+
+        <ul class="example-list">
+            <li>
+                <div class="eng">Zero inflation: If the price of a DVD remains at $10, the amount she can buy has risen from 100 to 110 DVDs. The 10 percent increase in the number of dollars means a 10 percent increase in her purchasing power.</div>
+                <div class="kor">인플레이션 0%: DVD 가격이 10달러로 유지된다면, 살 수 있는 양은 100장에서 110장으로 증가합니다. 달러 수의 10% 증가는 구매력의 10% 증가를 의미합니다.</div>
+            </li>
+            <li>
+                <div class="eng">Six percent inflation: If the price of a DVD rises from $10 to $10.60, then the number of DVDs she can buy has risen from 100 to approximately 104. Her purchasing power has increased by about 4 percent.</div>
+                <div class="kor">인플레이션 6%: DVD 가격이 10달러에서 10.60달러로 오른다면, 살 수 있는 DVD 수는 100장에서 약 104장으로 증가합니다. 그녀의 구매력은 약 4% 증가했습니다.</div>
+            </li>
+            <li>
+                <div class="eng">Ten percent inflation: If the price of a DVD rises from $10 to $11, she can still buy only 100 DVDs. Even though Sally's dollar wealth has risen, her purchasing power is the same as it was a year earlier.</div>
+                <div class="kor">인플레이션 10%: DVD 가격이 10달러에서 11달러로 오른다면, 그녀는 여전히 DVD 100장밖에 살 수 없습니다. Sally의 달러 자산은 증가했지만, 그녀의 구매력은 1년 전과 동일합니다.</div>
+            </li>
+            <li>
+                <div class="eng">Twelve percent inflation: If the price of a DVD increases from $10 to $11.20, the number of DVDs she can buy has fallen from 100 to approximately 98. Even with her greater number of dollars, her purchasing power has decreased by about 2 percent.</div>
+                <div class="kor">인플레이션 12%: DVD 가격이 10달러에서 11.20달러로 오른다면, 살 수 있는 DVD 수는 100장에서 약 98장으로 줄어듭니다. 더 많은 달러를 가지고 있음에도 불구하고, 그녀의 구매력은 약 2% 감소했습니다.</div>
+            </li>
+            <li>
+                <div class="eng">Two percent deflation: If the price of a DVD falls from $10 to $9.80, then the number of DVDs she can buy rises from 100 to approximately 112. Her purchasing power increases by about 12 percent.</div>
+                <div class="kor">디플레이션 2%: DVD 가격이 10달러에서 9.80달러로 하락한다면, 살 수 있는 DVD 수는 100장에서 약 112장으로 증가합니다. 그녀의 구매력은 약 12% 증가합니다.</div>
+            </li>
+        </ul>
+
+        <div class="sentence-group">
+            <div class="english">These examples show that the higher the rate of inflation, the smaller the increase in Sally's purchasing power. If the rate of inflation <span class="tooltip">exceeds<span class="tooltiptext">exceeds: 초과하다, 넘어서다</span></span> the rate of interest, her purchasing power actually falls. And if there is <span class="tooltip">deflation<span class="tooltiptext">deflation: 디플레이션 (물가가 하락하는 현상, 인플레이션의 반대)</span></span> (that is, a <span class="tooltip">negative<span class="tooltiptext">negative: 음수의, 마이너스의 (0보다 작은 값)</span></span> rate of inflation), her purchasing power rises by more than the rate of interest.</div>
+            <div class="korean">이 예시들은 인플레이션율이 높을수록 Sally의 구매력 증가가 작아진다는 것을 보여줍니다. 인플레이션율이 이자율을 초과하면 그녀의 구매력은 실제로 감소합니다. 그리고 디플레이션(즉, 음의 인플레이션율)이 있다면, 그녀의 구매력은 이자율보다 더 많이 증가합니다.</div>
+        </div>
+    </div>
+
+    <!-- 명목/실질 이자율 공식 -->
+    <div class="paragraph-section" style="margin-top:30px;">
+        <div class="sentence-group">
+            <div class="english">To understand how much a person <span class="tooltip">earns<span class="tooltiptext">earns: 벌다, 획득하다 (노동이나 투자를 통해 얻는 소득)</span></span> in a savings account, we need to consider both the interest rate and the change in prices. The interest rate that measures the change in dollar amounts is called the <span class="tooltip">nominal interest rate<span class="tooltiptext">nominal interest rate: 명목 이자율. 인플레이션 보정 없이 통상 보고되는 이자율</span></span>, and the interest rate corrected for inflation is called the <span class="tooltip">real interest rate<span class="tooltiptext">real interest rate: 실질 이자율. 인플레이션 효과를 보정한 이자율 = 명목 이자율 − 인플레이션율</span></span>.</div>
+            <div class="korean">저축 계좌에서 얼마나 벌 수 있는지 이해하려면 이자율과 물가 변화를 모두 고려해야 합니다. 달러 금액의 변화를 측정하는 이자율을 명목 이자율(nominal interest rate)이라 하고, 인플레이션에 대해 보정된 이자율을 실질 이자율(real interest rate)이라고 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The nominal interest rate, the real interest rate, and inflation are <span class="tooltip">related<span class="tooltiptext">related: 관련된, 연관된 (서로 수학적 관계를 가지는)</span></span> approximately as follows:</div>
+            <div class="korean">명목 이자율, 실질 이자율, 그리고 인플레이션은 대략 다음과 같은 관계를 가집니다:</div>
+        </div>
+
+        <div class="formula-box" style="font-size:1.2em;">
+            <strong>Real interest rate</strong> &nbsp;=&nbsp; <strong>Nominal interest rate</strong> &nbsp;−&nbsp; <strong>Inflation rate</strong>
+            <div style="font-size:0.75em; color:#7f8c8d; margin-top:6px; width:100%; text-align:center;">실질 이자율 = 명목 이자율 − 인플레이션율</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The real interest rate is the difference between the nominal interest rate and the rate of inflation.</div>
+            <div class="korean">실질 이자율은 명목 이자율과 인플레이션율의 차이입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The nominal interest rate tells you how fast the number of dollars in your bank account rises over time, while the real interest rate tells you how fast the purchasing power of your bank account rises over time.</div>
+            <div class="korean">명목 이자율은 시간이 지남에 따라 은행 계좌의 달러 수가 얼마나 빠르게 증가하는지를 알려주며, 실질 이자율은 시간이 지남에 따라 은행 계좌의 구매력이 얼마나 빠르게 증가하는지를 알려줍니다.</div>
+        </div>
+    </div>
+
+    <!-- Case Study: Interest Rates in the US Economy -->
+    <div class="case-study-box" style="margin-top:40px;">
+        <div class="case-label">CASE STUDY</div>
+        <h3>Interest Rates in the U.S. Economy
+            <br><span style="font-size:0.72em; color:#888;">(미국 경제의 이자율)</span>
+        </h3>
+        <div class="sentence-group">
+            <div class="english">Figure 4 shows real and nominal interest rates in the U.S. economy since 1965. The nominal interest rate in this figure is the rate on three-month <span class="tooltip">Treasury bills<span class="tooltiptext">Treasury bills (T-bills): 재무부 단기 채권. 미국 정부가 발행하는 단기 채무증권으로, 안전 자산의 기준이 됨</span></span> (although data on other interest rates would be similar). The real interest rate is computed by <span class="tooltip">subtracting<span class="tooltiptext">subtracting: 빼다, 차감하다 (subtract = 뺄셈하다)</span></span> the rate of inflation from the nominal interest rate. Here the inflation rate is measured as the <span class="tooltip">percentage change<span class="tooltiptext">percentage change: 백분율 변화율 ((새 값 - 이전 값) / 이전 값 × 100)</span></span> in the CPI.</div>
+            <div class="korean">그림 4는 1965년 이후 미국 경제의 실질 이자율과 명목 이자율을 보여줍니다. 이 그림에서 명목 이자율은 3개월 만기 재무부 단기 채권(T-bill)의 이자율입니다(다른 이자율 데이터도 유사한 결과를 보일 것입니다). 실질 이자율은 명목 이자율에서 인플레이션율을 빼서 계산합니다. 여기서 인플레이션율은 CPI의 백분율 변화로 측정됩니다.</div>
+        </div>
+
+        <!-- FIGURE 4: SVG -->
+        <div class="table-title-box" style="margin-top:20px;">
+            <h4>FIGURE 4. Real and Nominal Interest Rates (실질 이자율과 명목 이자율)<br>
+            <span style="font-size:0.8em; color:#e67e22;">1965년 이후 연간 데이터 기준 (단위: %/년)</span></h4>
+            <p>This figure shows nominal and real interest rates using annual data since 1965. The nominal interest rate is the rate on a three-month Treasury bill. The real interest rate is the nominal rate minus the inflation rate as measured by the CPI.<br>
+            (이 그림은 1965년 이후 명목 및 실질 이자율을 보여줍니다. 명목 이자율은 3개월 T-bill 이자율이며, 실질 이자율은 명목 이자율에서 CPI 인플레이션율을 뺀 것입니다.)</p>
+        </div>
+        <div style="background:#fff; border:1px solid #e1e8ed; border-top:none; border-radius:0 0 8px 8px; padding:16px;">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:sans-serif;">
+            <!-- 범위: -5 to 15, 총 20단위, 높이 240px → 1단위=12px -->
+            <!-- y(v) = 260 - (v+5)*12 -->
+            <!-- 0% → y=260-60=200, 5%→140, 10%→80, 15%→20, -5%→260 -->
+            <rect x="55" y="20" width="640" height="240" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+
+            <!-- 그리드 -->
+            <line x1="55" y1="200" x2="695" y2="200" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="55" y1="140" x2="695" y2="140" stroke="#ddd" stroke-width="0.8"/>
+            <line x1="55" y1="80"  x2="695" y2="80"  stroke="#ddd" stroke-width="0.8"/>
+            <line x1="55" y1="20"  x2="695" y2="20"  stroke="#ddd" stroke-width="0.8"/>
+            <line x1="55" y1="260" x2="695" y2="260" stroke="#ddd" stroke-width="0.8"/>
+
+            <!-- Y축 레이블 -->
+            <text x="48" y="204" text-anchor="end" font-size="11" fill="#555">0</text>
+            <text x="48" y="144" text-anchor="end" font-size="11" fill="#555">5</text>
+            <text x="48" y="84"  text-anchor="end" font-size="11" fill="#555">10</text>
+            <text x="48" y="24"  text-anchor="end" font-size="11" fill="#555">15</text>
+            <text x="48" y="264" text-anchor="end" font-size="11" fill="#555">−5</text>
+            <text x="12" y="145" text-anchor="middle" font-size="11" fill="#555" transform="rotate(-90,12,145)">Interest Rates (percent per year)</text>
+
+            <!-- X축: 1965~2015, 50년=640px, 1년=12.8px -->
+            <!-- x(yr) = 55 + (yr-1965)*12.8 -->
+            <text x="55"  y="278" text-anchor="middle" font-size="10" fill="#555">1965</text>
+            <text x="119" y="278" text-anchor="middle" font-size="10" fill="#555">1970</text>
+            <text x="183" y="278" text-anchor="middle" font-size="10" fill="#555">1975</text>
+            <text x="247" y="278" text-anchor="middle" font-size="10" fill="#555">1980</text>
+            <text x="311" y="278" text-anchor="middle" font-size="10" fill="#555">1985</text>
+            <text x="375" y="278" text-anchor="middle" font-size="10" fill="#555">1990</text>
+            <text x="439" y="278" text-anchor="middle" font-size="10" fill="#555">1995</text>
+            <text x="503" y="278" text-anchor="middle" font-size="10" fill="#555">2000</text>
+            <text x="567" y="278" text-anchor="middle" font-size="10" fill="#555">2005</text>
+            <text x="631" y="278" text-anchor="middle" font-size="10" fill="#555">2010</text>
+            <text x="695" y="278" text-anchor="middle" font-size="10" fill="#555">2015</text>
+
+            <!-- Nominal interest rate (green) - 교재 그래프 시각적 근사 -->
+            <polyline fill="none" stroke="#27ae60" stroke-width="2"
+                points="55,176 68,170 81,164 93,158 106,148 119,152 132,150 145,152 157,154 170,156 183,158 196,148 208,136 221,120 234,104 247,80 260,64 273,72 286,88 299,104 312,96 325,100 338,108 351,112 364,116 375,120 388,120 401,124 414,128 427,132 440,138 453,148 466,156 479,160 492,164 503,168 516,172 529,176 542,178 555,180 568,182 580,184 593,186 606,188 618,192 631,194 643,196 656,198 669,200 682,202 695,204"/>
+
+            <!-- Real interest rate (dark red) -->
+            <polyline fill="none" stroke="#922b21" stroke-width="2"
+                points="55,188 68,186 81,184 93,180 106,176 119,180 132,192 145,196 157,200 170,204 183,208 196,212 208,216 221,218 234,212 247,200 260,184 273,172 286,176 299,184 312,172 325,168 338,164 351,164 364,168 375,172 388,168 401,164 414,160 427,158 440,156 453,160 466,164 479,168 492,172 503,176 516,178 529,180 542,182 555,180 568,180 580,178 593,176 606,176 618,178 631,180 643,184 656,190 669,196 682,200 695,204"/>
+
+            <!-- 레이블 -->
+            <text x="270" y="58" font-size="12" fill="#27ae60" font-weight="bold">— Nominal interest rate</text>
+            <text x="270" y="73" font-size="12" fill="#922b21" font-weight="bold">— Real interest rate</text>
+
+            <!-- 1970s 음수 실질금리 강조 -->
+            <rect x="183" y="200" width="64" height="18" fill="#e74c3c" opacity="0.12"/>
+            <text x="215" y="225" text-anchor="middle" font-size="8" fill="#e74c3c">음(-)의 실질금리</text>
+
+            <!-- 축 -->
+            <line x1="55" y1="20" x2="55" y2="260" stroke="#888" stroke-width="1.5"/>
+            <line x1="55" y1="260" x2="695" y2="260" stroke="#888" stroke-width="1.5"/>
+        </svg>
+        </div>
+        <div class="figure-caption">
+            <strong>Source:</strong> U.S. Department of Labor; U.S. Department of Treasury<br>
+            명목 이자율은 거의 항상 실질 이자율보다 높습니다. 1970년대에는 높은 인플레이션으로 실질 이자율이 음수가 되기도 했습니다.
+        </div>
+
+        <div class="sentence-group" style="margin-top:20px;">
+            <div class="english">One <span class="tooltip">feature<span class="tooltiptext">feature: 특징, 특성</span></span> of this figure is that the nominal interest rate almost always exceeds the real interest rate. This <span class="tooltip">reflects<span class="tooltiptext">reflects: 반영하다 (어떤 사실이나 상황을 나타내다)</span></span> the fact that the U.S. economy has <span class="tooltip">experienced<span class="tooltiptext">experienced: 경험하다, 겪다</span></span> rising consumer prices in almost every year during this period.</div>
+            <div class="korean">이 그림의 한 가지 특징은 명목 이자율이 거의 항상 실질 이자율을 초과한다는 것입니다. 이는 이 기간 동안 미국 경제가 거의 매년 소비자 물가 상승을 경험했다는 사실을 반영합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">By contrast, if you look at data for the U.S. economy during the late 19th century or for the Japanese economy in some recent years, you will find periods of deflation. During deflation, the real interest rate exceeds the nominal interest rate.</div>
+            <div class="korean">반면, 19세기 후반 미국 경제나 최근 몇 년간의 일본 경제 데이터를 살펴보면 디플레이션 기간을 발견할 것입니다. 디플레이션 기간에는 실질 이자율이 명목 이자율을 초과합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The figure also shows that because inflation is <span class="tooltip">variable<span class="tooltiptext">variable: 변동하는, 가변적인 (일정하지 않고 변하는)</span></span>, real and nominal interest rates do not always move together. For example, in the late 1970s, nominal interest rates were high. But because inflation was very high, real interest rates were low. Indeed, during much of the 1970s, real interest rates were negative, for inflation <span class="tooltip">eroded<span class="tooltiptext">eroded: 잠식했다, 침식했다 (erode = 서서히 갉아먹다, 줄어들게 하다)</span></span> people's savings more quickly than nominal interest payments increased them.</div>
+            <div class="korean">또한 이 그림은 인플레이션이 가변적이기 때문에 실질 이자율과 명목 이자율이 항상 함께 움직이지는 않는다는 것을 보여줍니다. 예를 들어, 1970년대 후반에는 명목 이자율이 높았습니다. 그러나 인플레이션이 매우 높았기 때문에 실질 이자율은 낮았습니다. 실제로 1970년대의 많은 기간 동안 실질 이자율은 음수였는데, 인플레이션이 명목 이자 지급으로 증가하는 것보다 더 빠르게 사람들의 저축을 잠식했기 때문입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">By contrast, in the late 1990s, nominal interest rates were lower than they had been two <span class="tooltip">decades<span class="tooltiptext">decades: 수십 년 (decade = 10년, two decades = 20년)</span></span> earlier. But because inflation was much lower, real interest rates were higher. In the coming chapters, we will <span class="tooltip">examine<span class="tooltiptext">examine: 검토하다, 살펴보다</span></span> the economic forces that <span class="tooltip">determine<span class="tooltiptext">determine: 결정하다, 규정하다</span></span> both real and nominal interest rates.</div>
+            <div class="korean">반면, 1990년대 후반에는 명목 이자율이 20년 전보다 낮아졌습니다. 그러나 인플레이션이 훨씬 낮았기 때문에 실질 이자율은 더 높았습니다. 앞으로의 장들에서, 우리는 실질 이자율과 명목 이자율을 모두 결정하는 경제적 힘들을 살펴볼 것입니다.</div>
+        </div>
+    </div>
+
+    <!-- QuickQuiz -->
+    <div class="quickquiz" style="margin-top:40px;">
+        <div class="quickquiz-label">QuickQuiz ✏️</div>
+        <p style="margin:0; font-size:1.05em;">
+            Henry Ford paid his workers $5 a day in 1914. If the CPI was 10 in 1914 and 237 in 2015, how much is the Ford paycheck worth in 2015 dollars?<br>
+            <span style="color:#777; font-size:0.95em;">헨리 포드는 1914년 직원들에게 하루 5달러를 지급했습니다. 1914년 CPI가 10이고 2015년 CPI가 237이라면, 포드의 급여는 2015년 달러로 얼마에 해당할까요?</span>
+        </p>
+        <div class="calc-box" style="margin-top:14px; font-size:0.97em;">
+            <div class="calc-line">2015년 달러 = $5 × (237 / 10) = $5 × 23.7 = <strong style="color:#e74c3c;">$118.50</strong></div>
+        </div>
+    </div>
+
+    <!-- 핵심 용어 정리 -->
+    <div class="terminology">
+        <h3>💡 핵심 용어 정리 (Terminology) — 24-2 전체</h3>
+        <ul>
+            <li><strong>Inflation Correction / 인플레이션 보정:</strong> 과거 달러 금액을 현재 달러로 환산하는 공식.<br>
+            오늘날 달러 = 연도 T의 달러 × (오늘날 물가 수준 / 연도 T 물가 수준)</li>
+            <li><strong>Regional Price Parities (지역 물가 동등지수):</strong> CPI 데이터를 바탕으로 미국 각 주의 생계비를 미국 평균(=100)과 비교한 지수. 경제분석국(BEA)이 산출합니다.</li>
+            <li><strong>Indexation (물가 연동제):</strong> 법률이나 계약에 의해 달러 금액이 인플레이션 효과에 맞게 자동 조정되는 제도입니다. 사회보장 급여, 임금 계약(COLA), 연방 소득세 구간 등에 적용됩니다.</li>
+            <li><strong>COLA (Cost-of-Living Allowance / 생계비 수당):</strong> CPI가 오를 때 임금을 자동으로 인상하도록 하는 노사 계약 조항입니다.</li>
+            <li><strong>Nominal Interest Rate (명목 이자율):</strong> 인플레이션 효과의 보정 없이 통상적으로 보고되는 이자율입니다. 은행 계좌의 달러 수가 얼마나 빠르게 증가하는지 알려줍니다.</li>
+            <li><strong>Real Interest Rate (실질 이자율):</strong> 인플레이션 효과를 보정한 이자율입니다.<br>
+            공식: 실질 이자율 = 명목 이자율 − 인플레이션율<br>
+            은행 계좌의 구매력이 얼마나 빠르게 증가하는지 알려줍니다.</li>
+            <li><strong>Purchasing Power (구매력):</strong> 일정한 금액으로 구입할 수 있는 재화와 서비스의 양입니다. 인플레이션이 발생하면 구매력은 하락하고, 디플레이션이 발생하면 구매력은 상승합니다.</li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>
