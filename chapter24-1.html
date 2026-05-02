@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24-1. The Consumer Price Index (소비자물가지수)</title>
+    <style>
+        body { 
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; 
+            line-height: 1.7; 
+            color: #333; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 30px; 
+            background-color: #fcfcfc; 
+        }
+        .container { 
+            background-color: #fff; 
+            padding: 40px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+        }
+        h1 { 
+            color: #2c3e50; 
+            font-size: 2.2em; 
+            border-bottom: 3px solid #3498db; 
+            padding-bottom: 15px; 
+            margin-bottom: 30px; 
+        }
+        h2 { 
+            color: #2980b9; 
+            font-size: 1.8em; 
+            margin-top: 50px; 
+            border-left: 5px solid #2980b9; 
+            padding-left: 15px; 
+        }
+        h3 { 
+            color: #16a085; 
+            font-size: 1.4em; 
+            margin-top: 40px; 
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #e1e8ed;
+            padding-bottom: 10px;
+        }
+        .paragraph-section { 
+            margin-bottom: 50px; 
+        }
+        .sentence-group { 
+            margin-bottom: 25px; 
+            padding-left: 10px;
+        }
+        .english { 
+            font-size: 1.15em; 
+            font-weight: 500; 
+            color: #2c3e50; 
+            margin-bottom: 8px; 
+        }
+        .korean { 
+            font-size: 1.1em; 
+            color: #555; 
+        }
+        
+        /* 단계별 설명(Step) 스타일 */
+        .step-block {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f9fbfb;
+            border-radius: 8px;
+            border-left: 4px solid #1abc9c;
+        }
+        .step-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #16a085;
+            margin-bottom: 15px;
+        }
+
+        /* 여백 노트 (Margin Note) 스타일 */
+        .margin-note {
+            background-color: #fdf2e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #e67e22;
+        }
+        .margin-note strong {
+            color: #d35400;
+            font-size: 1.1em;
+        }
+        
+        /* 사이드바 노트 (sidebar-style) */
+        .side-note {
+            background-color: #eaf4fb;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            font-size: 0.95em;
+            color: #2c3e50;
+        }
+        .side-note strong {
+            color: #2980b9;
+        }
+
+        /* 툴팁(Tooltip) 스타일 */
+        .tooltip { 
+            position: relative; 
+            display: inline-block; 
+            color: #c0392b; 
+            cursor: help; 
+            border-bottom: 2px dotted #c0392b; 
+            font-weight: bold; 
+        }
+        .tooltip .tooltiptext { 
+            visibility: hidden; 
+            width: max-content; 
+            max-width: 250px; 
+            background-color: #34495e; 
+            color: #fff; 
+            text-align: center; 
+            border-radius: 6px; 
+            padding: 8px 12px; 
+            position: absolute; 
+            z-index: 1; 
+            bottom: 130%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            opacity: 0; 
+            transition: opacity 0.3s; 
+            font-size: 0.85em; 
+            font-weight: normal; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2); 
+            line-height: 1.4;
+        }
+        .tooltip .tooltiptext::after { 
+            content: ""; 
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            margin-left: -6px; 
+            border-width: 6px; 
+            border-style: solid; 
+            border-color: #34495e transparent transparent transparent; 
+        }
+        .tooltip:hover .tooltiptext { 
+            visibility: visible; 
+            opacity: 1; 
+        }
+
+        /* 테이블 및 수식 스타일 */
+        .table-title-box {
+            background-color: #fdf2e9;
+            padding: 20px 25px;
+            border-left: 5px solid #e67e22;
+            border-radius: 8px 8px 0 0;
+            margin-top: 40px;
+        }
+        .table-title-box h4 {
+            margin: 0 0 10px 0;
+            color: #d35400;
+            font-size: 1.2em;
+        }
+        .table-title-box p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e1e8ed;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .data-table .step-header {
+            background-color: #ebf5fb;
+            color: #2980b9;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .data-table .col-header {
+            background-color: #f4f9f9;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .formula-box {
+            background-color: #f9fbfb;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #1abc9c;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.15em;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 15px;
+            text-align: center;
+        }
+        .numerator {
+            border-bottom: 2px solid #2c3e50;
+            padding: 0 5px 5px 5px;
+        }
+        .denominator {
+            padding: 5px 5px 0 5px;
+        }
+
+        /* FYI 박스 스타일 */
+        .fyi-box {
+            background-color: #f0f7ff;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        .fyi-label {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 4px 14px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .fyi-box h3 {
+            color: #2980b9;
+            font-size: 1.4em;
+            border-bottom: none;
+            margin-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        /* 파이 차트 영역 */
+        .pie-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .pie-text {
+            flex: 1 1 300px;
+        }
+        .pie-chart-container {
+            flex: 0 0 280px;
+        }
+        .pie-chart-container svg {
+            width: 100%;
+            height: auto;
+        }
+        .pie-legend {
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 10px;
+        }
+        .pie-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+        .pie-legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* 용어 및 시각자료 섹션 스타일 */
+        .terminology { 
+            background-color: #ebf5fb; 
+            padding: 30px; 
+            border-radius: 8px; 
+            margin-top: 50px; 
+        }
+        .terminology ul { 
+            list-style-type: disc; 
+            padding-left: 25px; 
+            margin: 0;
+        }
+        .terminology li { 
+            margin-bottom: 12px; 
+            font-size: 1.05em;
+        }
+        .terminology strong { 
+            color: #2980b9; 
+            font-size: 1.1em;
+        }
+
+        .figure-caption {
+            background-color: #fdf2e9;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+            border-left: 3px solid #e67e22;
+        }
+        .figure-caption strong {
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>24-1. The Consumer Price Index <br><span style="font-size: 0.7em; color: #7f8c8d;">(소비자물가지수)</span></h2>
+
+    <div class="margin-note">
+        <p><strong>consumer price index (CPI)</strong><br>
+        a measure of the overall cost of the goods and services bought by a typical consumer<br>
+        (전형적인 소비자가 구입하는 재화와 서비스의 전반적인 비용을 측정한 지표)</p>
+    </div>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">The consumer price index (CPI) is a measure of the overall cost of the goods and services bought by a <span class="tooltip">typical<span class="tooltiptext">전형적인, 일반적인</span></span> consumer.</div>
+            <div class="korean">소비자물가지수(CPI)는 전형적인 소비자가 구입하는 재화와 서비스의 전반적인 비용을 측정하는 지표입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Every month, the <span class="tooltip">Bureau of Labor Statistics (BLS)<span class="tooltiptext">노동통계국 (미국 노동부 산하 기관)</span></span>, which is part of the Department of Labor, <span class="tooltip">computes<span class="tooltiptext">계산하다, 산출하다</span></span> and reports the CPI.</div>
+            <div class="korean">매달 노동부(Department of Labor) 소속인 노동통계국(BLS)은 CPI를 계산하고 발표합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">In this section, we discuss how the CPI is calculated and what problems <span class="tooltip">arise<span class="tooltiptext">발생하다, 일어나다</span></span> in its measurement.</div>
+            <div class="korean">이 절에서는 CPI가 어떻게 계산되는지, 그리고 이를 측정하는 데 있어 어떤 문제들이 발생하는지 논의합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">We also consider how this index compares to the GDP deflator, another measure of the overall level of prices, which we <span class="tooltip">examined<span class="tooltiptext">조사하다, 검토하다</span></span> in the preceding chapter.</div>
+            <div class="korean">또한, 이전 장에서 살펴본 전반적인 물가 수준의 또 다른 측정 지표인 GDP 디플레이터와 이 지수가 어떻게 비교되는지도 고찰합니다.</div>
+        </div>
+    </div>
+
+    <h3>24-1a. How the CPI Is Calculated <br><span style="font-size: 0.75em; color: #7f8c8d;">(CPI의 계산 방법)</span></h3>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">When the BLS calculates the CPI and the inflation rate, it uses data on the prices of thousands of goods and services.</div>
+            <div class="korean">BLS가 CPI와 인플레이션율을 계산할 때, 수천 가지 재화와 서비스의 가격 데이터를 사용합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">To see exactly how these statistics are <span class="tooltip">constructed<span class="tooltiptext">구성되다, 만들어지다</span></span>, let's consider a simple economy in which consumers buy only two goods: hot dogs and hamburgers.</div>
+            <div class="korean">이러한 통계가 정확히 어떻게 구성되는지 알아보기 위해, 소비자들이 핫도그와 햄버거라는 단 두 가지 재화만 구입하는 단순한 경제를 가정해 봅시다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Table 1 shows the five steps that the BLS follows.</div>
+            <div class="korean">표 1은 BLS가 따르는 5가지 단계를 보여줍니다.</div>
+        </div>
+    </div>
+
+    <div class="step-block">
+        <div class="step-title">1. Fix the basket. (바스켓 고정하기)</div>
+        <div class="sentence-group">
+            <div class="english">Determine which prices are most important to the typical consumer.</div>
+            <div class="korean">전형적인 소비자에게 어떤 가격이 가장 중요한지 결정합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">If the typical consumer buys more hot dogs than hamburgers, then the price of hot dogs is more important than the price of hamburgers and, therefore, should be given greater <span class="tooltip">weight<span class="tooltiptext">가중치, 중요도</span></span> in measuring the cost of living.</div>
+            <div class="korean">만약 전형적인 소비자가 햄버거보다 핫도그를 더 많이 구입한다면, 핫도그의 가격이 햄버거의 가격보다 더 중요하므로 생계비를 측정할 때 더 큰 가중치(weight)가 부여되어야 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The BLS sets these weights by <span class="tooltip">surveying<span class="tooltiptext">설문조사하다, 조사하다</span></span> consumers to find the basket of goods and services bought by the typical consumer.</div>
+            <div class="korean">BLS는 전형적인 소비자가 구입하는 재화와 서비스의 바스켓(바구니)을 찾기 위해 소비자들을 설문조사하여 이러한 가중치를 설정합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">In the example in the table, the typical consumer buys a basket of 4 hot dogs and 2 hamburgers.</div>
+            <div class="korean">표의 예시에서, 전형적인 소비자는 핫도그 4개와 햄버거 2개로 구성된 바스켓을 구입합니다.</div>
+        </div>
+    </div>
+
+    <div class="step-block">
+        <div class="step-title">2. Find the prices. (가격 알아내기)</div>
+        <div class="sentence-group">
+            <div class="english">Find the prices of each of the goods and services in the basket at each point in time.</div>
+            <div class="korean">각 시점에서 바스켓 안에 있는 각각의 재화와 서비스의 가격을 알아냅니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The table shows the prices of hot dogs and hamburgers for three different years.</div>
+            <div class="korean">표는 서로 다른 세 연도의 핫도그와 햄버거 가격을 보여줍니다.</div>
+        </div>
+    </div>
+
+    <!-- TABLE 1 -->
+    <div class="table-title-box">
+        <h4>TABLE 1. Calculating the Consumer Price Index and the Inflation Rate: An Example<br><span style="font-size:0.8em; color:#e67e22;">(소비자물가지수와 인플레이션율 계산: 예시)</span></h4>
+        <p>This table shows how to calculate the CPI and the inflation rate for a hypothetical economy in which consumers buy only hot dogs and hamburgers.<br>
+        (이 표는 소비자들이 핫도그와 햄버거만 구매하는 가상의 경제에서 CPI와 인플레이션율을 계산하는 방법을 보여줍니다.)</p>
+    </div>
+    
+    <table class="data-table">
+        <!-- Step 1 -->
+        <tr><td colspan="3" class="step-header">Step 1: Survey Consumers to Determine a Fixed Basket of Goods<br><span style="font-size:0.85em; color:#555;">(1단계: 고정된 재화 바스켓을 결정하기 위해 소비자 설문조사하기)</span></td></tr>
+        <tr><td colspan="3">Basket = 4 hot dogs, 2 hamburgers &nbsp;(바스켓 = 핫도그 4개, 햄버거 2개)</td></tr>
+
+        <!-- Step 2 -->
+        <tr><td colspan="3" class="step-header">Step 2: Find the Price of Each Good in Each Year<br><span style="font-size:0.85em; color:#555;">(2단계: 각 연도별 각 재화의 가격 알아내기)</span></td></tr>
+        <tr class="col-header">
+            <td>Year (연도)</td>
+            <td>Price of Hot Dogs (핫도그 가격)</td>
+            <td>Price of Hamburgers (햄버거 가격)</td>
+        </tr>
+        <tr><td>2016</td><td>$1</td><td>$2</td></tr>
+        <tr><td>2017</td><td>$2</td><td>$3</td></tr>
+        <tr><td>2018</td><td>$3</td><td>$4</td></tr>
+
+        <!-- Step 3 -->
+        <tr><td colspan="3" class="step-header">Step 3: Compute the Cost of the Basket of Goods in Each Year<br><span style="font-size:0.85em; color:#555;">(3단계: 각 연도별 재화 바스켓의 비용 계산하기)</span></td></tr>
+        <tr><td>2016</td><td colspan="2">($1 per hot dog × 4 hot dogs) + ($2 per hamburger × 2 hamburgers) = $8 per basket</td></tr>
+        <tr><td>2017</td><td colspan="2">($2 per hot dog × 4 hot dogs) + ($3 per hamburger × 2 hamburgers) = $14 per basket</td></tr>
+        <tr><td>2018</td><td colspan="2">($3 per hot dog × 4 hot dogs) + ($4 per hamburger × 2 hamburgers) = $20 per basket</td></tr>
+
+        <!-- Step 4 -->
+        <tr><td colspan="3" class="step-header">Step 4: Choose One Year as a Base Year (2016) and Compute the CPI in Each Year<br><span style="font-size:0.85em; color:#555;">(4단계: 한 해를 기준 연도(2016)로 정하고 각 연도의 CPI 계산하기)</span></td></tr>
+        <tr><td>2016</td><td colspan="2">($8 / $8) × 100 = 100</td></tr>
+        <tr><td>2017</td><td colspan="2">($14 / $8) × 100 = 175</td></tr>
+        <tr><td>2018</td><td colspan="2">($20 / $8) × 100 = 250</td></tr>
+
+        <!-- Step 5 -->
+        <tr><td colspan="3" class="step-header">Step 5: Use the CPI to Compute the Inflation Rate from Previous Year<br><span style="font-size:0.85em; color:#555;">(5단계: CPI를 사용하여 전년도 대비 인플레이션율 계산하기)</span></td></tr>
+        <tr><td>2017</td><td colspan="2">(175 − 100) / 100 × 100 = 75%</td></tr>
+        <tr><td>2018</td><td colspan="2">(250 − 175) / 175 × 100 = 43%</td></tr>
+    </table>
+
+    <!-- Step 3 explanation -->
+    <h3>3. Compute the basket's cost. <br><span style="font-size: 0.75em; color: #7f8c8d;">(바스켓의 비용 계산)</span></h3>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">Use the data on prices to calculate the cost of the basket of goods and services at different times.</div>
+            <div class="korean">가격 데이터를 사용하여 서로 다른 시점의 재화 및 서비스 바스켓 비용을 계산합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The table shows this calculation for each of the three years.</div>
+            <div class="korean">표는 3년 각각에 대한 이 계산을 보여줍니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Notice that only the prices in this calculation change.</div>
+            <div class="korean">이 계산에서는 오직 가격만 변한다는 점에 주목하십시오.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">By keeping the basket of goods the same (4 hot dogs and 2 hamburgers), we are <span class="tooltip">isolating<span class="tooltiptext">분리하다, 고립시키다</span></span> the effects of price changes from the effects of any quantity changes that might be <span class="tooltip">occurring<span class="tooltiptext">발생하는, 일어나는</span></span> at the same time.</div>
+            <div class="korean">재화의 바스켓을 동일하게(핫도그 4개, 햄버거 2개) 유지함으로써, 우리는 동시에 발생할 수 있는 수량 변화의 영향으로부터 가격 변화의 영향만을 분리해냅니다(isolating).</div>
+        </div>
+    </div>
+
+    <!-- Step 4 explanation -->
+    <h3>4. Choose a base year and compute the index. <br><span style="font-size: 0.75em; color: #7f8c8d;">(기준 연도 선택 및 지수 계산)</span></h3>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english"><span class="tooltip">Designate<span class="tooltiptext">지정하다, 지명하다</span></span> one year as the base year, the <span class="tooltip">benchmark<span class="tooltiptext">기준점, 벤치마크</span></span> against which other years are to be compared.</div>
+            <div class="korean">한 해를 다른 연도들과 비교할 기준점(benchmark)인 기준 연도로 지정합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">(The choice of base year is <span class="tooltip">arbitrary<span class="tooltiptext">임의적인, 제멋대로인</span></span>. The index is used to measure percentage changes in the cost of living, and these changes are the same <span class="tooltip">regardless of<span class="tooltiptext">~에 상관없이, 구애받지 않고</span></span> the choice of base year.)</div>
+            <div class="korean">(기준 연도의 선택은 임의적(arbitrary)입니다. 지수는 생계비의 백분율 변화를 측정하는 데 사용되며, 이러한 변화는 기준 연도의 선택에 상관없이 동일합니다.)</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Once the base year is chosen, the index is calculated as follows:</div>
+            <div class="korean">기준 연도가 선택되면 지수는 다음과 같이 계산됩니다:</div>
+        </div>
+
+        <div class="formula-box">
+            <strong>Consumer price index</strong> &nbsp;= &nbsp;
+            <div class="fraction">
+                <div class="numerator">Price of basket of goods and services in current year (현재 연도의 바스켓 가격)</div>
+                <div class="denominator">Price of basket in base year (기준 연도의 바스켓 가격)</div>
+            </div>
+            &nbsp;× 100
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">That is, the price of the basket of goods and services in each year is divided by the price of the basket in the base year, and this <span class="tooltip">ratio<span class="tooltiptext">비율, 비(比)</span></span> is then multiplied by 100.</div>
+            <div class="korean">즉, 각 연도의 재화 및 서비스 바스켓 가격을 기준 연도의 바스켓 가격으로 나눈 다음, 이 비율(ratio)에 100을 곱합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The resulting number is the CPI.</div>
+            <div class="korean">그 결과로 나온 숫자가 CPI입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">In the example in Table 1, 2016 is the base year.</div>
+            <div class="korean">표 1의 예에서 2016년이 기준 연도입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">In this year, the basket of hot dogs and hamburgers costs $8.</div>
+            <div class="korean">이 해에 핫도그와 햄버거 바스켓의 비용은 8달러입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Therefore, to calculate the CPI, the price of the basket in each year is divided by $8 and multiplied by 100.</div>
+            <div class="korean">따라서 CPI를 계산하기 위해 각 연도의 바스켓 가격을 8달러로 나누고 100을 곱합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The CPI is 100 in 2016. (The index is always 100 in the base year.)</div>
+            <div class="korean">2016년의 CPI는 100입니다. (지수는 기준 연도에 항상 100입니다.)</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The CPI is 175 in 2017. This means that the price of the basket in 2017 is 175 percent of its price in the base year.</div>
+            <div class="korean">2017년의 CPI는 175입니다. 이는 2017년 바스켓 가격이 기준 연도 가격의 175%라는 것을 의미합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Put differently, a basket of goods that costs $100 in the base year costs $175 in 2017.</div>
+            <div class="korean">다르게 말하면, 기준 연도에 100달러였던 재화 바스켓이 2017년에는 175달러가 된다는 뜻입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Similarly, the CPI is 250 in 2018, <span class="tooltip">indicating<span class="tooltiptext">나타내는, 보여주는</span></span> that the price level in 2018 is 250 percent of the price level in the base year.</div>
+            <div class="korean">마찬가지로 2018년의 CPI는 250이며, 이는 2018년의 물가 수준이 기준 연도 물가 수준의 250%임을 나타냅니다.</div>
+        </div>
+    </div>
+
+    <!-- Step 5 explanation -->
+    <h3>5. Compute the inflation rate. <br><span style="font-size: 0.75em; color: #7f8c8d;">(인플레이션율 계산)</span></h3>
+
+    <div class="side-note">
+        <strong>inflation rate (인플레이션율)</strong><br>
+        the percentage change in the price index from the preceding period<br>
+        (전기 대비 물가지수의 백분율 변화)
+    </div>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">Use the CPI to calculate the <span class="tooltip">inflation rate<span class="tooltiptext">인플레이션율: 전기 대비 물가지수의 백분율 변화</span></span>, which is the percentage change in the price index from the preceding period.</div>
+            <div class="korean">CPI를 사용하여 인플레이션율(inflation rate)을 계산합니다. 인플레이션율은 전기(preceding period) 대비 물가지수의 백분율 변화입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">That is, the inflation rate between two consecutive years is computed as follows:</div>
+            <div class="korean">즉, 두 연속된 연도 사이의 인플레이션율은 다음과 같이 계산됩니다:</div>
+        </div>
+
+        <div class="formula-box">
+            <strong>Inflation rate in year 2</strong> &nbsp;= &nbsp;
+            <div class="fraction">
+                <div class="numerator">CPI in year 2 − CPI in year 1</div>
+                <div class="denominator">CPI in year 1</div>
+            </div>
+            &nbsp;× 100
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">As shown at the bottom of Table 1, the inflation rate in our example is 75 percent in 2017 and 43 percent in 2018.</div>
+            <div class="korean">표 1의 아랫부분에서 볼 수 있듯이, 이 예시에서 인플레이션율은 2017년에 75%, 2018년에 43%입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Although this example simplifies the real world by including only two goods, it shows how the BLS computes the CPI and the inflation rate.</div>
+            <div class="korean">이 예시는 두 가지 재화만 포함하여 현실을 단순화했지만, BLS가 어떻게 CPI와 인플레이션율을 계산하는지 보여줍니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The BLS collects and processes data on the prices of thousands of goods and services every month and, by following the five foregoing steps, determines how quickly the cost of living for the typical consumer is rising.</div>
+            <div class="korean">BLS는 매달 수천 가지 재화와 서비스의 가격 데이터를 수집·처리하고, 위의 5단계를 따름으로써 전형적인 소비자의 생계비가 얼마나 빠르게 오르고 있는지 파악합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">When the BLS makes its monthly <span class="tooltip">announcement<span class="tooltiptext">발표, 공표</span></span> of the CPI, you can usually hear the number on the evening television news or see it in the next day's newspaper.</div>
+            <div class="korean">BLS가 매달 CPI를 발표하면, 보통 저녁 TV 뉴스에서 그 수치를 들을 수 있거나 다음날 신문에서 볼 수 있습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">In addition to the CPI for the overall economy, the BLS calculates several other price indexes.</div>
+            <div class="korean">전체 경제에 대한 CPI 외에도 BLS는 여러 다른 물가지수를 계산합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">It reports the index for some narrow categories of goods and services, such as food, clothing, and energy.</div>
+            <div class="korean">음식, 의류, 에너지와 같은 일부 좁은 범주의 재화와 서비스에 대한 지수도 발표합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">It also calculates the CPI for all goods and services excluding food and energy — a measure sometimes called <span class="tooltip">core CPI<span class="tooltiptext">근원 CPI: 변동성이 큰 식품·에너지를 제외한 물가지수</span></span>.</div>
+            <div class="korean">또한 음식과 에너지를 제외한 모든 재화와 서비스에 대한 CPI도 계산하는데, 이를 때로 핵심 CPI(core CPI)라고 부릅니다.</div>
+        </div>
+    </div>
+
+    <!-- FYI BOX -->
+    <div class="fyi-box">
+        <div class="fyi-label">FYI</div>
+        <h3>What's in the CPI's Basket? <br><span style="font-size: 0.75em; color: #7f8c8d;">(CPI 바스켓에는 무엇이 들어있는가?)</span></h3>
+
+        <div class="pie-section">
+            <div class="pie-text">
+                <div class="sentence-group">
+                    <div class="english">When constructing the consumer price index, the Bureau of Labor Statistics tries to include all the goods and services that the typical consumer buys.</div>
+                    <div class="korean">소비자물가지수를 작성할 때, 노동통계국은 전형적인 소비자가 구입하는 모든 재화와 서비스를 포함하려고 합니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">Moreover, it tries to weight these goods and services according to how much consumers buy of each item.</div>
+                    <div class="korean">또한, 소비자가 각 품목을 얼마나 많이 구입하는지에 따라 이러한 재화와 서비스에 가중치를 부여하려고 합니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">Figure 1 shows the breakdown of consumer spending into the major categories of goods and services.</div>
+                    <div class="korean">그림 1은 소비자 지출을 재화와 서비스의 주요 범주로 분류한 것을 보여줍니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">By far the largest category is <strong>housing</strong>, which makes up 42 percent of the typical consumer's budget.</div>
+                    <div class="korean">가장 큰 범주는 단연 <strong>주거(Housing)</strong>로, 전형적인 소비자 예산의 42%를 차지합니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">This category includes the cost of shelter (33 percent), fuel and utilities (5 percent), and household furnishings and operation (4 percent).</div>
+                    <div class="korean">이 범주에는 주거비(33%), 연료 및 공공요금(5%), 가구 및 가사용품(4%)이 포함됩니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">The next largest category, at 16 percent, is <strong>transportation</strong>, which includes spending on cars, gasoline, buses, subways, and so on.</div>
+                    <div class="korean">다음으로 큰 범주는 16%를 차지하는 <strong>교통(Transportation)</strong>으로, 자동차, 휘발유, 버스, 지하철 등에 대한 지출이 포함됩니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">The next category, at 15 percent, is <strong>food and beverages</strong>; this includes food at home (8 percent), food away from home (6 percent), and alcoholic beverages (1 percent).</div>
+                    <div class="korean">다음 범주는 15%를 차지하는 <strong>식품 및 음료(Food and beverages)</strong>로, 가정 내 식품(8%), 외식(6%), 주류(1%)가 포함됩니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">Next are <strong>medical care</strong> at 8 percent, <strong>education and communication</strong> at 7 percent, and <strong>recreation</strong> at 6 percent.</div>
+                    <div class="korean">다음은 <strong>의료비(Medical care)</strong> 8%, <strong>교육 및 통신(Education and communication)</strong> 7%, <strong>여가(Recreation)</strong> 6% 순입니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english"><strong>Apparel</strong>, which includes clothing, footwear, and jewelry, makes up 3 percent of the typical consumer's budget.</div>
+                    <div class="korean">의류·신발·보석류를 포함하는 <strong>의류(Apparel)</strong>는 전형적인 소비자 예산의 3%를 차지합니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">Also included in the figure, at 3 percent of spending, is a category for <strong>other goods and services</strong>.</div>
+                    <div class="korean">그림에는 지출의 3%를 차지하는 <strong>기타 재화 및 서비스(Other goods and services)</strong> 범주도 포함되어 있습니다.</div>
+                </div>
+                <div class="sentence-group">
+                    <div class="english">This is a catchall for consumer purchases (such as cigarettes, haircuts, and funeral expenses) that do not naturally fit into the other categories.</div>
+                    <div class="korean">이는 다른 범주에 자연스럽게 포함되지 않는 소비자 구매(예: 담배, 이발, 장례비용 등)를 모두 포함하는 항목입니다.</div>
+                </div>
+            </div>
+
+            <!-- SVG Pie Chart (Figure 1) -->
+            <div class="pie-chart-container">
+                <svg viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Title -->
+                    <text x="130" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c3e50">FIGURE 1</text>
+                    <text x="130" y="33" text-anchor="middle" font-size="9" fill="#555">The Typical Basket of Goods and Services</text>
+
+                    <!-- Pie Chart (cx=130, cy=155, r=90) -->
+                    <!-- Housing 42%: 0° → 151.2° -->
+                    <path d="M130,155 L130,65 A90,90 0 0,1 206.7,200.5 Z" fill="#3498db"/>
+                    <!-- Transportation 16%: 151.2° → 208.8° -->
+                    <path d="M130,155 L206.7,200.5 A90,90 0 0,1 89.5,238.3 Z" fill="#e67e22"/>
+                    <!-- Food & Beverages 15%: 208.8° → 262.8° -->
+                    <path d="M130,155 L89.5,238.3 A90,90 0 0,1 50.6,167.7 Z" fill="#2ecc71"/>
+                    <!-- Medical Care 8%: 262.8° → 291.6° -->
+                    <path d="M130,155 L50.6,167.7 A90,90 0 0,1 57.2,115.6 Z" fill="#e74c3c"/>
+                    <!-- Education & Communication 7%: 291.6° → 316.8° -->
+                    <path d="M130,155 L57.2,115.6 A90,90 0 0,1 82.9,76.8 Z" fill="#9b59b6"/>
+                    <!-- Recreation 6%: 316.8° → 338.4° -->
+                    <path d="M130,155 L82.9,76.8 A90,90 0 0,1 111.2,66.5 Z" fill="#1abc9c"/>
+                    <!-- Apparel 3%: 338.4° → 349.2° -->
+                    <path d="M130,155 L111.2,66.5 A90,90 0 0,1 121.3,65.1 Z" fill="#f39c12"/>
+                    <!-- Other 3%: 349.2° → 360° -->
+                    <path d="M130,155 L121.3,65.1 A90,90 0 0,1 130,65 Z" fill="#95a5a6"/>
+
+                    <!-- Labels inside pie -->
+                    <text x="148" y="128" text-anchor="middle" font-size="11" fill="white" font-weight="bold">42%</text>
+                    <text x="148" y="140" text-anchor="middle" font-size="9" fill="white">Housing</text>
+                    <text x="178" y="195" text-anchor="middle" font-size="9" fill="white">16%</text>
+                    <text x="95" y="220" text-anchor="middle" font-size="9" fill="white">15%</text>
+                    <text x="65" y="162" text-anchor="middle" font-size="9" fill="white">8%</text>
+                    <text x="72" y="103" text-anchor="middle" font-size="8" fill="white">7%</text>
+                    <text x="98" y="78" text-anchor="middle" font-size="8" fill="white">6%</text>
+                    <text x="112" y="71" text-anchor="middle" font-size="7" fill="#555">3%</text>
+                    <text x="127" y="67" text-anchor="middle" font-size="7" fill="#555">3%</text>
+                </svg>
+
+                <!-- Legend -->
+                <div class="pie-legend">
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#3498db;"></div><span>Housing (주거) 42%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#e67e22;"></div><span>Transportation (교통) 16%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#2ecc71;"></div><span>Food and beverages (식품·음료) 15%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#e74c3c;"></div><span>Medical care (의료) 8%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#9b59b6;"></div><span>Education &amp; communication (교육·통신) 7%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#1abc9c;"></div><span>Recreation (여가) 6%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#f39c12;"></div><span>Apparel (의류) 3%</span></div>
+                    <div class="pie-legend-item"><div class="pie-legend-color" style="background:#95a5a6;"></div><span>Other goods &amp; services (기타) 3%</span></div>
+                </div>
+
+                <div class="figure-caption">
+                    <strong>Source:</strong> Bureau of Labor Statistics (노동통계국)<br>
+                    The BLS calls each percentage the "relative importance" of the category.<br>
+                    (BLS는 각 비율을 해당 범주의 "상대적 중요도"라고 부릅니다.)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core CPI / PPI 보충 설명 (p.28 상단) -->
+    <div style="margin-top: 40px;">
+        <div class="sentence-group">
+            <div class="english">and services excluding food and energy, a statistic called the <span class="tooltip">core CPI<span class="tooltiptext">근원 CPI: 식품·에너지를 제외한 소비자물가지수</span></span>.</div>
+            <div class="korean">식품과 에너지를 제외한 재화 및 서비스의 물가를 측정하는 통계를 근원 CPI(core CPI)라고 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Because food and energy prices show <span class="tooltip">substantial<span class="tooltiptext">상당한, 실질적인</span></span> short-run <span class="tooltip">volatility<span class="tooltiptext">변동성, 불안정성</span></span>, the core CPI better <span class="tooltip">reflects<span class="tooltiptext">반영하다</span></span> ongoing inflation trends.</div>
+            <div class="korean">식품과 에너지 가격은 단기적으로 상당한 변동성을 보이기 때문에, 근원 CPI는 지속적인 인플레이션 추세를 더 잘 반영합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Finally, the BLS also calculates the <span class="tooltip">producer price index (PPI)<span class="tooltiptext">생산자물가지수: 기업이 구입하는 재화 바스켓의 비용을 측정</span></span>, which measures the cost of a basket of goods and services bought by firms rather than consumers.</div>
+            <div class="korean">마지막으로, BLS는 소비자가 아닌 기업이 구입하는 재화와 서비스 바스켓의 비용을 측정하는 생산자물가지수(PPI)도 계산합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Because firms eventually pass on their costs to consumers in the form of higher consumer prices, changes in the PPI are often thought to be useful in predicting changes in the CPI.</div>
+            <div class="korean">기업들은 결국 비용을 더 높은 소비자 가격의 형태로 소비자에게 전가하기 때문에, PPI의 변화는 CPI의 변화를 예측하는 데 유용하다고 여겨지는 경우가 많습니다.</div>
+        </div>
+    </div>
+
+    <!-- 여백 노트: core CPI / PPI -->
+    <div style="display:flex; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
+        <div class="margin-note" style="flex: 1 1 200px;">
+            <p><strong>core CPI</strong><br>
+            a measure of the overall cost of consumer goods and services excluding food and energy<br>
+            (식품과 에너지를 제외한 소비재 및 서비스의 전반적인 비용을 측정한 지표)</p>
+        </div>
+        <div class="margin-note" style="flex: 1 1 200px;">
+            <p><strong>producer price index (PPI, 생산자물가지수)</strong><br>
+            a measure of the cost of a basket of goods and services bought by firms<br>
+            (기업이 구입하는 재화와 서비스 바스켓의 비용을 측정한 지표)</p>
+        </div>
+    </div>
+
+    <!-- ===================== 24-1b ===================== -->
+    <h2>24-1b. Problems in Measuring the Cost of Living <br><span style="font-size: 0.65em; color: #7f8c8d;">(생계비 측정의 문제점)</span></h2>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">The goal of the consumer price index is to measure changes in the cost of living.</div>
+            <div class="korean">소비자물가지수의 목적은 생계비의 변화를 측정하는 것입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">In other words, the CPI tries to gauge how much incomes must rise to maintain a constant standard of living.</div>
+            <div class="korean">다시 말해, CPI는 일정한 생활수준을 유지하기 위해 소득이 얼마나 올라야 하는지를 측정하려고 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The CPI, however, is not a perfect measure of the cost of living.</div>
+            <div class="korean">그러나 CPI는 생계비의 완벽한 측정치가 아닙니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Three problems with the index are widely acknowledged but difficult to solve.</div>
+            <div class="korean">이 지수에 관한 세 가지 문제점은 널리 인정되고 있지만 해결하기 어렵습니다.</div>
+        </div>
+    </div>
+
+    <!-- 문제 1: Substitution Bias -->
+    <div class="step-block" style="border-left-color: #e74c3c;">
+        <div class="step-title" style="color: #c0392b;">문제 1. Substitution Bias (대체 편의)</div>
+
+        <div class="sentence-group">
+            <div class="english">The first problem is called <span class="tooltip">substitution bias<span class="tooltiptext">대체 편의: 소비자가 상대적으로 저렴해진 재화로 대체 구매하는 행동을 반영하지 못하는 오류</span></span>.</div>
+            <div class="korean">첫 번째 문제는 대체 편의(substitution bias)라고 불립니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When prices change from one year to the next, they do not all change <span class="tooltip">proportionately<span class="tooltiptext">비례적으로, 균등하게</span></span>: Some prices rise more than others.</div>
+            <div class="korean">가격이 한 해에서 다음 해로 변할 때, 모든 가격이 동일한 비율로 변하지는 않습니다. 어떤 가격은 다른 것보다 더 많이 오릅니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Consumers respond to these differing price changes by buying less of the goods whose prices have risen by relatively large amounts and by buying more of the goods whose prices have risen less or perhaps even have fallen.</div>
+            <div class="korean">소비자들은 이러한 가격 변화에 반응하여, 상대적으로 크게 오른 재화는 덜 구매하고, 덜 오르거나 심지어 하락한 재화는 더 많이 구매합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">That is, consumers <span class="tooltip">substitute<span class="tooltiptext">대체하다: 비싸진 재화 대신 저렴한 재화를 선택함</span></span> toward goods that have become relatively less expensive.</div>
+            <div class="korean">즉, 소비자들은 상대적으로 저렴해진 재화로 대체 구매를 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">If a price index is computed assuming a <span class="tooltip">fixed basket<span class="tooltiptext">고정 바스켓: 구성 품목과 수량이 변하지 않는 기준 바스켓</span></span> of goods, it ignores the possibility of consumer substitution and, therefore, <span class="tooltip">overstates<span class="tooltiptext">과장하다, 과대평가하다</span></span> the increase in the cost of living from one year to the next.</div>
+            <div class="korean">만약 물가지수가 고정된 재화 바스켓을 가정하여 계산된다면, 소비자 대체의 가능성을 무시하는 것이며, 따라서 한 해에서 다음 해로의 생계비 증가를 과장하게 됩니다.</div>
+        </div>
+
+        <div style="background-color:#fef9f0; border-radius:6px; padding:18px; margin-top:15px; border: 1px solid #f5cba7;">
+            <div style="font-weight:bold; color:#e67e22; margin-bottom:10px;">📌 구체적 예시 (Example)</div>
+            <div class="sentence-group">
+                <div class="english">Let's consider a simple example. Imagine that in the base year, apples are cheaper than pears, so consumers buy more apples than pears.</div>
+                <div class="korean">간단한 예를 들어봅시다. 기준 연도에 사과가 배보다 싸서, 소비자들이 배보다 사과를 더 많이 구입한다고 가정합니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">When the BLS constructs the basket of goods, it will include more apples than pears.</div>
+                <div class="korean">BLS가 재화 바스켓을 구성할 때, 배보다 사과를 더 많이 포함시킬 것입니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">Suppose that next year pears are cheaper than apples. Consumers will naturally respond to the price changes by buying more pears and fewer apples.</div>
+                <div class="korean">다음 해에 배가 사과보다 싸진다고 가정합니다. 소비자들은 자연스럽게 가격 변화에 반응하여 배를 더 많이 사고 사과를 덜 사게 됩니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">Yet when computing the CPI, the BLS uses a fixed basket, which in essence assumes that consumers continue buying the now expensive apples in the same quantities as before.</div>
+                <div class="korean">그러나 CPI를 계산할 때, BLS는 고정된 바스켓을 사용합니다. 이는 본질적으로 소비자들이 이제 비싸진 사과를 이전과 동일한 수량으로 계속 구매한다고 가정하는 것입니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">For this reason, the index will measure a much larger increase in the cost of living than consumers actually experience.</div>
+                <div class="korean">이런 이유로, 지수는 소비자들이 실제로 경험하는 것보다 훨씬 더 큰 생계비 증가를 측정하게 됩니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문제 2: Introduction of New Goods -->
+    <div class="step-block" style="border-left-color: #9b59b6; margin-top: 30px;">
+        <div class="step-title" style="color: #8e44ad;">문제 2. Introduction of New Goods (신상품의 도입)</div>
+
+        <div class="sentence-group">
+            <div class="english">The second problem with the CPI is the <span class="tooltip">introduction of new goods<span class="tooltiptext">신상품 도입: 새 상품이 등장하면 소비자 선택의 폭이 넓어지고 화폐 가치가 높아지는 효과가 있으나, CPI는 이를 반영하지 못함</span></span>.</div>
+            <div class="korean">CPI의 두 번째 문제점은 신상품의 도입입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When a new good is introduced, consumers have more variety from which to choose, and this in turn reduces the cost of maintaining the same level of economic well-being.</div>
+            <div class="korean">새로운 재화가 도입되면, 소비자들은 선택할 수 있는 종류가 더 많아지고, 이는 동일한 수준의 경제적 복지를 유지하는 데 드는 비용을 줄여줍니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">To see why, consider a hypothetical situation: Suppose you could choose between a $100 gift certificate at a large store that offered a wide array of goods and a $100 gift certificate at a small store with the same prices but a more limited selection. Which would you prefer?</div>
+            <div class="korean">이유를 알기 위해 가상의 상황을 생각해봅시다. 다양한 재화를 제공하는 대형 매장의 100달러 상품권과, 같은 가격이지만 더 제한된 품목을 갖춘 소형 매장의 100달러 상품권 중 어느 것을 선택하시겠습니까?</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Most people would pick the store with greater variety. In essence, the increased set of possible choices makes each dollar more valuable.</div>
+            <div class="korean">대부분의 사람들은 더 다양한 품목을 가진 매장을 선택할 것입니다. 본질적으로, 선택 가능한 범위의 확대는 각 달러를 더 가치 있게 만듭니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The same is true with the evolution of the economy over time: As new goods are introduced, consumers have more choices, and each dollar is worth more.</div>
+            <div class="korean">시간이 지남에 따른 경제의 발전에서도 마찬가지입니다. 신상품이 도입될수록 소비자들은 더 많은 선택권을 갖게 되고, 달러의 가치는 더 높아집니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But because the CPI is based on a fixed basket of goods and services, it does not reflect the increase in the value of the dollar that arises from the introduction of new goods.</div>
+            <div class="korean">그러나 CPI는 고정된 재화와 서비스 바스켓에 기반하기 때문에, 신상품의 도입으로 인한 달러 가치의 상승을 반영하지 못합니다.</div>
+        </div>
+
+        <div style="background-color:#f5eef8; border-radius:6px; padding:18px; margin-top:15px; border: 1px solid #d2b4de;">
+            <div style="font-weight:bold; color:#8e44ad; margin-bottom:10px;">📌 구체적 예시: iPod (Example)</div>
+            <div class="sentence-group">
+                <div class="english">Again, let's consider an example. When the iPod was introduced in 2001, consumers found it more convenient to listen to their favorite music.</div>
+                <div class="korean">또 다른 예를 들어봅시다. 2001년 아이팟(iPod)이 도입되었을 때, 소비자들은 자신이 좋아하는 음악을 더 편리하게 들을 수 있게 되었습니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">Devices to play music were available previously, but they were not nearly as portable and versatile.</div>
+                <div class="korean">음악을 재생하는 기기들은 이전에도 있었지만, 아이팟만큼 휴대하기 편하거나 다재다능하지는 않았습니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">The iPod was a new option that increased consumers' set of opportunities.</div>
+                <div class="korean">아이팟은 소비자들의 선택 기회를 확장시킨 새로운 옵션이었습니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">For any given number of dollars, the introduction of the iPod made people better off; conversely, achieving the same level of economic well-being required a smaller number of dollars.</div>
+                <div class="korean">동일한 금액을 지출할 때, 아이팟의 도입은 사람들의 상황을 더 나아지게 했습니다. 반대로 말하면, 동일한 수준의 경제적 복지를 달성하기 위해 더 적은 돈이 필요하게 된 것입니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">A perfect cost-of-living index would have reflected the introduction of the iPod with a decrease in the cost of living. The CPI, however, did not capture this benefit.</div>
+                <div class="korean">완벽한 생계비 지수였다면 아이팟의 도입을 생계비 하락으로 반영했을 것입니다. 그러나 CPI는 이러한 혜택을 포착하지 못했습니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iPod 이야기 이어지는 단락 (p.29 상단) -->
+    <div class="paragraph-section" style="margin-top: 30px;">
+        <div class="sentence-group">
+            <div class="english">however, did not decrease in response to the introduction of the iPod.</div>
+            <div class="korean">그러나 CPI는 아이팟의 도입에 반응하여 하락하지 않았습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Eventually, the BLS revised the basket of goods to include the iPod, and subsequently, the index reflected changes in iPod prices.</div>
+            <div class="korean">결국 BLS는 재화 바스켓을 개정하여 아이팟을 포함시켰고, 이후 지수는 아이팟 가격의 변화를 반영하게 되었습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But the reduction in the cost of living associated with the initial introduction of the iPod never showed up in the index.</div>
+            <div class="korean">그러나 아이팟이 처음 도입되었을 때 생계비가 절감된 효과는 끝내 지수에 반영되지 않았습니다.</div>
+        </div>
+    </div>
+
+    <!-- 문제 3: Unmeasured Quality Change -->
+    <div class="step-block" style="border-left-color: #2980b9; margin-top: 30px;">
+        <div class="step-title" style="color: #2471a3;">문제 3. Unmeasured Quality Change (측정되지 않는 품질 변화)</div>
+
+        <div class="sentence-group">
+            <div class="english">The third problem with the CPI is <span class="tooltip">unmeasured quality change<span class="tooltiptext">측정되지 않는 품질 변화: 재화의 품질이 향상될 때 같은 가격이라도 더 많은 가치를 제공하지만, CPI는 이를 완전히 반영하기 어렵다</span></span>.</div>
+            <div class="korean">CPI의 세 번째 문제점은 측정되지 않는 품질 변화입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">If the quality of a good <span class="tooltip">deteriorates<span class="tooltiptext">악화되다, 저하되다</span></span> from one year to the next while its price remains the same, the value of a dollar falls, because you are getting a lesser good for the same amount of money.</div>
+            <div class="korean">만약 어떤 재화의 품질이 가격은 그대로인 채 한 해에서 다음 해로 하락한다면, 같은 돈으로 더 낮은 품질의 재화를 얻게 되므로 달러의 가치는 떨어집니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Similarly, if the quality rises from one year to the next, the value of a dollar rises.</div>
+            <div class="korean">반대로, 품질이 한 해에서 다음 해로 향상된다면 달러의 가치는 올라갑니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The BLS does its best to account for quality change.</div>
+            <div class="korean">BLS는 품질 변화를 반영하기 위해 최선을 다합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When the quality of a good in the basket changes—for example, when a car model has more horsepower or gets better gas mileage from one year to the next—the Bureau adjusts the price of the good to account for the quality change.</div>
+            <div class="korean">바스켓 안의 재화 품질이 변할 때—예를 들어 자동차 모델이 한 해에서 다음 해로 더 높은 마력이나 더 나은 연비를 갖게 될 때—국(Bureau)은 품질 변화를 반영하기 위해 그 재화의 가격을 조정합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">It is, in essence, trying to compute the price of a basket of goods of <span class="tooltip">constant quality<span class="tooltiptext">일정한 품질: 품질이 변하지 않았다고 가정할 때의 순수한 가격 변화만을 측정하려는 개념</span></span>.</div>
+            <div class="korean">이는 본질적으로 일정한 품질을 지닌 재화 바스켓의 가격을 계산하려는 시도입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Despite these efforts, changes in quality remain a problem because quality is hard to measure.</div>
+            <div class="korean">이러한 노력에도 불구하고, 품질은 측정하기 어렵기 때문에 품질 변화는 여전히 문제로 남아 있습니다.</div>
+        </div>
+    </div>
+
+    <!-- 24-1b 마무리 요약 단락 -->
+    <div class="paragraph-section" style="margin-top: 40px;">
+        <div class="sentence-group">
+            <div class="english">There is still much debate among economists about how severe these measurement problems are and what should be done about them.</div>
+            <div class="korean">이러한 측정 문제들이 얼마나 심각한지, 그리고 이에 대해 어떤 조치를 취해야 하는지에 대한 논쟁은 경제학자들 사이에서 여전히 활발합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Several studies written during the 1990s concluded that the CPI <span class="tooltip">overstated<span class="tooltiptext">과대평가하다, 과장하여 나타내다</span></span> inflation by about 1 percentage point per year.</div>
+            <div class="korean">1990년대에 작성된 여러 연구들은 CPI가 연간 약 1%포인트씩 인플레이션을 과장하여 측정한다고 결론지었습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">In response to this criticism, the BLS adopted several technical changes to improve the CPI, and many economists believe that the bias is now only about half as large as it once was.</div>
+            <div class="korean">이러한 비판에 대응하여 BLS는 CPI를 개선하기 위한 여러 기술적 변경 사항을 채택했으며, 많은 경제학자들은 이제 편의가 과거의 절반 정도에 불과하다고 믿습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The issue is important because many government programs use the CPI to adjust for changes in the overall level of prices.</div>
+            <div class="korean">이 문제는 많은 정부 프로그램들이 전반적인 물가 수준의 변화를 조정하기 위해 CPI를 사용하기 때문에 중요합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Recipients of Social Security, for instance, get annual increases in benefits that are tied to the CPI.</div>
+            <div class="korean">예를 들어, 사회보장 수급자들은 CPI에 연동된 연간 급여 인상을 받습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Some economists have suggested modifying these programs to correct for the measurement problems by, for instance, reducing the magnitude of the automatic benefit increases.</div>
+            <div class="korean">일부 경제학자들은 예를 들어 자동 급여 인상 폭을 줄이는 방식 등으로 측정 문제를 수정하기 위해 이러한 프로그램들을 개선할 것을 제안해 왔습니다.</div>
+        </div>
+    </div>
+
+    <!-- 세 가지 문제점 요약 박스 -->
+    <div style="background-color:#f4f9f9; border:2px solid #1abc9c; border-radius:10px; padding:28px; margin: 40px 0;">
+        <div style="font-weight:bold; font-size:1.2em; color:#16a085; margin-bottom:18px;">📋 24-1b 핵심 요약: CPI 측정의 3가지 문제점</div>
+        <table style="width:100%; border-collapse:collapse; font-size:1em;">
+            <thead>
+                <tr style="background-color:#1abc9c; color:white;">
+                    <th style="padding:10px 14px; text-align:left;">문제점</th>
+                    <th style="padding:10px 14px; text-align:left;">내용</th>
+                    <th style="padding:10px 14px; text-align:left;">결과</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom:1px solid #d5f0ea;">
+                    <td style="padding:10px 14px; font-weight:bold; color:#e74c3c;">① Substitution Bias<br><span style="font-weight:normal; color:#555;">(대체 편의)</span></td>
+                    <td style="padding:10px 14px;">고정 바스켓이 소비자의 대체 구매 행동을 반영하지 못함</td>
+                    <td style="padding:10px 14px;">생계비 상승을 <strong>과대 측정</strong></td>
+                </tr>
+                <tr style="border-bottom:1px solid #d5f0ea; background:#fafefe;">
+                    <td style="padding:10px 14px; font-weight:bold; color:#8e44ad;">② Introduction of New Goods<br><span style="font-weight:normal; color:#555;">(신상품 도입)</span></td>
+                    <td style="padding:10px 14px;">신상품 등장으로 달러 구매력이 높아지는 효과를 반영하지 못함</td>
+                    <td style="padding:10px 14px;">생계비 하락 효과를 <strong>누락</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px 14px; font-weight:bold; color:#2471a3;">③ Unmeasured Quality Change<br><span style="font-weight:normal; color:#555;">(미측정 품질 변화)</span></td>
+                    <td style="padding:10px 14px;">재화의 품질 향상·하락을 완전히 측정하기 어려움</td>
+                    <td style="padding:10px 14px;">가격 변화와 품질 변화를 <strong>정확히 분리 불가</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- IN THE NEWS 박스 -->
+    <div style="background-color:#f0f7e6; border:2px solid #27ae60; border-radius:10px; padding:30px; margin-top: 50px;">
+        <div style="display:inline-block; background-color:#27ae60; color:white; font-weight:bold; font-size:0.9em; padding:4px 14px; border-radius:4px; letter-spacing:2px; margin-bottom:8px;">IN THE NEWS</div>
+        <h3 style="color:#1e8449; font-size:1.4em; margin-top:8px; border-bottom: 1px solid #a9dfbf; padding-bottom:10px;">Monitoring Inflation in the Internet Age<br><span style="font-size:0.75em; color:#7f8c8d;">(인터넷 시대의 인플레이션 측정)</span></h3>
+
+        <div style="font-style:italic; color:#2c3e50; margin-bottom:20px; font-size:1.0em;">
+            The web is providing alternative ways to collect data on the overall level of prices.<br>
+            <span style="font-size:0.95em; color:#555;">(웹은 전반적인 물가 수준의 데이터를 수집하는 새로운 방법을 제공하고 있습니다.)</span>
+        </div>
+
+        <div style="font-weight:bold; font-size:1.15em; color:#1e8449; margin-bottom: 4px;">Do We Need Google to Measure Inflation?</div>
+        <div style="font-size:0.9em; color:#555; margin-bottom:16px;">By Annie Lowrey</div>
+
+        <!-- 정부 조사원의 세부 기록 과정 (p.29 좌측 칼럼) -->
+        <div class="sentence-group">
+            <div class="english">At some 23,000 retailers and businesses in 90 U.S. cities, hundreds of government workers find and mark down prices on very precise products. And I'm not kidding when I say "very precise."</div>
+            <div class="korean">미국 90개 도시의 약 23,000개 소매점 및 기업에서 수백 명의 정부 직원들이 매우 구체적인 제품들의 가격을 찾아 기록합니다. "매우 구체적"이라는 표현이 과장이 아닙니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Say the relevant worker is finding the price for a motel room. She might write a report like this: <em>Occupancy</em>—two adults; <em>Type of accommodation</em>—deluxe room; <em>Room classification/location</em>—ocean view, room 306; <em>Time of stay</em>—weekend; <em>Length of stay</em>—one night; <em>Bathroom facilities</em>—one full bathroom; <em>Kitchen facilities</em>—none; <em>Television</em>—one, includes free movie channel; <em>Telephone</em>—one telephone, free local calls; <em>Air-conditioned</em>—yes; <em>Meals included</em>—breakfast; <em>Parking</em>—free self parking; <em>Transportation</em>—Transportation to airport, no charge; <em>Recreation facilities</em>—an indoor and an outdoor pool, a private beach, three tennis courts, and an exercise room.</div>
+            <div class="korean">해당 직원이 모텔 객실 가격을 조사한다고 가정해봅시다. 그 직원은 다음과 같은 보고서를 작성할 수 있습니다: <em>투숙 인원</em>—성인 2명; <em>숙박 유형</em>—디럭스룸; <em>객실 분류/위치</em>—오션뷰, 306호; <em>투숙 시기</em>—주말; <em>투숙 기간</em>—1박; <em>욕실 시설</em>—전용 욕실 1개; <em>주방 시설</em>—없음; <em>TV</em>—1대(무료 영화 채널 포함); <em>전화</em>—1대, 시내 통화 무료; <em>에어컨</em>—있음; <em>식사 포함</em>—조식; <em>주차</em>—무료 자주 주차; <em>교통</em>—공항 송영 무료; <em>레크리에이션 시설</em>—실내·외 수영장, 전용 해변, 테니스 코트 3면, 헬스장.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">This mind-numbingly tedious process goes on for a dizzying panoply of items: wine, takeaway meals, bedroom furniture, surgical procedures, pet dogs, college tuition, cigarettes, haircuts, funerals.</div>
+            <div class="korean">이 정신이 멍해질 정도로 지루한 과정은 와인, 테이크아웃 식사, 침실 가구, 외과 수술, 반려견, 대학 등록금, 담배, 이발, 장례 서비스 등 어지러울 만큼 다양한 품목에 걸쳐 계속됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When all of the prices are marked down, the workers submit forms that are collated, checked, and input into massive spreadsheets.</div>
+            <div class="korean">모든 가격이 기록되면, 직원들은 양식을 제출하고 이는 대조·검토되어 방대한 스프레드시트에 입력됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Then the government boils all those numbers down to one. It weights certain prices, taking into account that consumers spend more on rent than cereal, for instance. It considers product improvements and changes in spending habits. Then it comes up with a master number showing how much a customer's spending needed to increase to buy the same goods, month-on-month. That number is the Consumer Price Index, the government's main gauge of inflation.</div>
+            <div class="korean">그런 다음 정부는 그 모든 수치를 하나로 압축합니다. 예를 들어 소비자가 시리얼보다 임대료에 더 많이 지출한다는 점을 감안하여 특정 가격에 가중치를 부여합니다. 제품 개선 사항과 소비 습관의 변화도 고려합니다. 그러고 나서 동일한 재화를 구입하기 위해 고객의 지출이 전달 대비 얼마나 늘어나야 했는지를 보여주는 핵심 수치를 산출합니다. 그 수치가 바로 정부의 주요 인플레이션 지표인 소비자물가지수(CPI)입니다.</div>
+        </div>
+
+        <div style="border-top: 1px dashed #a9dfbf; margin: 20px 0;"></div>
+
+        <!-- 정부 방법론의 한계 -->
+        <div class="sentence-group">
+            <div class="english">Each month, the Bureau of Labor Statistics goes through all that hassle because knowing the rate of inflation is such an important measure of economic health—and it's important to the government's own budget.</div>
+            <div class="korean">BLS가 매달 이 모든 번거로운 과정을 거치는 이유는, 인플레이션율을 파악하는 것이 경제 건전성의 매우 중요한 척도이고 정부 예산에도 중요하기 때문입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">High inflation? Savers panic, watching the spending power of their accounts erode. Deflation? Everyone saves, awaiting cheaper prices in a few months. Wildly changing inflation makes it difficult for businesses and consumers to make economic decisions.</div>
+            <div class="korean">높은 인플레이션? 저축자들은 자신의 계좌 구매력이 줄어드는 것을 보며 공황 상태에 빠집니다. 디플레이션? 모두가 몇 달 후 더 낮아질 가격을 기다리며 저축합니다. 급격한 인플레이션 변동은 기업과 소비자가 경제적 결정을 내리기 어렵게 만듭니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Moreover, the government needs to know the rate of inflation to index certain payments, like Social Security benefits or interest payments on TIPS bonds.</div>
+            <div class="korean">더욱이 정부는 사회보장 혜택이나 물가연동국채(TIPS) 이자 지급과 같은 특정 지급액을 조정하기 위해 인플레이션율을 알아야 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But just because the government expends so much energy determining the rate of inflation does not mean it is tallying it in the smartest or most accurate way.</div>
+            <div class="korean">그러나 정부가 인플레이션율을 산정하는 데 많은 에너지를 쏟는다고 해서 가장 스마트하거나 정확한 방식으로 집계하고 있다는 의미는 아닙니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The reigning methodology is, well, clunky. It costs Washington around $234 million a year to get all those people to go and bear witness to a $1.57 price increase in a packet of tube socks.</div>
+            <div class="korean">현재의 방법론은 솔직히 말해 투박합니다. 워싱턴 정부가 수많은 직원들로 하여금 양말 한 묶음의 1.57달러 가격 인상을 현장에서 확인하게 하는 데 연간 약 2억 3,400만 달러가 소요됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Moreover, there is a weeks-long lag between the checkers tallying up the numbers and the government announcing the changes: The inflation measure comes out only 12 times a year, though prices change, sometimes dramatically, all the time.</div>
+            <div class="korean">게다가 가격을 집계하는 조사원들과 정부의 공식 발표 사이에는 수 주의 시차가 존재합니다. 물가는 항상 때로는 급격하게 변동하는데도, 인플레이션 지표는 1년에 단 12번만 발표됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Plus, the methodology is archaic, given that we live in the Internet age. Prices are easily available online and a lot of shopping happens on the Web rather than in stores.</div>
+            <div class="korean">게다가 우리가 인터넷 시대에 살고 있음을 고려하면, 이 방법론은 시대에 뒤떨어진 것입니다. 가격은 온라인에서 쉽게 확인할 수 있으며, 많은 쇼핑이 매장이 아닌 웹에서 이루어집니다.</div>
+        </div>
+
+        <div style="border-top: 1px dashed #a9dfbf; margin: 20px 0;"></div>
+        <div style="font-weight:bold; color:#1e8449; margin-bottom: 10px;">🌐 인터넷 기반 대안 지수 (Internet-Based Alternative Indices)</div>
+
+        <!-- BPP 소개 (p.30) -->
+        <div class="sentence-group">
+            <div class="english">But there might be a better way. In the last few months, economists have come up with new methods for calculating inflation at Internet speed—nimbler, cheaper, faster, and perhaps even more accurate than Washington's.</div>
+            <div class="korean">하지만 더 나은 방법이 있을 수 있습니다. 지난 몇 달 동안 경제학자들은 인터넷 속도로 인플레이션을 계산하는 새로운 방법을 고안해냈습니다. 더 민첩하고, 저렴하고, 빠르며, 워싱턴의 방법보다 더 정확할 수도 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">In 2007, economists Roberto Rigobon and Alberto Cavallo started tracking prices online and inputting them into a massive database. Then, last month, they unveiled the <span class="tooltip">Billion Prices Project (BPP)<span class="tooltiptext">십억 가격 프로젝트: MIT 경제학자들이 온라인 가격을 실시간 추적해 만든 인플레이션 측정 지수</span></span>, an inflation measure based on 5 million items sold by 300 online retailers in 70 countries. (For the United States, the BPP collects about 500,000 prices.)</div>
+            <div class="korean">2007년, 경제학자 로베르토 리고본과 알베르토 카발로는 온라인 가격을 추적하여 방대한 데이터베이스에 입력하기 시작했습니다. 그리고 지난달, 그들은 70개국 300개 온라인 소매업체에서 판매되는 500만 개 품목에 기반한 인플레이션 측정치인 '십억 가격 프로젝트(BPP)'를 공개했습니다. (미국의 경우, BPP는 약 50만 개의 가격을 수집합니다.)</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The BPP's inflation measure is markedly different from the government's. The economists just average all the prices culled online, meaning the basket of goods is whatever you can buy on the Web. (Some things, like books, are most often bought online. Some items, like cats, are not.) Plus, the researchers do not weight certain items' prices, even if they tend to make up a bigger proportion of household spending.</div>
+            <div class="korean">BPP의 인플레이션 측정치는 정부의 것과 현저히 다릅니다. 경제학자들은 온라인에서 수집된 모든 가격을 단순 평균하는데, 이는 재화 바스켓이 웹에서 구입할 수 있는 모든 것으로 구성됨을 의미합니다. (책과 같은 일부 품목은 주로 온라인에서 구매됩니다. 고양이와 같은 일부 품목은 그렇지 않습니다.) 게다가 연구자들은 가계 지출에서 더 큰 비중을 차지하는 품목이라도 해당 품목의 가격에 별도 가중치를 부여하지 않습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Still, thus far, the BPP has tracked the CPI closely. And the online-based measure has additional advantages. It comes out daily, giving a better sense of inflation's direction. It also lets researchers examine minute, day-to-day price changes.</div>
+            <div class="korean">그럼에도 불구하고, 지금까지 BPP는 CPI와 유사한 추이를 보여왔습니다. 온라인 기반 측정치는 추가적인 장점도 있습니다. 매일 발표되어 인플레이션의 방향성을 더 잘 파악할 수 있으며, 연구자들이 일별 세밀한 가격 변화를 분석할 수 있게 합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">For instance, this month Rigobon and Cavallo noted that Black Friday discounts "had a smaller effect on average prices in 2010 than in 2009," contrary to reports of deeper discounting this year. And it has already produced some academic insights. For instance, Cavallo found that retailers change prices less often, but more, percentage-wise, than economists previously thought.</div>
+            <div class="korean">예를 들어, 이번 달 리고본과 카발로는 블랙 프라이데이 할인이 "올해 더 깊어졌다"는 보도와 달리 "2009년보다 2010년 평균 가격에 더 적은 영향을 미쳤다"는 사실을 밝혔습니다. 또한 이미 몇 가지 학문적 통찰을 제공했습니다. 예를 들어 카발로는 소매업체들이 이전에 경제학자들이 생각했던 것보다 가격을 덜 자주 바꾸지만, 바꿀 때는 더 큰 폭으로 변경한다는 사실을 발견했습니다.</div>
+        </div>
+
+        <!-- Google Price Index (p.30) -->
+        <div style="border-top: 1px dashed #a9dfbf; margin: 20px 0;"></div>
+        <div class="sentence-group">
+            <div class="english">A second inflation measure comes from Web behemoth Google and is a pet project of the company's chief economist, Hal Varian. As reported by the <em>Financial Times</em>, earlier this year, Varian decided to use Google's vast database of Web prices to construct the "Google Price Index," a constantly updated measure of price changes and inflation.</div>
+            <div class="korean">두 번째 대안 인플레이션 지수는 웹 거인 구글에서 나왔으며, 회사 수석 경제학자인 할 배리언의 주도 프로젝트입니다. <em>파이낸셜 타임스</em>가 보도한 바에 따르면, 배리언은 올해 초 구글의 방대한 웹 가격 데이터베이스를 활용하여 지속적으로 업데이트되는 가격 변화 및 인플레이션 측정치인 '구글 물가지수(Google Price Index)'를 구축하기로 결정했습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">(The idea came to him when he was searching for a pepper grinder online.) Google has not yet decided whether it will publish the price index, and has not released its methodology.</div>
+            <div class="korean">(이 아이디어는 그가 온라인에서 후추 분쇄기를 검색하던 중 떠올랐습니다.) 구글은 아직 이 물가지수를 공개할지 여부를 결정하지 않았으며, 방법론도 발표하지 않은 상태입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">But Varian said that his preliminary index tracked CPI closely, though it did show periods of deflation—the worrisome incidence of prices actually falling—where the CPI did not.</div>
+            <div class="korean">그러나 배리언은 자신의 예비 지수가 CPI와 유사한 추이를 보였다고 말했습니다. 다만 CPI에서는 나타나지 않았던 디플레이션—가격이 실제로 하락하는 우려스러운 현상—구간이 일부 포착되기도 했습니다.</div>
+        </div>
+
+        <!-- 대안 지수의 함의와 결론 (p.30 우측 칼럼) -->
+        <div style="border-top: 1px dashed #a9dfbf; margin: 20px 0;"></div>
+        <div class="sentence-group">
+            <div class="english">The new indices lead to the big question of whether the government <em>needs</em> to update its methods to account for changes in the economy—taking new pricing trends into consideration, rejiggering its formula, updating more frequently.</div>
+            <div class="korean">새로운 지수들은 정부가 경제 변화를 반영하기 위해 방법론을 업데이트해야 하는지에 대한 큰 질문으로 이어집니다—새로운 가격 추세를 고려하고, 공식을 조정하며, 더 자주 업데이트하는 것 말입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The answer might be yes. (Economists have reformed the CPI before.) But the CPI and its Stone Age method of calculation boasts one huge benefit: It's a stable, tested measure, consistent over time, since its methodology doesn't change much.</div>
+            <div class="korean">그 답은 '그렇다'일 수도 있습니다. (경제학자들은 이전에도 CPI를 개혁한 적이 있습니다.) 그러나 CPI와 그 구식 계산 방법에는 한 가지 큰 장점이 있습니다. 방법론이 크게 바뀌지 않기 때문에 시간이 지나도 일관성을 유지하는, 검증된 안정적인 측정치라는 점입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Moreover, and somewhat remarkably, the Google and Billion Prices Project indices actually seem to confirm the accuracy of the old-fashioned CPI, tracking it closely rather than showing it to be off-base.</div>
+            <div class="korean">더욱이, 다소 놀랍게도, 구글 물가지수와 십억 가격 프로젝트 지수는 구식 CPI의 정확성을 오히려 확인해 주는 것처럼 보입니다. 이 지수들은 CPI가 크게 잘못되었음을 보여주기보다는 CPI와 유사한 추이를 보이며 그 뒤를 바짝 따르고 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Ultimately, there is a good argument for <em>more</em> inflation measures, not just better or newer ones. The government already calculates a number of rates of inflation to give a fuller picture of price changes, the value of money, and the economy.</div>
+            <div class="korean">궁극적으로, 단지 더 낫거나 새로운 지수가 아닌 <em>더 많은</em> 인플레이션 측정 지수가 필요하다는 주장에는 충분한 근거가 있습니다. 정부는 이미 물가 변화, 화폐 가치, 경제 상황을 더 완전하게 파악하기 위해 여러 인플레이션율을 계산하고 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Most notably, the BLS publishes a "core inflation" number, a measure of inflation outside volatile food and energy prices. There are dozens of other measures, as well.</div>
+            <div class="korean">특히 BLS는 변동성이 큰 식품 및 에너지 가격을 제외한 인플레이션 측정치인 '근원 인플레이션(core inflation)' 수치를 발표합니다. 그 외에도 수십 가지 다른 측정 지표들이 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The new Web-based yardsticks provide even more alternatives and opportunities to examine the accuracy of the CPI—and to make new findings.</div>
+            <div class="korean">새로운 웹 기반 측정 기준들은 CPI의 정확성을 검토하고 새로운 발견을 하기 위한 더 많은 대안과 기회를 제공합니다.</div>
+        </div>
+
+        <div style="font-size:0.85em; color:#888; margin-top: 16px; text-align:right;">
+            Source: <em>Slate</em>, December 20, 2010.
+        </div>
+    </div>
+
+    <!-- ===================== 24-1c ===================== -->
+    <h2 style="margin-top: 60px;">24-1c. The GDP Deflator versus the Consumer Price Index <br><span style="font-size: 0.65em; color: #7f8c8d;">(GDP 디플레이터 대 소비자물가지수)</span></h2>
+
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">In the preceding chapter, we examined another measure of the overall level of prices in the economy—the GDP deflator.</div>
+            <div class="korean">앞 장에서 우리는 경제 전반의 물가 수준을 측정하는 또 다른 지표인 GDP 디플레이터를 살펴보았습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The GDP deflator is the ratio of nominal GDP to real GDP. Because nominal GDP is current output valued at current prices and real GDP is current output valued at base-year prices, the GDP deflator reflects the current level of prices relative to the level of prices in the base year.</div>
+            <div class="korean">GDP 디플레이터는 명목 GDP를 실질 GDP로 나눈 비율입니다. 명목 GDP는 현재 가격으로 평가한 현재 산출량이고, 실질 GDP는 기준 연도 가격으로 평가한 현재 산출량이므로, GDP 디플레이터는 기준 연도의 물가 수준에 대한 현재 물가 수준을 반영합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Economists and policymakers monitor both the GDP deflator and the CPI to gauge how quickly prices are rising.</div>
+            <div class="korean">경제학자와 정책 입안자들은 물가가 얼마나 빠르게 오르는지 파악하기 위해 GDP 디플레이터와 CPI 모두를 주시합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Usually, these two statistics tell a similar story. Yet two important differences can cause them to <span class="tooltip">diverge<span class="tooltiptext">갈라지다, 달라지다</span></span>.</div>
+            <div class="korean">보통 이 두 통계는 비슷한 방향을 보여줍니다. 그러나 두 가지 중요한 차이점이 이 둘을 서로 다른 방향으로 이끌 수 있습니다.</div>
+        </div>
+    </div>
+
+    <!-- 차이점 1: 국내 생산 vs 소비자 구매 -->
+    <div class="step-block" style="border-left-color: #2980b9;">
+        <div class="step-title" style="color: #2471a3;">차이점 1. 국내 생산 품목 vs. 소비자 구매 품목</div>
+
+        <div class="sentence-group">
+            <div class="english">The first difference is that the GDP deflator reflects the prices of all goods and services <span class="tooltip">produced domestically<span class="tooltiptext">국내에서 생산된: GDP는 국내에서 생산된 모든 재화와 서비스를 포함</span></span>, whereas the CPI reflects the prices of all goods and services <span class="tooltip">bought by consumers<span class="tooltiptext">소비자가 구매한: CPI는 소비자가 실제로 구입하는 재화와 서비스의 가격을 추적</span></span>.</div>
+            <div class="korean">첫 번째 차이점은 GDP 디플레이터는 국내에서 생산된 모든 재화와 서비스의 가격을 반영하는 반면, CPI는 소비자가 구매하는 모든 재화와 서비스의 가격을 반영한다는 점입니다.</div>
+        </div>
+
+        <div style="background-color:#eaf4fb; border-radius:6px; padding:18px; margin-top:15px; border: 1px solid #aed6f1;">
+            <div style="font-weight:bold; color:#2471a3; margin-bottom:10px;">📌 예시 1: Boeing 항공기 (국내 생산 수출품)</div>
+            <div class="sentence-group">
+                <div class="english">For example, suppose that the price of an airplane produced by Boeing and sold to the Air Force rises.</div>
+                <div class="korean">예를 들어, 보잉(Boeing)이 생산하여 공군에 판매하는 항공기의 가격이 오른다고 가정해봅시다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">Even though the plane is part of GDP, it is not part of the basket of goods and services bought by a typical consumer. Thus, the price increase shows up in the GDP deflator but not in the CPI.</div>
+                <div class="korean">이 항공기는 GDP의 일부이지만, 전형적인 소비자가 구입하는 재화와 서비스 바스켓의 일부는 아닙니다. 따라서 이 가격 상승은 GDP 디플레이터에는 반영되지만 CPI에는 반영되지 않습니다.</div>
+            </div>
+        </div>
+
+        <div style="background-color:#fdf2e9; border-radius:6px; padding:18px; margin-top:15px; border: 1px solid #f5cba7;">
+            <div style="font-weight:bold; color:#d35400; margin-bottom:10px;">📌 예시 2: Volvo 자동차 (수입 소비재)</div>
+            <div class="sentence-group">
+                <div class="english">As another example, suppose that Volvo raises the price of its cars. Because Volvos are made in Sweden, the car is not part of U.S. GDP. But U.S. consumers buy Volvos, so the car is part of the typical consumer's basket of goods.</div>
+                <div class="korean">또 다른 예로, 볼보(Volvo)가 자동차 가격을 올린다고 가정해봅시다. 볼보는 스웨덴에서 생산되므로, 이 자동차는 미국 GDP의 일부가 아닙니다. 그러나 미국 소비자들이 볼보를 구매하므로, 이 자동차는 전형적인 소비자의 재화 바스켓 일부를 구성합니다.</div>
+            </div>
+            <div class="sentence-group">
+                <div class="english">Hence, a price increase in an imported consumption good, such as a Volvo, shows up in the CPI but not in the GDP deflator.</div>
+                <div class="korean">따라서 볼보와 같은 수입 소비재의 가격 상승은 CPI에는 반영되지만 GDP 디플레이터에는 반영되지 않습니다.</div>
+            </div>
+        </div>
+
+        <div class="sentence-group" style="margin-top:15px;">
+            <div class="english">This first difference between the CPI and the GDP deflator is particularly important when the price of oil changes. The United States produces some oil, but much of the oil we use is imported.</div>
+            <div class="korean">CPI와 GDP 디플레이터 사이의 이 첫 번째 차이점은 유가가 변할 때 특히 중요해집니다. 미국은 일부 석유를 생산하지만, 사용하는 석유의 대부분은 수입됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">As a result, oil and oil products such as gasoline and heating oil make up a much larger share of consumer spending than of GDP.</div>
+            <div class="korean">그 결과, 휘발유와 난방유 같은 석유 및 석유 제품이 GDP에서 차지하는 비중보다 소비자 지출에서 차지하는 비중이 훨씬 더 큽니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">When the price of oil rises, the CPI rises by much more than does the GDP deflator.</div>
+            <div class="korean">유가가 오르면, CPI는 GDP 디플레이터보다 훨씬 더 크게 상승합니다.</div>
+        </div>
+    </div>
+
+    <!-- 차이점 2: 가중치 부여 방식 -->
+    <div class="step-block" style="border-left-color: #8e44ad; margin-top: 30px;">
+        <div class="step-title" style="color: #7d3c98;">차이점 2. 가격에 가중치를 부여하는 방식</div>
+
+        <div class="sentence-group">
+            <div class="english">The second and subtler difference between the GDP deflator and the CPI concerns how various prices are <span class="tooltip">weighted<span class="tooltiptext">가중치가 부여된: 전체 물가 수준이라는 하나의 숫자를 산출하기 위해 각 가격에 비중을 부여하는 방식</span></span> to yield a single number for the overall level of prices.</div>
+            <div class="korean">GDP 디플레이터와 CPI 사이의 두 번째이자 더 미묘한 차이점은 전반적인 물가 수준을 나타내는 하나의 숫자를 산출하기 위해 다양한 가격에 가중치를 부여하는 방식에 관한 것입니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">The CPI compares the price of a <em>fixed</em> basket of goods and services to the price of the basket in the base year.</div>
+            <div class="korean">CPI는 <em>고정된</em> 재화와 서비스 바스켓의 가격을 기준 연도의 바스켓 가격과 비교합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Only occasionally does the BLS change the basket of goods.</div>
+            <div class="korean">BLS는 가끔씩만 재화 바스켓을 변경합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">By contrast, the GDP deflator compares the price of <em>currently produced</em> goods and services to the price of the same goods and services in the base year.</div>
+            <div class="korean">반면, GDP 디플레이터는 <em>현재 생산된</em> 재화와 서비스의 가격을 기준 연도의 동일한 재화와 서비스 가격과 비교합니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Thus, the group of goods and services used to compute the GDP deflator changes automatically over time.</div>
+            <div class="korean">따라서 GDP 디플레이터를 계산하는 데 사용되는 재화와 서비스의 집합은 시간이 지남에 따라 자동으로 변경됩니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">This difference is not important when all prices are changing proportionately. But if the prices of different goods and services are changing by varying amounts, the way we weight the various prices matters for the overall inflation rate.</div>
+            <div class="korean">이 차이점은 모든 가격이 동일한 비율로 변할 때는 중요하지 않습니다. 그러나 서로 다른 재화와 서비스의 가격이 각기 다른 폭으로 변한다면, 다양한 가격에 가중치를 부여하는 방식이 전체 인플레이션율에 영향을 미칩니다.</div>
+        </div>
+    </div>
+
+    <!-- CPI vs GDP 비교 요약 표 -->
+    <div style="background-color:#f4f9f9; border:2px solid #8e44ad; border-radius:10px; padding:28px; margin: 40px 0;">
+        <div style="font-weight:bold; font-size:1.15em; color:#7d3c98; margin-bottom:18px;">📊 CPI vs. GDP 디플레이터 비교</div>
+        <table style="width:100%; border-collapse:collapse; font-size:1em;">
+            <thead>
+                <tr style="background-color:#8e44ad; color:white;">
+                    <th style="padding:10px 14px; text-align:left;">구분</th>
+                    <th style="padding:10px 14px; text-align:center;">CPI<br><span style="font-weight:normal; font-size:0.85em;">(소비자물가지수)</span></th>
+                    <th style="padding:10px 14px; text-align:center;">GDP Deflator<br><span style="font-weight:normal; font-size:0.85em;">(GDP 디플레이터)</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom:1px solid #e8daef;">
+                    <td style="padding:10px 14px; font-weight:bold;">측정 대상</td>
+                    <td style="padding:10px 14px; text-align:center;">소비자가 <strong>구매하는</strong> 재화·서비스</td>
+                    <td style="padding:10px 14px; text-align:center;">국내에서 <strong>생산된</strong> 재화·서비스</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8daef; background:#fdf9ff;">
+                    <td style="padding:10px 14px; font-weight:bold;">수입품 포함</td>
+                    <td style="padding:10px 14px; text-align:center;">✅ 포함 (소비자 구매 기준)</td>
+                    <td style="padding:10px 14px; text-align:center;">❌ 미포함 (국내 생산 기준)</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8daef;">
+                    <td style="padding:10px 14px; font-weight:bold;">바스켓 구성</td>
+                    <td style="padding:10px 14px; text-align:center;"><strong>고정</strong> 바스켓<br><span style="font-size:0.85em; color:#888;">(가끔씩만 변경)</span></td>
+                    <td style="padding:10px 14px; text-align:center;"><strong>변동</strong> 바스켓<br><span style="font-size:0.85em; color:#888;">(현재 생산량 기준 자동 갱신)</span></td>
+                </tr>
+                <tr style="background:#fdf9ff;">
+                    <td style="padding:10px 14px; font-weight:bold;">유가 상승 시</td>
+                    <td style="padding:10px 14px; text-align:center;">더 <strong>크게</strong> 상승<br><span style="font-size:0.85em; color:#888;">(수입 석유 포함)</span></td>
+                    <td style="padding:10px 14px; text-align:center;">상대적으로 <strong>덜</strong> 상승<br><span style="font-size:0.85em; color:#888;">(국내 생산 석유만 반영)</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Figure 2 설명 + SVG 그래프 -->
+    <div class="paragraph-section">
+        <div class="sentence-group">
+            <div class="english">Figure 2 shows the inflation rate as measured by both the GDP deflator and the CPI for each year since 1965.</div>
+            <div class="korean">그림 2는 1965년 이후 각 연도에 대해 GDP 디플레이터와 CPI 모두로 측정한 인플레이션율을 보여줍니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">You can see that sometimes the two measures diverge. When they do diverge, it is possible to go behind these numbers and explain the divergence with the two differences we have discussed.</div>
+            <div class="korean">두 지표가 때로는 서로 다른 방향으로 움직이는 것을 볼 수 있습니다. 두 지표가 괴리를 보일 때, 우리가 논의한 두 가지 차이점으로 그 괴리를 설명할 수 있습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">For example, in 1979 and 1980, CPI inflation spiked up more than the GDP deflator largely because oil prices more than doubled during these two years.</div>
+            <div class="korean">예를 들어, 1979년과 1980년에는 이 두 해 동안 유가가 두 배 이상 폭등했기 때문에 CPI 인플레이션이 GDP 디플레이터보다 훨씬 더 크게 급등했습니다.</div>
+        </div>
+        <div class="sentence-group">
+            <div class="english">Yet divergence between these two measures is the exception rather than the rule. In the 1970s, both the GDP deflator and the CPI show high rates of inflation. In the late 1980s, 1990s, and the first decade of the 2000s, both measures show low rates of inflation.</div>
+            <div class="korean">그러나 두 지표 사이의 괴리는 원칙이라기보다는 예외적인 경우입니다. 1970년대에는 GDP 디플레이터와 CPI 모두 높은 인플레이션율을 보였습니다. 1980년대 후반, 1990년대, 그리고 2000년대 첫 10년간에는 두 지표 모두 낮은 인플레이션율을 나타냈습니다.</div>
+        </div>
+    </div>
+
+    <!-- FIGURE 2: SVG 꺾은선 그래프 -->
+    <div class="table-title-box" style="margin-top: 30px;">
+        <h4>FIGURE 2. Two Measures of Inflation (인플레이션의 두 가지 측정치)<br>
+        <span style="font-size:0.8em; color:#e67e22;">1965년 이후 연간 데이터 기준 GDP 디플레이터 및 CPI로 측정한 인플레이션율 (단위: %/년)</span></h4>
+        <p>This figure shows the inflation rate—the percentage change in the level of prices—as measured by the GDP deflator and the CPI using annual data since 1965. Notice that the two measures of inflation generally move together.<br>
+        (이 그림은 1965년 이후 연간 데이터를 사용하여 GDP 디플레이터와 CPI로 측정한 인플레이션율—물가 수준의 백분율 변화—을 보여줍니다. 두 인플레이션 지표는 대체로 함께 움직임에 주목하세요.)</p>
+    </div>
+
+    <div style="background-color:#fff; border: 1px solid #e1e8ed; border-top: none; border-radius: 0 0 8px 8px; padding: 20px; margin-bottom: 40px;">
+        <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family: sans-serif;">
+            <!-- 배경 -->
+            <rect x="60" y="20" width="670" height="250" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+
+            <!-- Y축 그리드 및 레이블 -->
+            <!-- y=15%: 20 + (15-(-2))/(15-(-2))*250 = 20+250=270... recalc -->
+            <!-- 범위: -2 to 15, 총 17단위, 높이 250px. 1단위 = 250/17 ≈ 14.7px -->
+            <!-- y좌표 = 270 - (value+2)*14.7 -->
+            <!-- 0%: 270-(2)*14.7=270-29.4=240.6 -->
+            <!-- 5%: 270-7*14.7=270-102.9=167.1 -->
+            <!-- 10%: 270-12*14.7=270-176.4=93.6 -->
+            <!-- 15%: 270-17*14.7=270-249.9≈20.1 -->
+            <!-- -2%: 270-0=270 -->
+
+            <line x1="60" y1="241" x2="730" y2="241" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="167" x2="730" y2="167" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="94" x2="730" y2="94" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="270" x2="730" y2="270" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="20" x2="730" y2="20" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+
+            <!-- Y축 레이블 -->
+            <text x="52" y="244" text-anchor="end" font-size="11" fill="#555">0</text>
+            <text x="52" y="171" text-anchor="end" font-size="11" fill="#555">5</text>
+            <text x="52" y="97" text-anchor="end" font-size="11" fill="#555">10</text>
+            <text x="52" y="24" text-anchor="end" font-size="11" fill="#555">15</text>
+            <text x="52" y="274" text-anchor="end" font-size="11" fill="#555">−2</text>
+
+            <!-- Y축 제목 -->
+            <text x="14" y="160" text-anchor="middle" font-size="11" fill="#555" transform="rotate(-90, 14, 160)">Inflation Rate (percent per year)</text>
+
+            <!-- X축 레이블: 1965~2015 (10년 간격) -->
+            <!-- x 범위: 60 to 730, 50년=670px, 1년=13.4px -->
+            <!-- x(year) = 60 + (year-1965)*13.4 -->
+            <text x="60"  y="290" text-anchor="middle" font-size="11" fill="#555">1965</text>
+            <text x="194" y="290" text-anchor="middle" font-size="11" fill="#555">1970</text>
+            <text x="327" y="290" text-anchor="middle" font-size="11" fill="#555">1975</text>
+            <text x="461" y="290" text-anchor="middle" font-size="11" fill="#555">1980</text>
+            <text x="594" y="290" text-anchor="middle" font-size="11" fill="#555">1985</text>
+            <text x="661" y="290" text-anchor="middle" font-size="11" fill="#555">1990</text>
+            <!-- 나머지 -->
+            <text x="680" y="303" text-anchor="middle" font-size="10" fill="#888">1995</text>
+            <text x="694" y="313" text-anchor="middle" font-size="9" fill="#aaa">…2015</text>
+
+            <!-- X축 눈금 -->
+            <line x1="60"  y1="270" x2="60"  y2="275" stroke="#888" stroke-width="1"/>
+            <line x1="194" y1="270" x2="194" y2="275" stroke="#888" stroke-width="1"/>
+            <line x1="327" y1="270" x2="327" y2="275" stroke="#888" stroke-width="1"/>
+            <line x1="461" y1="270" x2="461" y2="275" stroke="#888" stroke-width="1"/>
+            <line x1="594" y1="270" x2="594" y2="275" stroke="#888" stroke-width="1"/>
+
+            <!-- ===== CPI 꺾은선 (녹색) ===== -->
+            <!-- 대략적 데이터 포인트 (교재 그래프 시각적 근사치) -->
+            <!-- 연도별 CPI 인플레이션율 근사: 1965~2015 -->
+            <polyline
+                fill="none" stroke="#27ae60" stroke-width="2.2"
+                points="
+                60,226
+                74,222
+                87,214
+                101,200
+                114,188
+                128,178
+                141,188
+                155,200
+                168,205
+                182,200
+                194,192
+                207,176
+                221,161
+                234,147
+                248,130
+                261,110
+                275,94
+                288,88
+                301,100
+                314,115
+                327,123
+                341,131
+                354,140
+                368,147
+                381,152
+                394,157
+                408,162
+                421,168
+                435,175
+                448,182
+                461,170
+                474,163
+                488,172
+                501,179
+                514,184
+                528,188
+                541,192
+                554,196
+                568,200
+                581,204
+                594,206
+                607,208
+                621,210
+                634,212
+                648,214
+                661,218
+                675,222
+                688,228
+                702,232
+                716,236
+                730,240
+                "/>
+
+            <!-- ===== GDP Deflator 꺾은선 (적갈색) ===== -->
+            <polyline
+                fill="none" stroke="#922b21" stroke-width="2.2"
+                points="
+                60,228
+                74,224
+                87,218
+                101,208
+                114,198
+                128,192
+                141,198
+                155,206
+                168,210
+                182,206
+                194,200
+                207,186
+                221,172
+                234,158
+                248,144
+                261,126
+                275,105
+                288,96
+                301,108
+                314,120
+                327,130
+                341,138
+                354,146
+                368,152
+                381,158
+                394,163
+                408,168
+                421,173
+                435,178
+                448,184
+                461,176
+                474,168
+                488,175
+                501,181
+                514,186
+                528,190
+                541,193
+                554,197
+                568,201
+                581,205
+                594,207
+                607,209
+                621,211
+                634,213
+                648,215
+                661,219
+                675,223
+                688,229
+                702,233
+                716,237
+                730,241
+                "/>
+
+            <!-- 레이블 -->
+            <text x="290" y="82" font-size="12" fill="#27ae60" font-weight="bold">CPI</text>
+            <text x="310" y="106" font-size="12" fill="#922b21" font-weight="bold">GDP deflator</text>
+
+            <!-- 1979~80 강조 주석 -->
+            <rect x="280" y="85" width="3" height="155" fill="#e74c3c" opacity="0.25"/>
+            <text x="295" y="250" font-size="9" fill="#e74c3c">1979~80</text>
+            <text x="295" y="260" font-size="9" fill="#e74c3c">유가 급등</text>
+
+            <!-- 축 테두리 -->
+            <line x1="60" y1="20" x2="60" y2="270" stroke="#888" stroke-width="1.5"/>
+            <line x1="60" y1="270" x2="730" y2="270" stroke="#888" stroke-width="1.5"/>
+        </svg>
+        <div class="figure-caption">
+            <strong>Source:</strong> U.S. Department of Labor; U.S. Department of Commerce<br>
+            두 인플레이션 지표는 대체로 함께 움직이며, 1979~1980년 유가 급등 시기에 CPI가 GDP 디플레이터보다 더 크게 상승한 것이 두드러집니다.
+        </div>
+    </div>
+
+    <!-- QuickQuiz -->
+    <div style="background-color:#fffde7; border:2px solid #f9a825; border-radius:8px; padding:22px; margin-top: 40px;">
+        <div style="display:inline-block; background-color:#f9a825; color:white; font-weight:bold; font-size:0.9em; padding:3px 12px; border-radius:4px; margin-bottom:10px;">QuickQuiz ✏️</div>
+        <ul style="margin:0; padding-left:22px; font-size:1.05em; color:#333;">
+            <li style="margin-bottom:8px;">Explain briefly what the CPI measures and how it is constructed.<br>
+            <span style="color:#777; font-size:0.95em;">CPI가 무엇을 측정하는지, 그리고 어떻게 구성되는지 간략히 설명하시오.</span></li>
+            <li>Identify one reason why the CPI is an imperfect measure of the cost of living.<br>
+            <span style="color:#777; font-size:0.95em;">CPI가 생계비를 불완전하게 측정하는 이유 한 가지를 제시하시오.</span></li>
+        </ul>
+    </div>
+
+    <!-- 핵심 용어 정리 (최종 완성) -->
+    <div class="terminology" style="margin-top: 50px;">
+        <h3>💡 핵심 용어 정리 (Terminology) — 24-1 전체</h3>
+        <ul>
+            <li><strong>Bureau of Labor Statistics / BLS (노동통계국):</strong> 미국의 고용, 물가, 노동 조건 등에 관한 주요 통계를 수집, 분석, 발표하는 미국 노동부 산하 기관입니다.</li>
+            <li><strong>Basket (바스켓/장바구니):</strong> 물가지수를 산출하기 위해 사람들이 평균적으로 많이 소비하는 품목들을 모아 놓은 기준 묶음입니다.</li>
+            <li><strong>Weight (가중치):</strong> 소비자의 지출에서 특정 품목이 차지하는 비중이나 중요도입니다. 지출이 많은 품목일수록 물가지수에 미치는 영향력이 커집니다.</li>
+            <li><strong>Base Year (기준 연도):</strong> CPI를 100으로 설정하는 기준 연도입니다. 다른 연도의 물가는 이 기준 연도 대비 비율(%)로 표현됩니다.</li>
+            <li><strong>Inflation Rate (인플레이션율):</strong> 전기(preceding period) 대비 물가지수의 백분율 변화입니다. 공식: (CPI₂ − CPI₁) / CPI₁ × 100</li>
+            <li><strong>Core CPI (근원 CPI):</strong> 변동성이 큰 식품과 에너지를 제외한 물가지수로, 기조적인 인플레이션 추세를 파악하는 데 사용됩니다.</li>
+            <li><strong>Producer Price Index / PPI (생산자물가지수):</strong> 소비자가 아닌 기업이 구입하는 재화와 서비스 바스켓의 비용을 측정합니다. PPI 변화는 미래 CPI 변화를 예측하는 데 활용됩니다.</li>
+            <li><strong>Substitution Bias (대체 편의):</strong> CPI가 고정 바스켓을 사용하기 때문에, 소비자들이 상대적으로 저렴해진 재화로 대체 구매하는 행동을 반영하지 못해 생계비 상승을 과대 측정하는 오류입니다.</li>
+            <li><strong>Introduction of New Goods (신상품 도입 문제):</strong> CPI는 고정 바스켓 기반이므로, 새로운 재화의 등장으로 소비자 선택의 폭이 넓어지고 실질적인 달러 가치가 높아지는 효과를 반영하지 못합니다.</li>
+            <li><strong>Unmeasured Quality Change (미측정 품질 변화):</strong> 재화의 품질이 변할 때 이를 가격 변화와 완전히 분리하여 측정하기 어렵기 때문에 발생하는 CPI 측정의 한계입니다.</li>
+            <li><strong>Billion Prices Project / BPP (십억 가격 프로젝트):</strong> MIT 경제학자들이 온라인 가격 데이터를 실시간으로 추적하여 개발한 대안적 인플레이션 측정 지수입니다.</li>
+            <li><strong>GDP Deflator (GDP 디플레이터):</strong> 명목 GDP를 실질 GDP로 나눈 비율로, 국내에서 생산된 모든 재화와 서비스의 가격 변화를 반영합니다. 수입품을 포함하고 고정 바스켓을 사용하는 CPI와는 달리, 현재 생산량 기준으로 자동 갱신됩니다.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

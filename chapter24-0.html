@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2. Measuring the Cost of Living</title>
+    <style>
+        body { 
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; 
+            line-height: 1.7; 
+            color: #333; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 30px; 
+            background-color: #fcfcfc; 
+        }
+        .container { 
+            background-color: #fff; 
+            padding: 40px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+        }
+        h1 { 
+            color: #2c3e50; 
+            font-size: 2.2em; 
+            border-bottom: 3px solid #3498db; 
+            padding-bottom: 15px; 
+            margin-bottom: 30px; 
+        }
+        h2 { 
+            color: #2980b9; 
+            font-size: 1.6em; 
+            margin-top: 50px; 
+            border-left: 5px solid #2980b9; 
+            padding-left: 15px; 
+        }
+        h3 { 
+            color: #16a085; 
+            font-size: 1.3em; 
+            margin-top: 40px; 
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #e1e8ed;
+            padding-bottom: 10px;
+        }
+        .paragraph-section { 
+            margin-bottom: 50px; 
+        }
+        .sentence-group { 
+            margin-bottom: 25px; 
+            padding-left: 10px;
+        }
+        .english { 
+            font-size: 1.15em; 
+            font-weight: 500; 
+            color: #2c3e50; 
+            margin-bottom: 8px; 
+        }
+        .korean { 
+            font-size: 1.1em; 
+            color: #555; 
+        }
+        
+        /* 툴팁(Tooltip) 스타일 */
+        .tooltip { 
+            position: relative; 
+            display: inline-block; 
+            color: #c0392b; 
+            cursor: help; 
+            border-bottom: 2px dotted #c0392b; 
+            font-weight: bold; 
+        }
+        .tooltip .tooltiptext { 
+            visibility: hidden; 
+            width: max-content; 
+            max-width: 250px; 
+            background-color: #34495e; 
+            color: #fff; 
+            text-align: center; 
+            border-radius: 6px; 
+            padding: 8px 12px; 
+            position: absolute; 
+            z-index: 1; 
+            bottom: 130%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            opacity: 0; 
+            transition: opacity 0.3s; 
+            font-size: 0.85em; 
+            font-weight: normal; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2); 
+            line-height: 1.4;
+        }
+        .tooltip .tooltiptext::after { 
+            content: ""; 
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            margin-left: -6px; 
+            border-width: 6px; 
+            border-style: solid; 
+            border-color: #34495e transparent transparent transparent; 
+        }
+        .tooltip:hover .tooltiptext { 
+            visibility: visible; 
+            opacity: 1; 
+        }
+
+        /* 용어 및 시각자료 섹션 스타일 */
+        .terminology { 
+            background-color: #ebf5fb; 
+            padding: 30px; 
+            border-radius: 8px; 
+            margin-top: 50px; 
+        }
+        .terminology ul { 
+            list-style-type: disc; 
+            padding-left: 25px; 
+            margin: 0;
+        }
+        .terminology li { 
+            margin-bottom: 12px; 
+            font-size: 1.05em;
+        }
+        .terminology strong { 
+            color: #2980b9; 
+            font-size: 1.1em;
+        }
+        .visual-desc { 
+            background-color: #fcf3cf; 
+            padding: 25px; 
+            border-radius: 8px; 
+            border-left: 5px solid #f1c40f; 
+            margin-top: 30px; 
+            margin-bottom: 40px;
+        }
+        .visual-desc strong {
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CHAPTER 2. Measuring the Cost of Living <br><span style="font-size: 0.7em; color: #7f8c8d;">(생계비의 측정)</span></h1>
+
+    <div class="visual-desc">
+        <h3>📊 교재 시각 자료 (일러스트) 설명 [Page 24]</h3>
+        <p><strong>[페이지 하단 일러스트레이션]</strong><br>
+        태블릿 PC 화면 위에 커다란 빨간색 장바구니(Basket)가 놓여 있는 그림입니다. 장바구니 안과 밖에는 햄버거, 핫도그, 파인애플, 생수, 커피머신, 옷, 집, 자동차 등 우리가 일상생활에서 소비하는 다양한 <b>재화와 서비스(Goods and Services)</b>가 가득 담겨 있습니다. <br>
+        특히 장바구니 앞면에는 <strong>'CPI'</strong>라고 크게 적혀 있는데, 이는 이번 장의 핵심 주제인 <b>소비자물가지수(Consumer Price Index)</b>를 시각적으로 상징합니다.</p>
+    </div>
+
+    <h2>Chapter Introduction (단원 도입부)</h2>
+
+    <div class="paragraph-section">
+        <h3>베이브 루스와 허버트 후버 대통령의 연봉 비교</h3>
+
+        <div class="sentence-group">
+            <div class="english">In 1931, as the U.S. economy was <span class="tooltip">suffering<span class="tooltiptext">고통받다, (어려움을) 겪다</span></span> through the <span class="tooltip">Great Depression<span class="tooltiptext">대공황 (1929년 시작된 전 세계적 경제 침체)</span></span>, the New York Yankees paid <span class="tooltip">famed<span class="tooltiptext">저명한, 아주 유명한</span></span> baseball player Babe Ruth a salary of $80,000.</div>
+            <div class="korean">1931년, 미국 경제가 대공황(Great Depression)을 겪고 있을 때, 뉴욕 양키스는 유명한 야구 선수 베이브 루스에게 8만 달러의 연봉(salary)을 지급했습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">At the time, this pay was <span class="tooltip">extraordinary<span class="tooltiptext">비범한, 대단한, 엄청난</span></span>, even among the stars of baseball.</div>
+            <div class="korean">당시에 이 급여는 야구 스타들 사이에서도 엄청난(extraordinary) 수준이었습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">According to one story, a reporter asked Ruth <span class="tooltip">whether<span class="tooltiptext">~인지 아닌지 (명사절 접속사)</span></span> he thought it was right that he made more than President Herbert Hoover, who had a <span class="tooltip">salary<span class="tooltiptext">급여, 연봉</span></span> of $75,000.</div>
+            <div class="korean">전해지는 이야기에 따르면, 한 기자가 루스에게 7만 5천 달러의 연봉을 받는 허버트 후버 대통령보다 자신이 돈을 더 많이 버는 것이 옳다고 생각하는지 물었습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Ruth <span class="tooltip">replied<span class="tooltiptext">대답하다, 응답하다</span></span>, "I had a better year."</div>
+            <div class="korean">루스는 "제가 (대통령보다) 더 나은 한 해를 보냈으니까요"라고 대답했습니다.</div>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <h3>현대 야구 선수의 연봉과 물가 상승의 관계</h3>
+
+        <div class="sentence-group">
+            <div class="english">In 2015, the average salary <span class="tooltip">earned<span class="tooltiptext">벌어들인, 획득한 (earn의 과거분사)</span></span> by major league baseball players was about $4 million, and Los Angeles Dodgers <span class="tooltip">pitcher<span class="tooltiptext">투수 (야구 포지션)</span></span> Clayton Kershaw was paid $31 million.</div>
+            <div class="korean">2015년에 메이저리그 야구 선수들이 벌어들인 평균 연봉은 약 400만 달러였으며, 로스앤젤레스 다저스의 투수 클레이튼 커쇼는 3,100만 달러를 받았습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">At first, this fact might <span class="tooltip">lead you to think<span class="tooltiptext">당신이 ~라고 생각하게 만들다 (이끌다)</span></span> that baseball has become <span class="tooltip">vastly<span class="tooltiptext">어마어마하게, 크게, 방대하게</span></span> more <span class="tooltip">lucrative<span class="tooltiptext">수익성이 좋은, 돈벌이가 되는</span></span> over the past eight <span class="tooltip">decades<span class="tooltiptext">10년 (8 decades = 80년)</span></span>.</div>
+            <div class="korean">처음에는 이 사실로 인해 야구가 지난 80년(eight decades) 동안 엄청나게 더 수익성이 높아졌다고(lucrative) 생각할 수도 있습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">But as everyone knows, the prices of <span class="tooltip">goods<span class="tooltiptext">재화, 상품 (경제학 용어)</span></span> and services have also <span class="tooltip">risen<span class="tooltiptext">오르다, 상승하다 (rise-rose-risen)</span></span>.</div>
+            <div class="korean">하지만 모두가 알다시피 재화(goods)와 서비스의 가격도 함께 상승했습니다(risen).</div>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <h3>화폐 가치의 변화와 생활 수준 비교의 어려움</h3>
+
+        <div class="sentence-group">
+            <div class="english">In 1931, a <span class="tooltip">nickel<span class="tooltiptext">미국의 5센트 동전</span></span> would buy an ice-cream cone and a <span class="tooltip">quarter<span class="tooltiptext">미국의 25센트 동전</span></span> would buy a ticket at the local movie theater.</div>
+            <div class="korean">1931년에는 5센트(nickel)로 아이스크림 콘을 살 수 있었고, 25센트(quarter)로 동네 영화관에서 티켓을 살 수 있었습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Because prices were so much lower in Babe Ruth's day than they are today, it is not clear whether Ruth enjoyed a higher or lower <span class="tooltip">standard of living<span class="tooltiptext">생활 수준 (소득에 따라 누리는 삶의 질)</span></span> than today's players.</div>
+            <div class="korean">베이브 루스 시대의 물가가 오늘날보다 훨씬 낮았기 때문에, 루스가 오늘날의 선수들보다 더 높은 생활 수준(standard of living)을 누렸는지 아니면 더 낮은 생활 수준을 누렸는지는 불분명합니다.</div>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <h3>달러 수치를 구매력으로 변환하는 소비자물가지수(CPI)</h3>
+
+        <div class="sentence-group">
+            <div class="english">In the <span class="tooltip">preceding<span class="tooltiptext">이전의, 앞서는</span></span> chapter, we looked at how economists use <span class="tooltip">gross domestic product (GDP)<span class="tooltiptext">국내총생산 (한 국가에서 생산된 재화와 서비스의 총가치)</span></span> to measure the quantity of goods and services that the economy is producing.</div>
+            <div class="korean">이전 장에서 우리는 경제학자들이 경제가 생산하는 재화와 서비스의 양을 측정하기 위해 국내총생산(GDP)을 어떻게 사용하는지 살펴보았습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">This chapter examines how economists measure the <span class="tooltip">overall<span class="tooltiptext">전반적인, 전체의</span></span> cost of living.</div>
+            <div class="korean">이번 장에서는 경제학자들이 전반적인 생계비(cost of living)를 어떻게 측정하는지 살펴봅니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">To compare Babe Ruth's salary of $80,000 to salaries from today, we need to find some way of turning dollar figures into meaningful measures of <span class="tooltip">purchasing power<span class="tooltiptext">구매력 (화폐 1단위로 살 수 있는 재화 및 서비스의 수량)</span></span>.</div>
+            <div class="korean">베이브 루스의 연봉 8만 달러를 오늘날의 연봉과 비교하려면, 달러 수치를 의미 있는 구매력(purchasing power) 척도로 변환할 어떤 방법을 찾아야 합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">That is exactly the job of a <span class="tooltip">statistic<span class="tooltiptext">통계, 통계 지표</span></span> called the <em>consumer price index</em>, or simply the CPI.</div>
+            <div class="korean">그것이 바로 소비자물가지수(consumer price index), 혹은 간단히 CPI라고 불리는 통계 지표의 역할입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">After seeing how the CPI is <span class="tooltip">constructed<span class="tooltiptext">구성된, 작성된</span></span>, we discuss how we can use such a price index to compare dollar figures from different points in time.</div>
+            <div class="korean">CPI가 어떻게 작성되는지 살펴본 후, 서로 다른 시점의 달러 수치를 비교하기 위해 이러한 물가지수를 어떻게 사용할 수 있는지 논의할 것입니다.</div>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <h3>인플레이션율 측정의 핵심 지표, CPI</h3>
+
+        <div class="sentence-group">
+            <div class="english">The CPI is used to <span class="tooltip">monitor<span class="tooltiptext">추적 관찰하다, 감시하다</span></span> changes in the cost of living over time.</div>
+            <div class="korean">CPI는 시간이 지남에 따른 생계비의 변화를 추적(monitor)하는 데 사용됩니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">When the CPI rises, the <span class="tooltip">typical<span class="tooltiptext">일반적인, 전형적인</span></span> family has to spend more money to maintain the same standard of living.</div>
+            <div class="korean">CPI가 상승하면, 일반적인 가정은 동일한 생활 수준을 유지하기 위해 더 많은 돈을 지출해야 합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">Economists use the term <em>inflation</em> to describe a situation in which the economy's overall price level is rising.</div>
+            <div class="korean">경제학자들은 경제의 전반적인 물가 수준이 상승하는 상황을 설명하기 위해 인플레이션(inflation)이라는 용어를 사용합니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The <em>inflation rate</em> is the <span class="tooltip">percentage change<span class="tooltiptext">백분율 변화 (증감률)</span></span> in the price level from the previous period.</div>
+            <div class="korean">인플레이션율(inflation rate)은 이전 기간 대비 물가 수준의 백분율 변화(percentage change)입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The preceding chapter showed how economists can measure inflation using the GDP deflator.</div>
+            <div class="korean">이전 장에서는 경제학자들이 GDP 디플레이터를 사용하여 인플레이션을 측정하는 방법을 보여주었습니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">The inflation rate you are likely to hear on the nightly news, however, is calculated from the CPI, which better <span class="tooltip">reflects<span class="tooltiptext">반영하다, 나타내다</span></span> the goods and services bought by consumers.</div>
+            <div class="korean">하지만 여러분이 저녁 뉴스에서 듣게 될 인플레이션율은 소비자(consumers)가 구매하는 재화와 서비스를 더 잘 반영하는 CPI를 바탕으로 계산됩니다.</div>
+        </div>
+    </div>
+
+    <div class="paragraph-section">
+        <h3>거시경제 정책의 가이드로서의 인플레이션</h3>
+
+        <div class="sentence-group">
+            <div class="english">As we will see in the coming chapters, inflation is a closely watched aspect of <span class="tooltip">macroeconomic performance<span class="tooltiptext">거시경제적 성과 (국가 경제 전체의 운영 결과)</span></span> and is a <span class="tooltip">key variable<span class="tooltiptext">핵심 변수</span></span> guiding macroeconomic policy.</div>
+            <div class="korean">앞으로의 장들에서 보게 되겠지만, 인플레이션은 거시경제적 성과(macroeconomic performance)에서 주의 깊게 관찰되는 측면이며, 거시경제 정책을 이끄는 핵심 변수(key variable)입니다.</div>
+        </div>
+
+        <div class="sentence-group">
+            <div class="english">This chapter provides the background for that analysis by showing how economists measure the inflation rate using the CPI and how this statistic can be used to compare dollar figures from different times.</div>
+            <div class="korean">이 장에서는 경제학자들이 CPI를 사용하여 인플레이션율을 측정하는 방법과 이 통계가 다른 시점의 달러 수치를 비교하는 데 어떻게 사용될 수 있는지 보여줌으로써 그러한 분석을 위한 배경지식을 제공합니다.</div>
+        </div>
+    </div>
+
+    <div class="terminology">
+        <h3>💡 핵심 용어 정리 (Terminology)</h3>
+        <ul>
+            <li><strong>Great Depression (대공황):</strong> 1929년에 시작되어 1930년대 전 세계를 강타한 극심한 경제 침체기를 의미합니다.</li>
+            <li><strong>Gross Domestic Product / GDP (국내총생산):</strong> 한 국가의 국경 안에서 일정 기간 동안 생산된 모든 최종 재화와 서비스의 시장 가치 총합을 의미합니다.</li>
+            <li><strong>Standard of Living (생활 수준):</strong> 국민이나 개인이 소비할 수 있는 재화나 서비스의 양과 질에 따라 결정되는 전반적인 삶의 수준을 뜻합니다.</li>
+            <li><strong>Cost of Living (생계비 / 생활비):</strong> 사람들이 특정한 생활 수준을 유지하기 위해 재화와 서비스를 구매하는 데 필요한 비용의 총액입니다.</li>
+            <li><strong>Purchasing Power (구매력):</strong> 화폐 1단위(예: 1달러, 1원)를 가지고 구매할 수 있는 재화와 서비스의 수량, 즉 돈의 실질적인 가치를 의미합니다.</li>
+            <li><strong>Consumer Price Index / CPI (소비자물가지수):</strong> 일반 소비자가 소비생활을 영위하기 위해 구입하는 대표적인 재화와 서비스의 가격 변동을 나타내는 지수입니다.</li>
+            <li><strong>Inflation (인플레이션 / 물가상승):</strong> 한 국가 경제의 전반적인 물가 수준이 지속적으로 상승하여 화폐의 구매력이 떨어지는 현상입니다.</li>
+            <li><strong>Inflation Rate (인플레이션율 / 물가상승률):</strong> 이전 기간(예: 전년 동월, 전 분기 등) 대비 현재의 물가 수준이 얼마나 변했는지를 나타내는 백분율 변화 수치입니다.</li>
+            <li><strong>Macroeconomic Policy (거시경제 정책):</strong> 정부나 중앙은행이 인플레이션 통제, 경제 성장, 고용 안정 등 국가 경제 전체의 목표를 달성하기 위해 시행하는 재정 및 통화 정책입니다.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
