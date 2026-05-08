@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Week 1 — Identifying Unemployment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF7;
+    --bg-soft: #F2F1EC;
+    --text: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-soft: #8A8A8A;
+    --line: #E4E2DC;
+    --line-soft: #EFEDE7;
+    --accent: #1E3A8A;
+    --accent-soft: #EFF2FA;
+    --green: #166534;
+    --green-soft: #ECF5EE;
+    --red: #991B1B;
+    --red-soft: #FBEDED;
+    --amber: #92400E;
+    --amber-soft: #FBF4E8;
+    --ko-bg: #FFFCF2;
+    --ko-border: #E8E2CC;
+    --ko-text: #5C4A1A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-weight: 400;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+  .ko-block {
+    background: var(--ko-bg);
+    border-left: 3px solid var(--ko-border);
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .ko-inline {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-soft);
+    font-weight: 400;
+    font-size: 0.85em;
+    margin-left: 6px;
+  }
+
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding: 80px 24px 64px;
+    background: var(--bg);
+  }
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .hero h1 .ko-h1 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-top: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    color: var(--text-soft);
+    font-size: 14px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '·';
+    margin-left: 18px;
+    color: var(--line);
+  }
+
+  nav.toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.toc::-webkit-scrollbar { height: 0 }
+  .toc-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  nav.toc a {
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  nav.toc a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  section {
+    margin-bottom: 72px;
+    scroll-margin-top: 72px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  h2.section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  h2.section-title .ko-h2 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.55em;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-top: 6px;
+    letter-spacing: -0.3px;
+  }
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 24px 0 28px;
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .cat-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+    transition: all 0.2s ease;
+  }
+  .cat-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.06);
+  }
+  .cat-card .num-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .cat-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .cat-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 6px;
+  }
+
+  .def {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg);
+  }
+  .def-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-soft);
+  }
+  .def-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .tag-emp { background: var(--green-soft); color: var(--green) }
+  .tag-unemp { background: var(--red-soft); color: var(--red) }
+  .tag-not { background: var(--amber-soft); color: var(--amber) }
+  .def-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .def-body {
+    padding: 24px;
+  }
+  .def-body ul {
+    list-style: none;
+  }
+  .def-body li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--text);
+  }
+  .def-body li:last-child { border-bottom: none }
+  .def-body li strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .formula-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+  .formula-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .formula-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .formula-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+  .formula-card .desc {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 18px;
+  }
+  .formula-display {
+    background: var(--bg-soft);
+    border-radius: 8px;
+    padding: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.5;
+    border: 1px solid var(--line-soft);
+    overflow-x: auto;
+  }
+  .formula-display .lhs {
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .formula-display .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    margin: 0 6px;
+    text-align: center;
+  }
+  .formula-display .frac .num-l {
+    border-bottom: 2px solid var(--text);
+    padding: 4px 14px;
+  }
+  .formula-display .frac .den-l {
+    padding: 4px 14px;
+  }
+  .formula-display .x100 {
+    color: var(--green);
+    font-weight: 600;
+    margin-left: 4px;
+  }
+
+  .data-panel {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .data-panel h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .data-panel .data-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+  }
+  .legend {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+  }
+  .bar-chart {
+    width: 100%;
+    height: 56px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 8px;
+    border: 1px solid var(--line);
+  }
+  .bar-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    transition: filter 0.15s;
+  }
+  .bar-seg:hover { filter: brightness(1.05) }
+  .seg-emp { background: #1E3A8A; flex: 20993.4 1 0 }
+  .seg-unemp { background: #991B1B; flex: 1490.6 1 0; font-size: 11px }
+  .seg-nlf { background: #92400E; flex: 11856.8 1 0 }
+  .lf-bracket {
+    width: calc((20993.4 + 1490.6) / 34340.8 * 100%);
+    border-left: 2px solid var(--text);
+    border-right: 2px solid var(--text);
+    border-bottom: 2px solid var(--text);
+    height: 14px;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .lf-bracket::after {
+    content: 'Labour Force';
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 8px;
+    white-space: nowrap;
+  }
+  .data-summary {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .data-summary .label {
+    font-size: 13px;
+    color: var(--text-soft);
+  }
+  .data-summary .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .calc-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .calc-card .step-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .calc-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .calc-formula {
+    background: var(--bg-soft);
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    margin-bottom: 10px;
+  }
+  .calc-answer {
+    background: var(--accent);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .case-intro {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .case-intro h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .case-intro p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+  .qa {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .qa-q {
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    gap: 14px;
+  }
+  .qa-q .qnum {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--bg);
+    padding: 3px 10px;
+    border-radius: 4px;
+    height: fit-content;
+    border: 1px solid var(--line);
+  }
+  .qa-q .qtext {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .qa-a {
+    padding: 20px 22px;
+  }
+  .qa-a .a-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .qa-a p {
+    font-size: 14.5px;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .qa-a ul {
+    margin: 6px 0 12px 0;
+    list-style: none;
+  }
+  .qa-a li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--text-mid);
+  }
+  .qa-a li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-soft);
+  }
+
+  .tip {
+    background: var(--amber-soft);
+    border: 1px solid #F0DDB8;
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .tip .tip-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tip h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .tip p {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .term {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.92em;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 40px 20px 80px; }
+    header.hero { padding: 56px 20px 44px; }
+    .formula-display { font-size: 13px; padding: 18px; }
+    .qa-q { padding: 14px 16px; }
+    .qa-a { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Macroeconomics · Week 1</div>
+    <h1>
+      Identifying Unemployment
+      <span class="ko-h1">실업의 측정 — 노동시장 통계 기초</span>
+    </h1>
+    <div class="hero-meta">
+      <span>Exploring the Key Components of Global Economies</span>
+      <span>Study Notes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">01 · Three Categories</a>
+    <a href="#s2">02 · Employed</a>
+    <a href="#s3">03 · Unemployed</a>
+    <a href="#s4">04 · Not in Labour Force</a>
+    <a href="#s5">05 · Labour Force</a>
+    <a href="#s6">06 · Formulas</a>
+    <a href="#s7">07 · Canada Data</a>
+    <a href="#s8">08 · Calculations</a>
+    <a href="#s9">09 · Case Study</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="s1">
+  <div class="section-num">SECTION 01</div>
+  <h2 class="section-title">
+    How do we Measure Unemployment?
+    <span class="ko-h2">실업은 어떻게 측정할까?</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    Statistics agencies divide the adult population into three categories to compute unemployment statistics.
+  </p>
+  <div class="ko-block">
+    통계청은 만 15세 이상 인구(adult population)를 다음 세 가지로 분류하여 실업 통계를 산출합니다.
+  </div>
+
+  <div class="cat-grid" style="margin-top:24px">
+    <div class="cat-card">
+      <span class="num-pill">01</span>
+      <h3>Employed</h3>
+      <p>People who currently have a job — paid workers, self-employed, or unpaid family workers.</p>
+      <div class="ko-block">취업자 — 유급 근로자, 자영업자, 무급 가족 종사자 등 일하고 있는 사람</div>
+    </div>
+    <div class="cat-card">
+      <span class="num-pill">02</span>
+      <h3>Unemployed</h3>
+      <p>People without a job who have <strong>actively searched</strong> for work in the past month.</p>
+      <div class="ko-block">실업자 — 일은 없지만 지난 한 달 안에 <strong>적극적으로 구직 활동</strong>을 한 사람</div>
+    </div>
+    <div class="cat-card">
+      <span class="num-pill">03</span>
+      <h3>Not in the Labour Force</h3>
+      <p>People who are neither working nor looking — students, homemakers, retirees, etc.</p>
+      <div class="ko-block">비경제활동인구 — 일도 안 하고 구직 활동도 하지 않는 사람 (학생, 전업주부, 은퇴자 등)</div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="section-num">SECTION 02</div>
+  <h2 class="section-title">
+    Employed
+    <span class="ko-h2">취업자의 정의</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-emp">CATEGORY 01</span>
+      <h3>Anyone who has a job</h3>
+    </div>
+    <div class="def-body">
+      <ul>
+        <li>
+          A <strong>paid employee</strong> at a company or organization.
+          <div class="ko-block">유급 근로자 — 회사나 기관에서 임금을 받고 일하는 사람</div>
+        </li>
+        <li>
+          Someone who <strong>works in their own business</strong> (self-employed).
+          <div class="ko-block">자영업자 — 자기 사업을 운영하는 사람</div>
+        </li>
+        <li>
+          An <strong>unpaid worker in a family business</strong>.
+          <div class="ko-block">무급 가족 종사자 — 가족이 운영하는 사업을 무보수로 돕는 사람</div>
+        </li>
+        <li>
+          People who <strong>have a job but are temporarily not working</strong> due to sickness, vacation, etc.
+          <div class="ko-block">일시 휴직자 포함 — 병가나 휴가로 잠시 쉬고 있어도 직장이 있다면 취업자로 분류</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="section-num">SECTION 03</div>
+  <h2 class="section-title">
+    Unemployed
+    <span class="ko-h2">실업자의 정의</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-unemp">CATEGORY 02</span>
+      <h3>No job, but actively looking</h3>
+    </div>
+    <div class="def-body">
+      <ul>
+        <li>
+          Anyone who is <strong>not employed</strong> but has been <strong>looking for work within the past month</strong>.
+          <div class="ko-block">현재 일하지 않지만 <strong>지난 한 달 이내</strong>에 적극적으로 구직 활동을 한 사람</div>
+        </li>
+        <li>
+          People <strong>waiting to get recalled</strong> to a job they have been laid off from.
+          <div class="ko-block">일시 해고(layoff)된 후 재고용을 기다리는 사람도 실업자에 포함됩니다</div>
+        </li>
+        <li>
+          The key element is <strong>active job search</strong> — simply not having a job is not enough.
+          <div class="ko-block">핵심은 <strong>"구직 활동의 적극성"</strong> — 단순히 일자리가 없다는 사실만으로는 실업자가 아닙니다</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">⚠ Don't confuse</div>
+    <h4>Not having a job ≠ Being unemployed</h4>
+    <p>Students, homemakers, and people who simply don't want to work are <strong>not unemployed</strong> — they are classified as <em>not in the labour force</em>. You must have submitted a resume or had an interview within the past month to count as unemployed.</p>
+    <div class="ko-block" style="margin-top:10px">
+      "일을 하지 않는 사람" = "실업자"가 <strong>아닙니다</strong>. 학생, 전업주부, 일할 의지가 없는 사람은 <strong>비경제활동인구</strong>로 분류됩니다. 지난 한 달 안에 이력서를 내거나 면접을 본 적이 있어야 실업자로 분류됩니다.
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="section-num">SECTION 04</div>
+  <h2 class="section-title">
+    Not in the Labour Force
+    <span class="ko-h2">비경제활동인구의 정의</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-not">CATEGORY 03</span>
+      <h3>Neither working nor looking for work</h3>
+    </div>
+    <div class="def-body">
+      <ul>
+        <li>
+          Anyone who <strong>does not fit into the first two categories</strong>.
+          <div class="ko-block">취업자·실업자 어디에도 속하지 <strong>않는</strong> 사람</div>
+        </li>
+        <li>
+          Examples: <strong>full-time students, homemakers, retirees</strong>, long-term discouraged workers.
+          <div class="ko-block">대표 예시 — <strong>전업 학생, 전업주부, 은퇴자</strong>, 장기 실망실업자 등</div>
+        </li>
+        <li>
+          Important: even if someone is <em>able</em> to work, they are counted here as long as they are not actively seeking work.
+          <div class="ko-block">중요 — 일할 능력이 있어도 본인이 <em>구직 의사가 없다면</em> 비경활로 분류됩니다</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="section-num">SECTION 05</div>
+  <h2 class="section-title">
+    Defining the Labour Force
+    <span class="ko-h2">노동력(경제활동인구)의 정의</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    The <span class="term">labour force</span> is the sum of those willing to work — that is, the employed plus the unemployed. People not in the labour force are excluded.
+  </p>
+  <div class="ko-block">
+    <strong>노동력(Labour Force)</strong>은 일할 의사가 있는 사람들의 총합입니다. 즉, <strong>취업자 + 실업자</strong>이며, 비경제활동인구는 포함되지 않습니다.
+  </div>
+
+  <div class="formula-card" style="margin-top:24px">
+    <div class="formula-header">
+      <h3>Labour Force Formula</h3>
+      <span class="label">FORMULA</span>
+    </div>
+    <div class="formula-display">
+      <span class="lhs">Labour Force</span> &nbsp;=&nbsp; Number of Employed &nbsp;+&nbsp; Number of Unemployed
+    </div>
+    <div class="ko-block" style="margin-top:14px">
+      <strong>노동력</strong> = 취업자 수 + 실업자 수
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="section-num">SECTION 06</div>
+  <h2 class="section-title">
+    Three Essential Formulas
+    <span class="ko-h2">꼭 외워야 할 3가지 공식</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="formula-card">
+    <div class="formula-header">
+      <h3>Labour-Force Participation Rate</h3>
+      <span class="label">FORMULA 01</span>
+    </div>
+    <p class="desc">The percentage of the adult population that has chosen to participate in the labour market.</p>
+    <div class="formula-display">
+      <span class="lhs">Participation Rate</span> &nbsp;=&nbsp;
+      <span class="frac">
+        <span class="num-l">Labour Force</span>
+        <span class="den-l">Adult Population</span>
+      </span>
+      &nbsp;×&nbsp; <span class="x100">100</span>
+    </div>
+    <div class="ko-block" style="margin-top:14px">
+      <strong>경제활동참가율</strong> — 만 15세 이상 인구 중 노동시장에 참여하기로 선택한 사람의 비율
+    </div>
+  </div>
+
+  <div class="formula-card">
+    <div class="formula-header">
+      <h3>Unemployment Rate</h3>
+      <span class="label">FORMULA 02 ★</span>
+    </div>
+    <p class="desc">The percentage of the labour force that is unemployed. <strong>The most frequently used statistic.</strong></p>
+    <div class="formula-display">
+      <span class="lhs">Unemployment Rate</span> &nbsp;=&nbsp;
+      <span class="frac">
+        <span class="num-l">Number of Unemployed</span>
+        <span class="den-l">Labour Force</span>
+      </span>
+      &nbsp;×&nbsp; <span class="x100">100</span>
+    </div>
+    <div class="ko-block" style="margin-top:14px">
+      <strong>실업률</strong> — 노동력(경제활동인구) 중 실업자의 비율. <strong>가장 자주 등장하는 지표</strong>입니다.
+    </div>
+  </div>
+
+  <div class="formula-card">
+    <div class="formula-header">
+      <h3>Employment-Population Ratio</h3>
+      <span class="label">FORMULA 03</span>
+    </div>
+    <p class="desc">The percentage of the adult population that is currently employed under the standards previously defined.</p>
+    <div class="formula-display">
+      <span class="lhs">Employment Ratio</span> &nbsp;=&nbsp;
+      <span class="frac">
+        <span class="num-l">Employed</span>
+        <span class="den-l">Adult Population</span>
+      </span>
+      &nbsp;×&nbsp; <span class="x100">100</span>
+    </div>
+    <div class="ko-block" style="margin-top:14px">
+      <strong>고용률</strong> — 만 15세 이상 인구 중 실제로 취업 중인 사람의 비율
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">⚠ Critical Distinction</div>
+    <h4>Watch the denominator</h4>
+    <p>The <strong>Unemployment Rate</strong> uses <span class="term">Labour Force</span> (employed + unemployed) as its denominator, while the <strong>Participation Rate</strong> and <strong>Employment Ratio</strong> use the <span class="term">Adult Population</span>. Always check which one is in the denominator!</p>
+    <div class="ko-block" style="margin-top:10px">
+      <strong>실업률</strong>의 분모는 <strong>노동력</strong>(취업+실업)인 반면, <strong>참가율과 고용률</strong>의 분모는 <strong>15세 이상 전체 인구</strong>입니다. 분모가 무엇인지 항상 확인하세요!
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="section-num">SECTION 07</div>
+  <h2 class="section-title">
+    Canada in January 2025
+    <span class="ko-h2">2025년 1월 캐나다 데이터</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="data-panel">
+    <h3>Canadian Labour Market Snapshot</h3>
+    <p class="data-sub">All figures shown are in <strong>thousands of people</strong>.<br><span class="ko">모든 수치는 천 명 단위입니다.</span></p>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot" style="background:#1E3A8A"></span>Employed <span class="ko-inline">취업자</span></div>
+      <div class="legend-item"><span class="legend-dot" style="background:#991B1B"></span>Unemployed <span class="ko-inline">실업자</span></div>
+      <div class="legend-item"><span class="legend-dot" style="background:#92400E"></span>Not in Labour Force <span class="ko-inline">비경활</span></div>
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar-seg seg-emp">20,993.4</div>
+      <div class="bar-seg seg-unemp">1,490.6</div>
+      <div class="bar-seg seg-nlf">11,856.8</div>
+    </div>
+
+    <div class="lf-bracket"></div>
+
+    <div class="data-summary">
+      <span class="label">Total Adult Population <span class="ko-inline">15세 이상 전체 인구</span></span>
+      <span class="value">34,340.8</span>
+    </div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="section-num">SECTION 08</div>
+  <h2 class="section-title">
+    Worked Calculations
+    <span class="ko-h2">5가지 계산 풀이</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    Using the Canadian data above, here are five worked calculations. Try them yourself first, then check the answers below.
+  </p>
+  <div class="ko-block">
+    위 캐나다 데이터를 바탕으로 5가지를 계산해봅시다. <strong>먼저 직접 시도</strong>한 후 풀이를 확인하세요!
+  </div>
+
+  <div class="calc-grid" style="margin-top:24px">
+
+    <div class="calc-card">
+      <div class="step-tag">CALC 01</div>
+      <h4>Labour Force <span class="ko-inline">노동력</span></h4>
+      <div class="calc-formula">
+        = Employed + Unemployed<br>
+        = 20,993.4 + 1,490.6<br>
+        = <strong>22,484.0</strong>
+      </div>
+      <div class="calc-answer">22,484.0 thousand</div>
+    </div>
+
+    <div class="calc-card">
+      <div class="step-tag">CALC 02</div>
+      <h4>Not in Labour Force <span class="ko-inline">비경활인구</span></h4>
+      <div class="calc-formula">
+        = Adult Pop. − Labour Force<br>
+        = 34,340.8 − 22,484.0<br>
+        = <strong>11,856.8</strong>
+      </div>
+      <div class="calc-answer">11,856.8 thousand</div>
+    </div>
+
+    <div class="calc-card">
+      <div class="step-tag">CALC 03</div>
+      <h4>Unemployment Rate <span class="ko-inline">실업률</span></h4>
+      <div class="calc-formula">
+        = (Unemployed / LF) × 100<br>
+        = (1,490.6 / 22,484.0) × 100<br>
+        ≈ <strong>6.63 %</strong>
+      </div>
+      <div class="calc-answer">≈ 6.63 %</div>
+    </div>
+
+    <div class="calc-card">
+      <div class="step-tag">CALC 04</div>
+      <h4>LF Participation Rate <span class="ko-inline">참가율</span></h4>
+      <div class="calc-formula">
+        = (LF / Adult Pop.) × 100<br>
+        = (22,484.0 / 34,340.8) × 100<br>
+        ≈ <strong>65.47 %</strong>
+      </div>
+      <div class="calc-answer">≈ 65.47 %</div>
+    </div>
+
+    <div class="calc-card">
+      <div class="step-tag">CALC 05</div>
+      <h4>Employment Ratio <span class="ko-inline">고용률</span></h4>
+      <div class="calc-formula">
+        = (Employed / Adult Pop.) × 100<br>
+        = (20,993.4 / 34,340.8) × 100<br>
+        ≈ <strong>61.13 %</strong>
+      </div>
+      <div class="calc-answer">≈ 61.13 %</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Interpretation</div>
+    <h4>What do these numbers actually mean?</h4>
+    <p>In January 2025, about <strong>6.63% of the labour force</strong> in Canada was unemployed. About <strong>65.5% of the adult population</strong> participated in the labour market, and <strong>61.1% were actually working</strong>. The gap between participation rate and employment ratio (≈ 4.3pp) reflects the impact of unemployment.</p>
+    <div class="ko-block" style="margin-top:10px">
+      2025년 1월 캐나다에서는 노동력의 약 <strong>6.63%가 실업 상태</strong>이며, 15세 이상 인구의 약 <strong>65.5%가 노동시장에 참여</strong>, 실제로 <strong>61.1%가 일을 하고 있다</strong>는 의미입니다. 참가율과 고용률의 차이(약 4.3%p)가 곧 실업의 영향이라고 직관적으로 이해할 수 있습니다.
+    </div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="section-num">SECTION 09</div>
+  <h2 class="section-title">
+    Case Study: Labour-Force Participation of Men and Women in the U.S.
+    <span class="ko-h2">사례연구: 미국의 남녀 경제활동참가율</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="case-intro">
+    <h3>Textbook pp. 96–97</h3>
+    <p>Below are answer guides for each of the five questions. These aren't the only correct answers — they outline the key economic concepts you should reference.</p>
+    <div class="ko-block" style="background:transparent; border-left-color:#cdd6e8; padding-left:14px; margin-top:10px;">
+      교과서 96-97p 사례연구. 정답이 정해진 문제는 아니며, 각 질문에서 다뤄야 할 핵심 경제학적 개념을 정리했습니다.
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <span class="qnum">Q.01</span>
+      <div class="qtext">
+        What might explain the trends seen in the Labour Force Participation Rate for men and women shown in Figure 3?
+        <div class="ko-block" style="margin-top:8px">그림 3에 나타난 남녀 경제활동참가율 추세를 어떻게 설명할 수 있을까요?</div>
+      </div>
+    </div>
+    <div class="qa-a">
+      <div class="a-label">Answer Guide</div>
+      <p><strong>Drivers behind the rise in female participation:</strong></p>
+      <ul>
+        <li>Household appliances reduced housework time (washing machines, dishwashers)</li>
+        <li>Better contraception → control over timing of children → career planning</li>
+        <li>Higher education attainment for women</li>
+        <li>Service sector growth created more women-friendly jobs</li>
+        <li>Cultural change and anti-discrimination legislation</li>
+      </ul>
+      <p style="margin-top:10px"><strong>Drivers behind the decline in male participation:</strong></p>
+      <ul>
+        <li>Decline in manufacturing jobs (automation, globalization)</li>
+        <li>Earlier retirement, expanded social security</li>
+        <li>More disability and health insurance recipients</li>
+        <li>Higher college enrollment delays labour market entry</li>
+      </ul>
+      <div class="ko-block" style="margin-top:12px">
+        <strong>여성 참가율 상승</strong> — 가전제품 보급, 피임 기술 발달, 여성 교육 수준 상승, 서비스 산업 성장, 차별 금지 법제화 등.<br><br>
+        <strong>남성 참가율 하락</strong> — 제조업 일자리 감소, 조기 은퇴 및 사회보장 확대, 장애·질병 보험 수혜자 증가, 대학 진학률 상승으로 노동시장 진입 시점 지연 등.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <span class="qnum">Q.02</span>
+      <div class="qtext">
+        How would the position of the lines in Figure 3 change if in 2015 there was suddenly a spike in unemployment for women and a spike in employment for men?
+        <div class="ko-block" style="margin-top:8px">2015년에 여성 실업이 급증하고 남성 고용이 급증한다면 그림 3의 선들은 어떻게 변할까요?</div>
+      </div>
+    </div>
+    <div class="qa-a">
+      <div class="a-label">Answer Guide</div>
+      <p><strong>Trick question!</strong> The numerator of LFPR is <em>Labour Force</em> = Employed + Unemployed. So even if female unemployment rises, those women remain in the labour force <em>as long as they are still searching</em>.</p>
+      <ul>
+        <li><strong>Female participation rate:</strong> no change (unemployed are still in the labour force)</li>
+        <li><strong>Male participation rate:</strong> rises — men previously not in the labour force now employed → labour force ↑ → participation ↑</li>
+        <li>However, if unemployment is prolonged and some women become <strong>discouraged workers</strong> who stop searching, they exit the labour force → female participation rate <strong>falls</strong>.</li>
+      </ul>
+      <div class="ko-block" style="margin-top:12px">
+        함정 문제입니다. 참가율의 분자는 "노동력 = 취업자 + 실업자"이므로, 여성 실업이 늘어도 그들이 <em>구직 활동을 계속하는 한</em> 노동력에 그대로 포함됩니다.<br><br>
+        • <strong>여성 참가율</strong>: 변화 없음 (실업자도 노동력에 포함)<br>
+        • <strong>남성 참가율</strong>: 비경활이던 남성이 고용되면 노동력↑ → 참가율 ↑<br>
+        • 단, 실업이 길어져 일부 여성이 <strong>실망실업자</strong>로 구직을 포기하면 비경활로 빠지면서 여성 참가율은 <strong>하락</strong>합니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <span class="qnum">Q.03</span>
+      <div class="qtext">
+        Why might the labour force participation rate be lower for youth? How could it be true that their unemployment rate is higher if their participation rate is lower?
+        <div class="ko-block" style="margin-top:8px">청년층의 참가율은 왜 낮을까요? 참가율이 낮은데 실업률은 더 높을 수 있는 이유는?</div>
+      </div>
+    </div>
+    <div class="qa-a">
+      <div class="a-label">Answer Guide</div>
+      <p><strong>Why youth participation is lower:</strong></p>
+      <ul>
+        <li>Many youth are full-time students → classified as not in labour force</li>
+        <li>Full-time study keeps them outside the labour market</li>
+      </ul>
+      <p style="margin-top:10px"><strong>Why unemployment can still be higher:</strong> The denominator of unemployment rate is the <strong>labour force</strong> (= employed + unemployed), not the entire population.</p>
+      <ul>
+        <li>Students are excluded from <em>both</em> the numerator and denominator</li>
+        <li>Youth in the labour force tend to lack experience and skills → harder to get hired → higher share of unemployed</li>
+        <li>Example: out of 100 youth, only 30 in the labour force, 6 unemployed → Participation = 30%, Unemployment = 6/30 = 20%</li>
+      </ul>
+      <div class="ko-block" style="margin-top:12px">
+        많은 청년이 학생 신분으로 비경활에 분류되므로 참가율은 낮습니다. 그러나 실업률의 분모는 <strong>노동력</strong>이지 전체 인구가 아닙니다. 학생들은 분자·분모 모두에서 빠지고, 노동시장에 들어온 청년들은 경력·기술 부족으로 취업이 어려워 실업자 비율이 높아집니다.<br><br>
+        예: 청년 100명 중 30명만 노동력에 참여, 그 중 6명이 실업자라면 → 참가율 30%, 실업률 20%.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <span class="qnum">Q.04</span>
+      <div class="qtext">
+        Why might the participation rate be lower for women than men (aged 25–54)?
+        <div class="ko-block" style="margin-top:8px">25-54세 여성의 참가율이 남성보다 낮은 이유는?</div>
+      </div>
+    </div>
+    <div class="qa-a">
+      <div class="a-label">Answer Guide</div>
+      <ul>
+        <li><strong>Childcare and caregiving:</strong> women still bear most of the caregiving load → temporary or permanent labour market exits</li>
+        <li><strong>Career interruption:</strong> difficulty re-entering the workforce after childbirth</li>
+        <li><strong>Wage gap:</strong> with lower female wages, household decisions may push women out of the labour market</li>
+        <li><strong>Lack of flexible work:</strong> few jobs accommodate caregiving responsibilities</li>
+        <li><strong>Social norms:</strong> traditional gender roles still influence some households</li>
+      </ul>
+      <div class="ko-block" style="margin-top:12px">
+        육아·돌봄 책임이 여성에게 더 많이 부과됨, 출산·육아 후 경력 단절, 동일 노동에서의 임금 격차로 가계 의사결정 시 여성이 비경활이 되기 쉬움, 가사·돌봄과 양립 가능한 유연한 근무 부족, 일부 가정의 전통적 성역할 규범 등.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <span class="qnum">Q.05</span>
+      <div class="qtext">
+        Why might the participation rate be so much lower for adults over the age of 55?
+        <div class="ko-block" style="margin-top:8px">55세 이상 성인의 참가율이 훨씬 더 낮은 이유는?</div>
+      </div>
+    </div>
+    <div class="qa-a">
+      <div class="a-label">Answer Guide</div>
+      <ul>
+        <li><strong>Retirement:</strong> the most direct reason — most retire near age 65 → not in labour force</li>
+        <li><strong>Pensions and Social Security:</strong> public benefits make it possible to live without working</li>
+        <li><strong>Health issues:</strong> chronic illness and disability become more common with age</li>
+        <li><strong>Accumulated assets:</strong> a lifetime of savings and investments reduces dependence on labour income</li>
+        <li><strong>Family caregiving:</strong> grandchildren or aging parents pull people out of the labour market</li>
+        <li><strong>Age discrimination:</strong> older workers face hiring biases → may give up the job search → become discouraged workers</li>
+      </ul>
+      <div class="ko-block" style="margin-top:12px">
+        은퇴(가장 직접적 이유)·국민연금 및 사회보장 제도·건강 문제(만성 질환, 장애)·평생 축적한 자산으로 노동 의존도 감소·손주 돌봄과 노부모 간병 등 가족 돌봄·고령자 채용 기피로 인한 구직 포기(실망실업자화) 등.
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Macroeconomics · Week 1 — Identifying Unemployment · Study Notes
+  <br><span class="ko">거시경제학 1주차 학습 자료</span>
+</footer>
+
+</body>
+</html>
