@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Week 2 — Unemployment Types & Measurement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF7;
+    --bg-soft: #F2F1EC;
+    --text: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-soft: #8A8A8A;
+    --line: #E4E2DC;
+    --line-soft: #EFEDE7;
+    --accent: #1E3A8A;
+    --accent-soft: #EFF2FA;
+    --green: #166534;
+    --green-soft: #ECF5EE;
+    --red: #991B1B;
+    --red-soft: #FBEDED;
+    --amber: #92400E;
+    --amber-soft: #FBF4E8;
+    --purple: #6B21A8;
+    --purple-soft: #F3E8FF;
+    --ko-bg: #FFFCF2;
+    --ko-border: #E8E2CC;
+    --ko-text: #5C4A1A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-weight: 400;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+  .ko-block {
+    background: var(--ko-bg);
+    border-left: 3px solid var(--ko-border);
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .ko-inline {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-soft);
+    font-weight: 400;
+    font-size: 0.85em;
+    margin-left: 6px;
+  }
+
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding: 80px 24px 64px;
+    background: var(--bg);
+  }
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .hero h1 .ko-h1 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-top: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    color: var(--text-soft);
+    font-size: 14px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '·';
+    margin-left: 18px;
+    color: var(--line);
+  }
+
+  nav.toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.toc::-webkit-scrollbar { height: 0 }
+  .toc-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  nav.toc a {
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  nav.toc a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  section {
+    margin-bottom: 72px;
+    scroll-margin-top: 72px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  h2.section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  h2.section-title .ko-h2 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.55em;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-top: 6px;
+    letter-spacing: -0.3px;
+  }
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 24px 0 28px;
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  /* Component cards (Natural vs Cyclical) */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+  }
+  .comp-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+    transition: all 0.2s ease;
+  }
+  .comp-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.06);
+  }
+  .comp-card .num-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .comp-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .comp-card .en-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+  }
+  .comp-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  .def {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg);
+  }
+  .def-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-soft);
+    flex-wrap: wrap;
+  }
+  .def-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .tag-natural { background: var(--green-soft); color: var(--green) }
+  .tag-cyclical { background: var(--red-soft); color: var(--red) }
+  .tag-imperfect { background: var(--amber-soft); color: var(--amber) }
+  .tag-hidden { background: var(--purple-soft); color: var(--purple) }
+  .def-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .def-body {
+    padding: 24px;
+  }
+  .def-body p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .def-body ul {
+    list-style: none;
+  }
+  .def-body li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--text);
+  }
+  .def-body li:last-child { border-bottom: none }
+  .def-body li strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Game scenarios */
+  .game-intro {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .game-intro h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .game-intro p {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 4px;
+  }
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scenario {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .scenario-head {
+    padding: 16px 20px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .scenario-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .scenario-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+    flex: 1;
+    min-width: 200px;
+  }
+  .scenario-body {
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .scenario-body { grid-template-columns: 1fr }
+  }
+  .scenario-block {
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .scenario-block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .scenario-block .value {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .block-class {
+    background: var(--accent-soft);
+    border-color: #c7d2fe;
+  }
+  .block-class .label { color: var(--accent) }
+  .block-class .value { color: var(--accent) }
+  .block-verdict-lie {
+    background: var(--red-soft);
+    border-color: #fca5a5;
+  }
+  .block-verdict-lie .label { color: var(--red) }
+  .block-verdict-lie .value { color: var(--red) }
+  .block-verdict-legit {
+    background: var(--green-soft);
+    border-color: #86efac;
+  }
+  .block-verdict-legit .label { color: var(--green) }
+  .block-verdict-legit .value { color: var(--green) }
+  .scenario-explain {
+    padding: 0 20px 18px;
+  }
+  .scenario-explain p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    margin-bottom: 6px;
+  }
+
+  /* Duration cards */
+  .dur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .dur-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .dur-card.short { border-top: 3px solid var(--green) }
+  .dur-card.long { border-top: 3px solid var(--red) }
+  .dur-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .dur-card .en-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }
+  .dur-card p {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  /* Bill John Sally visualization */
+  .bjs-panel {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .bjs-panel h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .bjs-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 22px;
+  }
+  .week-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    margin-bottom: 4px;
+    align-items: center;
+  }
+  .week-row .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .week-row .bar {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 2px;
+    height: 24px;
+  }
+  .week-row .cell {
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .week-row .cell.filled-long {
+    background: var(--red);
+  }
+  .week-row .cell.filled-short {
+    background: var(--green);
+  }
+  .week-row .cell.filled-short.rotate-1 { background: #16a34a }
+  .week-row .cell.filled-short.rotate-2 { background: #84cc16 }
+  .week-row .cell.filled-short.rotate-3 { background: #14b8a6 }
+  .week-row .cell.filled-short.rotate-4 { background: #06b6d4 }
+  .week-label-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .week-label-row .label-text {
+    font-size: 11px;
+    color: var(--text-soft);
+    text-align: center;
+  }
+  .bjs-takeaway {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  @media (max-width: 600px) {
+    .bjs-takeaway { grid-template-columns: 1fr }
+  }
+  .takeaway-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .takeaway-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .takeaway-card .stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .takeaway-card .desc {
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+
+  /* Candidate cards */
+  .candidates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .cand {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .cand-head {
+    padding: 16px 18px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .cand-head .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .cand-head h4 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .cand-body {
+    padding: 16px 18px;
+  }
+  .cand-body ul {
+    list-style: none;
+    margin-bottom: 14px;
+  }
+  .cand-body li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13.5px;
+    margin-bottom: 5px;
+    color: var(--text-mid);
+  }
+  .cand-body li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--text-soft);
+    font-weight: 700;
+  }
+  .cand-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+  .type-frictional { background: var(--green-soft); color: var(--green) }
+  .type-structural { background: var(--amber-soft); color: var(--amber) }
+  .type-cyclical { background: var(--red-soft); color: var(--red) }
+  .type-under { background: var(--purple-soft); color: var(--purple) }
+
+  /* Tip box */
+  .tip {
+    background: var(--amber-soft);
+    border: 1px solid #F0DDB8;
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .tip .tip-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tip h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .tip p {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .term {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.92em;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 40px 20px 80px; }
+    header.hero { padding: 56px 20px 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Macroeconomics · Week 2</div>
+    <h1>
+      Types & Measurement of Unemployment
+      <span class="ko-h1">실업의 종류와 측정의 한계</span>
+    </h1>
+    <div class="hero-meta">
+      <span>Does the Unemployment Rate measure what we want it to?</span>
+      <span>Study Notes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">01 · Two Components</a>
+    <a href="#s2">02 · Natural Rate</a>
+    <a href="#s3">03 · Cyclical</a>
+    <a href="#s4">04 · Imperfect Stats</a>
+    <a href="#s5">05 · Hidden Unemployment</a>
+    <a href="#s6">06 · Lie or Legit Game</a>
+    <a href="#s7">07 · Short vs Long-term</a>
+    <a href="#s8">08 · Bill, John & Sally</a>
+    <a href="#s9">09 · Hiring Managers</a>
+    <a href="#s10">10 · New Information</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ SECTION 1: TWO COMPONENTS ============ -->
+<section id="s1">
+  <div class="section-num">SECTION 01</div>
+  <h2 class="section-title">
+    Two Components of Unemployment
+    <span class="ko-h2">실업률을 구성하는 두 가지 요소</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    Does the unemployment rate actually measure what we want it to? To understand this, we break unemployment into two parts.
+  </p>
+  <div class="ko-block">
+    실업률은 과연 우리가 원하는 것을 정확히 측정하고 있을까요? 이를 이해하기 위해 실업을 두 가지 요소로 나눠봅시다.
+  </div>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <span class="num-pill">01</span>
+      <h3>Natural Rate of Unemployment</h3>
+      <div class="en-sub">자연실업률</div>
+      <p>The "normal" unemployment that exists even in a healthy economy.</p>
+      <div class="ko-block">건강한 경제에서도 항상 존재하는 "정상적인" 수준의 실업</div>
+    </div>
+    <div class="comp-card">
+      <span class="num-pill">02</span>
+      <h3>Cyclical Unemployment</h3>
+      <div class="en-sub">경기적 실업</div>
+      <p>Unemployment that fluctuates with the business cycle (booms and busts).</p>
+      <div class="ko-block">경기 변동(호황·불황)에 따라 변동하는 실업</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: NATURAL RATE ============ -->
+<section id="s2">
+  <div class="section-num">SECTION 02</div>
+  <h2 class="section-title">
+    Natural Rate of Unemployment
+    <span class="ko-h2">자연실업률</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-natural">COMPONENT 01</span>
+      <h3>The normal amount of unemployment in a healthy economy</h3>
+    </div>
+    <div class="def-body">
+      <p>There will always be some unemployment in any economy — <strong>and that's okay!</strong> Some baseline level of joblessness is unavoidable and even necessary for a functioning labour market.</p>
+      <div class="ko-block">어떤 경제에서도 어느 정도의 실업은 항상 존재하며, <strong>그것은 자연스러운 현상</strong>입니다. 노동시장이 제대로 작동하기 위해 일정 수준의 실업은 피할 수 없고, 오히려 필요한 부분이기도 합니다.</div>
+
+      <p style="margin-top:18px; font-weight:600">Why does natural unemployment exist? <span class="ko-inline">왜 자연실업이 존재하는가?</span></p>
+      <ul>
+        <li>
+          Workers <strong>change jobs</strong> (frictional unemployment).
+          <div class="ko-block">근로자들이 더 나은 일자리를 찾아 <strong>이직</strong>하는 과정에서 발생하는 실업 (마찰적 실업)</div>
+        </li>
+        <li>
+          Some jobs are <strong>replaced by technology</strong> (structural unemployment).
+          <div class="ko-block">일부 일자리가 <strong>기술로 대체</strong>되며 발생하는 실업 (구조적 실업)</div>
+        </li>
+        <li>
+          Some workers <strong>don't have the skills</strong> for the job they want.
+          <div class="ko-block">원하는 일자리에 필요한 <strong>기술이나 역량이 부족</strong>한 경우</div>
+        </li>
+        <li>
+          Others <strong>live too far away</strong> from work opportunities.
+          <div class="ko-block">일자리가 있는 곳에서 <strong>너무 멀리 떨어져 거주</strong>하는 경우 (지역적 불일치)</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: CYCLICAL ============ -->
+<section id="s3">
+  <div class="section-num">SECTION 03</div>
+  <h2 class="section-title">
+    Cyclical Unemployment
+    <span class="ko-h2">경기적 실업</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-cyclical">COMPONENT 02</span>
+      <h3>When unemployment deviates from its natural rate</h3>
+    </div>
+    <div class="def-body">
+      <p>Cyclical unemployment is caused by cyclical <strong>expansions</strong> and <strong>contractions</strong> in the economy. During recessions, demand for goods and services drops, so businesses lay off workers.</p>
+      <div class="ko-block">경기적 실업은 경제의 <strong>호황(확장)</strong>과 <strong>불황(수축)</strong> 주기에 의해 발생합니다. 경기 침체기에는 재화·서비스 수요가 감소하므로 기업이 노동자를 해고하게 됩니다.</div>
+
+      <p style="margin-top:18px; font-weight:600">Real-world examples <span class="ko-inline">실제 사례</span></p>
+      <ul>
+        <li>
+          <strong>The Great Recession (2008–2009):</strong> a major economic downturn that increased U.S. unemployment dramatically.
+          <div class="ko-block"><strong>대침체(2008-2009)</strong> — 미국 실업률을 급격히 끌어올린 대규모 경제 위기</div>
+        </li>
+        <li>
+          <strong>The 2008 U.S. housing crisis:</strong> reduced demand for new home construction → construction industry layoffs → closure of major financial institutions.
+          <div class="ko-block"><strong>2008년 미국 주택 위기</strong> — 신규 주택 건설 수요 감소 → 건설업 해고 → 주요 금융기관 파산</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Key Distinction</div>
+    <h4>Natural vs. Cyclical — how to tell them apart</h4>
+    <p>Natural unemployment is <strong>structural and ongoing</strong> (always there). Cyclical unemployment is <strong>temporary and tied to recessions</strong>. Policymakers can't really "fix" natural unemployment, but they can use fiscal and monetary policy to reduce cyclical unemployment.</p>
+    <div class="ko-block" style="margin-top:10px">
+      자연실업은 <strong>구조적이며 지속적</strong>(항상 존재)인 반면, 경기적 실업은 <strong>일시적이며 경기 침체와 연동</strong>됩니다. 정책 입안자는 자연실업을 완전히 없앨 수는 없지만, 재정·통화 정책을 통해 경기적 실업은 줄일 수 있습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: IMPERFECT STATISTICS ============ -->
+<section id="s4">
+  <div class="section-num">SECTION 04</div>
+  <h2 class="section-title">
+    Imperfect Employment Statistics
+    <span class="ko-h2">불완전한 고용 통계</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    Unemployment statistics can be hard to interpret. People constantly move between categories, and some are dishonest about their status.
+  </p>
+  <div class="ko-block">
+    실업 통계는 해석이 어렵습니다. 사람들이 카테고리 사이를 끊임없이 이동하며, 일부는 자신의 상태를 정직하게 응답하지 않습니다.
+  </div>
+
+  <div class="def" style="margin-top:24px">
+    <div class="def-header">
+      <span class="def-tag tag-imperfect">PROBLEMS</span>
+      <h3>Why the statistics can be misleading</h3>
+    </div>
+    <div class="def-body">
+      <p style="font-weight:600">People who SHOULDN'T be counted as unemployed — but are: <span class="ko-inline">실업자에 잡히지 말아야 할 사람들</span></p>
+      <ul>
+        <li>
+          People who say they're looking for work just to <strong>qualify for unemployment benefits</strong>.
+          <div class="ko-block">실업 급여를 받기 위해 구직 활동을 하는 척하는 사람들</div>
+        </li>
+        <li>
+          People who say they're unemployed but are actually working at an <strong>unreported job</strong>, paid cash "under the table" to avoid taxes, or <strong>legally unable to work</strong> (e.g., undocumented).
+          <div class="ko-block">실업자라고 응답하지만 실제로는 <strong>신고하지 않는 일</strong>을 하거나, 세금 회피를 위해 "현금 거래"로 일하거나, <strong>법적으로 일할 수 없는</strong> (예: 미등록 노동자) 사람들</div>
+        </li>
+      </ul>
+
+      <p style="font-weight:600; margin-top:18px">People who SHOULD be counted — but aren't: <span class="ko-inline">실업자에 잡혀야 하는데 누락된 사람들</span></p>
+      <ul>
+        <li>
+          <strong>Older people</strong> who left the labour force, but are now returning and looking for work.
+          <div class="ko-block">노동시장을 떠났다가 다시 돌아와 구직 중인 <strong>중·고령자</strong></div>
+        </li>
+        <li>
+          <strong>Young people</strong> entering the labour force for the first time but haven't yet found employment.
+          <div class="ko-block">처음으로 노동시장에 진입했지만 아직 취업하지 못한 <strong>청년층</strong></div>
+        </li>
+        <li>
+          <strong>Discouraged workers</strong> — people who want to work but have given up after an unsuccessful search.
+          <div class="ko-block"><strong>실망실업자</strong> — 일하고 싶지만 오랜 구직 실패 후 포기한 사람들</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: HIDDEN UNEMPLOYMENT ============ -->
+<section id="s5">
+  <div class="section-num">SECTION 05</div>
+  <h2 class="section-title">
+    Hidden Unemployment & Underemployment
+    <span class="ko-h2">잠재실업 · 불완전 취업</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-hidden">KEY CONCEPT</span>
+      <h3>Unemployment not reflected in official statistics</h3>
+    </div>
+    <div class="def-body">
+      <p><span class="term">Hidden unemployment</span> refers to the unemployment or underemployment of workers that is <strong>not reflected in official statistics</strong>.</p>
+      <div class="ko-block"><strong>잠재실업(Hidden Unemployment)</strong>이란 공식 통계에 <strong>반영되지 않는</strong> 실업 또는 불완전 취업 상태를 말합니다.</div>
+
+      <p style="margin-top:14px">These are people who are <strong>willing and able to work</strong> but cannot find work, and for various reasons are <strong>not counted</strong> under the official "unemployed" category.</p>
+      <div class="ko-block">이들은 <strong>일할 의지와 능력이 모두 있지만</strong> 일자리를 찾지 못한 사람들로, 여러 이유로 공식 "실업자" 카테고리에 <strong>포함되지 않는</strong> 사람들입니다.</div>
+
+      <p style="margin-top:18px; font-weight:600">Two common forms <span class="ko-inline">두 가지 대표 유형</span></p>
+      <ul>
+        <li>
+          <strong>Discouraged workers</strong> — gave up searching, so officially counted as "not in labour force" rather than unemployed.
+          <div class="ko-block"><strong>실망실업자</strong> — 구직을 포기했기에 공식적으로는 "비경제활동인구"로 분류되며, 실업자 통계에 잡히지 않음</div>
+        </li>
+        <li>
+          <strong>Underemployed workers</strong> — working part-time but want full-time work; or working in jobs far below their skill level.
+          <div class="ko-block"><strong>불완전 취업자</strong> — 풀타임을 원하지만 파트타임만 가능하거나, 자신의 역량보다 훨씬 낮은 일자리에서 일하는 사람들</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: LIE OR LEGIT GAME ============ -->
+<section id="s6">
+  <div class="section-num">SECTION 06</div>
+  <h2 class="section-title">
+    Game: Lie or Legit?
+    <span class="ko-h2">게임: 거짓 vs 정직 — 통계는 진실을 반영하는가?</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="game-intro">
+    <h3>How to play <span class="ko-inline">게임 방법</span></h3>
+    <p>For each scenario, decide whether the official statistical classification <strong>accurately reflects reality (LEGIT)</strong> or <strong>misrepresents the truth (LIE)</strong>.</p>
+    <div class="ko-block" style="background:transparent; border-left-color:#cdd6e8; padding-left:14px; margin-top:8px;">
+      각 시나리오에서 <strong>공식 통계의 분류가 현실을 정확히 반영하는지(LEGIT)</strong>, 아니면 <strong>진실을 왜곡하는지(LIE)</strong> 판단해봅시다.
+    </div>
+  </div>
+
+  <div class="scenario-grid">
+
+    <!-- Scenario 1 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#01</span>
+        <div class="scenario-text">
+          Sam says he is unemployed, but he actually works for cash and doesn't report it.
+          <div class="ko-block" style="margin-top:6px">Sam은 실업자라고 말하지만, 실제로는 현금 거래로 일하면서 신고하지 않는다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">UNEMPLOYED <span class="ko-inline">실업자</span></span>
+        </div>
+        <div class="scenario-block block-verdict-lie">
+          <span class="label">Verdict</span>
+          <span class="value">✗ LIE <span class="ko-inline">거짓</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Sam should actually be classified as <strong>employed</strong> — he's working, just doing so off the books. The official stats overcount unemployment in his case.</p>
+        <div class="ko-block">Sam은 실제로는 <strong>취업자</strong>로 분류되어야 합니다 — 신고하지 않을 뿐 실제로 일하고 있기 때문입니다. 그의 경우 공식 통계는 실업자를 과대계상하게 됩니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 2 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#02</span>
+        <div class="scenario-text">
+          Kelly is a university graduate and is actively looking for jobs. She hasn't found one yet.
+          <div class="ko-block" style="margin-top:6px">Kelly는 대학을 졸업하고 적극적으로 일자리를 찾고 있다. 아직 취업하지 못했다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">UNEMPLOYED <span class="ko-inline">실업자</span></span>
+        </div>
+        <div class="scenario-block block-verdict-legit">
+          <span class="label">Verdict</span>
+          <span class="value">✓ LEGIT <span class="ko-inline">정직</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Kelly fits the textbook definition of unemployed perfectly: not employed, but actively searching. This is exactly the frictional/structural unemployment we expect.</p>
+        <div class="ko-block">Kelly는 실업자의 정의에 정확히 부합합니다: 일하지 않으면서 적극적으로 구직 중. 이는 정확히 우리가 예상하는 마찰적/구조적 실업입니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 3 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#03</span>
+        <div class="scenario-text">
+          John wants a job, but stopped looking for one after months of rejection.
+          <div class="ko-block" style="margin-top:6px">John은 일하고 싶지만, 수개월의 거절 끝에 구직을 포기했다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">NOT IN LABOUR FORCE <span class="ko-inline">비경활</span></span>
+        </div>
+        <div class="scenario-block block-verdict-lie">
+          <span class="label">Verdict</span>
+          <span class="value">✗ LIE <span class="ko-inline">거짓</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>John is a <strong>discouraged worker</strong> — classic hidden unemployment. He genuinely wants to work, so excluding him understates the true unemployment problem.</p>
+        <div class="ko-block">John은 전형적인 <strong>실망실업자(discouraged worker)</strong> — 잠재실업의 대표 사례입니다. 그가 실제로 일하고 싶다는 점을 감안하면, 그를 제외하는 것은 실제 실업 문제를 축소합니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 4 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#04</span>
+        <div class="scenario-text">
+          Michael works part-time, but really wants a full-time job.
+          <div class="ko-block" style="margin-top:6px">Michael은 파트타임으로 일하지만, 사실은 풀타임 일자리를 원한다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">EMPLOYED <span class="ko-inline">취업자</span></span>
+        </div>
+        <div class="scenario-block block-verdict-lie">
+          <span class="label">Verdict</span>
+          <span class="value">✗ LIE <span class="ko-inline">거짓</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Michael is <strong>underemployed</strong>. Officially counted as employed, but he's not using his full capacity. The unemployment rate completely misses this kind of labour underutilization.</p>
+        <div class="ko-block">Michael은 <strong>불완전 취업(underemployed)</strong> 상태입니다. 공식적으로는 취업자로 잡히지만, 노동력을 충분히 활용하지 못합니다. 실업률 통계는 이런 노동력 저활용을 전혀 포착하지 못합니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 5 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#05</span>
+        <div class="scenario-text">
+          Grandma Betty is retired, but she has started looking for work again.
+          <div class="ko-block" style="margin-top:6px">Betty 할머니는 은퇴했지만, 다시 일자리를 찾기 시작했다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">UNEMPLOYED <span class="ko-inline">실업자</span></span>
+        </div>
+        <div class="scenario-block block-verdict-legit">
+          <span class="label">Verdict</span>
+          <span class="value">✓ LEGIT <span class="ko-inline">정직</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Betty re-entered the labour force and is actively searching → she fits the definition of unemployed correctly. This is a legitimate addition to the unemployment count.</p>
+        <div class="ko-block">Betty는 노동시장에 재진입했고 적극적으로 구직 중이므로 실업자의 정의에 정확히 부합합니다. 실업자 수에 합당하게 추가되는 사례입니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 6 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#06</span>
+        <div class="scenario-text">
+          Sara says she is looking for work just so that she can receive unemployment cheques from the government.
+          <div class="ko-block" style="margin-top:6px">Sara는 정부의 실업 급여를 받기 위해 구직 중이라고 말한다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">UNEMPLOYED <span class="ko-inline">실업자</span></span>
+        </div>
+        <div class="scenario-block block-verdict-lie">
+          <span class="label">Verdict</span>
+          <span class="value">✗ LIE <span class="ko-inline">거짓</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Sara is gaming the system — she isn't truly searching. She inflates the unemployment count without representing real labour market distress.</p>
+        <div class="ko-block">Sara는 제도를 악용하고 있습니다 — 실제로는 구직하지 않습니다. 그녀는 실질적인 노동시장 어려움을 반영하지 않으면서 실업자 수를 부풀립니다.</div>
+      </div>
+    </div>
+
+    <!-- Scenario 7 -->
+    <div class="scenario">
+      <div class="scenario-head">
+        <span class="scenario-num">#07</span>
+        <div class="scenario-text">
+          Josh, a high school student, is not looking for a job right now.
+          <div class="ko-block" style="margin-top:6px">Josh는 고등학생이며, 현재 일자리를 찾고 있지 않다.</div>
+        </div>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-block block-class">
+          <span class="label">Official Classification</span>
+          <span class="value">NOT IN LABOUR FORCE <span class="ko-inline">비경활</span></span>
+        </div>
+        <div class="scenario-block block-verdict-legit">
+          <span class="label">Verdict</span>
+          <span class="value">✓ LEGIT <span class="ko-inline">정직</span></span>
+        </div>
+      </div>
+      <div class="scenario-explain">
+        <p>Josh is a full-time student, not looking for work — correctly classified as not in the labour force. The statistics get this one right.</p>
+        <div class="ko-block">Josh는 풀타임 학생이며 구직 중이 아니므로 비경제활동인구로 정확히 분류됩니다. 이 경우 통계는 현실을 잘 반영합니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Big Picture</div>
+    <h4>Why this matters</h4>
+    <p>Of the 7 scenarios, <strong>4 are "lies"</strong> — meaning the official unemployment rate misrepresents the underlying reality more than half the time in our examples. This is why economists also look at <strong>broader measures</strong> like U-6 (which includes discouraged and underemployed workers).</p>
+    <div class="ko-block" style="margin-top:10px">
+      7개 시나리오 중 <strong>4개가 "거짓"</strong> — 즉 공식 실업률이 실제 현실을 절반 이상 왜곡하고 있습니다. 이 때문에 경제학자들은 실망실업자와 불완전 취업자를 포함하는 <strong>U-6 같은 더 넓은 지표</strong>도 함께 봅니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: SHORT vs LONG TERM ============ -->
+<section id="s7">
+  <div class="section-num">SECTION 07</div>
+  <h2 class="section-title">
+    Short-term vs Long-term Unemployment
+    <span class="ko-h2">단기 실업 vs 장기 실업</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    How long someone stays unemployed matters a lot. Short and long-term unemployment have very different economic implications.
+  </p>
+  <div class="ko-block">
+    실업의 <strong>지속 기간</strong>은 매우 중요합니다. 단기와 장기 실업은 경제적 의미가 크게 다릅니다.
+  </div>
+
+  <div class="dur-grid" style="margin-top:24px">
+    <div class="dur-card short">
+      <h3>Short-term Unemployment</h3>
+      <div class="en-sub">단기 실업</div>
+      <p><strong>Not seen as a pressing issue.</strong> Naturally, it takes some time for newly unemployed people to find good new opportunities.</p>
+      <div class="ko-block"><strong>심각한 문제로 여겨지지 않습니다.</strong> 새로 실업 상태가 된 사람들이 좋은 일자리를 찾는 데는 자연스럽게 시간이 필요합니다.</div>
+
+      <p style="margin-top:14px">Finding a good fit between employee and employer is beneficial for both parties — so some time spent searching is essential and healthy.</p>
+      <div class="ko-block">근로자와 고용주 사이의 좋은 매칭을 찾는 것은 양쪽 모두에게 이익이므로, 일정 기간의 구직은 필수적이고 건강한 과정입니다.</div>
+    </div>
+
+    <div class="dur-card long">
+      <h3>Long-term Unemployment</h3>
+      <div class="en-sub">장기 실업</div>
+      <p><strong>A much bigger problem</strong> — for both the individual and broader society.</p>
+      <div class="ko-block"><strong>훨씬 더 큰 문제</strong>입니다 — 개인과 사회 전체 모두에게.</div>
+
+      <p style="margin-top:14px">Long-term unemployed people lack <strong>financial security</strong>. On top of that, those claiming benefits long-term draw from government resources that could be used elsewhere.</p>
+      <div class="ko-block">장기 실업자들은 <strong>경제적 안정성</strong>을 잃습니다. 또한 장기간 실업 급여를 받는 사람들은 다른 곳에 쓰일 수 있었던 정부 재원을 소진합니다.</div>
+
+      <p style="margin-top:14px">Skills atrophy, employer bias against long employment gaps, and psychological effects make re-employment increasingly difficult.</p>
+      <div class="ko-block">기술 퇴화, 긴 경력 공백에 대한 고용주의 편견, 심리적 영향이 결합되어 재취업이 점점 더 어려워집니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: BILL, JOHN, SALLY ============ -->
+<section id="s8">
+  <div class="section-num">SECTION 08</div>
+  <h2 class="section-title">
+    Textbook Example: Bill, John & Sally
+    <span class="ko-h2">교과서 예제: Bill, John, Sally — 실업 지속 기간의 역설</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    Imagine you visit a government unemployment office once a week for a full year. Every visit you find <strong>four unemployed workers</strong>. Bill, John, and Sally are there <em>every single time</em> — the fourth slot rotates with different people each week.
+  </p>
+  <div class="ko-block">
+    정부 실업 사무소를 1년 동안 매주 한 번 방문한다고 상상해봅시다. 매번 방문할 때마다 <strong>4명의 실업자</strong>가 있습니다. Bill, John, Sally는 <em>매번</em> 그 자리에 있고, 네 번째 자리만 매주 다른 사람으로 바뀝니다.
+  </div>
+
+  <div class="bjs-panel" style="margin-top:24px">
+    <h3>52 Weeks of Visits — Visualized</h3>
+    <p class="bjs-sub">Each cell is one weekly visit. <span class="ko-inline">각 셀은 한 주의 방문을 나타냅니다.</span></p>
+
+    <div class="week-row">
+      <span class="name">Bill</span>
+      <div class="bar" id="bill"></div>
+    </div>
+    <div class="week-row">
+      <span class="name">John</span>
+      <div class="bar" id="john"></div>
+    </div>
+    <div class="week-row">
+      <span class="name">Sally</span>
+      <div class="bar" id="sally"></div>
+    </div>
+    <div class="week-row">
+      <span class="name">Rotating</span>
+      <div class="bar" id="rotate"></div>
+    </div>
+    <div class="week-label-row">
+      <span></span>
+      <span class="label-text">Week 1 ─────────────────────────────────── Week 20</span>
+    </div>
+
+    <div class="bjs-takeaway">
+      <div class="takeaway-card">
+        <div class="label">Snapshot view <span class="ko">스냅샷 관점</span></div>
+        <div class="stat">75%</div>
+        <div class="desc">of any week's unemployed are long-term (Bill, John, Sally = 3 of 4)<br><span class="ko">어느 한 주든 실업자 중 75%가 장기 실업자</span></div>
+      </div>
+      <div class="takeaway-card">
+        <div class="label">Total people view <span class="ko">연간 누적 관점</span></div>
+        <div class="stat">~5%</div>
+        <div class="desc">of all unique people who experienced unemployment this year were long-term (3 of ~55 people)<br><span class="ko">한 해 동안 실업을 경험한 전체 인원 중 약 5%만이 장기 실업자</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Key Insight</div>
+    <h4>The "duration paradox"</h4>
+    <p>At any moment, <strong>most observed unemployed people are long-term unemployed</strong>. But over time, <strong>most unemployment spells are actually short</strong>. This is why economists worry so much about long-term unemployment — even though it accounts for a small share of <em>people</em>, it accounts for a large share of <em>total unemployment time</em>.</p>
+    <div class="ko-block" style="margin-top:10px">
+      어느 한 시점에서 보면 <strong>관찰되는 실업자의 대부분은 장기 실업자</strong>입니다. 하지만 시간이 지나며 보면 <strong>대부분의 실업 기간은 짧습니다</strong>. 그래서 경제학자들은 장기 실업을 그렇게 걱정합니다 — 비록 <em>인원수</em>로는 적지만, <em>총 실업 시간</em>의 큰 비중을 차지하기 때문입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: HIRING MANAGERS ============ -->
+<section id="s9">
+  <div class="section-num">SECTION 09</div>
+  <h2 class="section-title">
+    Group Activity: Hiring Managers
+    <span class="ko-h2">그룹 활동: 채용 담당자 되어보기</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="game-intro">
+    <h3>The Task <span class="ko-inline">과제</span></h3>
+    <p>You and your group are co-owners of a successful Seoul company. You need to hire <strong>2 candidates</strong> from the 6 profiles below. Discuss for 5 minutes.</p>
+    <div class="ko-block" style="background:transparent; border-left-color:#cdd6e8; padding-left:14px; margin-top:8px">
+      여러분과 팀원들은 서울의 성공적인 회사의 공동 소유주입니다. 아래 6명의 후보 중 <strong>2명</strong>을 채용해야 합니다. 5분간 토론해보세요. 각 후보가 어떤 유형의 실업에 해당하는지도 함께 분석했습니다.
+    </div>
+  </div>
+
+  <div class="candidates">
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 01 · 19세</div>
+        <h4>Minji <span class="ko-inline">민지</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>19 years old <span class="ko-inline">19세</span></li>
+          <li>Recently graduated from high school <span class="ko-inline">고등학교 졸업</span></li>
+          <li>Unemployed for 2 months <span class="ko-inline">2개월간 실업 상태</span></li>
+          <li>Applying for her first full-time job <span class="ko-inline">첫 풀타임 일자리에 지원</span></li>
+          <li>Very motivated <span class="ko-inline">매우 의욕적</span></li>
+        </ul>
+        <span class="cand-type type-frictional">FRICTIONAL · 마찰적</span>
+        <div class="ko-block" style="margin-top:10px">노동시장에 처음 진입한 신규 구직자. 단기 마찰적 실업의 전형적 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 02 · 공장 근무</div>
+        <h4>Joon <span class="ko-inline">준</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>Lost factory job 1 year ago <span class="ko-inline">1년 전 공장 일자리 잃음</span></li>
+          <li>Replaced by machines <span class="ko-inline">기계로 대체됨</span></li>
+          <li>No stable work since <span class="ko-inline">이후 안정적 직장 없음</span></li>
+          <li>Good attendance record <span class="ko-inline">출근 기록 양호</span></li>
+        </ul>
+        <span class="cand-type type-structural">STRUCTURAL · 구조적</span>
+        <div class="ko-block" style="margin-top:10px">기술에 의해 일자리가 대체된 구조적 실업. 1년이 지난 장기 실업 상태로 재취업이 점점 어려워지는 단계입니다.</div>
+      </div>
+    </div>
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 03 · 카페 근무</div>
+        <h4>Hana <span class="ko-inline">하나</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>Works part-time at a cafe <span class="ko-inline">카페에서 파트타임 근무</span></li>
+          <li>Wants full-time work <span class="ko-inline">풀타임 희망</span></li>
+          <li>Strong communication skills <span class="ko-inline">우수한 소통 능력</span></li>
+        </ul>
+        <span class="cand-type type-under">UNDEREMPLOYED · 불완전 취업</span>
+        <div class="ko-block" style="margin-top:10px">공식적으로 "취업자"지만 실제로는 풀타임을 원하는 불완전 취업 상태. 잠재실업의 대표 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 04 · 자발적 퇴사</div>
+        <h4>Alex <span class="ko-inline">알렉스</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>Quit previous job voluntarily <span class="ko-inline">자발적으로 이전 직장 퇴사</span></li>
+          <li>Looking for better opportunity <span class="ko-inline">더 나은 기회를 찾는 중</span></li>
+          <li>Several useful technical skills <span class="ko-inline">유용한 기술 역량 보유</span></li>
+        </ul>
+        <span class="cand-type type-frictional">FRICTIONAL · 마찰적</span>
+        <div class="ko-block" style="margin-top:10px">더 나은 직장을 찾기 위해 자발적으로 퇴사한 이직 탐색자. 건강한 마찰적 실업의 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 05 · 6개월 공백</div>
+        <h4>Yuna <span class="ko-inline">유나</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>Stopped looking for 6 months <span class="ko-inline">6개월간 구직 중단</span></li>
+          <li>Recently started searching again <span class="ko-inline">최근 다시 구직 시작</span></li>
+          <li>Feels discouraged after many rejections <span class="ko-inline">많은 거절로 낙담한 상태</span></li>
+        </ul>
+        <span class="cand-type type-under">EX-DISCOURAGED · 전(前) 실망실업자</span>
+        <div class="ko-block" style="margin-top:10px">실망실업자였다가 노동시장에 재진입한 사례. 6개월 공백으로 인해 고용주들의 편견에 직면할 가능성이 큽니다.</div>
+      </div>
+    </div>
+
+    <div class="cand">
+      <div class="cand-head">
+        <div class="label">CANDIDATE 06 · 10년 경력</div>
+        <h4>David <span class="ko-inline">데이비드</span></h4>
+      </div>
+      <div class="cand-body">
+        <ul>
+          <li>Recently laid off due to recession <span class="ko-inline">경기 침체로 최근 해고</span></li>
+          <li>Previous workplace closed down <span class="ko-inline">이전 직장 폐업</span></li>
+          <li>10 years of experience <span class="ko-inline">10년 경력</span></li>
+        </ul>
+        <span class="cand-type type-cyclical">CYCLICAL · 경기적</span>
+        <div class="ko-block" style="margin-top:10px">경기 침체로 인한 경기적 실업의 전형적 사례. 본인 잘못이 아니라 거시 경제 환경 때문에 일자리를 잃었습니다.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Discussion Points</div>
+    <h4>Let's discuss</h4>
+    <p style="margin-bottom:8px"><strong>Who would your company choose, and why?</strong> Most hiring managers instinctively pick Minji and David (fresh, experienced, no long gap), or Alex (skills, voluntary exit). The "less attractive" candidates — Joon and Yuna — tend to face employer bias <em>despite</em> being equally capable.</p>
+    <div class="ko-block">
+      <strong>여러분의 회사는 누구를 선택하시겠습니까?</strong> 대부분의 채용 담당자는 본능적으로 Minji와 David (신선함·경력·공백 없음), 또는 Alex (기술·자발적 퇴사)를 선택합니다. "덜 매력적"으로 보이는 후보들 — Joon과 Yuna — 은 역량이 동등함에도 불구하고 고용주의 편견에 직면하는 경향이 있습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 10: NEW INFORMATION ============ -->
+<section id="s10">
+  <div class="section-num">SECTION 10</div>
+  <h2 class="section-title">
+    But Wait — New Information!
+    <span class="ko-h2">새로운 정보 — 결정이 바뀌나요?</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-imperfect">PLOT TWIST</span>
+      <h3>Two things you didn't know</h3>
+    </div>
+    <div class="def-body">
+      <ul>
+        <li>
+          <strong>The government will give tax benefits</strong> to companies that hire <strong>long-term unemployed workers</strong>.
+          <div class="ko-block">정부는 <strong>장기 실업자를 채용하는 기업</strong>에게 <strong>세제 혜택</strong>을 제공합니다.</div>
+        </li>
+        <li>
+          <strong>One applicant has secretly been rejected many times</strong> — only because employers dislike long employment gaps, not because of their actual qualifications.
+          <div class="ko-block"><strong>한 명의 지원자는 알게 모르게 여러 차례 거절당했습니다</strong> — 능력이 부족해서가 아니라, 고용주들이 긴 경력 공백을 싫어하기 때문입니다.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Reflection</div>
+    <h4>Would your decision change?</h4>
+    <p>With tax benefits in mind, hiring <strong>Joon</strong> (long-term structural unemployment) or <strong>Yuna</strong> (just re-entered after discouragement) suddenly becomes financially attractive. And ethically, you'd be giving an opportunity to someone the market has been unfairly biased against.</p>
+    <div class="ko-block" style="margin-top:10px">
+      세제 혜택을 고려하면, <strong>Joon</strong> (장기 구조적 실업) 또는 <strong>Yuna</strong> (실망 후 재진입)를 채용하는 것이 갑자기 재정적으로도 매력적이 됩니다. 윤리적으로도, 시장이 불공평하게 편견을 가져온 사람에게 기회를 주는 셈이 됩니다.
+    </div>
+
+    <p style="margin-top:14px"><strong>Bigger question:</strong> This activity shows why policymakers design hiring incentives. Long-term unemployment is "sticky" because of employer bias — and breaking that cycle often requires nudges from outside the market.</p>
+    <div class="ko-block">
+      <strong>더 큰 질문:</strong> 이 활동은 정책 입안자들이 왜 채용 인센티브를 설계하는지 보여줍니다. 장기 실업은 고용주의 편견 때문에 "고착화"되며, 이 악순환을 깨기 위해서는 종종 시장 외부로부터의 개입이 필요합니다.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Macroeconomics · Week 2 — Types & Measurement of Unemployment · Study Notes
+  <br><span class="ko">거시경제학 2주차 학습 자료 · 실업의 종류와 측정의 한계</span>
+</footer>
+
+<script>
+  // Build Bill, John, Sally, Rotating visualization (20 weeks shown)
+  function buildBar(id, type) {
+    const bar = document.getElementById(id);
+    if (!bar) return;
+    for (let i = 0; i < 20; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      if (type === 'long') {
+        cell.classList.add('filled-long');
+      } else if (type === 'rotate') {
+        cell.classList.add('filled-short', 'rotate-' + ((i % 4) + 1));
+      }
+      bar.appendChild(cell);
+    }
+  }
+  buildBar('bill', 'long');
+  buildBar('john', 'long');
+  buildBar('sally', 'long');
+  buildBar('rotate', 'rotate');
+</script>
+
+</body>
+</html>
