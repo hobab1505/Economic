@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Week 3 — Frictional vs Structural Unemployment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF7;
+    --bg-soft: #F2F1EC;
+    --text: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-soft: #8A8A8A;
+    --line: #E4E2DC;
+    --line-soft: #EFEDE7;
+    --accent: #1E3A8A;
+    --accent-soft: #EFF2FA;
+    --green: #166534;
+    --green-soft: #ECF5EE;
+    --red: #991B1B;
+    --red-soft: #FBEDED;
+    --amber: #92400E;
+    --amber-soft: #FBF4E8;
+    --purple: #6B21A8;
+    --purple-soft: #F3E8FF;
+    --ko-bg: #FFFCF2;
+    --ko-border: #E8E2CC;
+    --ko-text: #5C4A1A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-weight: 400;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+  .ko-block {
+    background: var(--ko-bg);
+    border-left: 3px solid var(--ko-border);
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .ko-inline {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-soft);
+    font-weight: 400;
+    font-size: 0.85em;
+    margin-left: 6px;
+  }
+
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding: 80px 24px 64px;
+    background: var(--bg);
+  }
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .hero h1 .ko-h1 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-top: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    color: var(--text-soft);
+    font-size: 14px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '·';
+    margin-left: 18px;
+    color: var(--line);
+  }
+
+  nav.toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.toc::-webkit-scrollbar { height: 0 }
+  .toc-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  nav.toc a {
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  nav.toc a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  section {
+    margin-bottom: 72px;
+    scroll-margin-top: 72px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  h2.section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  h2.section-title .ko-h2 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.55em;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-top: 6px;
+    letter-spacing: -0.3px;
+  }
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 24px 0 28px;
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  /* Two-type cards */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+  @media (max-width: 600px) {
+    .type-grid { grid-template-columns: 1fr }
+  }
+  .type-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+    transition: all 0.2s ease;
+  }
+  .type-card.frictional { border-top: 3px solid var(--green) }
+  .type-card.structural { border-top: 3px solid var(--red) }
+  .type-card .num-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .type-card.frictional .num-pill { color: var(--green); background: var(--green-soft) }
+  .type-card.structural .num-pill { color: var(--red); background: var(--red-soft) }
+  .type-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .type-card .en-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }
+  .type-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .compare-table thead th {
+    background: var(--bg-soft);
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table thead th:first-child {
+    background: var(--bg);
+    color: var(--text-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .compare-table thead th.fric-head { color: var(--green) }
+  .compare-table thead th.struc-head { color: var(--red) }
+  .compare-table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .compare-table tbody tr:last-child td { border-bottom: none }
+  .compare-table tbody td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: var(--bg-soft);
+    width: 100px;
+    white-space: nowrap;
+  }
+
+  .def {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg);
+  }
+  .def-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-soft);
+    flex-wrap: wrap;
+  }
+  .def-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .tag-frictional { background: var(--green-soft); color: var(--green) }
+  .tag-structural { background: var(--red-soft); color: var(--red) }
+  .tag-concept { background: var(--accent-soft); color: var(--accent) }
+  .tag-policy { background: var(--purple-soft); color: var(--purple) }
+  .tag-tradeoff { background: var(--amber-soft); color: var(--amber) }
+  .def-header h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .def-body {
+    padding: 24px;
+  }
+  .def-body p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .def-body p:last-child { margin-bottom: 0 }
+  .def-body ul {
+    list-style: none;
+  }
+  .def-body li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--text);
+  }
+  .def-body li:last-child { border-bottom: none }
+
+  /* Story / scenario box (Mia Teacher example) */
+  .story {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .story-header {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .story-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .story-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .story-header .sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 2px;
+  }
+  .story p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Versus comparison */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px;
+    align-items: center;
+    margin-top: 18px;
+  }
+  @media (max-width: 600px) {
+    .vs-grid { grid-template-columns: 1fr; }
+    .vs-divider { display: none }
+  }
+  .vs-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .vs-card .brand {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .vs-card.harvey { color: var(--red) }
+  .vs-card.mcd { color: var(--amber) }
+  .vs-card .trend {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-bottom: 10px;
+  }
+  .vs-card .effect {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .vs-card.harvey .effect { background: var(--red-soft); color: var(--red) }
+  .vs-card.mcd .effect { background: var(--green-soft); color: var(--green) }
+  .vs-divider {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--text-soft);
+    font-weight: 700;
+    padding: 0 4px;
+  }
+
+  /* Policy cards */
+  .policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .policy-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .policy-card .icon-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--purple);
+    background: var(--purple-soft);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .policy-card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .policy-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  /* Eligibility split */
+  .elig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 600px) {
+    .elig-grid { grid-template-columns: 1fr }
+  }
+  .elig-card {
+    border-radius: 8px;
+    padding: 18px;
+    border: 1px solid var(--line);
+  }
+  .elig-card.yes {
+    background: var(--green-soft);
+    border-color: #86efac;
+  }
+  .elig-card.no {
+    background: var(--red-soft);
+    border-color: #fca5a5;
+  }
+  .elig-card .head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .elig-card.yes .head { color: var(--green) }
+  .elig-card.no .head { color: var(--red) }
+  .elig-card .title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .elig-card.yes .title { color: var(--green) }
+  .elig-card.no .title { color: var(--red) }
+  .elig-card ul {
+    list-style: none;
+    margin: 0;
+  }
+  .elig-card li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .elig-card.yes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .elig-card.no li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* Exit ticket Q&A */
+  .exit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .exit-q {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .exit-q-head {
+    background: var(--bg-soft);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .exit-q-head .qnum {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .exit-q-head .qtext {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .exit-q-body {
+    padding: 16px 20px;
+  }
+  .exit-q-body .verdict-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .verdict-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .verdict-tag.fric { background: var(--green-soft); color: var(--green) }
+  .verdict-tag.struc { background: var(--red-soft); color: var(--red) }
+  .verdict-tag.both { background: var(--amber-soft); color: var(--amber) }
+  .exit-q-body p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  /* Tip box */
+  .tip {
+    background: var(--amber-soft);
+    border: 1px solid #F0DDB8;
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .tip .tip-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tip h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .tip p {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .term {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.92em;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 40px 20px 80px; }
+    header.hero { padding: 56px 20px 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Macroeconomics · Week 3</div>
+    <h1>
+      Frictional vs. Structural Unemployment
+      <span class="ko-h1">마찰적 실업 vs. 구조적 실업 — 왜 항상 누군가는 실업 상태일까?</span>
+    </h1>
+    <div class="hero-meta">
+      <span>Why are there always some people unemployed?</span>
+      <span>Study Notes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">01 · Two Types</a>
+    <a href="#s2">02 · Frictional</a>
+    <a href="#s3">03 · Structural</a>
+    <a href="#s4">04 · Side-by-side</a>
+    <a href="#s5">05 · Job Search</a>
+    <a href="#s6">06 · McDonald's Example</a>
+    <a href="#s7">07 · Public Policy</a>
+    <a href="#s8">08 · Unemployment Insurance</a>
+    <a href="#s9">09 · Exit Ticket</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ SECTION 1: TWO TYPES ============ -->
+<section id="s1">
+  <div class="section-num">SECTION 01</div>
+  <h2 class="section-title">
+    Two Types of Unemployment
+    <span class="ko-h2">실업의 두 가지 유형 — 자연실업률의 구성</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    Why are there always <em>some</em> people unemployed, even in a healthy economy? Last week we saw this baseline is called the <strong>natural rate</strong>. This week we break it down further: natural unemployment has two distinct sources.
+  </p>
+  <div class="ko-block">
+    건강한 경제에서도 왜 항상 <em>일부</em> 사람들이 실업 상태일까요? 지난 주에 이 기본 수준을 <strong>자연실업률</strong>이라 부른다고 배웠습니다. 이번 주에는 한 단계 더 들어가 봅니다 — 자연실업은 두 가지 뚜렷한 원인으로 구성됩니다.
+  </div>
+
+  <div class="type-grid">
+    <div class="type-card frictional">
+      <span class="num-pill">TYPE 01</span>
+      <h3>Frictional Unemployment</h3>
+      <div class="en-sub">마찰적 실업</div>
+      <p>Unemployment from the <strong>normal time it takes</strong> to match workers with the right jobs.</p>
+      <div class="ko-block">근로자가 자신에게 맞는 일자리를 찾는 <strong>정상적인 탐색 시간</strong>에서 발생하는 실업</div>
+    </div>
+    <div class="type-card structural">
+      <span class="num-pill">TYPE 02</span>
+      <h3>Structural Unemployment</h3>
+      <div class="en-sub">구조적 실업</div>
+      <p>Unemployment when there are <strong>not enough jobs</strong> for everyone who wants one.</p>
+      <div class="ko-block">일하고 싶어 하는 사람들에 비해 <strong>일자리가 충분하지 않을 때</strong> 발생하는 실업</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: FRICTIONAL ============ -->
+<section id="s2">
+  <div class="section-num">SECTION 02</div>
+  <h2 class="section-title">
+    Frictional Unemployment
+    <span class="ko-h2">마찰적 실업 — 자연스러운 탐색 시간</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-frictional">TYPE 01</span>
+      <h3>Job-matching takes time</h3>
+    </div>
+    <div class="def-body">
+      <p><span class="term">Frictional unemployment</span> is unemployment that results from the <strong>normal time it takes</strong> for workers to search for jobs that best suit their <strong>tastes and skill sets</strong>.</p>
+      <div class="ko-block"><strong>마찰적 실업</strong>은 근로자가 자신의 <strong>취향과 역량에 가장 잘 맞는 일자리</strong>를 찾는 데 걸리는 <strong>정상적인 시간</strong> 때문에 발생하는 실업입니다.</div>
+
+      <p style="margin-top:14px">It's <strong>short-term and often voluntary</strong>. Think of a recent graduate sending resumes, a worker who quit to find a better fit, or someone moving cities and switching employers.</p>
+      <div class="ko-block"><strong>단기적이며 종종 자발적</strong>입니다. 갓 졸업해 이력서를 돌리는 사람, 더 맞는 직장을 찾으려 그만둔 근로자, 도시를 옮기며 직장을 바꾸는 사람을 떠올려보세요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: STRUCTURAL ============ -->
+<section id="s3">
+  <div class="section-num">SECTION 03</div>
+  <h2 class="section-title">
+    Structural Unemployment
+    <span class="ko-h2">구조적 실업 — 일자리 자체의 부족</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-structural">TYPE 02</span>
+      <h3>Not enough jobs for everyone who wants one</h3>
+    </div>
+    <div class="def-body">
+      <p><span class="term">Structural unemployment</span> occurs when there are <strong>not enough jobs available</strong> to satisfy the number of people who need them.</p>
+      <div class="ko-block"><strong>구조적 실업</strong>은 일자리를 필요로 하는 사람의 수에 비해 <strong>이용 가능한 일자리가 충분하지 않을 때</strong> 발생합니다.</div>
+
+      <p style="margin-top:14px">In economic terms: <strong>quantity of labour supplied exceeds quantity of labour demanded</strong>. This isn't about searching — it's about the labour market being out of balance.</p>
+      <div class="ko-block">경제학 용어로: <strong>노동 공급량이 노동 수요량을 초과</strong>합니다. 탐색의 문제가 아니라, 노동시장 자체가 불균형 상태인 것입니다.</div>
+
+      <p style="margin-top:14px"><strong>Common causes:</strong> technological change (machines replace workers), skills mismatch (skills no longer in demand), geographic mismatch (jobs far from workers), or <em>regulation like minimum wage</em> that we'll cover next week.</p>
+      <div class="ko-block"><strong>대표적 원인:</strong> 기술 변화(기계가 근로자 대체), 기술 불일치(수요 없는 기술), 지역적 불일치(일자리가 멀리 있음), 또는 <em>다음 주에 다룰 최저임금 같은 규제</em>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: SIDE BY SIDE COMPARISON ============ -->
+<section id="s4">
+  <div class="section-num">SECTION 04</div>
+  <h2 class="section-title">
+    Side-by-Side Comparison
+    <span class="ko-h2">한눈에 비교 — 마찰적 vs 구조적</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="fric-head">Frictional <span class="ko-inline">마찰적</span></th>
+        <th class="struc-head">Structural <span class="ko-inline">구조적</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cause</td>
+        <td>
+          Time spent searching for a suitable match
+          <div class="ko-block">맞는 일자리를 찾는 데 걸리는 시간</div>
+        </td>
+        <td>
+          Jobs simply don't exist for everyone who wants one
+          <div class="ko-block">일자리 자체가 부족함</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Duration</td>
+        <td>
+          Short-term <span class="ko-inline">단기</span>
+        </td>
+        <td>
+          Long-term <span class="ko-inline">장기</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Voluntary?</td>
+        <td>
+          Often voluntary (quit to search) <span class="ko-inline">종종 자발적</span>
+        </td>
+        <td>
+          Almost always involuntary <span class="ko-inline">대부분 비자발적</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Market state</td>
+        <td>
+          Supply ≈ Demand, but matching takes time
+          <div class="ko-block">공급 ≈ 수요, 다만 매칭에 시간 소요</div>
+        </td>
+        <td>
+          Supply &gt; Demand (excess labour)
+          <div class="ko-block">공급 &gt; 수요 (노동 잉여)</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Examples</td>
+        <td>
+          New graduate · Quitting to find a better fit · Moving cities
+          <div class="ko-block">신규 졸업자, 더 좋은 일자리 찾으려 퇴사, 이사로 인한 이직</div>
+        </td>
+        <td>
+          Factory worker replaced by robot · Coal miner in declining industry · Minimum wage above equilibrium
+          <div class="ko-block">로봇에 대체된 공장 근로자, 사양 산업의 광부, 균형보다 높은 최저임금</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Policy fix</td>
+        <td>
+          Better job-matching info, employment agencies
+          <div class="ko-block">더 나은 정보, 취업 알선 기관</div>
+        </td>
+        <td>
+          Retraining programs, structural reform
+          <div class="ko-block">재교육 프로그램, 구조 개혁</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ SECTION 5: JOB SEARCH ============ -->
+<section id="s5">
+  <div class="section-num">SECTION 05</div>
+  <h2 class="section-title">
+    The Job Search — Why Some Frictional Unemployment is Inevitable
+    <span class="ko-h2">구직 활동 — 왜 마찰적 실업은 피할 수 없는가</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-concept">CONCEPT</span>
+      <h3>The job search defined</h3>
+    </div>
+    <div class="def-body">
+      <p>The <span class="term">job search</span> is the <strong>process of matching workers with appropriate jobs</strong>.</p>
+      <div class="ko-block"><strong>구직 활동(job search)</strong>은 <strong>근로자와 적합한 일자리를 매칭하는 과정</strong>입니다.</div>
+
+      <p style="margin-top:14px">If <strong>all workers were the same</strong> and <strong>all jobs were the same</strong>, then every worker would be suited for every job — and frictional unemployment wouldn't exist. But in reality, workers differ in skills, preferences, and locations, and so do jobs. That diversity is exactly what creates search frictions.</p>
+      <div class="ko-block">만약 <strong>모든 근로자가 동일</strong>하고 <strong>모든 일자리가 동일</strong>하다면, 모든 근로자가 모든 일자리에 적합할 것이고 마찰적 실업은 존재하지 않을 것입니다. 하지만 현실에서는 근로자마다 기술·취향·거주지가 다르고, 일자리도 마찬가지입니다. 이 <strong>다양성 자체가</strong> 탐색 마찰을 만들어냅니다.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Key insight</div>
+    <h4>Frictional unemployment is actually healthy</h4>
+    <p>Some frictional unemployment is <strong>desirable</strong>! It means workers are taking time to find good matches — which makes both them and their employers more productive in the long run. Zero frictional unemployment would mean everyone takes the first job offered, regardless of fit.</p>
+    <div class="ko-block" style="margin-top:8px">
+      어느 정도의 마찰적 실업은 <strong>오히려 바람직합니다</strong>! 근로자들이 좋은 매칭을 찾기 위해 시간을 투자한다는 의미이며, 장기적으로 근로자와 고용주 모두에게 생산성이 더 높아집니다. 마찰적 실업이 0이라는 것은 모든 사람이 적합성과 무관하게 첫 제안을 받아들인다는 뜻입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: MCDONALD'S EXAMPLE ============ -->
+<section id="s6">
+  <div class="section-num">SECTION 06</div>
+  <h2 class="section-title">
+    Real-World Example: McDonald's vs. Harvey's
+    <span class="ko-h2">실생활 예시: 맥도날드 vs. 하비스 — 수요 변화로 인한 이직</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    People move between jobs and are temporarily unemployed for many reasons. One common reason: the <strong>demand for labour changes among firms</strong>.
+  </p>
+  <div class="ko-block">
+    사람들은 다양한 이유로 직장을 옮기며 일시적으로 실업 상태가 됩니다. 가장 흔한 이유 중 하나: <strong>기업 간 노동 수요의 변화</strong>입니다.
+  </div>
+
+  <div class="story" style="margin-top:24px">
+    <div class="story-header">
+      <div class="story-icon">📖</div>
+      <div>
+        <h3>Mia Teacher's Story</h3>
+        <div class="sub">Two fast food chains, one popularity shift <span class="ko-inline">두 패스트푸드 체인의 인기 변화</span></div>
+      </div>
+    </div>
+    <p>Mia Teacher worked at <strong>McDonald's</strong> while she was in high school. The two most popular food chains in her city were McDonald's and <strong>Harvey's</strong>.</p>
+    <div class="ko-block">Mia 선생님은 고등학교 시절 <strong>맥도날드</strong>에서 일했습니다. 그녀의 도시에서 가장 인기 있는 두 패스트푸드 체인은 맥도날드와 <strong>하비스</strong>였습니다.</div>
+
+    <p style="margin-top:14px">When McDonald's started doing special celebrity meals like the <strong>BTS meal</strong>, they became much more popular than Harvey's. <strong>What happens to the demand for workers at each restaurant?</strong></p>
+    <div class="ko-block">맥도날드가 <strong>BTS 세트</strong> 같은 셀럽 메뉴를 출시하면서 하비스보다 훨씬 인기가 많아졌습니다. <strong>각 식당의 근로자 수요는 어떻게 변할까요?</strong></div>
+
+    <div class="vs-grid">
+      <div class="vs-card harvey">
+        <div class="brand">HARVEY'S</div>
+        <div class="trend">Customers leave → less revenue<br><span class="ko">손님 감소 → 매출 감소</span></div>
+        <div class="effect">↓ Labour demand · 노동 수요 감소</div>
+      </div>
+      <div class="vs-divider">VS</div>
+      <div class="vs-card mcd">
+        <div class="brand">McDONALD'S</div>
+        <div class="trend">Customers flock in → more revenue<br><span class="ko">손님 급증 → 매출 증가</span></div>
+        <div class="effect">↑ Labour demand · 노동 수요 증가</div>
+      </div>
+    </div>
+
+    <p style="margin-top:18px">Harvey's may lay off staff. McDonald's needs to hire more. Workers laid off from Harvey's must <strong>search</strong> for new positions — this is exactly <span class="term">frictional unemployment</span> in action.</p>
+    <div class="ko-block">하비스는 직원을 해고할 수 있고, 맥도날드는 더 많이 채용해야 합니다. 하비스에서 해고된 직원들은 새 일자리를 <strong>탐색</strong>해야 하는데, 이것이 바로 <strong>마찰적 실업</strong>의 실제 모습입니다.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Why this is frictional, not structural</div>
+    <h4>The jobs still exist — they just moved</h4>
+    <p>Total fast-food jobs in the city stayed roughly the same; they just <em>shifted</em> from Harvey's to McDonald's. The Harvey's workers are perfectly capable of doing McDonald's jobs — they just need time to apply, interview, and start. That's frictional, not structural.</p>
+    <div class="ko-block" style="margin-top:8px">
+      도시 전체의 패스트푸드 일자리 총량은 거의 같습니다. 단지 하비스에서 맥도날드로 <em>이동</em>했을 뿐입니다. 하비스 직원들은 맥도날드 일자리도 충분히 잘할 수 있으며, 단지 지원·면접·시작에 시간이 필요할 뿐입니다. 이것이 구조적이 아닌 마찰적 실업인 이유입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: PUBLIC POLICY ============ -->
+<section id="s7">
+  <div class="section-num">SECTION 07</div>
+  <h2 class="section-title">
+    Public Policy and Job Search
+    <span class="ko-h2">정부 정책과 구직 활동 — 자연실업률을 낮출 수 있을까?</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-policy">POLICY</span>
+      <h3>Even inevitable unemployment isn't fixed in size</h3>
+    </div>
+    <div class="def-body">
+      <p>Even if <em>some</em> frictional unemployment is inevitable, <strong>the exact amount is not given</strong>. When information about job openings can <strong>spread faster</strong>, it can <strong>reduce</strong> an economy's natural rate of unemployment.</p>
+      <div class="ko-block"><em>어느 정도</em>의 마찰적 실업은 피할 수 없지만, <strong>정확한 양이 정해진 것은 아닙니다</strong>. 일자리 공고 정보가 <strong>더 빠르게 퍼질수록</strong>, 경제의 <strong>자연실업률은 낮아질 수 있습니다</strong>.</div>
+
+      <p style="margin-top:14px">Knowing this, governments work to <strong>facilitate job search</strong> in various ways.</p>
+      <div class="ko-block">이 점을 알기에 정부는 다양한 방법으로 <strong>구직 활동을 지원</strong>합니다.</div>
+    </div>
+  </div>
+
+  <p style="margin-top:18px; font-size:15px; font-weight:600">Two main policy tools <span class="ko-inline">주요 정책 도구 두 가지</span></p>
+
+  <div class="policy-grid" style="margin-top:8px">
+    <div class="policy-card">
+      <div class="icon-label">POLICY 01</div>
+      <h4>Government-run Employment Agencies</h4>
+      <p>Public agencies that <strong>distribute information about job vacancies</strong> to the public, helping workers find open positions faster.</p>
+      <div class="ko-block"><strong>정부 운영 고용 알선 기관</strong> — 일반 대중에게 채용 공고 정보를 제공해 근로자가 더 빠르게 일자리를 찾도록 돕습니다. (예: 한국의 고용복지플러스센터, 미국의 American Job Center)</div>
+    </div>
+
+    <div class="policy-card">
+      <div class="icon-label">POLICY 02</div>
+      <h4>Public Training Programs</h4>
+      <p>Programs that <strong>ease workers' transitions from declining to growing industries</strong>, and help those who may never get specialized training otherwise.</p>
+      <div class="ko-block"><strong>공공 직업 훈련 프로그램</strong> — 사양 산업에서 성장 산업으로의 이동을 돕고, 그렇지 않으면 전문 교육을 받을 수 없는 사람들을 지원합니다. (예: 국민내일배움카드, 폴리텍대학)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: UNEMPLOYMENT INSURANCE ============ -->
+<section id="s8">
+  <div class="section-num">SECTION 08</div>
+  <h2 class="section-title">
+    Unemployment Insurance — A Policy with a Twist
+    <span class="ko-h2">실업 보험 — 의도치 않게 실업을 늘리는 정책</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-tradeoff">TRADE-OFF</span>
+      <h3>A policy that unintentionally increases frictional unemployment</h3>
+    </div>
+    <div class="def-body">
+      <p><span class="term">Unemployment insurance</span> is designed to offer <strong>some form of protection for workers against job loss</strong> — usually as cash payments while they search for new work.</p>
+      <div class="ko-block"><strong>실업 보험</strong>은 근로자에게 <strong>일자리 상실에 대한 보호</strong>를 제공하기 위해 설계됩니다 — 보통 새 일자리를 찾는 동안 현금 급여가 지급됩니다.</div>
+
+      <p style="margin-top:14px">But here's the twist: it <strong>unintentionally increases frictional unemployment</strong>. With financial support, workers can afford to <strong>search longer</strong> for the right job rather than accept the first offer. They become "pickier" — which means staying unemployed longer.</p>
+      <div class="ko-block">그러나 함정이 있습니다: 이 제도는 <strong>의도치 않게 마찰적 실업을 늘립니다</strong>. 재정 지원이 있으면 근로자는 첫 제안을 받아들이지 않고 <strong>더 오래 탐색</strong>할 여유가 생깁니다. "더 까다로워지는" 것이며, 결과적으로 실업 기간이 길어집니다.</div>
+    </div>
+  </div>
+
+  <div class="elig-grid">
+    <div class="elig-card yes">
+      <div class="head">ELIGIBLE · 수급 자격 있음</div>
+      <div class="title">Who CAN claim insurance</div>
+      <ul>
+        <li>Unemployed people who have been <strong>laid off</strong> because their previous employer no longer needed their skills</li>
+      </ul>
+      <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#86efac; margin-top:10px">
+        고용주가 더 이상 자신의 역량을 필요로 하지 않아 <strong>해고된(laid off)</strong> 실업자
+      </div>
+    </div>
+
+    <div class="elig-card no">
+      <div class="head">NOT ELIGIBLE · 수급 자격 없음</div>
+      <div class="title">Who CANNOT claim insurance</div>
+      <ul>
+        <li>People who <strong>quit</strong> their jobs voluntarily</li>
+        <li>People who were <strong>fired for cause</strong> (misconduct, etc.)</li>
+        <li>People who <strong>just entered</strong> the labour force (e.g., new graduates with no prior job)</li>
+      </ul>
+      <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#fca5a5; margin-top:10px">
+        스스로 <strong>퇴사</strong>한 사람, 귀책 사유로 <strong>해고된</strong> 사람, 노동시장에 <strong>처음 진입</strong>한 사람 (예: 이전 직장이 없는 신규 졸업자)
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Why these rules?</div>
+    <h4>Eligibility rules try to limit the "moral hazard"</h4>
+    <p>The eligibility criteria are designed to make sure benefits only flow to people whose unemployment is <strong>not their own fault</strong>. If anyone could collect, people might quit their jobs strategically — which would massively increase unemployment. The rules are an imperfect but important guardrail.</p>
+    <div class="ko-block" style="margin-top:8px">
+      수급 자격 기준은 <strong>본인의 잘못이 아닌</strong> 실업자에게만 급여가 지급되도록 설계됩니다. 누구든 받을 수 있다면 사람들이 전략적으로 퇴사할 수 있고, 실업은 폭발적으로 증가할 것입니다. 이 규칙은 불완전하지만 중요한 안전장치입니다 (도덕적 해이 방지).
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: EXIT TICKET ============ -->
+<section id="s9">
+  <div class="section-num">SECTION 09</div>
+  <h2 class="section-title">
+    Exit Ticket: Practice Classification
+    <span class="ko-h2">출구 티켓: 마찰적 vs 구조적 분류 연습</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-intro">
+    Try classifying each scenario as <strong>frictional</strong>, <strong>structural</strong>, or <strong>both</strong>. Cover the answers and test yourself first!
+  </p>
+  <div class="ko-block">
+    각 시나리오를 <strong>마찰적</strong>, <strong>구조적</strong>, 또는 <strong>둘 다</strong>로 분류해보세요. 정답을 가리고 먼저 풀어본 후 확인해보세요!
+  </div>
+
+  <div class="exit-grid" style="margin-top:24px">
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.01</span>
+        <div class="qtext">
+          A recent university graduate is sending out resumes and hasn't found a job yet.
+          <div class="ko-block" style="margin-top:6px">갓 졸업한 대학생이 이력서를 돌리고 있지만 아직 취업하지 못했다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag fric">FRICTIONAL · 마찰적</span>
+        </div>
+        <p>The job market has positions; the graduate just needs time to find a match. This is the textbook frictional case.</p>
+        <div class="ko-block">노동시장에 일자리는 있지만, 졸업생이 매칭을 찾는 데 시간이 필요할 뿐입니다. 교과서적인 마찰적 실업 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.02</span>
+        <div class="qtext">
+          A factory worker lost his job because the factory automated and now uses robots instead of human workers.
+          <div class="ko-block" style="margin-top:6px">공장이 자동화되어 인간 대신 로봇을 사용하기 시작했고, 한 공장 근로자가 일자리를 잃었다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag struc">STRUCTURAL · 구조적</span>
+        </div>
+        <p>His skills are no longer in demand at his level — there's a fundamental mismatch between his skill set and the jobs available. Retraining (a public policy from Section 07) would help here.</p>
+        <div class="ko-block">그의 역량은 더 이상 수요가 없으며, 보유 기술과 가용 일자리 사이에 근본적인 불일치가 있습니다. 7섹션에서 다룬 재교육 프로그램이 도움이 될 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.03</span>
+        <div class="qtext">
+          A worker quit her job at a small cafe to look for a better-paying position at a larger restaurant.
+          <div class="ko-block" style="margin-top:6px">한 근로자가 작은 카페를 그만두고 더 높은 급여의 대형 레스토랑 일자리를 찾고 있다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag fric">FRICTIONAL · 마찰적</span>
+        </div>
+        <p>Voluntary quit to search for a better fit — classic frictional. Note: she would <strong>not</strong> qualify for unemployment insurance since she quit voluntarily.</p>
+        <div class="ko-block">더 나은 자리를 찾기 위해 자발적으로 퇴사한 전형적인 마찰적 실업. 참고: 자발적 퇴사이므로 실업 보험 수급 자격은 <strong>없습니다</strong>.</div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.04</span>
+        <div class="qtext">
+          Coal miners in a rural town have all been unemployed for over a year since the local coal mine shut down due to declining coal demand.
+          <div class="ko-block" style="margin-top:6px">석탄 수요 감소로 광산이 폐쇄된 이후, 시골 마을의 광부들이 1년 넘게 모두 실업 상태이다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag struc">STRUCTURAL · 구조적</span>
+        </div>
+        <p>An entire industry is in decline, so there are not enough comparable jobs in the area. This is long-term and requires either retraining or relocation — a textbook structural case.</p>
+        <div class="ko-block">산업 전체가 사양화되어 해당 지역에 유사한 일자리가 부족합니다. 장기적이며 재교육이나 이주가 필요한 교과서적 구조적 실업 사례입니다.</div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.05</span>
+        <div class="qtext">
+          A worker was laid off from Harvey's after McDonald's released the BTS meal. He's been interviewing at McDonald's.
+          <div class="ko-block" style="margin-top:6px">맥도날드가 BTS 세트를 출시한 이후, 하비스에서 해고된 근로자가 맥도날드 면접을 보고 있다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag fric">FRICTIONAL · 마찰적</span>
+        </div>
+        <p>The jobs still exist — they just shifted to McDonald's. He has the right skills and just needs to complete the search. <strong>And</strong> since he was laid off (not quit), he <em>would</em> qualify for unemployment insurance during his search.</p>
+        <div class="ko-block">일자리는 여전히 존재합니다 — 단지 맥도날드로 옮겨갔을 뿐입니다. 그는 적절한 기술을 갖고 있고 탐색만 끝내면 됩니다. <strong>또한</strong> 자발적 퇴사가 아니라 해고이므로 탐색 기간 동안 실업 보험을 <em>받을 수 있습니다</em>.</div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.06</span>
+        <div class="qtext">
+          The government raises the minimum wage to ₩25,000/hr, well above the equilibrium wage. Some workers lose their jobs.
+          <div class="ko-block" style="margin-top:6px">정부가 최저임금을 균형 임금보다 훨씬 높은 시간당 ₩25,000으로 인상했고, 일부 근로자들이 일자리를 잃었다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag struc">STRUCTURAL · 구조적</span>
+        </div>
+        <p>Quantity of labour supplied now exceeds quantity demanded → there literally aren't enough jobs at the new wage. <strong>This is exactly the topic of Week 4!</strong></p>
+        <div class="ko-block">노동 공급량이 수요량을 초과 → 새 임금 수준에서 일자리가 부족합니다. <strong>바로 4주차에서 다룰 주제입니다!</strong></div>
+      </div>
+    </div>
+
+    <div class="exit-q">
+      <div class="exit-q-head">
+        <span class="qnum">Q.07</span>
+        <div class="qtext">
+          A 50-year-old typewriter repair specialist has been unemployed for 2 years. There are tech jobs available, but he hasn't been trained in computers.
+          <div class="ko-block" style="margin-top:6px">50세 타자기 수리 전문가가 2년간 실업 상태이다. IT 일자리는 있지만, 그는 컴퓨터 교육을 받은 적이 없다.</div>
+        </div>
+      </div>
+      <div class="exit-q-body">
+        <div class="verdict-row">
+          <span class="verdict-tag struc">STRUCTURAL · 구조적</span>
+        </div>
+        <p>Skills mismatch — the jobs that exist don't fit his skill set, and the skill set he has is no longer in demand. Long-term, needs retraining. Classic structural.</p>
+        <div class="ko-block">기술 불일치 — 존재하는 일자리는 그의 역량에 맞지 않고, 그의 역량은 더 이상 수요가 없습니다. 장기적이며 재교육이 필요한 전형적인 구조적 실업입니다.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Quick check</div>
+    <h4>Three questions to ask yourself</h4>
+    <p style="margin-bottom:6px"><strong>1.</strong> Do jobs <em>exist</em> for this person's skills? If yes → frictional. If no → structural.</p>
+    <p style="margin-bottom:6px"><strong>2.</strong> Is the unemployment <em>short-term</em> (weeks/months) or <em>long-term</em> (a year+)? Short → likely frictional. Long → likely structural.</p>
+    <p><strong>3.</strong> Is it about <em>searching</em> or about <em>matching at all</em>? Searching → frictional. No match exists → structural.</p>
+    <div class="ko-block" style="margin-top:8px">
+      <strong>스스로 묻기:</strong> ① 이 사람의 기술에 맞는 일자리가 존재하는가? ② 단기인가 장기인가? ③ 탐색의 문제인가, 매칭 자체가 불가능한가? — 이 세 질문이 분류의 핵심입니다.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Macroeconomics · Week 3 — Frictional vs. Structural Unemployment · Study Notes
+  <br><span class="ko">거시경제학 3주차 학습 자료 · 마찰적 실업과 구조적 실업</span>
+</footer>
+
+</body>
+</html>
