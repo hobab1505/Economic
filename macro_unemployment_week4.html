@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Week 4 — Minimum Wage Laws</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF7;
+    --bg-soft: #F2F1EC;
+    --text: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-soft: #8A8A8A;
+    --line: #E4E2DC;
+    --line-soft: #EFEDE7;
+    --accent: #1E3A8A;
+    --accent-soft: #EFF2FA;
+    --green: #166534;
+    --green-soft: #ECF5EE;
+    --red: #991B1B;
+    --red-soft: #FBEDED;
+    --amber: #92400E;
+    --amber-soft: #FBF4E8;
+    --purple: #6B21A8;
+    --purple-soft: #F3E8FF;
+    --ko-bg: #FFFCF2;
+    --ko-border: #E8E2CC;
+    --ko-text: #5C4A1A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:72px}
+  body{
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-weight: 400;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+  .ko-block {
+    background: var(--ko-bg);
+    border-left: 3px solid var(--ko-border);
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .ko-inline {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-soft);
+    font-weight: 400;
+    font-size: 0.85em;
+    margin-left: 6px;
+  }
+
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding: 80px 24px 64px;
+    background: var(--bg);
+  }
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .hero h1 .ko-h1 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-top: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    color: var(--text-soft);
+    font-size: 14px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '·';
+    margin-left: 18px;
+    color: var(--line);
+  }
+
+  nav.toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.toc::-webkit-scrollbar { height: 0 }
+  .toc-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  nav.toc a {
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  nav.toc a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  section {
+    margin-bottom: 72px;
+    scroll-margin-top: 72px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  h2.section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  h2.section-title .ko-h2 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.55em;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-top: 6px;
+    letter-spacing: -0.3px;
+  }
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 24px 0 28px;
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  /* Restaurant / workers panel */
+  .panel {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .panel h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .panel .panel-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+  }
+  .budget-line {
+    background: var(--accent-soft);
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .budget-line .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .budget-line .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* Worker table - comparison */
+  .worker-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+  .worker-table thead th {
+    background: var(--bg-soft);
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text-soft);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
+  }
+  .worker-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+  .worker-table tbody tr:last-child td { border-bottom: none }
+  .worker-table .role-cell {
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+  .worker-table .name-cell {
+    font-weight: 600;
+  }
+  .worker-table .name-cell .ko-inline {
+    margin-left: 4px;
+  }
+  .worker-table .wage-before {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--text-mid);
+  }
+  .worker-table .wage-after {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+  }
+  .worker-table .wage-after.unchanged { color: var(--text-mid) }
+  .worker-table .wage-after.raised { color: var(--red) }
+  .arrow {
+    color: var(--text-soft);
+    margin: 0 4px;
+  }
+  .status-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .status-keep { background: var(--green-soft); color: var(--green) }
+  .status-cut { background: var(--red-soft); color: var(--red) }
+  .status-maybe { background: var(--amber-soft); color: var(--amber) }
+
+  /* Definition cards */
+  .def {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg);
+  }
+  .def-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-soft);
+    flex-wrap: wrap;
+  }
+  .def-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .tag-concept { background: var(--accent-soft); color: var(--accent) }
+  .tag-theory { background: var(--red-soft); color: var(--red) }
+  .tag-structural { background: var(--purple-soft); color: var(--purple) }
+  .def-header h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .def-body {
+    padding: 24px;
+  }
+  .def-body p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Graph (SVG) */
+  .graph-wrap {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+  .graph-wrap h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .graph-wrap .graph-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 22px;
+  }
+  .graph-svg {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .graph-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .legend-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+  .legend-mark {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .legend-mark.demand { background: #2563eb }
+  .legend-mark.supply { background: #2563eb }
+  .legend-mark.min-wage { background: #dc2626 }
+  .legend-mark.equilibrium { background: #166534 }
+  .legend-mark.surplus { background: rgba(220, 38, 38, 0.15); border: 1px dashed #dc2626 }
+
+  /* Debate prep */
+  .debate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 700px) {
+    .debate-grid { grid-template-columns: 1fr }
+  }
+  .debate-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .debate-card.pro { border-top: 3px solid var(--green) }
+  .debate-card.con { border-top: 3px solid var(--red) }
+  .debate-card .debate-head {
+    padding: 16px 20px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .debate-card .debate-head .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .debate-card.pro .debate-head .label { color: var(--green) }
+  .debate-card.con .debate-head .label { color: var(--red) }
+  .debate-card .debate-head h4 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .debate-card .debate-body {
+    padding: 18px 20px;
+  }
+  .debate-card .debate-body ul {
+    list-style: none;
+  }
+  .debate-card .debate-body li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .debate-card.pro .debate-body li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .debate-card.con .debate-body li::before {
+    content: '−';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* Team roles */
+  .team-roles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .role-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .role-card .role-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .role-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .role-card .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+  .role-card p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+  }
+
+  /* Tip box */
+  .tip {
+    background: var(--amber-soft);
+    border: 1px solid #F0DDB8;
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .tip .tip-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tip h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .tip p {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .term {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.92em;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 40px 20px 80px; }
+    header.hero { padding: 56px 20px 44px; }
+    .panel { padding: 20px; }
+    .worker-table { font-size: 12.5px; }
+    .worker-table thead th, .worker-table tbody td { padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Macroeconomics · Week 4</div>
+    <h1>
+      Minimum Wage Laws
+      <span class="ko-h1">최저임금법 — 노동시장에 미치는 영향</span>
+    </h1>
+    <div class="hero-meta">
+      <span>How price floors affect employment</span>
+      <span>Study Notes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">01 · SGHS Steakhouse</a>
+    <a href="#s2">02 · After the New Law</a>
+    <a href="#s3">03 · Discussion</a>
+    <a href="#s4">04 · Minimum Wage</a>
+    <a href="#s5">05 · Surplus of Labour</a>
+    <a href="#s6">06 · Structural Unemployment</a>
+    <a href="#s7">07 · Class Debate</a>
+    <a href="#s8">08 · Debate Roles</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ SECTION 1: SGHS STEAKHOUSE ============ -->
+<section id="s1">
+  <div class="section-num">SECTION 01</div>
+  <h2 class="section-title">
+    Intro Activity: SGHS Steakhouse
+    <span class="ko-h2">도입 활동: SGHS 스테이크하우스 운영하기</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    Today we are running a restaurant together! SGHS Steakhouse is a sophisticated and popular restaurant in Hyehwa. As co-owners, we have to <strong>decide how to spend our hiring budget</strong> to run the restaurant.
+  </p>
+  <div class="ko-block">
+    오늘 우리는 함께 레스토랑을 운영합니다! SGHS Steakhouse는 혜화에 위치한 세련되고 인기 있는 레스토랑입니다. 공동 소유주로서 <strong>채용 예산을 어떻게 사용할지 결정</strong>해야 합니다.
+  </div>
+
+  <div class="panel" style="margin-top:24px">
+    <h3>The Applicant Pool — BEFORE the new law</h3>
+    <p class="panel-sub">8 candidates at their original wage rates · <span class="ko">새 법 시행 전, 8명의 지원자와 원래 시급</span></p>
+
+    <div class="budget-line">
+      <span class="label">HIRING BUDGET <span class="ko-inline">채용 예산</span></span>
+      <span class="value">₩100,000 / hour</span>
+    </div>
+
+    <table class="worker-table">
+      <thead>
+        <tr>
+          <th>Name <span class="ko-inline">이름</span></th>
+          <th>Role <span class="ko-inline">역할</span></th>
+          <th style="text-align:right">Wage <span class="ko-inline">시급</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-cell">Mina <span class="ko-inline">미나</span></td>
+          <td class="role-cell">Expert Chef · 전문 셰프</td>
+          <td class="wage-before" style="text-align:right">₩35,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Jisoo <span class="ko-inline">지수</span></td>
+          <td class="role-cell">Experienced Server · 경력 서버</td>
+          <td class="wage-before" style="text-align:right">₩20,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Joshua <span class="ko-inline">조슈아</span></td>
+          <td class="role-cell">Dishwasher · 설거지 담당</td>
+          <td class="wage-before" style="text-align:right">₩10,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Olivia <span class="ko-inline">올리비아</span></td>
+          <td class="role-cell">Hostess · 안내원</td>
+          <td class="wage-before" style="text-align:right">₩15,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Nathan <span class="ko-inline">네이선</span></td>
+          <td class="role-cell">Prep Cook · 보조 요리사</td>
+          <td class="wage-before" style="text-align:right">₩15,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Minho <span class="ko-inline">민호</span></td>
+          <td class="role-cell">Busser · 테이블 정리 직원</td>
+          <td class="wage-before" style="text-align:right">₩10,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Anna <span class="ko-inline">안나</span></td>
+          <td class="role-cell">Social Media Manager · SNS 매니저</td>
+          <td class="wage-before" style="text-align:right">₩10,000/hr</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Joe <span class="ko-inline">조</span></td>
+          <td class="role-cell">Delivery Driver · 배달원</td>
+          <td class="wage-before" style="text-align:right">₩15,000/hr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Budget check</div>
+    <h4>If we hire everyone</h4>
+    <p>35,000 + 20,000 + 10,000 + 15,000 + 15,000 + 10,000 + 10,000 + 15,000 = <strong>₩130,000/hr</strong>. That's <strong>₩30,000 over budget</strong>. We already have to cut <em>someone</em> — but with such low wages, we can comfortably keep most of the team.</p>
+    <div class="ko-block" style="margin-top:8px">
+      모두 채용 시 총 ₩130,000/시간 → 예산을 ₩30,000 초과합니다. 원래도 누군가는 잘라야 하지만, 임금이 낮은 편이라 대부분의 팀원을 유지할 수 있습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: AFTER THE LAW ============ -->
+<section id="s2">
+  <div class="section-num">SECTION 02</div>
+  <h2 class="section-title">
+    Plot Twist — New Law!
+    <span class="ko-h2">반전 — 새로운 법이 시행됩니다</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-theory">NEW LAW</span>
+      <h3>All workers must now earn at least ₩25,000/hr</h3>
+    </div>
+    <div class="def-body">
+      <p>The government just passed a new minimum wage law. Every worker on your team must now be paid <strong>at least ₩25,000 per hour</strong>. Workers below that threshold get an automatic raise; those already above stay the same.</p>
+      <div class="ko-block">정부가 새로운 최저임금법을 통과시켰습니다. 모든 근로자는 이제 시간당 <strong>최소 ₩25,000</strong>을 받아야 합니다. 그 미만 임금을 받던 사람들은 자동으로 인상되고, 이미 그 이상인 사람들은 그대로 유지됩니다.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>The Applicant Pool — AFTER the new law</h3>
+    <p class="panel-sub">All wages adjusted to minimum ₩25,000 · <span class="ko">최저임금 ₩25,000 적용 후</span></p>
+
+    <div class="budget-line">
+      <span class="label">SAME BUDGET <span class="ko-inline">예산 동일</span></span>
+      <span class="value">₩100,000 / hour</span>
+    </div>
+
+    <table class="worker-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Old → New</th>
+          <th style="text-align:center">Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-cell">Mina <span class="ko-inline">전문 셰프</span></td>
+          <td><span class="wage-before">₩35,000</span> <span class="arrow">→</span> <span class="wage-after unchanged">₩35,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-keep">KEEP · 유지</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Jisoo <span class="ko-inline">경력 서버</span></td>
+          <td><span class="wage-before">₩20,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-keep">KEEP · 유지</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Joshua <span class="ko-inline">설거지</span></td>
+          <td><span class="wage-before">₩10,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-maybe">MAYBE · 고민</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Olivia <span class="ko-inline">안내원</span></td>
+          <td><span class="wage-before">₩15,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-maybe">MAYBE · 고민</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Nathan <span class="ko-inline">보조 요리사</span></td>
+          <td><span class="wage-before">₩15,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-keep">KEEP · 유지</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Minho <span class="ko-inline">테이블 정리</span></td>
+          <td><span class="wage-before">₩10,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-cut">CUT · 해고</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Anna <span class="ko-inline">SNS 매니저</span></td>
+          <td><span class="wage-before">₩10,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-cut">CUT · 해고</span></td>
+        </tr>
+        <tr>
+          <td class="name-cell">Joe <span class="ko-inline">배달원</span></td>
+          <td><span class="wage-before">₩15,000</span> <span class="arrow">→</span> <span class="wage-after raised">₩25,000</span></td>
+          <td style="text-align:center"><span class="status-pill status-cut">CUT · 해고</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Budget reality</div>
+    <h4>Hiring everyone now costs ₩210,000/hr</h4>
+    <p>35,000 + 25,000 × 7 = <strong>₩210,000/hr</strong> — more than <strong>double</strong> our budget. We can only afford <strong>3 people</strong> at ₩25,000 plus Mina at ₩35,000, totaling ₩110,000 (still over). To stay at ₩100,000, only the absolute essentials get hired — like Mina + two servers (₩85,000) with ₩15,000 left for one part-time hire.</p>
+    <div class="ko-block" style="margin-top:8px">
+      모두 채용 시 ₩210,000/시간 — 예산의 <strong>2배 이상</strong>이 됩니다. 핵심 인력만 유지할 수 있으며, 예시: 미나(₩35,000) + 서버 2명(₩50,000) = ₩85,000, 남은 ₩15,000으로 단시간 1명 더 채용.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: DISCUSSION ============ -->
+<section id="s3">
+  <div class="section-num">SECTION 03</div>
+  <h2 class="section-title">
+    Discussion Questions
+    <span class="ko-h2">토론 질문 — 누구를 남기고, 누구를 해고할까?</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-concept">REFLECT</span>
+      <h3>Who did we decide to keep? Why?</h3>
+    </div>
+    <div class="def-body">
+      <p>Most restaurants would prioritize <strong>customer-facing and food-critical roles</strong>: the chef (Mina), and at least one server (Jisoo). These are jobs that <em>cannot be skipped</em>.</p>
+      <div class="ko-block">대부분의 레스토랑은 <strong>고객 응대와 음식 핵심 역할</strong>을 우선시합니다: 셰프(미나)와 최소 한 명의 서버(지수). 이런 역할은 <em>생략할 수 없는</em> 일자리입니다.</div>
+
+      <p style="margin-top:14px">The <strong>"nice-to-have" workers get cut first</strong>: busser, social media manager, delivery driver. Their tasks can be absorbed by other staff or skipped entirely.</p>
+      <div class="ko-block"><strong>"있으면 좋은" 역할</strong>들이 먼저 잘립니다: 테이블 정리(민호), SNS 매니저(안나), 배달원(조). 이런 업무는 다른 직원이 흡수하거나 아예 생략할 수 있습니다.</div>
+    </div>
+  </div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-concept">ADAPT</span>
+      <h3>How do we make up for the workers we lost?</h3>
+    </div>
+    <div class="def-body">
+      <p>When wages rise but the budget stays fixed, restaurants typically:</p>
+      <div class="ko-block">임금은 오르고 예산은 그대로일 때, 레스토랑이 보통 취하는 대응:</div>
+
+      <ul style="margin-top:14px; list-style:none;">
+        <li style="padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:15px;">
+          <strong>1.</strong> Existing workers take on <strong>more duties</strong> (chef cleans, server bus their own tables).
+          <div class="ko-block">남은 직원들이 <strong>더 많은 업무</strong>를 떠맡습니다 (셰프가 청소, 서버가 직접 테이블 정리).</div>
+        </li>
+        <li style="padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:15px;">
+          <strong>2.</strong> Invest in <strong>automation</strong> — self-order kiosks, dish-cleaning machines.
+          <div class="ko-block"><strong>자동화에 투자</strong> — 셀프 주문 키오스크, 식기세척기 도입.</div>
+        </li>
+        <li style="padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:15px;">
+          <strong>3.</strong> <strong>Raise menu prices</strong> to cover higher labour costs (passed on to customers).
+          <div class="ko-block">메뉴 가격을 <strong>인상</strong>하여 늘어난 인건비를 충당 (소비자에게 전가).</div>
+        </li>
+        <li style="padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:15px;">
+          <strong>4.</strong> <strong>Reduce hours</strong> or close early to limit total labour cost.
+          <div class="ko-block">영업 <strong>시간 단축</strong>이나 조기 마감으로 총 인건비 절감.</div>
+        </li>
+        <li style="padding:10px 0; font-size:15px;">
+          <strong>5.</strong> Drop the <strong>delivery service</strong>, social media presence, or other non-essential offerings.
+          <div class="ko-block"><strong>배달 서비스</strong>, SNS 운영 등 비핵심 서비스 중단.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: MINIMUM WAGE DEFINITION ============ -->
+<section id="s4">
+  <div class="section-num">SECTION 04</div>
+  <h2 class="section-title">
+    Minimum Wage Defined
+    <span class="ko-h2">최저임금의 정의</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-concept">DEFINITION</span>
+      <h3>The lowest hourly wage allowed by law</h3>
+    </div>
+    <div class="def-body">
+      <p>The <span class="term">minimum wage</span> is the <strong>lowest possible hourly wage</strong> that employers are allowed to pay employees, set by law.</p>
+      <div class="ko-block"><strong>최저임금(Minimum Wage)</strong>은 법으로 정해진, 고용주가 근로자에게 지급할 수 있는 <strong>최저 시간당 임금</strong>입니다.</div>
+
+      <p style="margin-top:14px">This is an example of a <span class="term">price floor</span> — a government-imposed <strong>minimum</strong> on the price of a good or service (in this case, labour).</p>
+      <div class="ko-block">이는 <strong>가격 하한선(price floor)</strong>의 예시입니다 — 정부가 재화나 서비스의 가격(이 경우 노동의 가격)에 부과하는 <strong>최저선</strong>입니다.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Concept link</div>
+    <h4>Price floors vs. price ceilings</h4>
+    <p>A <strong>price floor</strong> (like minimum wage) sets a minimum price. A <strong>price ceiling</strong> (like rent control) sets a maximum. Both are government interventions that can create market imbalances when set away from the equilibrium price.</p>
+    <div class="ko-block" style="margin-top:8px">
+      <strong>가격 하한선</strong>(최저임금)은 최저 가격을 설정합니다. <strong>가격 상한선</strong>(임대료 규제)은 최고 가격을 설정합니다. 둘 다 정부 개입으로, 균형가격에서 벗어나 설정되면 시장 불균형을 만듭니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: SURPLUS OF LABOUR ============ -->
+<section id="s5">
+  <div class="section-num">SECTION 05</div>
+  <h2 class="section-title">
+    Minimum Wage and Unemployment
+    <span class="ko-h2">최저임금과 실업 — 노동 수요·공급 그래프</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    Another way to define unemployment is as a <strong>surplus of labour</strong> — when the number of people wanting to work exceeds the number of jobs available at the going wage.
+  </p>
+  <div class="ko-block">
+    실업을 정의하는 또 다른 방법은 <strong>노동의 잉여(surplus of labour)</strong>입니다 — 현재 임금 수준에서 일하고 싶어 하는 사람의 수가 일자리 수를 초과하는 상태입니다.
+  </div>
+
+  <div class="graph-wrap" style="margin-top:24px">
+    <h3>Labour Market with a Binding Minimum Wage</h3>
+    <p class="graph-sub">Y-axis: Wage · X-axis: Quantity of Labour · <span class="ko">세로축: 임금 · 가로축: 노동량</span></p>
+
+    <svg class="graph-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="60" y1="40" x2="60" y2="360" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="60" y1="360" x2="560" y2="360" stroke="#1A1A1A" stroke-width="2"/>
+
+      <!-- Y axis arrow -->
+      <polygon points="60,30 55,42 65,42" fill="#1A1A1A"/>
+      <!-- X axis arrow -->
+      <polygon points="570,360 558,355 558,365" fill="#1A1A1A"/>
+
+      <!-- Y axis label -->
+      <text x="30" y="50" font-family="Noto Sans" font-size="13" font-weight="600" fill="#1A1A1A">Wage</text>
+      <text x="20" y="64" font-family="Noto Sans KR" font-size="10" fill="#8A8A8A">임금</text>
+
+      <!-- X axis label -->
+      <text x="500" y="385" font-family="Noto Sans" font-size="13" font-weight="600" fill="#1A1A1A">Quantity of Labour</text>
+      <text x="500" y="398" font-family="Noto Sans KR" font-size="10" fill="#8A8A8A">노동량</text>
+
+      <!-- Origin label -->
+      <text x="50" y="378" font-family="Noto Sans" font-size="11" fill="#8A8A8A">0</text>
+
+      <!-- Surplus region (light red shading) -->
+      <rect x="200" y="130" width="200" height="65" fill="rgba(220, 38, 38, 0.12)" />
+
+      <!-- Labor demand line (downward sloping) -->
+      <line x1="80" y1="80" x2="500" y2="340" stroke="#2563eb" stroke-width="2.5"/>
+      <text x="490" y="335" font-family="Noto Sans" font-size="13" font-weight="600" fill="#2563eb">Labor demand</text>
+      <text x="490" y="348" font-family="Noto Sans KR" font-size="10" fill="#2563eb">노동 수요</text>
+
+      <!-- Labor supply line (upward sloping) -->
+      <line x1="80" y1="340" x2="500" y2="80" stroke="#2563eb" stroke-width="2.5"/>
+      <text x="490" y="80" font-family="Noto Sans" font-size="13" font-weight="600" fill="#2563eb" text-anchor="end">Labor supply</text>
+      <text x="490" y="93" font-family="Noto Sans KR" font-size="10" fill="#2563eb" text-anchor="end">노동 공급</text>
+
+      <!-- Equilibrium wage W_E (horizontal dashed line) -->
+      <line x1="60" y1="210" x2="290" y2="210" stroke="#166534" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="30" y="215" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#166534">W_E</text>
+
+      <!-- Equilibrium quantity L_E (vertical dashed line) -->
+      <line x1="290" y1="210" x2="290" y2="360" stroke="#166534" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="282" y="378" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#166534">L_E</text>
+
+      <!-- Equilibrium point -->
+      <circle cx="290" cy="210" r="5" fill="#166534"/>
+
+      <!-- Minimum wage line (horizontal red, above equilibrium) -->
+      <line x1="60" y1="150" x2="500" y2="150" stroke="#dc2626" stroke-width="2.5"/>
+      <text x="30" y="135" font-family="Noto Sans" font-size="12" font-weight="700" fill="#dc2626">Min</text>
+      <text x="30" y="150" font-family="Noto Sans" font-size="12" font-weight="700" fill="#dc2626">wage</text>
+
+      <!-- L_D point (where min wage meets demand) -->
+      <line x1="200" y1="150" x2="200" y2="360" stroke="#8A8A8A" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="200" cy="150" r="5" fill="#dc2626"/>
+      <text x="190" y="378" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#1A1A1A">L_D</text>
+
+      <!-- L_S point (where min wage meets supply) -->
+      <line x1="400" y1="150" x2="400" y2="360" stroke="#8A8A8A" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="400" cy="150" r="5" fill="#dc2626"/>
+      <text x="390" y="378" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#1A1A1A">L_S</text>
+
+      <!-- Surplus bracket -->
+      <path d="M 200 125 L 200 115 L 400 115 L 400 125" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+      <text x="300" y="108" font-family="Noto Sans" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">Surplus of labour = Unemployment</text>
+      <text x="300" y="122" font-family="Noto Sans KR" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="600">노동 잉여 = 실업</text>
+    </svg>
+
+    <div class="graph-legend">
+      <div class="legend-row">
+        <div class="legend-mark equilibrium"></div>
+        <div>
+          <strong>W_E, L_E</strong> — Equilibrium wage and labour
+          <div class="ko" style="font-size:12px">시장 균형 임금·노동량</div>
+        </div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-mark min-wage"></div>
+        <div>
+          <strong>Min wage</strong> — set above equilibrium
+          <div class="ko" style="font-size:12px">균형보다 높게 설정된 최저임금</div>
+        </div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-mark" style="background:#dc2626; opacity:.85"></div>
+        <div>
+          <strong>L_D</strong> — Labour demanded (firms hire less)
+          <div class="ko" style="font-size:12px">기업의 노동 수요량 (감소)</div>
+        </div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-mark" style="background:#dc2626; opacity:.85"></div>
+        <div>
+          <strong>L_S</strong> — Labour supplied (more people want jobs)
+          <div class="ko" style="font-size:12px">노동 공급량 (증가)</div>
+        </div>
+      </div>
+      <div class="legend-row" style="grid-column: 1 / -1">
+        <div class="legend-mark surplus"></div>
+        <div>
+          <strong>Surplus = L_S − L_D</strong> — the unemployment created by a binding minimum wage
+          <div class="ko" style="font-size:12px">잉여 = L_S − L_D — 구속력 있는 최저임금이 만들어내는 실업</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-theory">THEORY</span>
+      <h3>The standard model's prediction</h3>
+    </div>
+    <div class="def-body">
+      <p>When the minimum wage is set <strong>above</strong> the equilibrium wage:</p>
+      <div class="ko-block">최저임금이 균형 임금보다 <strong>높게</strong> 설정될 때:</div>
+
+      <ul style="list-style:none; margin-top:12px;">
+        <li style="padding:8px 0; font-size:14.5px;">
+          📉 <strong>Quantity demanded falls</strong> — firms hire fewer workers at the higher wage.
+          <div class="ko-block">📉 <strong>수요량 감소</strong> — 임금이 높아지면 기업은 더 적은 노동자를 고용합니다.</div>
+        </li>
+        <li style="padding:8px 0; font-size:14.5px;">
+          📈 <strong>Quantity supplied rises</strong> — more people want to work at the higher wage.
+          <div class="ko-block">📈 <strong>공급량 증가</strong> — 임금이 높으면 더 많은 사람이 일하고 싶어 합니다.</div>
+        </li>
+        <li style="padding:8px 0; font-size:14.5px;">
+          ⚠️ <strong>The gap = unemployment</strong> — a labour surplus emerges as a direct result.
+          <div class="ko-block">⚠️ <strong>그 차이 = 실업</strong> — 노동 잉여가 직접적인 결과로 발생합니다.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: STRUCTURAL UNEMPLOYMENT ============ -->
+<section id="s6">
+  <div class="section-num">SECTION 06</div>
+  <h2 class="section-title">
+    Minimum Wage = Structural Unemployment
+    <span class="ko-h2">최저임금은 구조적 실업의 원인</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="def">
+    <div class="def-header">
+      <span class="def-tag tag-structural">CLASSIFICATION</span>
+      <h3>Why it's structural, not frictional or cyclical</h3>
+    </div>
+    <div class="def-body">
+      <p>Unemployment caused by minimum wage laws is an example of <span class="term">structural unemployment</span>.</p>
+      <div class="ko-block">최저임금법으로 인한 실업은 <strong>구조적 실업(structural unemployment)</strong>의 예시입니다.</div>
+
+      <p style="margin-top:14px">There is a <strong>failure of wages to balance labour supply and demand</strong>. This is a <strong>structural issue</strong> caused by external regulation — not a natural consequence of a free labour market.</p>
+      <div class="ko-block"><strong>임금이 노동 공급과 수요를 균형 있게 맞추지 못하는 실패</strong>가 발생합니다. 이는 외부 규제로 인한 <strong>구조적 문제</strong>이며, 자유로운 노동시장의 자연스러운 결과가 아닙니다.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Recall from Week 2</div>
+    <h4>Three types of unemployment — quick refresher</h4>
+    <p style="margin-bottom:6px"><strong>Frictional</strong> — short-term job transitions (changing jobs) <span class="ko-inline">마찰적: 이직 과정</span></p>
+    <p style="margin-bottom:6px"><strong>Structural</strong> — long-term mismatch between workers and jobs (skills, geography, <em>or regulation like minimum wage</em>) <span class="ko-inline">구조적: 장기 불일치 (기술·지역·<em>최저임금 규제</em>)</span></p>
+    <p><strong>Cyclical</strong> — recession-driven layoffs <span class="ko-inline">경기적: 경기 침체로 인한 해고</span></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: DEBATE OVERVIEW ============ -->
+<section id="s7">
+  <div class="section-num">SECTION 07</div>
+  <h2 class="section-title">
+    Class Debate: Is Minimum Wage Good for Society?
+    <span class="ko-h2">반 토론: 최저임금은 사회에 이로운가?</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    The minimum wage is one of the most debated topics in economics. Below are the strongest arguments on both sides — use them to build your case.
+  </p>
+  <div class="ko-block">
+    최저임금은 경제학에서 가장 활발하게 논의되는 주제 중 하나입니다. 아래는 양측의 가장 강력한 논거들 — 토론 준비에 활용하세요.
+  </div>
+
+  <div class="debate-grid" style="margin-top:24px">
+
+    <div class="debate-card pro">
+      <div class="debate-head">
+        <div class="label">PRO · 찬성 측</div>
+        <h4>Minimum Wage is GOOD</h4>
+      </div>
+      <div class="debate-body">
+        <ul>
+          <li>
+            <strong>Reduces poverty</strong> for low-income workers and their families.
+            <div class="ko-block">저소득 근로자와 그 가족의 <strong>빈곤 감소</strong>.</div>
+          </li>
+          <li>
+            <strong>Reduces income inequality</strong> by lifting wages at the bottom.
+            <div class="ko-block">하위층 임금 인상으로 <strong>소득 불평등 완화</strong>.</div>
+          </li>
+          <li>
+            <strong>Boosts consumer spending</strong> — low-wage workers spend most of their income.
+            <div class="ko-block"><strong>소비 진작</strong> — 저임금 근로자는 소득 대부분을 소비.</div>
+          </li>
+          <li>
+            <strong>Empirical evidence (Card & Krueger 1994)</strong>: modest increases didn't reduce employment in NJ fast-food.
+            <div class="ko-block"><strong>Card & Krueger (1994)</strong> 연구: 적정 수준의 인상은 뉴저지 패스트푸드 고용에 부정적 영향을 주지 않았습니다.</div>
+          </li>
+          <li>
+            <strong>Reduces government welfare burden</strong> — workers depend less on subsidies.
+            <div class="ko-block">정부 <strong>복지 부담 감소</strong> — 근로자의 보조금 의존 축소.</div>
+          </li>
+          <li>
+            <strong>Monopsony power:</strong> in markets where one employer dominates, minimum wage can raise both wages <em>and</em> employment.
+            <div class="ko-block"><strong>수요독점(monopsony):</strong> 한 고용주가 시장을 지배하는 경우, 최저임금이 임금과 고용 <em>모두</em>를 늘릴 수 있습니다.</div>
+          </li>
+          <li>
+            <strong>Higher productivity & lower turnover</strong> — better-paid workers stay longer and perform better.
+            <div class="ko-block"><strong>생산성 향상과 이직률 감소</strong> — 더 잘 대우받는 근로자는 더 오래 머물고 더 잘 일합니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="debate-card con">
+      <div class="debate-head">
+        <div class="label">CON · 반대 측</div>
+        <h4>Minimum Wage is BAD</h4>
+      </div>
+      <div class="debate-body">
+        <ul>
+          <li>
+            <strong>Creates unemployment</strong> as our graph shows — quantity demanded falls below quantity supplied.
+            <div class="ko-block">그래프가 보여주듯 <strong>실업 발생</strong> — 수요량이 공급량보다 작아집니다.</div>
+          </li>
+          <li>
+            <strong>Hurts the workers it aims to help</strong> — low-skilled, young, and inexperienced workers get cut first.
+            <div class="ko-block">돕고자 하는 사람들에게 <strong>오히려 피해</strong> — 저숙련, 청년, 신입 근로자가 먼저 해고됩니다.</div>
+          </li>
+          <li>
+            <strong>Higher prices for consumers</strong> as firms pass costs through.
+            <div class="ko-block">기업이 비용을 전가하면서 <strong>소비자 가격 상승</strong>.</div>
+          </li>
+          <li>
+            <strong>Accelerates automation</strong> — kiosks replace cashiers, robots replace cooks.
+            <div class="ko-block"><strong>자동화 가속</strong> — 키오스크가 계산원을, 로봇이 요리사를 대체.</div>
+          </li>
+          <li>
+            <strong>Small business squeeze</strong> — large corporations can absorb wage hikes; small businesses can't.
+            <div class="ko-block"><strong>소상공인 압박</strong> — 대기업은 임금 인상을 감당할 수 있지만, 소상공인은 어렵습니다.</div>
+          </li>
+          <li>
+            <strong>Reduces hours and benefits</strong> — even if wages stay, firms cut hours, health benefits, training.
+            <div class="ko-block"><strong>근무 시간·복지 감소</strong> — 시급은 유지되어도 근무 시간, 건강보험, 교육 기회가 줄어듭니다.</div>
+          </li>
+          <li>
+            <strong>Pushes work into the informal economy</strong> — under-the-table cash jobs with no protections.
+            <div class="ko-block">일자리가 <strong>비공식 경제로 이동</strong> — 보호받지 못하는 현금 거래 일자리로 흘러갑니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Nuanced view</div>
+    <h4>What economists actually think</h4>
+    <p>The economic consensus has shifted significantly over the past 30 years. Modern research (especially with monopsony models) suggests <strong>modest minimum wage increases</strong> have small employment effects but real income gains for low-wage workers. <strong>Very large or rapid increases</strong>, however, can cause significant job losses. Context matters enormously: a ₩25,000/hr minimum in Seoul vs. a small rural town has very different effects.</p>
+    <div class="ko-block" style="margin-top:8px">
+      지난 30년간 경제학계의 합의는 크게 변했습니다. 현대 연구(특히 수요독점 모델)는 <strong>적정 수준의 최저임금 인상</strong>은 고용에 작은 영향을 주면서도 저임금 근로자의 실질소득을 증가시킨다고 봅니다. 그러나 <strong>너무 크거나 급격한 인상</strong>은 상당한 고용 감소를 가져올 수 있습니다. 맥락이 매우 중요합니다 — 서울의 시간당 ₩25,000과 지방 소도시의 ₩25,000은 효과가 매우 다릅니다.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: DEBATE PREP ROLES ============ -->
+<section id="s8">
+  <div class="section-num">SECTION 08</div>
+  <h2 class="section-title">
+    How to Prepare: Team Roles
+    <span class="ko-h2">토론 준비 방법: 팀별 역할 분담</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p class="section-intro">
+    Each side splits into four sub-teams. On debate day, <strong>one person from each sub-team</strong> speaks (4 speakers per side).
+  </p>
+  <div class="ko-block">
+    각 측은 네 개의 하위 팀으로 나뉩니다. 토론 당일에는 각 하위 팀에서 <strong>한 명씩</strong> 발언합니다 (각 측 총 4명).
+  </div>
+
+  <div class="team-roles" style="margin-top:24px">
+
+    <div class="role-card">
+      <div class="role-num">TEAM 01</div>
+      <h4>Opening Statement</h4>
+      <div class="count">2–3 people · 2~3명</div>
+      <p>Defines and introduces your side's main argument briefly. What are you trying to prove?</p>
+      <div class="ko-block">자신의 측 핵심 주장을 간단히 정의하고 소개. 무엇을 증명하려는가?</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-num">TEAM 02</div>
+      <h4>Evidence</h4>
+      <div class="count">2–4 people · 2~4명</div>
+      <p>Finds evidence for why your side is correct. Use online sources or class materials.</p>
+      <div class="ko-block">자신의 측이 옳다는 증거 수집. 온라인 자료나 수업 자료 활용 가능.</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-num">TEAM 03</div>
+      <h4>Rebuttal</h4>
+      <div class="count">2–3 people · 2~3명</div>
+      <p>Predicts what the other side might argue and prepares counter-points.</p>
+      <div class="ko-block">상대측이 펼칠 만한 주장을 예측하고 반박 포인트를 준비.</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-num">TEAM 04</div>
+      <h4>Closing Statement</h4>
+      <div class="count">1–2 people · 1~2명</div>
+      <p>Creates a final statement to summarize your side's stance on the topic.</p>
+      <div class="ko-block">주제에 대한 자신의 측 입장을 요약하는 마무리 발언 작성.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">↳ Debate strategy</div>
+    <h4>Tips for winning the debate</h4>
+    <p><strong>Use real numbers</strong> — cite specific countries' minimum wage policies (Korea, US, UK) and their outcomes. <strong>Anticipate the other side</strong> — the strongest rebuttals come from those who genuinely understand the opposing view. <strong>Anchor to economics concepts</strong> — reference the labour supply/demand graph, price floors, and structural unemployment from this week's material.</p>
+    <div class="ko-block" style="margin-top:8px">
+      <strong>구체적인 수치 활용</strong> — 한국, 미국, 영국 등 실제 최저임금 정책과 결과를 인용하세요. <strong>상대 진영을 예측</strong> — 가장 강력한 반박은 상대 입장을 진정으로 이해한 사람에게서 나옵니다. <strong>경제학 개념에 정박</strong> — 이번 주 배운 노동 수요·공급 그래프, 가격 하한선, 구조적 실업 개념을 인용하세요.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Macroeconomics · Week 4 — Minimum Wage Laws · Study Notes
+  <br><span class="ko">거시경제학 4주차 학습 자료 · 최저임금법과 노동시장</span>
+</footer>
+
+</body>
+</html>
