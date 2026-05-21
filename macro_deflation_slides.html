@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Deflation Can Be More Dangerous Than Inflation — Slide Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-dark: #1F2D4E;
+    --navy: #2C3E6D;
+    --navy-light: #4A6FA5;
+    --blue-soft: #5C7DB5;
+    --gold: #E8A93C;
+    --gold-light: #F4C95D;
+    --orange: #D97706;
+    --red: #C0392B;
+    --cream: #F4F5F7;
+    --paper: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-soft: #6B7280;
+    --line: #E4E2DC;
+    --green-soft: #ECFDF5;
+    --green-border: #86EFAC;
+    --red-soft: #FEF2F2;
+    --red-border: #FCA5A5;
+    --ko-bg: #FFFCF2;
+    --ko-text: #5C4A1A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family: 'Noto Sans', 'Noto Sans KR', -apple-system, sans-serif;
+    background: #E8EAED;
+    color: var(--text-dark);
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 16px;
+  }
+
+  .top-nav {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    background: var(--paper);
+    padding: 14px 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .top-nav .nav-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy-dark);
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+  .top-nav a {
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .top-nav a:hover {
+    background: var(--cream);
+    color: var(--navy-dark);
+  }
+
+  .slide {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    background: var(--cream);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .slide-number {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    z-index: 10;
+  }
+  .slide.no-header .slide-number { color: var(--text-soft) }
+
+  .slide-header {
+    background: var(--navy-dark);
+    padding: 24px 48px;
+    color: white;
+  }
+  .slide-header h2 {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .slide-header.gold {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+  .slide-header.blue {
+    background: var(--blue-soft);
+    color: white;
+  }
+  .slide-header.navy-light {
+    background: var(--navy);
+    color: white;
+  }
+
+  .slide-body {
+    flex: 1;
+    padding: 32px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .ko-trans {
+    background: var(--ko-bg);
+    border-left: 3px solid #E8E2CC;
+    padding: 14px 18px;
+    margin: 16px 0 0;
+    border-radius: 0 6px 6px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ko-text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== SLIDE 1: TITLE ===== */
+  .slide.title-slide {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+  }
+  .title-slide .pre-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .title-slide h1 {
+    font-size: clamp(36px, 5.5vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  .title-slide h1 .ko-h1 {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.42em;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-top: 24px;
+    letter-spacing: -0.5px;
+  }
+  .title-slide .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    text-align: center;
+    margin-top: 8px;
+    max-width: 700px;
+  }
+  .title-slide .subtitle .ko-line {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgba(232,169,60,0.85);
+    margin-top: 6px;
+  }
+  .title-slide .institution {
+    margin-top: 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+  }
+
+  /* ===== SLIDE 2: OVERVIEW ===== */
+  .overview-intro {
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 0 40px;
+  }
+  .overview-intro p {
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .overview-intro p .red-emph {
+    color: var(--red);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .overview-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .ov-card {
+    padding: 22px 16px;
+    text-align: center;
+    color: white;
+    border-radius: 2px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ov-card.c1 { background: var(--blue-soft) }
+  .ov-card.c2 { background: var(--gold) }
+  .ov-card.c3 { background: var(--navy-light) }
+  .ov-card.c4 { background: var(--navy-dark) }
+  .ov-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--gold-light);
+    line-height: 1;
+    opacity: 0.9;
+  }
+  .ov-card.c2 .num { color: rgba(255,255,255,0.85) }
+  .ov-card .ov-title {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+  .ov-card .ov-sub {
+    font-size: 11px;
+    font-style: italic;
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+  .overview-footnote {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-top: 12px;
+  }
+
+  /* ===== CHANNEL 01 SLIDE ===== */
+  .quote-banner {
+    background: var(--navy-dark);
+    color: var(--gold-light);
+    font-style: italic;
+    font-size: clamp(15px, 1.5vw, 19px);
+    text-align: center;
+    padding: 20px 32px;
+    border-radius: 2px;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .col-card {
+    background: var(--paper);
+    border-left: 4px solid var(--navy-light);
+    padding: 16px 18px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .col-card.gold { border-left-color: var(--gold) }
+  .col-card.navy { border-left-color: var(--navy-dark) }
+  .col-card h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 8px;
+  }
+  .col-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  .footer-arrow {
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ===== CHANNEL 02 FORMULA SLIDE ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .dark-panel {
+    background: var(--navy-dark);
+    color: white;
+    padding: 22px 24px;
+    border-radius: 4px;
+  }
+  .dark-panel h3 {
+    color: var(--gold-light);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .dark-panel p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .dark-panel p strong {
+    color: var(--gold-light);
+  }
+  .formula-box-pp {
+    border: 2px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 12px 0 8px;
+    font-style: italic;
+  }
+  .dark-panel .sub-line {
+    text-align: center;
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+  .quote-line {
+    border: 1px solid rgba(232,169,60,0.4);
+    padding: 12px 16px;
+    border-radius: 3px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .quote-line .quote-text {
+    color: var(--gold-light);
+    font-style: italic;
+    font-size: 14px;
+  }
+  .quote-line .attribution {
+    color: rgba(255,255,255,0.55);
+    font-size: 11.5px;
+    text-align: right;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .dark-panel .source-cite {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+    margin-top: 14px;
+  }
+  .light-panel {
+    background: var(--paper);
+    padding: 22px 24px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .light-panel h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 8px;
+  }
+  .light-panel .formula-inline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .scenario-box {
+    border: 1.5px solid var(--green-border);
+    background: var(--green-soft);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+  }
+  .scenario-box.bad {
+    border-color: var(--red-border);
+    background: var(--red-soft);
+  }
+  .scenario-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--navy-dark);
+  }
+  .scenario-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    padding: 2px 0;
+  }
+  .scenario-row .label-l {
+    color: var(--text-mid);
+  }
+  .scenario-row .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--navy-dark);
+  }
+  .scenario-box.bad .val {
+    color: var(--red);
+  }
+  .scenario-row.highlight {
+    border-top: 1px dashed rgba(0,0,0,0.15);
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+  .scenario-note {
+    font-style: italic;
+    font-size: 11.5px;
+    color: var(--text-soft);
+    margin-top: 6px;
+  }
+
+  /* ===== SPIRAL 5-STAGE SLIDE ===== */
+  .spiral-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    align-items: stretch;
+    margin-bottom: 18px;
+  }
+  .spiral-cell {
+    padding: 16px 12px;
+    color: white;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .spiral-cell.s1 { background: var(--navy-light) }
+  .spiral-cell.s2 { background: var(--blue-soft) }
+  .spiral-cell.s3 { background: var(--gold) }
+  .spiral-cell.s4 { background: #B45309 }
+  .spiral-cell.s5 { background: var(--red) }
+  .spiral-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+  .spiral-cell h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .spiral-cell p {
+    font-size: 11.5px;
+    line-height: 1.4;
+    opacity: 0.95;
+  }
+  .spiral-arrow-inline {
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 16px;
+    z-index: 5;
+  }
+  .spiral-cell:last-child .spiral-arrow-inline { display: none }
+  .paradox-banner {
+    background: var(--navy-dark);
+    color: var(--gold-light);
+    padding: 14px 20px;
+    font-style: italic;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  /* ===== CHANNEL 03 SLIDE ===== */
+  .firms-dilemma {
+    background: var(--cream);
+    padding: 22px;
+    border-radius: 4px;
+  }
+  .firms-dilemma h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 14px;
+  }
+  .dilemma-step {
+    background: #E8EDF5;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: var(--text-dark);
+  }
+  .dilemma-step.alert {
+    background: var(--red-soft);
+    color: var(--red);
+    font-weight: 700;
+  }
+  .dilemma-step.warn {
+    background: #FEF3C7;
+    color: #92400E;
+    font-weight: 700;
+  }
+
+  /* ===== CHANNEL 04 SLIDE ===== */
+  .four-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .grid-cell {
+    padding: 18px 22px;
+    border-radius: 4px;
+  }
+  .grid-cell.dark {
+    background: var(--navy-dark);
+    color: white;
+  }
+  .grid-cell.dark h3 {
+    color: var(--gold-light);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .grid-cell.dark p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .grid-cell.dark p strong {
+    color: white;
+  }
+  .grid-cell.dark .source-cite {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    margin-top: 10px;
+  }
+  .grid-cell.light {
+    background: var(--cream);
+  }
+  .grid-cell.light h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+  .grid-cell.light p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  .quote-banner-small {
+    background: #FEF3C7;
+    border: 1px solid var(--gold);
+    color: var(--navy-dark);
+    font-style: italic;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    margin: 8px 0;
+    font-weight: 500;
+  }
+  .qe-list {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .qe-list li {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    padding: 4px 0;
+  }
+  .qe-list li::before {
+    content: '· ';
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .qe-list .qe-warn {
+    margin-top: 10px;
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--text-soft);
+  }
+
+  /* Korean explanation pane below each slide */
+  .ko-explain {
+    max-width: 1200px;
+    margin: -20px auto 24px;
+    background: var(--paper);
+    border-radius: 0 0 8px 8px;
+    padding: 24px 32px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .ko-explain h3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    color: var(--navy-dark);
+    margin-bottom: 12px;
+    font-weight: 700;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .ko-explain h3 .badge {
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .ko-explain .ko-section {
+    margin-bottom: 14px;
+  }
+  .ko-explain .ko-section:last-child { margin-bottom: 0 }
+  .ko-explain .ko-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    background: var(--cream);
+    padding: 3px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .ko-explain p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: var(--ko-text);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .ko-explain p strong {
+    color: #4A3814;
+    font-weight: 700;
+  }
+  .ko-explain .extra-note {
+    background: #FEF7E6;
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ko-text);
+    line-height: 1.65;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .ko-explain .extra-note strong {
+    color: #4A3814;
+  }
+
+  @media (max-width: 900px) {
+    body { padding: 16px 8px }
+    .slide {
+      aspect-ratio: auto;
+    }
+    .slide-header { padding: 18px 24px }
+    .slide-body { padding: 22px 24px }
+    .overview-cards { grid-template-columns: repeat(2, 1fr) }
+    .three-col { grid-template-columns: 1fr }
+    .two-col { grid-template-columns: 1fr }
+    .four-grid { grid-template-columns: 1fr }
+    .spiral-grid { grid-template-columns: 1fr; gap: 16px }
+    .spiral-arrow-inline { display: none }
+    .ko-explain { padding: 20px }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <span class="nav-title">📑 슬라이드 목차</span>
+  <a href="#s1">① Title</a>
+  <a href="#s2">② Overview</a>
+  <a href="#s3">③ Ch.01 Delayed Consumption</a>
+  <a href="#s4">④ Ch.02 Debt-Deflation</a>
+  <a href="#s5">⑤ Ch.02 Spiral</a>
+  <a href="#s6">⑥ Ch.03 Sticky Wages</a>
+  <a href="#s7">⑦ Ch.04 Liquidity Trap</a>
+</div>
+
+<!-- ============ SLIDE 1: TITLE ============ -->
+<div class="slide title-slide" id="s1">
+  <div class="slide-number">01 / 07</div>
+  <div class="pre-title">AP Macroeconomics · SGHS 2026</div>
+  <h1>
+    Why Deflation Can Be More Dangerous Than Inflation
+    <span class="ko-h1">왜 디플레이션이 인플레이션보다 더 위험할 수 있는가</span>
+  </h1>
+  <p class="subtitle">
+    A Macroeconomics Reading — Four Channels of Harm
+    <span class="ko-line">거시경제학 읽기 자료 — 디플레이션이 경제를 해치는 4가지 경로</span>
+  </p>
+  <div class="institution">Seoul Global High School</div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 01</span>표지 슬라이드 해설</h3>
+  <div class="ko-section">
+    <span class="ko-label">📌 핵심 메시지</span>
+    <p>이 자료의 핵심 질문은 <strong>"디플레이션과 인플레이션 중 무엇이 더 위험한가?"</strong>입니다. 직관적으로는 물가가 떨어지는 디플레이션이 좋은 것 같지만, 경제학자들은 <strong>디플레이션이 훨씬 더 위험하다</strong>고 봅니다. 그 이유를 4가지 경로(channel)로 나누어 설명하는 자료입니다.</p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>학습 팁:</strong> 이 자료는 AP 거시경제학에서 자주 출제되는 주제입니다. 특히 ② Fisher의 부채-디플레이션과 ④ 유동성 함정은 FRQ(자유 응답 문제)에 단골로 등장합니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 2: OVERVIEW ============ -->
+<div class="slide" id="s2">
+  <div class="slide-number">02 / 07</div>
+  <div class="slide-header">
+    <h2>Overview</h2>
+  </div>
+  <div class="slide-body">
+    <div class="overview-intro">
+      <p>
+        Falling prices may seem like good news for consumers.<br>
+        Yet most economists regard deflation as <span class="red-emph">far more dangerous than mild inflation</span>. Why?
+      </p>
+    </div>
+
+    <div class="overview-cards">
+      <div class="ov-card c1">
+        <div class="num">01</div>
+        <div class="ov-title">Delayed<br>Consumption</div>
+        <div class="ov-sub">Aggregate Demand Collapse</div>
+      </div>
+      <div class="ov-card c2">
+        <div class="num">02</div>
+        <div class="ov-title">Debt-Deflation<br>Spiral</div>
+        <div class="ov-sub">Irving Fisher (1933)</div>
+      </div>
+      <div class="ov-card c3">
+        <div class="num">03</div>
+        <div class="ov-title">Sticky Wages</div>
+        <div class="ov-sub">Rising Unemployment</div>
+      </div>
+      <div class="ov-card c4">
+        <div class="num">04</div>
+        <div class="ov-title">Liquidity Trap</div>
+        <div class="ov-sub">Limits of Monetary Policy</div>
+      </div>
+    </div>
+
+    <p class="overview-footnote">
+      Key concept throughout: the <strong>Fallacy of Composition</strong> — what seems rational for one individual can harm everyone collectively.
+    </p>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 02</span>전체 개요 해설</h3>
+  <div class="ko-section">
+    <span class="ko-label">📝 슬라이드 본문 번역</span>
+    <p><em>"물가 하락은 소비자에게 좋은 소식처럼 보일 수 있습니다. 그러나 대부분의 경제학자들은 디플레이션이 <strong>완만한 인플레이션보다 훨씬 더 위험하다</strong>고 봅니다. 왜 그럴까요?"</em></p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">🎯 4가지 채널 한국어 정리</span>
+    <p><strong>① 소비 지연 (Delayed Consumption)</strong> — 총수요 붕괴<br>
+    <strong>② 부채-디플레이션 악순환 (Debt-Deflation Spiral)</strong> — 어빙 피셔, 1933<br>
+    <strong>③ 임금 경직성 (Sticky Wages)</strong> — 실업 증가<br>
+    <strong>④ 유동성 함정 (Liquidity Trap)</strong> — 통화정책의 한계</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">🔑 관통하는 핵심 개념</span>
+    <p><strong>구성의 오류 (Fallacy of Composition)</strong> — 개인에게 합리적인 행동이 사회 전체에는 해로운 결과를 낳는 현상. 4가지 채널 모두에 이 원리가 작동합니다.</p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>비유로 이해하기:</strong> 야구장에서 한 명이 일어서면 잘 보이지만, 모두가 일어서면 누구도 더 잘 보이지 않게 되는 것과 같은 원리입니다. 디플레이션 상황에서 "지출을 미루자"는 개인의 합리적 판단도, 모두가 그렇게 행동하면 경제 전체에 재앙이 됩니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 3: CHANNEL 01 ============ -->
+<div class="slide" id="s3">
+  <div class="slide-number">03 / 07</div>
+  <div class="slide-header navy-light">
+    <h2>Channel 01 · Delayed Consumption &amp; Aggregate Demand Collapse</h2>
+  </div>
+  <div class="slide-body">
+    <div class="quote-banner">
+      "Why buy today when the same item will be cheaper next month?"
+    </div>
+
+    <div class="three-col">
+      <div class="col-card">
+        <h4>Rational Individual Behavior</h4>
+        <p>Postponing purchases of durable goods (cars, appliances) is individually rational when prices are expected to keep falling.</p>
+      </div>
+      <div class="col-card gold">
+        <h4>Fallacy of Composition</h4>
+        <p>What seems sensible for each household is collectively harmful.</p>
+        <p>When everyone waits, demand collapses for the economy as a whole.</p>
+      </div>
+      <div class="col-card navy">
+        <h4>Self-Deepening Recession</h4>
+        <p>Falling demand → lower revenues → layoffs → less income → even less demand.</p>
+        <p>The recession deepens rather than self-corrects.</p>
+      </div>
+    </div>
+
+    <p class="footer-arrow">→ Aggregate demand shrinks. The contraction is self-reinforcing.</p>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 03</span>채널 ① 소비 지연과 총수요 붕괴</h3>
+  <div class="ko-section">
+    <span class="ko-label">💬 인용구 번역</span>
+    <p><em>"같은 물건이 다음 달에 더 싸질 텐데 왜 오늘 사겠는가?"</em> — 디플레이션 상황에서 소비자가 갖게 되는 자연스러운 사고방식입니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">📦 ① 개인의 합리적 행동 (Rational Individual Behavior)</span>
+    <p>물가가 계속 떨어질 것으로 예상되면, <strong>자동차나 가전제품 같은 내구재 구매를 미루는 것</strong>이 개인에게는 합리적인 선택입니다. 어차피 기다리면 더 싸지니까요.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">⚠️ ② 구성의 오류 (Fallacy of Composition)</span>
+    <p>각 가계에 합리적으로 보이는 행동이 <strong>전체적으로는 해롭게</strong> 됩니다. 모두가 기다리면 경제 전체의 수요가 무너집니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">🔄 ③ 스스로 깊어지는 침체 (Self-Deepening Recession)</span>
+    <p>수요 감소 → 기업 매출 하락 → 해고 → 소득 감소 → 수요 더 감소.<br>
+    경기 침체가 스스로 회복되는 게 아니라 <strong>점점 더 깊어지는</strong> 악순환에 빠집니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">➡️ 결론</span>
+    <p><strong>총수요(Aggregate Demand)가 줄어들고, 위축은 자기 강화적(self-reinforcing)으로 진행됩니다.</strong></p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>실제 사례:</strong> 1990~2000년대 일본의 "잃어버린 10년" 동안 가전제품 가격이 계속 떨어졌고, 소비자들은 새 가전제품 구매를 끊임없이 미뤘습니다. 이로 인해 일본 가전 산업 전체가 침체에 빠지며 악순환이 형성되었습니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 4: CHANNEL 02 — FISHER FORMULA ============ -->
+<div class="slide" id="s4">
+  <div class="slide-number">04 / 07</div>
+  <div class="slide-header gold">
+    <h2>Channel 02 · Irving Fisher's Debt-Deflation Theory</h2>
+  </div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="dark-panel">
+        <h3>Core Insight</h3>
+        <p>Loans are written in <strong>nominal terms</strong>. As the price level falls, the <strong>real burden of debt rises automatically</strong> — even though not a single won is added to the principal.</p>
+
+        <div class="formula-box-pp">Real Debt = Nominal Debt ÷ Price Level (P)</div>
+        <div class="sub-line">As P falls → denominator shrinks → real debt rises</div>
+
+        <div class="quote-line">
+          <div class="quote-text">"The more debtors pay, the more they owe."</div>
+          <div class="attribution">— Irving Fisher, 1933</div>
+        </div>
+
+        <div class="source-cite">Published: Fisher, I. (1933). "The Debt-Deflation Theory of Great Depressions." Econometrica.</div>
+      </div>
+
+      <div class="light-panel">
+        <h3>Real Interest Rate Effect</h3>
+        <div class="formula-inline">Real Rate ≈ Nominal Rate − Expected Inflation</div>
+
+        <div class="scenario-box">
+          <h4>Normal Scenario</h4>
+          <div class="scenario-row"><span class="label-l">Nominal Rate</span><span class="val">3%</span></div>
+          <div class="scenario-row"><span class="label-l">Expected Inflation</span><span class="val">+2%</span></div>
+          <div class="scenario-row highlight"><span class="label-l">Real Burden</span><span class="val">≈ 1% ✓</span></div>
+          <div class="scenario-note">Borrower benefits: money repaid later is worth less.</div>
+        </div>
+
+        <div class="scenario-box bad">
+          <h4>Under Deflation</h4>
+          <div class="scenario-row"><span class="label-l">Nominal Rate</span><span class="val">0% (floor)</span></div>
+          <div class="scenario-row"><span class="label-l">Expected Inflation</span><span class="val">−2%</span></div>
+          <div class="scenario-row highlight"><span class="label-l">Real Burden</span><span class="val">≈ +2% ✗</span></div>
+          <div class="scenario-note">Borrowing costs rise even when nominal rate hits zero.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 04</span>채널 ② 피셔의 부채-디플레이션 이론</h3>
+  <div class="ko-section">
+    <span class="ko-label">💡 핵심 통찰 (Core Insight)</span>
+    <p>대출은 <strong>명목 단위(nominal terms)</strong>로 작성됩니다. 물가가 떨어져도 계약서의 원금은 변하지 않지만, <strong>부채의 실질적 부담은 자동으로 커집니다</strong>. 단 한 푼도 원금이 늘지 않았는데도 말이죠.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">📐 실질 부채 공식</span>
+    <p><strong>실질 부채 = 명목 부채 ÷ 물가 수준 (P)</strong><br>
+    물가(P)가 떨어지면 → 분모가 작아짐 → 실질 부채가 커짐</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">💬 피셔의 명언 (1933)</span>
+    <p><em>"채무자가 갚으면 갚을수록, 빚은 더 늘어난다."</em><br>
+    — 부채를 줄이려는 노력이 오히려 부채를 키우는 역설을 한 문장으로 표현한 명언입니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">📊 실질 이자율 효과 (Real Interest Rate Effect)</span>
+    <p><strong>실질 이자율 ≈ 명목 이자율 − 기대 인플레이션</strong></p>
+    <p style="margin-top:8px"><strong>정상 시나리오 (Normal):</strong> 명목 3% − 기대 인플레 2% = 실질 부담 약 1% ✓<br>
+    → 채무자에게 유리합니다. 나중에 갚을 돈의 가치가 떨어지니까요.</p>
+    <p style="margin-top:6px"><strong>디플레이션 상황 (Under Deflation):</strong> 명목 0% (한계) − 기대 인플레 (−2%) = 실질 부담 약 +2% ✗<br>
+    → 명목 금리를 0까지 내려도 실질 차입 비용은 오히려 올라갑니다.</p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>왜 0%가 한계(floor)인가:</strong> 은행이 예금에 마이너스 금리(-3%)를 부과한다면, 사람들은 돈을 인출해 금고나 베개 밑에 보관하면 됩니다(0% 수익이지만 손실은 없음). 따라서 명목 금리는 사실상 0%가 바닥입니다. 이것이 다음 채널 ④ "유동성 함정"으로 이어집니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 5: DEBT-DEFLATION SPIRAL ============ -->
+<div class="slide" id="s5">
+  <div class="slide-number">05 / 07</div>
+  <div class="slide-header gold">
+    <h2>Channel 02 · The Debt-Deflation Spiral</h2>
+  </div>
+  <div class="slide-body">
+    <div class="spiral-grid">
+      <div class="spiral-cell s1">
+        <div class="spiral-circle">①</div>
+        <h4>Asset<br>Fire Sales</h4>
+        <p>Borrowers sell assets (real estate, stocks) to reduce debt burden.</p>
+        <span class="spiral-arrow-inline">→</span>
+      </div>
+      <div class="spiral-cell s2">
+        <div class="spiral-circle">②</div>
+        <h4>Asset Price<br>Collapse</h4>
+        <p>Simultaneous selling drives down asset prices for everyone.</p>
+        <span class="spiral-arrow-inline">→</span>
+      </div>
+      <div class="spiral-cell s3">
+        <div class="spiral-circle">③</div>
+        <h4>Collateral<br>Erosion</h4>
+        <p>Lower collateral forces still more borrowers into distressed sales.</p>
+        <span class="spiral-arrow-inline">→</span>
+      </div>
+      <div class="spiral-cell s4">
+        <div class="spiral-circle">④</div>
+        <h4>Demand<br>Collapses</h4>
+        <p>Spending cuts to repay debt weaken aggregate demand further.</p>
+        <span class="spiral-arrow-inline">→</span>
+      </div>
+      <div class="spiral-cell s5">
+        <div class="spiral-circle">⑤</div>
+        <h4>Prices Fall<br>Further</h4>
+        <p>Weaker demand pushes prices lower — raising real debt yet again.</p>
+      </div>
+    </div>
+
+    <div class="paradox-banner">
+      Fisher's Paradox: "The more debtors pay, the more they owe." → Key mechanism behind the Great Depression (1929)
+    </div>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 05</span>부채-디플레이션 악순환 5단계</h3>
+  <div class="ko-section">
+    <span class="ko-label">🔄 자기 강화적 악순환 메커니즘</span>
+    <p>피셔가 발견한 부채-디플레이션의 가장 무서운 점은 <strong>스스로를 강화하는 5단계 악순환</strong>이라는 것입니다. 한번 시작되면 자동으로 다음 단계로 넘어가며, 빠져나오기 매우 어렵습니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">① 자산 투매 (Asset Fire Sales)</span>
+    <p>채무자들이 부채 부담을 줄이기 위해 <strong>부동산, 주식 등 자산을 매각</strong>하기 시작합니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">② 자산 가격 폭락 (Asset Price Collapse)</span>
+    <p>많은 사람이 <strong>동시에 매각</strong>하면 자산 가격이 모두에게 떨어집니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">③ 담보 가치 침식 (Collateral Erosion)</span>
+    <p>담보 가치가 낮아지면 <strong>더 많은 채무자들이 강제 매각(distressed sales)</strong>에 내몰립니다. (예: 주택 가격이 대출 잔액 이하로 떨어지면 은행이 매각을 요구)</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">④ 수요 붕괴 (Demand Collapses)</span>
+    <p>빚을 갚기 위해 지출을 줄이면 <strong>총수요(aggregate demand)가 더 약해집니다</strong>.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">⑤ 물가 추가 하락 (Prices Fall Further)</span>
+    <p>약해진 수요가 물가를 더 떨어뜨리고, <strong>실질 부채는 또 다시 커져 ①번으로 돌아갑니다</strong>. ♻ 무한 반복.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">📜 피셔의 역설</span>
+    <p><em>"채무자가 갚으면 갚을수록, 빚은 더 늘어난다."</em><br>
+    → 이것이 바로 <strong>1929년 대공황</strong>이 그토록 심각해진 핵심 메커니즘입니다.</p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>역사적 사례:</strong> 1929년 대공황 당시 미국의 부채/GDP 비율이 폭증하며 이 악순환이 작동했고, 약 25%의 실업률과 30%의 GDP 감소를 가져왔습니다. 2008년 금융위기 때도 비슷한 패턴이 시작되었으나, 정부의 적극적인 개입(QE 등)으로 악순환의 강도를 완화시킬 수 있었습니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 6: CHANNEL 03 — STICKY WAGES ============ -->
+<div class="slide" id="s6">
+  <div class="slide-number">06 / 07</div>
+  <div class="slide-header blue">
+    <h2>Channel 03 · Sticky Wages &amp; Rising Unemployment</h2>
+  </div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="dark-panel">
+        <h3>Downward Nominal Wage Rigidity</h3>
+        <p>When revenues fall, firms must cut costs — but workers strongly resist <strong>any reduction in nominal pay</strong>.</p>
+
+        <p style="margin-top:18px; color: rgba(255,255,255,0.7); font-size:12.5px;">Confirmed by:</p>
+        <p style="font-size:13px;">· Keynes — General Theory (1936)</p>
+        <p style="font-size:13px;">· Truman Bewley — field research</p>
+        <p style="font-size:13px;">· George Akerlof — behavioral economics</p>
+      </div>
+
+      <div class="firms-dilemma">
+        <h3>The Firm's Dilemma</h3>
+        <div class="dilemma-step">Revenues fall (prices drop)</div>
+        <div class="dilemma-step">Cannot cut wages easily</div>
+        <div class="dilemma-step alert">→ Layoffs instead</div>
+        <div class="dilemma-step warn">→ Household income falls</div>
+        <div class="dilemma-step alert">→ Demand weakens further</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 06</span>채널 ③ 임금 경직성과 실업 증가</h3>
+  <div class="ko-section">
+    <span class="ko-label">⚓ 하방 명목 임금 경직성 (Downward Nominal Wage Rigidity)</span>
+    <p>기업 매출이 감소하면 비용을 줄여야 하지만, <strong>근로자들은 명목 임금의 어떤 인하도 강하게 거부</strong>합니다. 시급 1만원에서 9천원으로 깎이는 것을, 인플레이션 시기에 시급은 그대로 두는 것(=실질 임금 하락)보다 훨씬 더 거부합니다. 결과적으로 같은 손해인데도 말이죠.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">📚 이론적 근거</span>
+    <p><strong>· 케인스 (Keynes)</strong> — 1936년 『일반이론』에서 처음 제기<br>
+    <strong>· 트루먼 베울리 (Truman Bewley)</strong> — 현장 연구로 실증<br>
+    <strong>· 조지 애컬로프 (George Akerlof)</strong> — 행동경제학으로 확인</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">😖 기업의 딜레마 5단계</span>
+    <p><strong>1.</strong> 매출 감소 (물가 하락)<br>
+    <strong>2.</strong> 임금을 쉽게 깎을 수 없음<br>
+    <strong>3.</strong> → 대신 해고 선택<br>
+    <strong>4.</strong> → 가계 소득 감소<br>
+    <strong>5.</strong> → 수요 더 약해짐 (다시 1단계로!)</p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>왜 사람들은 임금 삭감에 더 분노할까? — "화폐 환상(Money Illusion)":</strong> 사람들은 명목 금액(나의 통장에 찍히는 숫자)에 심리적으로 강하게 묶여 있습니다. 시급 10,000원 → 9,000원은 직접 손실로 느껴지지만, 물가가 10% 오른 상태에서 시급이 그대로인 것은 무의식적으로 받아들입니다. 둘은 경제적으로 동일하지만, 심리적으로는 전혀 다릅니다.<br><br>
+    <strong>📌 지난 단원과의 연결:</strong> 이는 우리가 배운 <strong>구조적 실업(structural unemployment)</strong>의 또 다른 형태입니다. 임금이 충분히 떨어지지 않아 노동 공급량이 수요량을 초과하는 상태 — 디플레이션이 이를 악화시킵니다.
+  </div>
+</div>
+
+<!-- ============ SLIDE 7: CHANNEL 04 — LIQUIDITY TRAP ============ -->
+<div class="slide" id="s7">
+  <div class="slide-number">07 / 07</div>
+  <div class="slide-header">
+    <h2>Channel 04 · Limits of Monetary Policy: The Liquidity Trap</h2>
+  </div>
+  <div class="slide-body">
+    <div class="four-grid">
+      <div class="grid-cell dark">
+        <h3>What is a Liquidity Trap?</h3>
+        <p>Even when the central bank cuts nominal interest rates to near zero, monetary policy fails to stimulate the economy.</p>
+        <p>Households and firms — <strong>expecting prices to keep falling</strong> — prefer to hold cash rather than spend or invest. Money sits idle instead of flowing into the real economy.</p>
+      </div>
+
+      <div class="grid-cell light">
+        <h3>The Core Problem</h3>
+        <div class="quote-banner-small">"Nominal policy looks loose — but real policy is actually tight."</div>
+        <p>The floor on nominal rates means the central bank cannot push real rates negative — the key lever for recovery. Even maximum stimulus leaves borrowing costs positive under deflation.</p>
+      </div>
+
+      <div class="grid-cell dark">
+        <h3>Krugman's Key Insight (1998)</h3>
+        <p>Escape depends not on how much money the central bank prints today, but on whether <strong>the public genuinely believes policy will stay generous until prices rise sufficiently</strong>. Expectations alone can unlock spending — or keep an economy trapped.</p>
+        <div class="source-cite">Source: Krugman (1998), "It's Baaack," Brookings Papers on Economic Activity.</div>
+      </div>
+
+      <div class="grid-cell light">
+        <h3>Quantitative Easing (QE)</h3>
+        <ul class="qe-list">
+          <li>Japan — early 2000s (pioneer)</li>
+          <li>U.S. Fed — post 2008 GFC</li>
+          <li>ECB — post 2008 GFC</li>
+        </ul>
+        <p class="qe-warn">Japan's decades-long struggle shows how hard it is to reverse deflationary expectations.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ko-explain">
+  <h3><span class="badge">SLIDE 07</span>채널 ④ 유동성 함정 — 통화정책의 한계</h3>
+  <div class="ko-section">
+    <span class="ko-label">❓ 유동성 함정이란? (What is a Liquidity Trap?)</span>
+    <p>중앙은행이 명목 금리를 0% 가까이 내려도 통화정책이 더 이상 경제를 자극하지 못하는 상태입니다. 가계와 기업은 <strong>물가가 계속 떨어질 것이라 예상하며, 돈을 쓰거나 투자하기보다 현금을 그냥 보유하는 것을 선호</strong>합니다. 풀린 돈이 실물 경제로 흘러가지 않고 묶여 있는 상황입니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">🎯 핵심 문제 (The Core Problem)</span>
+    <p><em>"명목 정책은 완화적으로 보이지만, 실질 정책은 사실상 긴축적이다."</em></p>
+    <p style="margin-top:6px">명목 금리는 0%가 바닥(floor)이기에, 중앙은행은 <strong>실질 금리를 마이너스로 끌어내릴 수 없습니다</strong>. 그런데 회복을 위한 핵심 지렛대는 바로 실질 금리입니다. 최대치로 부양 정책을 펼쳐도, 디플레이션 하에서는 차입 비용이 양(+)의 값으로 머물러 있게 됩니다.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">🧠 크루그먼의 핵심 통찰 (1998)</span>
+    <p>유동성 함정에서 벗어나는 것은 <strong>중앙은행이 오늘 얼마나 많은 돈을 찍어내느냐</strong>가 아니라, <strong>"물가가 충분히 오를 때까지 완화 정책을 유지할 것"이라고 대중이 진정으로 믿는지</strong>에 달려 있습니다. 기대(expectations) 자체가 소비를 풀어내거나, 반대로 경제를 함정에 가둘 수 있습니다.</p>
+    <p style="margin-top:6px">출처: Krugman (1998), "It's Baaack," Brookings Papers on Economic Activity.</p>
+  </div>
+  <div class="ko-section">
+    <span class="ko-label">💉 양적 완화 (Quantitative Easing, QE)</span>
+    <p><strong>· 일본 (Japan)</strong> — 2000년대 초 선구적 시행<br>
+    <strong>· 미국 연준 (U.S. Fed)</strong> — 2008년 글로벌 금융위기 이후<br>
+    <strong>· 유럽중앙은행 (ECB)</strong> — 2008년 위기 이후</p>
+    <p style="margin-top:6px"><em>일본이 수십 년간 디플레이션과 싸우고 있는 사실은, 한번 자리 잡은 디플레이션 기대를 되돌리는 게 얼마나 어려운지를 보여줍니다.</em></p>
+  </div>
+  <div class="extra-note">
+    💡 <strong>일본의 잃어버린 수십 년 (Lost Decades):</strong> 1990년대 자산 버블 붕괴 이후 일본은 30년 가까이 디플레이션과 싸우고 있습니다. 양적 완화, 마이너스 금리, 아베노믹스까지 동원했지만 효과는 제한적이었습니다. 한번 형성된 "물가는 안 오를 거다"라는 기대 심리를 깨는 것이 얼마나 어려운지 보여주는 살아있는 사례입니다.<br><br>
+    <strong>📌 결론 — 4가지 채널의 통합:</strong> 디플레이션이 위험한 이유는 ① 소비가 미뤄지고, ② 부채가 자동으로 커지고, ③ 임금 경직성으로 실업이 증가하고, ④ 중앙은행마저 무력해지기 때문입니다. <strong>이 네 가지가 동시에 서로를 강화하며 빠져나오기 매우 어려운 악순환을 형성합니다.</strong> 그래서 경제학자들은 디플레이션을 인플레이션보다 더 큰 위협으로 봅니다.
+  </div>
+</div>
+
+</body>
+</html>
