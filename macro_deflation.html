@@ -52,13 +52,13 @@
   .ko-block {
     background: var(--ko-bg);
     border-left: 3px solid var(--ko-border);
-    padding: 10px 14px;
-    margin-top: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
     border-radius: 0 4px 4px 0;
     font-family: 'Noto Sans KR', sans-serif;
     color: var(--ko-text);
     font-size: 14px;
-    line-height: 1.65;
+    line-height: 1.7;
   }
   .ko-inline {
     font-family: 'Noto Sans KR', sans-serif;
@@ -99,7 +99,7 @@
     font-size: 0.5em;
     font-weight: 400;
     color: var(--text-mid);
-    margin-top: 12px;
+    margin-top: 14px;
     letter-spacing: -0.5px;
   }
   .hero-meta {
@@ -166,20 +166,20 @@
     margin-bottom: 8px;
   }
   h2.section-title {
-    font-size: clamp(22px, 2.8vw, 30px);
+    font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
-    letter-spacing: -0.6px;
-    line-height: 1.25;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
     color: var(--text);
     margin-bottom: 4px;
   }
   h2.section-title .ko-h2 {
     display: block;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 0.55em;
+    font-size: 0.5em;
     font-weight: 400;
     color: var(--text-soft);
-    margin-top: 6px;
+    margin-top: 8px;
     letter-spacing: -0.3px;
   }
   .section-divider {
@@ -187,480 +187,297 @@
     background: var(--line);
     margin: 24px 0 28px;
   }
-  .section-intro {
-    font-size: 16px;
-    color: var(--text-mid);
-    margin-bottom: 28px;
-    max-width: 720px;
-  }
 
-  /* Intro paradox card */
-  .paradox {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 28px;
-    margin-top: 14px;
-  }
-  .paradox h3 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .paradox p {
-    font-size: 15px;
-    color: var(--text-mid);
-    margin-bottom: 12px;
-  }
-  .paradox-flip {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 12px;
-    align-items: center;
-    margin-top: 16px;
-  }
-  @media (max-width: 600px) {
-    .paradox-flip { grid-template-columns: 1fr; }
-    .paradox-flip .flip-arrow { display: none; }
-  }
-  .flip-card {
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    font-size: 13.5px;
-    line-height: 1.5;
-  }
-  .flip-card.intuition {
-    background: var(--green-soft);
-    border-color: #86efac;
-  }
-  .flip-card.reality {
-    background: var(--red-soft);
-    border-color: #fca5a5;
-  }
-  .flip-card .label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-  }
-  .flip-card.intuition .label { color: var(--green) }
-  .flip-card.reality .label { color: var(--red) }
-  .flip-arrow {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--text-soft);
-    font-weight: 700;
-  }
-
-  /* Channel summary grid */
-  .channel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 14px;
-  }
-  .channel-card {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 18px;
-    transition: all 0.2s ease;
-  }
-  .channel-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.06);
-  }
-  .channel-card .ch-num {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--red);
-    background: var(--red-soft);
-    padding: 3px 10px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
-  .channel-card h4 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .channel-card .en-sub {
-    font-size: 12px;
-    color: var(--text-soft);
+  /* English original block */
+  .en-block {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.75;
     margin-bottom: 8px;
   }
-  .channel-card p {
-    font-size: 13px;
-    color: var(--text-mid);
-  }
-
-  /* Definition cards */
-  .def {
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 16px;
-    background: var(--bg);
-  }
-  .def-header {
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--line-soft);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--bg-soft);
-    flex-wrap: wrap;
-  }
-  .def-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 4px;
-    letter-spacing: 0.4px;
-  }
-  .tag-channel { background: var(--red-soft); color: var(--red) }
-  .tag-theory { background: var(--purple-soft); color: var(--purple) }
-  .tag-concept { background: var(--accent-soft); color: var(--accent) }
-  .tag-policy { background: var(--amber-soft); color: var(--amber) }
-  .def-header h3 {
-    font-size: 19px;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .def-body {
-    padding: 24px;
-  }
-  .def-body p {
-    font-size: 15px;
-    margin-bottom: 12px;
-  }
-  .def-body p:last-child { margin-bottom: 0 }
-  .def-body .quote {
-    background: var(--bg-soft);
-    border-left: 3px solid var(--accent);
-    padding: 12px 16px;
-    margin: 14px 0;
-    font-style: italic;
-    color: var(--text);
-    font-size: 14.5px;
-    border-radius: 0 6px 6px 0;
-  }
-  .def-body .quote .cite {
-    display: block;
-    margin-top: 6px;
-    font-style: normal;
-    font-size: 12px;
-    color: var(--text-soft);
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Formula */
-  .formula-display {
-    background: var(--bg-soft);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 22px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    text-align: center;
-    line-height: 1.5;
-    margin: 16px 0;
-  }
-  .formula-display .lhs {
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .formula-display .frac {
-    display: inline-flex;
-    flex-direction: column;
-    vertical-align: middle;
-    margin: 0 6px;
-    text-align: center;
-  }
-  .formula-display .frac .num-l {
-    border-bottom: 2px solid var(--text);
-    padding: 4px 12px;
-  }
-  .formula-display .frac .den-l {
-    padding: 4px 12px;
-  }
-
-  /* Example panel (small business 500M) */
-  .example-panel {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 24px;
-    margin: 16px 0;
-  }
-  .example-panel .ex-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    background: var(--accent-soft);
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    display: inline-block;
-    margin-bottom: 12px;
-  }
-  .example-panel h4 {
-    font-size: 17px;
-    font-weight: 700;
+  .en-block p {
     margin-bottom: 14px;
   }
-  .ex-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 6px;
-    font-size: 14px;
-  }
-  .ex-table thead th {
-    background: var(--bg-soft);
-    padding: 10px 12px;
-    text-align: left;
-    font-size: 11px;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--text-soft);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid var(--line);
-  }
-  .ex-table thead th:not(:first-child) { text-align: right }
-  .ex-table tbody td {
-    padding: 11px 12px;
-    border-bottom: 1px solid var(--line-soft);
-    vertical-align: middle;
-  }
-  .ex-table tbody td:not(:first-child) {
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-  }
-  .ex-table tbody tr:last-child td { border-bottom: none }
-  .ex-table .change-up { color: var(--red); font-weight: 700 }
-  .ex-table .change-down { color: var(--text-mid) }
-  .ex-table .row-highlight td {
-    background: var(--red-soft);
-    color: var(--red);
-    font-weight: 700;
-  }
-
-  /* Spiral diagram */
-  .spiral-wrap {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 28px;
-    margin: 16px 0;
-  }
-  .spiral-wrap h4 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .spiral-wrap .sub {
-    font-size: 13px;
-    color: var(--text-soft);
-    margin-bottom: 22px;
-  }
-  .spiral-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-  }
-  .spiral-step {
-    background: var(--bg-soft);
-    border-radius: 8px;
-    padding: 16px;
-    border-left: 3px solid var(--red);
-    position: relative;
-  }
-  .spiral-step .step-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--red);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .spiral-step h5 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .spiral-step p {
-    font-size: 12.5px;
-    color: var(--text-mid);
-  }
-  .spiral-loopback {
-    margin-top: 14px;
-    text-align: center;
-    font-size: 13px;
-    color: var(--red);
-    font-weight: 600;
-    background: var(--red-soft);
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px dashed #fca5a5;
-  }
-
-  /* Interest rate comparison */
-  .rate-compare {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 16px;
-  }
-  @media (max-width: 600px) {
-    .rate-compare { grid-template-columns: 1fr; }
-  }
-  .rate-card {
-    border-radius: 10px;
-    padding: 18px;
-    border: 1px solid var(--line);
-  }
-  .rate-card.inflation {
-    background: var(--green-soft);
-    border-color: #86efac;
-  }
-  .rate-card.deflation {
-    background: var(--red-soft);
-    border-color: #fca5a5;
-  }
-  .rate-card .label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  }
-  .rate-card.inflation .label { color: var(--green) }
-  .rate-card.deflation .label { color: var(--red) }
-  .rate-card .scenario {
-    font-size: 13px;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .rate-card .calc {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13.5px;
-    background: rgba(255,255,255,0.6);
-    padding: 10px 12px;
-    border-radius: 6px;
-    line-height: 1.7;
-  }
-  .rate-card .result {
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 700;
-  }
-  .rate-card.inflation .result { color: var(--green) }
-  .rate-card.deflation .result { color: var(--red) }
-
-  /* Quote highlight */
-  .quote-big {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    border-radius: 0 10px 10px 0;
-    padding: 24px 28px;
-    margin: 20px 0;
-  }
-  .quote-big blockquote {
-    font-size: 19px;
+  .en-block p:last-child { margin-bottom: 0 }
+  .en-block strong {
     font-weight: 600;
     color: var(--text);
-    line-height: 1.4;
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-  .quote-big .attribution {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--text-soft);
-    font-weight: 500;
   }
 
-  /* Tip box */
-  .tip {
-    background: var(--amber-soft);
-    border: 1px solid #F0DDB8;
-    border-left: 3px solid var(--amber);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 20px 0;
-  }
-  .tip .tip-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--amber);
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .tip h4 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--text);
-  }
-  .tip p {
-    font-size: 14px;
-    color: var(--text);
-  }
-
+  /* Term highlight */
   .term {
     background: var(--accent-soft);
     color: var(--accent);
     padding: 1px 6px;
     border-radius: 3px;
     font-weight: 500;
-    font-size: 0.92em;
+    font-size: 0.95em;
+  }
+  .term-red {
+    background: var(--red-soft);
+    color: var(--red);
   }
 
-  /* Final comparison table */
-  .final-table {
+  /* Quote block (Fisher's famous line) */
+  .quote {
+    border-left: 4px solid var(--accent);
+    padding: 14px 20px;
+    margin: 18px 0;
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .quote .attr {
+    display: block;
+    font-style: normal;
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  /* Channel card (the 4 main channels) */
+  .channel-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .channel-head {
+    padding: 20px 24px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .channel-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .channel-titles {
+    flex: 1;
+    min-width: 200px;
+  }
+  .channel-titles h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .channel-titles .ko-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+  .channel-body {
+    padding: 24px;
+  }
+
+  /* Concept box */
+  .concept {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--purple);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .concept .concept-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--purple);
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .concept h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .concept p {
+    font-size: 14.5px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    margin: 18px 0;
+  }
+  .formula-box .formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 14px;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .formula-box .formula-ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    display: block;
+    margin-top: 8px;
+  }
+
+  /* Example numeric breakdown */
+  .example-box {
+    background: var(--amber-soft);
+    border: 1px solid #F0DDB8;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .example-box .ex-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .example-box h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .example-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .example-table th {
+    text-align: left;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.8);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .example-table td {
+    padding: 10px 12px;
+    border-top: 1px solid #F0DDB8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+  }
+  .example-table td:first-child {
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--text-mid);
+  }
+
+  /* Spiral diagram */
+  .spiral {
+    background: var(--red-soft);
+    border: 1px solid #FCA5A5;
+    border-radius: 10px;
+    padding: 22px;
+    margin: 18px 0;
+  }
+  .spiral h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .spiral-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .spiral-step {
+    background: rgba(255,255,255,0.6);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .spiral-step .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--red);
+    background: rgba(255,255,255,0.9);
+    padding: 3px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .spiral-arrow {
+    text-align: center;
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* Comparison table */
+  .compare-table {
     width: 100%;
     border-collapse: collapse;
     background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 16px;
+    margin: 18px 0;
   }
-  .final-table thead th {
-    background: var(--bg-soft);
+  .compare-table thead th {
     padding: 14px 16px;
+    background: var(--bg-soft);
     font-size: 13px;
     font-weight: 700;
-    color: var(--text);
     text-align: left;
     border-bottom: 1px solid var(--line);
   }
-  .final-table thead th:first-child {
+  .compare-table thead th:first-child {
     color: var(--text-soft);
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-  .final-table thead th.inf-head { color: var(--green) }
-  .final-table thead th.def-head { color: var(--red) }
-  .final-table tbody td {
+  .compare-table thead th.inf-head { color: var(--green) }
+  .compare-table thead th.def-head { color: var(--red) }
+  .compare-table tbody td {
     padding: 14px 16px;
     border-bottom: 1px solid var(--line-soft);
     font-size: 14px;
     vertical-align: top;
   }
-  .final-table tbody tr:last-child td { border-bottom: none }
-  .final-table tbody td:first-child {
+  .compare-table tbody tr:last-child td { border-bottom: none }
+  .compare-table tbody td:first-child {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: var(--text-soft);
@@ -669,7 +486,77 @@
     text-transform: uppercase;
     background: var(--bg-soft);
     width: 130px;
-    white-space: nowrap;
+  }
+
+  /* Conclusion / summary box */
+  .conclusion {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #F8F0FE 100%);
+    border: 1px solid #C7D2FE;
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .conclusion h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .conclusion p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Key term card */
+  .key-term {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .key-term .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .key-term h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .key-term p {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  /* Tip / insight box */
+  .insight {
+    background: var(--green-soft);
+    border: 1px solid #BBF7D0;
+    border-left: 3px solid var(--green);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .insight .ins-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .insight h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .insight p {
+    font-size: 14px;
   }
 
   footer {
@@ -683,7 +570,12 @@
   @media (max-width: 600px) {
     main { padding: 40px 20px 80px; }
     header.hero { padding: 56px 20px 44px; }
-    .formula-display { font-size: 14px; padding: 16px; }
+    .channel-head { padding: 16px 20px; }
+    .channel-body { padding: 20px; }
+    .channel-num { font-size: 24px; }
+    .compare-table tbody td:first-child { width: 100px; font-size: 10px }
+    .example-table { font-size: 12.5px }
+    .example-table td, .example-table th { padding: 8px 10px }
   }
 </style>
 </head>
@@ -691,573 +583,541 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="eyebrow">AP Macroeconomics 2026 · Reading 07</div>
+    <div class="eyebrow">AP Macroeconomics 2026 · Seoul Global HS</div>
     <h1>
       Why Deflation Can Be More Dangerous Than Inflation
-      <span class="ko-h1">디플레이션이 인플레이션보다 더 위험한 이유</span>
+      <span class="ko-h1">왜 디플레이션이 인플레이션보다 더 위험할 수 있는가</span>
     </h1>
     <div class="hero-meta">
-      <span>Seoul Global High School</span>
-      <span>Reading Notes</span>
+      <span>Reading Comprehension & Study Notes</span>
+      <span>4 Channels of Deflation Damage</span>
     </div>
   </div>
 </header>
 
 <nav class="toc">
   <div class="toc-inner">
-    <a href="#s0">00 · The Paradox</a>
-    <a href="#s1">01 · Four Channels Overview</a>
-    <a href="#s2">02 · Delayed Consumption</a>
-    <a href="#s3">03 · Debt-Deflation</a>
-    <a href="#s4">04 · Real Interest Rates</a>
-    <a href="#s5">05 · Sticky Wages</a>
-    <a href="#s6">06 · Liquidity Trap</a>
-    <a href="#s7">07 · QE & Japan</a>
-    <a href="#s8">08 · Conclusion</a>
+    <a href="#intro">Introduction</a>
+    <a href="#ch1">① Delayed Consumption</a>
+    <a href="#ch2">② Fisher's Debt-Deflation</a>
+    <a href="#ch3">③ Sticky Wages</a>
+    <a href="#ch4">④ Liquidity Trap</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#summary">Big Picture Summary</a>
   </div>
 </nav>
 
 <main>
 
-<!-- ============ SECTION 0: THE PARADOX ============ -->
-<section id="s0">
-  <div class="section-num">SECTION 00</div>
+<!-- ============ INTRODUCTION ============ -->
+<section id="intro">
+  <div class="section-num">INTRODUCTION</div>
   <h2 class="section-title">
-    The Intuitive Paradox
-    <span class="ko-h2">직관과 현실의 역설 — 물가 하락은 좋은 일 아닌가?</span>
+    The Counter-intuitive Truth About Deflation
+    <span class="ko-h2">디플레이션에 대한 직관과 다른 진실</span>
   </h2>
   <div class="section-divider"></div>
 
-  <p class="section-intro">
-    When prices fall over time, the value of money rises. At first glance, this seems like good news — with the same income, consumers should be able to buy more goods than before. But most economists take the opposite view.
-  </p>
+  <div class="en-block">
+    <p>When prices fall over time, the value of money rises. At first glance, this seems like good news: with the same income, consumers should be able to buy more goods than before. Some students therefore wonder whether deflation might actually be helpful to workers and households. This intuition is understandable, but most economists take the opposite view.</p>
+    <p>They generally regard <strong>mild inflation as easier to manage than deflation</strong>, because the broader effects of falling prices can damage the very mechanisms that keep an economy growing. The dangers of deflation can be explained through <strong>four main channels</strong>.</p>
+  </div>
+
   <div class="ko-block">
-    물가가 시간이 지나며 하락하면 화폐의 가치가 상승합니다. 언뜻 보면 좋은 소식 같습니다 — 같은 소득으로 더 많은 재화를 살 수 있으니까요. 하지만 대부분의 경제학자는 정반대 견해를 가집니다.
+    시간이 지나면서 물가가 하락하면 화폐의 가치는 상승합니다. 언뜻 보면 좋은 소식처럼 보입니다 — 같은 소득으로 더 많은 재화를 살 수 있으니까요. 그래서 일부 학생들은 "디플레이션이 오히려 근로자와 가계에 도움이 되지 않을까?"라고 의문을 갖기도 합니다. 이런 직관은 이해할 만하지만, <strong>대부분의 경제학자들은 정반대 입장</strong>을 취합니다.<br><br>
+    그들은 일반적으로 <strong>완만한 인플레이션이 디플레이션보다 관리하기 쉽다</strong>고 봅니다. 물가 하락이 경제 성장의 핵심 메커니즘 자체를 손상시킬 수 있기 때문입니다. 디플레이션의 위험은 다음 <strong>네 가지 경로(channel)</strong>로 설명됩니다.
   </div>
 
-  <div class="paradox">
-    <h3>Why economists see deflation as more dangerous than mild inflation</h3>
-    <p>Economists generally regard <strong>mild inflation as easier to manage</strong> than deflation, because the broader effects of falling prices can <strong>damage the very mechanisms that keep an economy growing</strong>.</p>
-    <div class="ko-block">경제학자들은 일반적으로 <strong>온건한 인플레이션이 디플레이션보다 관리하기 쉽다</strong>고 봅니다. 물가 하락의 광범위한 효과가 <strong>경제 성장을 유지하는 메커니즘 자체를 손상</strong>시키기 때문입니다.</div>
+  <div class="concept">
+    <div class="concept-label">CORE CONCEPT · 핵심 개념</div>
+    <h4>Inflation vs. Deflation — 인플레이션과 디플레이션</h4>
+    <p><strong>Inflation</strong>: 물가가 지속적으로 상승하는 현상 (화폐 가치 ↓)</p>
+    <p><strong>Deflation</strong>: 물가가 지속적으로 하락하는 현상 (화폐 가치 ↑)</p>
+    <p style="margin-top:8px"><strong>일반인의 직관:</strong> "물가가 떨어지면 좋은 거 아냐?" → <strong>경제학자의 답:</strong> "개인에게는 그럴 수도 있지만, 경제 전체로 보면 매우 위험합니다."</p>
+  </div>
 
-    <div class="paradox-flip">
-      <div class="flip-card intuition">
-        <div class="label">STUDENT INTUITION · 학생의 직관</div>
-        "Prices fall → I can buy more with my income → deflation must be good for workers and households!"
-        <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#86efac; margin-top:6px; font-size:12px">
-          "물가가 떨어지면 같은 소득으로 더 많이 살 수 있으니, 디플레이션은 근로자와 가계에 좋은 것 아닌가?"
-        </div>
-      </div>
-      <div class="flip-arrow">≠</div>
-      <div class="flip-card reality">
-        <div class="label">ECONOMIC REALITY · 경제학적 현실</div>
-        "Deflation is a process in which <strong>jobs and incomes disappear faster than prices</strong>."
-        <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#fca5a5; margin-top:6px; font-size:12px">
-          "디플레이션은 <strong>물가보다 일자리와 소득이 더 빨리 사라지는</strong> 과정입니다."
-        </div>
-      </div>
-    </div>
+  <div class="insight">
+    <div class="ins-label">↳ Why this matters</div>
+    <h4>"Mild inflation" is what central banks actually want</h4>
+    <p>전 세계 대부분의 중앙은행(미 연준, 한국은행, ECB 등)은 <strong>약 2%의 인플레이션</strong>을 목표로 합니다. 0%나 마이너스를 목표하지 않는 이유가 바로 이 글의 주제입니다.</p>
   </div>
 </section>
 
-<!-- ============ SECTION 1: FOUR CHANNELS OVERVIEW ============ -->
-<section id="s1">
-  <div class="section-num">SECTION 01</div>
-  <h2 class="section-title">
-    The Four Channels of Danger
-    <span class="ko-h2">디플레이션의 4가지 위험 경로</span>
-  </h2>
-  <div class="section-divider"></div>
-  <p class="section-intro">
-    The dangers of deflation can be explained through four main channels. Each one independently damages the economy, and together they create a downward spiral that is extremely hard to escape.
-  </p>
-  <div class="ko-block">
-    디플레이션의 위험은 네 가지 주요 경로로 설명됩니다. 각각이 독립적으로 경제에 손상을 입히고, 함께 작용하면 빠져나오기 매우 어려운 하향 나선을 만듭니다.
-  </div>
-
-  <div class="channel-grid">
-    <div class="channel-card">
-      <span class="ch-num">CHANNEL 01</span>
-      <h4>Delayed Consumption</h4>
-      <div class="en-sub">소비 지연 → 총수요 감소</div>
-      <p>People postpone spending → aggregate demand shrinks → recession deepens.</p>
-      <div class="ko-block" style="margin-top:10px; font-size:12.5px">사람들이 지출을 미룸 → 총수요 감소 → 경기 침체 심화</div>
-    </div>
-    <div class="channel-card">
-      <span class="ch-num">CHANNEL 02</span>
-      <h4>Debt-Deflation</h4>
-      <div class="en-sub">부채-디플레이션 (Fisher 1933)</div>
-      <p>Real value of debt rises automatically → borrowers crushed → fire sales.</p>
-      <div class="ko-block" style="margin-top:10px; font-size:12.5px">부채의 실질 가치가 자동으로 상승 → 채무자 압박 → 헐값 매각</div>
-    </div>
-    <div class="channel-card">
-      <span class="ch-num">CHANNEL 03</span>
-      <h4>Sticky Wages</h4>
-      <div class="en-sub">하방 경직적 임금</div>
-      <p>Wages can't fall easily → firms lay off workers instead → unemployment rises.</p>
-      <div class="ko-block" style="margin-top:10px; font-size:12.5px">임금을 쉽게 낮출 수 없음 → 기업이 대신 해고 → 실업 증가</div>
-    </div>
-    <div class="channel-card">
-      <span class="ch-num">CHANNEL 04</span>
-      <h4>Liquidity Trap</h4>
-      <div class="en-sub">유동성 함정</div>
-      <p>Nominal rates hit zero → monetary policy loses traction → central bank powerless.</p>
-      <div class="ko-block" style="margin-top:10px; font-size:12.5px">명목 금리가 0에 도달 → 통화정책 효과 상실 → 중앙은행 무력화</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 2: DELAYED CONSUMPTION ============ -->
-<section id="s2">
-  <div class="section-num">SECTION 02</div>
-  <h2 class="section-title">
-    Channel 1 — Delayed Consumption & Falling Aggregate Demand
-    <span class="ko-h2">경로 1 — 소비 지연과 총수요 감소</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-channel">CHANNEL 01</span>
-      <h3>"Why buy today when it'll be cheaper next month?"</h3>
-    </div>
-    <div class="def-body">
-      <p>If people <strong>expect prices to keep falling</strong>, it becomes rational to <strong>postpone spending</strong>. The reasoning is simple: why buy today when the same item will be cheaper next month?</p>
-      <div class="ko-block">사람들이 <strong>물가가 계속 하락할 것이라 예상</strong>하면, 지출을 <strong>미루는 것이 합리적</strong>이 됩니다. 논리는 단순합니다 — 다음 달에 같은 물건이 더 싸진다면, 오늘 살 이유가 무엇인가?</div>
-
-      <p style="margin-top:14px">Once this expectation spreads, demand for durable goods (cars, home appliances) drops sharply, and business revenues follow. What looks reasonable for an individual household becomes <strong>harmful for the economy as a whole</strong>.</p>
-      <div class="ko-block">이 기대가 퍼지면 자동차·가전 같은 내구재 수요가 급감하고, 기업 매출이 뒤따라 감소합니다. 개별 가계에게는 합리적인 행동이 <strong>경제 전체에는 해롭게</strong> 작용합니다.</div>
-
-      <p style="margin-top:14px">This is a classic example of the <span class="term">fallacy of composition</span> — behavior that seems sensible for each person individually ends up <strong>damaging everyone collectively</strong>. As aggregate demand shrinks, the recession deepens rather than corrects itself.</p>
-      <div class="ko-block">이는 전형적인 <strong>구성의 오류(fallacy of composition)</strong> 사례입니다 — 각자에게는 합리적인 행동이 <strong>모두에게는 집단적 손해</strong>로 귀결됩니다. 총수요가 줄어들수록 경기 침체는 스스로 교정되지 않고 깊어집니다.</div>
-    </div>
-  </div>
-
-  <div class="tip">
-    <div class="tip-label">↳ Key concept</div>
-    <h4>Fallacy of Composition <span class="ko-inline">구성의 오류</span></h4>
-    <p>"What's true for one is true for all" — but in economics, this often fails. One household saving more is wise. Every household saving more at once (paradox of thrift) causes recession.</p>
-    <div class="ko-block" style="margin-top:6px">"개인에게 참인 것이 전체에도 참이다"라는 논리는 경제학에서 자주 실패합니다. 한 가계가 더 저축하는 것은 현명하지만, 모든 가계가 동시에 더 저축하면(절약의 역설) 경기 침체를 부릅니다.</div>
-  </div>
-</section>
-
-<!-- ============ SECTION 3: FISHER DEBT-DEFLATION ============ -->
-<section id="s3">
-  <div class="section-num">SECTION 03</div>
-  <h2 class="section-title">
-    Channel 2 — Irving Fisher's Debt-Deflation Theory
-    <span class="ko-h2">경로 2 — 어빙 피셔의 부채-디플레이션 이론</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-theory">FISHER 1933</span>
-      <h3>Loans are written in nominal terms — but real debt rises when prices fall</h3>
-    </div>
-    <div class="def-body">
-      <p>The most influential explanation of how deflation harms an economy comes from American economist <strong>Irving Fisher</strong>, who published <em>"The Debt-Deflation Theory of Great Depressions"</em> in <em>Econometrica</em> in <strong>1933</strong>.</p>
-      <div class="ko-block">디플레이션이 경제를 해치는 메커니즘에 대한 가장 영향력 있는 설명은 미국 경제학자 <strong>어빙 피셔</strong>로부터 나왔습니다. 그는 1933년 <em>Econometrica</em>에 「대공황의 부채-디플레이션 이론」을 발표했습니다.</div>
-
-      <p style="margin-top:14px">Fisher's central insight: loans are written in <strong>nominal terms</strong> — principal and interest stated in the contract <strong>do not change</strong>, no matter what happens to the price level afterward. Yet as prices drop, the <strong>real value</strong> of that fixed debt rises automatically.</p>
-      <div class="ko-block">피셔의 핵심 통찰: 대출은 <strong>명목 가치</strong>로 기재됩니다 — 계약서의 원금과 이자는 이후 물가 수준이 어떻게 변하든 <strong>바뀌지 않습니다</strong>. 하지만 물가가 하락하면 그 고정 부채의 <strong>실질 가치</strong>는 자동으로 상승합니다.</div>
-
-      <div class="formula-display">
-        <span class="lhs">Real Debt</span> &nbsp;=&nbsp;
-        <span class="frac">
-          <span class="num-l">Nominal Debt</span>
-          <span class="den-l">Price Level (P)</span>
-        </span>
+<!-- ============ CHANNEL 1: DELAYED CONSUMPTION ============ -->
+<section id="ch1">
+  <div class="channel-card">
+    <div class="channel-head">
+      <span class="channel-num">01</span>
+      <div class="channel-titles">
+        <h3>Delayed Consumption and Falling Aggregate Demand</h3>
+        <div class="ko-title">소비 지연과 총수요 감소</div>
       </div>
+    </div>
+    <div class="channel-body">
+
+      <div class="en-block">
+        <p>If people expect prices to keep falling, it becomes rational to <strong>postpone spending</strong>. The reasoning is simple: <em>"Why buy today when the same item will be cheaper next month?"</em> Once this expectation spreads, demand for durable goods such as cars and home appliances drops sharply, and business revenues follow.</p>
+        <p>What looks reasonable for an individual household becomes harmful for the economy as a whole — a classic example of the <strong>fallacy of composition</strong>, where behavior that seems sensible for each person individually ends up damaging everyone collectively. As aggregate demand shrinks, the recession deepens rather than corrects itself.</p>
+      </div>
+
       <div class="ko-block">
-        <strong>실질 부채</strong> = 명목 부채 ÷ 물가 수준 (P) — 분모가 작아지면 분자가 그대로여도 결과는 커집니다.
+        사람들이 물가가 계속 떨어질 것이라고 예상하면, <strong>지출을 미루는 것이 합리적</strong>이 됩니다. 논리는 간단합니다: <em>"어차피 다음 달에 더 싸질 텐데 왜 오늘 사?"</em> 이런 기대가 퍼지면 자동차, 가전제품 같은 <strong>내구재(durable goods)</strong> 수요가 급격히 줄고, 기업 매출도 따라서 감소합니다.<br><br>
+        개별 가계에는 합리적으로 보이는 행동이 경제 전체로 보면 해롭게 됩니다 — 이것이 바로 <strong>구성의 오류(fallacy of composition)</strong>의 전형적 예입니다. 개인에게 합리적인 행동이 모두에게는 해로운 결과를 낳는 상황입니다. <strong>총수요(aggregate demand)</strong>가 줄어들면 경기 침체는 스스로 회복되지 못하고 오히려 깊어집니다.
       </div>
-    </div>
-  </div>
 
-  <div class="example-panel">
-    <span class="ex-label">WORKED EXAMPLE · 풀이 예제</span>
-    <h4>500 Million Won Small Business Owner</h4>
-    <p style="font-size:14px; color:var(--text-mid); margin-bottom:14px">
-      A small business owner borrows 500M won. Annual revenue is also 500M won. Then prices fall by 10%.
-    </p>
-    <div class="ko-block" style="margin-top:0; margin-bottom:16px">소상공인이 5억 원을 대출. 연 매출도 5억 원. 그런데 물가가 10% 하락하면?</div>
-
-    <table class="ex-table">
-      <thead>
-        <tr>
-          <th>Metric <span class="ko-inline">지표</span></th>
-          <th>Before <span class="ko-inline">전</span></th>
-          <th>After 10% deflation <span class="ko-inline">10% 하락 후</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Nominal debt <span class="ko-inline">명목 부채</span></td>
-          <td>₩500M</td>
-          <td>₩500M</td>
-        </tr>
-        <tr>
-          <td>Annual revenue <span class="ko-inline">연 매출</span></td>
-          <td>₩500M</td>
-          <td><span class="change-up">₩450M</span></td>
-        </tr>
-        <tr class="row-highlight">
-          <td>Debt-to-revenue ratio <span class="ko-inline">부채/매출 비율</span></td>
-          <td>1.00</td>
-          <td>1.11 ↑</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p style="font-size:14px; margin-top:14px"><strong>The loan itself has not changed, but its real weight has grown by 11%.</strong> Households face the same pressure — when wages fall or workers lose jobs, fixed mortgage payments consume a larger share of income.</p>
-    <div class="ko-block"><strong>대출 자체는 그대로지만, 실질 부담은 11% 증가</strong>했습니다. 가계도 마찬가지 — 임금이 하락하거나 실직하면, 고정 주택담보대출이 소득에서 차지하는 비중이 커집니다.</div>
-  </div>
-
-  <div class="spiral-wrap">
-    <h4>Fisher's Deeper Spiral — The Self-Reinforcing Loop</h4>
-    <p class="sub">How debt-deflation accelerates itself · <span class="ko">부채-디플레이션이 스스로 가속화되는 방식</span></p>
-
-    <div class="spiral-steps">
-      <div class="spiral-step">
-        <div class="step-num">STEP 01</div>
-        <h5>Borrowers sell assets</h5>
-        <p>Real estate, stocks, inventory sold off to pay down debt.</p>
-        <div class="ko-block" style="margin-top:6px; font-size:11.5px">부채 상환을 위해 부동산·주식·재고를 매각</div>
+      <div class="concept">
+        <div class="concept-label">KEY TERM · 핵심 용어</div>
+        <h4>Fallacy of Composition · 구성의 오류</h4>
+        <p>"개인에게 좋은 것 = 전체에게 좋은 것"이라고 잘못 추론하는 오류. 야구장에서 한 명이 일어서서 보면 잘 보이지만, 모두가 일어서면 아무도 더 잘 보이지 않게 되는 것과 같은 원리입니다. 거시경제학의 가장 중요한 개념 중 하나.</p>
       </div>
-      <div class="spiral-step">
-        <div class="step-num">STEP 02</div>
-        <h5>Asset prices collapse</h5>
-        <p>When many sell at once, prices crash; collateral of other loans erodes.</p>
-        <div class="ko-block" style="margin-top:6px; font-size:11.5px">동시에 매도가 일어나며 가격 폭락, 다른 대출의 담보 가치도 하락</div>
+
+      <div class="insight">
+        <div class="ins-label">↳ Real-world example</div>
+        <h4>"내일 더 싸진다" 심리의 실제 사례</h4>
+        <p>1990~2000년대 일본의 "잃어버린 10년" 동안 가전제품 가격이 계속 떨어졌고, 소비자들은 새 가전제품 구매를 끊임없이 미뤘습니다. 이로 인해 일본 가전 산업 전체가 침체에 빠졌고, 경기가 더 악화되는 악순환이 형성되었습니다.</p>
       </div>
-      <div class="spiral-step">
-        <div class="step-num">STEP 03</div>
-        <h5>More fire sales</h5>
-        <p>Eroded collateral forces still more emergency selling.</p>
-        <div class="ko-block" style="margin-top:6px; font-size:11.5px">담보 가치 훼손으로 더 많은 긴급 매각이 강제됨</div>
-      </div>
-      <div class="spiral-step">
-        <div class="step-num">STEP 04</div>
-        <h5>Spending falls</h5>
-        <p>Repayment efforts cut consumption → demand weakens → prices fall further.</p>
-        <div class="ko-block" style="margin-top:6px; font-size:11.5px">부채 상환을 위해 소비 축소 → 수요 약화 → 물가 추가 하락</div>
-      </div>
-    </div>
-
-    <div class="spiral-loopback">↻ Real debt rises again → loop repeats <span class="ko-inline">실질 부채 재상승 → 순환 반복</span></div>
-  </div>
-
-  <div class="quote-big">
-    <blockquote>"The more debtors pay, the more they owe."</blockquote>
-    <div class="attribution">— Irving Fisher (1933)</div>
-    <div class="ko-block" style="margin-top:8px">"채무자가 갚으면 갚을수록, 더 많이 빚지게 된다." — 피셔는 이 자가증식적 메커니즘이 <strong>1929년 대공황을 그토록 심각하게 만든 핵심 이유</strong>였다고 봤습니다.</div>
-  </div>
-</section>
-
-<!-- ============ SECTION 4: REAL INTEREST RATES ============ -->
-<section id="s4">
-  <div class="section-num">SECTION 04</div>
-  <h2 class="section-title">
-    The Same Logic Applies to Interest Rates
-    <span class="ko-h2">실질 이자율 — 명목 이자율보다 중요한 진짜 부담</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-concept">CONCEPT</span>
-      <h3>What borrowers actually carry is the real interest rate</h3>
-    </div>
-    <div class="def-body">
-      <p>What borrowers actually carry is the <span class="term">real interest rate</span>, approximately equal to the <strong>nominal rate minus expected inflation</strong>.</p>
-      <div class="ko-block">차입자가 실제로 부담하는 것은 <strong>실질 이자율</strong>이며, 이는 대략 <strong>명목 이자율 − 기대 인플레이션</strong>과 같습니다.</div>
-
-      <div class="formula-display">
-        <span class="lhs">Real Rate</span> ≈ Nominal Rate − Expected Inflation
-      </div>
-    </div>
-  </div>
-
-  <div class="rate-compare">
-    <div class="rate-card inflation">
-      <div class="label">UNDER MILD INFLATION · 온건한 인플레이션</div>
-      <div class="scenario">Nominal rate = 3%, expected inflation = +2%</div>
-      <div class="calc">
-        Real rate ≈ 3% − 2%<br>
-        Real rate ≈ <strong>1%</strong>
-      </div>
-      <div class="result">↓ Real burden is LOW · 실질 부담 낮음</div>
-      <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#86efac; margin-top:8px; font-size:12px">
-        명목 3%, 기대 인플레 +2% → 실질 1%. 차입자의 실질 부담이 작음.
-      </div>
-    </div>
-
-    <div class="rate-card deflation">
-      <div class="label">UNDER DEFLATION · 디플레이션</div>
-      <div class="scenario">Nominal rate = 0%, expected inflation = −2%</div>
-      <div class="calc">
-        Real rate ≈ 0% − (−2%)<br>
-        Real rate ≈ <strong>+2%</strong>
-      </div>
-      <div class="result">↑ Real burden is HIGH · 실질 부담 높음</div>
-      <div class="ko-block" style="background:rgba(255,255,255,0.5); border-left-color:#fca5a5; margin-top:8px; font-size:12px">
-        명목 0%, 기대 인플레 −2% → 실질 +2%. 중앙은행이 금리를 0으로 낮춰도 실질 부담은 오히려 증가!
-      </div>
-    </div>
-  </div>
-
-  <p style="margin-top:18px; font-size:15px">Under deflation, expected inflation turns <strong>negative</strong> — meaning the money to be repaid in the future becomes <strong>more valuable</strong>, not less. Even if the central bank lowers the nominal rate close to zero, the <strong>real cost of borrowing rises</strong> rather than falls, making households less willing to consume and firms less willing to invest.</p>
-  <div class="ko-block">디플레이션 하에서는 기대 인플레이션이 <strong>마이너스</strong>가 됩니다 — 즉 미래에 갚을 돈이 더 가치 있어진다는 뜻입니다. 중앙은행이 명목 금리를 0에 가깝게 낮춰도 <strong>실질 차입 비용은 오히려 상승</strong>하여, 가계는 소비를 꺼리고 기업은 투자를 꺼리게 됩니다.</div>
-</section>
-
-<!-- ============ SECTION 5: STICKY WAGES ============ -->
-<section id="s5">
-  <div class="section-num">SECTION 05</div>
-  <h2 class="section-title">
-    Channel 3 — Sticky Wages and Rising Unemployment
-    <span class="ko-h2">경로 3 — 끈끈한 임금과 실업 증가</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-channel">CHANNEL 03</span>
-      <h3>When prices fall, firms can't easily cut wages — so they cut workers</h3>
-    </div>
-    <div class="def-body">
-      <p>When prices fall, business revenues decline, and firms must reduce costs to survive. The largest cost for most companies is <strong>wages</strong> — but cutting wages is <strong>not easy</strong>.</p>
-      <div class="ko-block">물가가 하락하면 기업 매출이 감소하고, 생존을 위해 비용을 줄여야 합니다. 대부분의 기업에서 가장 큰 비용은 <strong>임금</strong>이지만, 임금 삭감은 <strong>쉽지 않습니다</strong>.</div>
-
-      <p style="margin-top:14px">As Keynes noted long ago, and as later research by Truman Bewley and George Akerlof confirmed, <strong>workers strongly resist reductions in their nominal pay</strong>. Economists call this <span class="term">downward nominal wage rigidity</span>.</p>
-      <div class="ko-block">케인스가 오래 전 지적했고, 이후 Truman Bewley와 George Akerlof의 연구가 확인한 바와 같이, <strong>근로자들은 명목 임금 삭감에 매우 강하게 저항합니다</strong>. 경제학자들은 이를 <strong>하방 경직적 명목 임금(downward nominal wage rigidity)</strong>이라 부릅니다.</div>
-
-      <p style="margin-top:14px">Because firms cannot easily lower wages, they often respond by <strong>laying off workers instead</strong>. Higher unemployment then reduces household income, which further weakens demand.</p>
-      <div class="ko-block">기업이 임금을 쉽게 낮출 수 없기에, 대신 <strong>근로자를 해고</strong>하는 방식으로 대응합니다. 실업 증가는 가계 소득을 줄이고, 이는 다시 수요를 더욱 약화시킵니다.</div>
-    </div>
-  </div>
-
-  <div class="tip">
-    <div class="tip-label">↳ The hidden cost of "rising real wages"</div>
-    <h4>It's only a partial benefit, not a true gain</h4>
-    <p>The "rise in real wages" that some students imagine may indeed benefit <strong>those who keep their jobs</strong> — but it comes at the cost of <strong>others losing theirs entirely</strong>. From a macroeconomic point of view, this is only a partial benefit, not a true gain for the economy as a whole.</p>
-    <div class="ko-block" style="margin-top:8px">
-      일부 학생들이 상상하는 "실질 임금 상승"은 <strong>일자리를 지킨 사람들에게는</strong> 이익일 수 있지만, 그것은 <strong>다른 사람들이 일자리를 완전히 잃는 대가로</strong> 얻은 것입니다. 거시경제학적으로 이는 부분적 이익일 뿐, 경제 전체의 진정한 이득이 아닙니다.
-    </div>
-  </div>
-
-  <div class="tip" style="background:var(--accent-soft); border-color:#c7d2fe; border-left-color:var(--accent)">
-    <div class="tip-label" style="color:var(--accent)">↳ Link to unemployment unit</div>
-    <h4>This is the <em>structural</em> unemployment we studied earlier</h4>
-    <p>Sticky wages create exactly the "labour supply > labour demand" mismatch covered in our Week 3 unit on structural unemployment. Deflation triggers structural unemployment because wages can't fall to clear the market.</p>
-    <div class="ko-block" style="margin-top:8px">
-      끈끈한 임금은 우리가 3주차에 배운 "노동 공급 > 노동 수요" 불일치를 만들어냅니다. 디플레이션은 임금이 시장 균형까지 떨어질 수 없기에 <strong>구조적 실업</strong>을 유발합니다.
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 6: LIQUIDITY TRAP ============ -->
-<section id="s6">
-  <div class="section-num">SECTION 06</div>
-  <h2 class="section-title">
-    Channel 4 — The Limits of Monetary Policy: The Liquidity Trap
-    <span class="ko-h2">경로 4 — 통화정책의 한계: 유동성 함정</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-channel">CHANNEL 04</span>
-      <h3>Nominal rates cannot be pushed much below zero</h3>
+<!-- ============ CHANNEL 2: FISHER'S DEBT-DEFLATION ============ -->
+<section id="ch2">
+  <div class="channel-card">
+    <div class="channel-head">
+      <span class="channel-num">02</span>
+      <div class="channel-titles">
+        <h3>Irving Fisher's Debt-Deflation Theory</h3>
+        <div class="ko-title">어빙 피셔의 부채-디플레이션 이론</div>
+      </div>
     </div>
-    <div class="def-body">
-      <p>In a normal recession, central banks lower interest rates to make borrowing cheaper and encourage spending and investment. Under deflation, however, this standard tool runs into a <strong>serious limit</strong>.</p>
-      <div class="ko-block">일반적인 경기 침체에서는 중앙은행이 금리를 낮춰 차입을 저렴하게 만들고 소비·투자를 촉진합니다. 그러나 디플레이션 하에서 이 표준 도구는 <strong>심각한 한계</strong>에 부딪힙니다.</div>
+    <div class="channel-body">
 
-      <p style="margin-top:14px">Nominal interest rates <strong>cannot be pushed much below zero</strong> — because if banks charged sharply negative rates on deposits, savers would simply <strong>withdraw cash and store it themselves</strong>. Since the real rate (not nominal) drives decisions, the central bank may <em>appear</em> to have acted aggressively while actual borrowing costs remain stubbornly positive.</p>
-      <div class="ko-block">명목 금리는 <strong>0 아래로 크게 내릴 수 없습니다</strong> — 은행이 예금에 큰 마이너스 금리를 부과하면, 저축자들이 단순히 <strong>현금을 인출해 직접 보관</strong>해버리기 때문입니다. 실제 결정을 좌우하는 것은 실질 금리(명목이 아닌)이므로, 중앙은행이 <em>적극적으로 행동한 듯 보여도</em> 실제 차입 비용은 양수로 남아 있습니다.</div>
+      <div class="en-block">
+        <p>The most influential explanation of how deflation harms an economy comes from the American economist <strong>Irving Fisher</strong>, who published <em>"The Debt-Deflation Theory of Great Depressions"</em> in <em>Econometrica</em> in 1933. Fisher's central insight was that <strong>loans are written in nominal terms</strong>: the principal and interest stated in the contract do not change, no matter what happens to the price level afterward. Yet as the price level drops, the <strong>real value of that fixed debt rises automatically</strong>, making the same loan harder to repay than before:</p>
+      </div>
+
+      <div class="ko-block">
+        디플레이션이 경제를 해치는 방식에 대한 가장 영향력 있는 설명은 미국 경제학자 <strong>어빙 피셔(Irving Fisher)</strong>에게서 나왔습니다. 그는 1933년 <em>Econometrica</em>에 "대공황의 부채-디플레이션 이론"이라는 논문을 발표했습니다.<br><br>
+        피셔의 핵심 통찰: <strong>대출은 명목 단위로 작성됩니다(nominal terms)</strong>. 계약서에 명시된 원금과 이자는 이후 물가가 어떻게 변하든 그대로입니다. 그러나 물가가 떨어지면 <strong>그 고정된 부채의 실질 가치는 자동으로 상승</strong>하고, 같은 대출이 이전보다 갚기 어려워집니다:
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">Real Debt = Nominal Debt ÷ Price Level (P)</div>
+        <span class="formula-ko">실질 부채 = 명목 부채 ÷ 물가 수준</span>
+      </div>
+
+      <div class="en-block">
+        <p>A simple example makes this clearer. Imagine a small business owner who has <strong>borrowed 500 million won</strong> to run her business. Before deflation, her annual revenue is also 500 million won, so her debt equals one year of sales. Now suppose <strong>prices fall by 10 percent</strong>. She sells the same quantity of goods, but her revenue drops to 450 million won. Her debt-to-revenue ratio rises from 1.0 to about 1.11. The loan itself has not changed, but <strong>its real weight has grown</strong>. Households face the same pressure: when wages fall or workers lose jobs, fixed mortgage payments consume a larger share of income and wealth.</p>
+      </div>
+
+      <div class="ko-block">
+        간단한 예가 도움이 됩니다. 한 소상공인이 사업 운영을 위해 <strong>5억 원을 빌렸다</strong>고 가정합시다. 디플레이션 전 그녀의 연 매출도 5억 원이어서, 부채는 1년 매출과 같습니다. 이제 <strong>물가가 10% 하락</strong>한다고 합시다. 그녀는 같은 양의 상품을 팔지만 매출은 4.5억 원으로 줄어듭니다. 부채/매출 비율이 1.0에서 약 1.11로 상승합니다. <strong>대출 자체는 변하지 않았지만 실질적 무게가 커진 것</strong>입니다. 가계도 같은 압박을 받습니다 — 임금이 줄거나 일자리를 잃으면, 고정된 주택담보대출 상환금이 소득과 자산의 더 큰 비중을 차지하게 됩니다.
+      </div>
+
+      <div class="example-box">
+        <div class="ex-label">WORKED EXAMPLE · 숫자로 풀어보기</div>
+        <h4>5억 원을 빌린 소상공인의 사례</h4>
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>디플레이션 전</th>
+              <th>10% 디플레이션 후</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>명목 부채</td>
+              <td>₩500,000,000</td>
+              <td>₩500,000,000 (불변)</td>
+            </tr>
+            <tr>
+              <td>연 매출</td>
+              <td>₩500,000,000</td>
+              <td>₩450,000,000 (↓10%)</td>
+            </tr>
+            <tr>
+              <td>부채 / 매출 비율</td>
+              <td>1.00</td>
+              <td>≈ 1.11 (↑)</td>
+            </tr>
+            <tr>
+              <td>실질 부채 부담</td>
+              <td>1년치 매출</td>
+              <td>1.11년치 매출</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px; font-size:14px; color:var(--text-mid)">📌 같은 빚인데, 갚기가 더 어려워졌습니다. 매출이 줄어든 만큼 빚의 "체감 무게"가 커진 것입니다.</p>
+      </div>
+
+      <div class="en-block">
+        <p>Fisher also identified a <strong>deeper spiral</strong>. To reduce their debt burden, borrowers begin selling assets — real estate, stocks, inventory. But when many borrowers sell simultaneously, asset prices collapse, eroding the collateral value of other loans and forcing still more <strong>fire sales</strong>. Meanwhile, the spending cutbacks needed to repay debt weaken demand and push prices lower still, raising the real value of debt once again. Fisher captured this paradox in a famous line:</p>
+      </div>
+
+      <div class="ko-block">
+        피셔는 <strong>더 깊은 악순환</strong>도 발견했습니다. 부채 부담을 줄이려고 채무자들은 자산을 팔기 시작합니다 — 부동산, 주식, 재고. 그러나 많은 채무자가 동시에 팔면 자산 가격이 폭락하고, 다른 대출의 담보 가치도 무너지며, 더 많은 <strong>투매(fire sale)</strong>를 강제하게 됩니다. 동시에 부채 상환을 위해 지출을 줄이면 수요가 약해지고, 물가는 더 떨어지며, 실질 부채는 또다시 커집니다. 피셔는 이 역설을 한 줄로 압축했습니다:
+      </div>
 
       <div class="quote">
-        Economists describe this situation as one in which <strong>"nominal policy looks loose, but real policy is actually tight."</strong>
-        <span class="cite">— A common economist's saying</span>
+        "The more debtors pay, the more they owe."
+        <span class="attr">— Irving Fisher (1933) · "채무자가 갚으면 갚을수록, 빚은 더 늘어난다"</span>
       </div>
-      <div class="ko-block">"명목 정책은 완화적으로 보이지만, 실질 정책은 사실상 긴축적이다" — 디플레이션 하의 통화정책 역설을 가장 잘 표현한 경제학자들의 격언입니다.</div>
-    </div>
-  </div>
 
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-theory">KEYNES 1936 · KRUGMAN 1998</span>
-      <h3>The Liquidity Trap defined</h3>
-    </div>
-    <div class="def-body">
-      <p>A <span class="term">liquidity trap</span> is a condition in which <strong>monetary expansion fails to stimulate the economy</strong> because households and firms, expecting prices to keep falling, prefer to <strong>hold cash rather than spend or invest</strong>.</p>
-      <div class="ko-block"><strong>유동성 함정(liquidity trap)</strong>이란 가계와 기업이 물가의 지속적 하락을 예상하며 <strong>지출·투자 대신 현금 보유</strong>를 선호하기에, <strong>통화 확대가 경기 부양에 실패하는</strong> 상황입니다.</div>
-
-      <p style="margin-top:14px">Keynes first described this phenomenon in <em>The General Theory</em> (1936). Paul Krugman reformulated it for the modern era in his influential 1998 paper <em>"It's Baaack: Japan's Slump and the Return of the Liquidity Trap"</em>.</p>
-      <div class="ko-block">케인스가 <em>「일반이론」</em>(1936)에서 처음 기술한 현상을 폴 크루그먼이 1998년 영향력 있는 논문 「유동성 함정의 귀환: 일본의 침체」에서 현대적으로 재정식화했습니다.</div>
-
-      <p style="margin-top:14px"><strong>Krugman's key insight:</strong> escaping a liquidity trap depends less on how much money the central bank prints today, and more on whether <strong>the public genuinely believes the central bank will keep policy generous until prices have risen sufficiently</strong>. Without that belief, even large injections of money sit idle.</p>
-      <div class="ko-block"><strong>크루그먼의 핵심 통찰:</strong> 유동성 함정 탈출은 중앙은행이 오늘 얼마나 많은 돈을 찍느냐보다, <strong>대중이 중앙은행이 물가가 충분히 오를 때까지 완화 정책을 지속할 것이라고 진정으로 믿느냐</strong>에 달려 있습니다. 그 믿음이 없다면, 아무리 많은 돈을 풀어도 그 돈은 쓰이지 않고 잠자게 됩니다.</div>
-
-      <div class="quote">
-        People simply wait — much like shoppers who keep holding off on a purchase because they are <strong>not convinced the sale is really ending</strong>.
+      <div class="spiral">
+        <h4>Debt-Deflation Spiral · 부채-디플레이션 악순환</h4>
+        <div class="spiral-steps">
+          <div class="spiral-step">
+            <span class="step-num">STEP 1</span>
+            <span>Prices fall → real value of debt rises<br><span class="ko">물가 하락 → 실질 부채 가치 상승</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 2</span>
+            <span>Borrowers sell assets (real estate, stocks, inventory)<br><span class="ko">채무자들이 자산 매각 (부동산·주식·재고)</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 3</span>
+            <span>Asset prices collapse → collateral value drops<br><span class="ko">자산 가격 폭락 → 담보 가치 하락</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 4</span>
+            <span>More fire sales · spending cuts to repay debt<br><span class="ko">더 많은 투매 + 빚 갚으려 소비 더 줄임</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 5</span>
+            <span>Demand weakens → prices fall further → back to Step 1<br><span class="ko">수요 더 약화 → 물가 더 하락 → 1단계로 돌아감 ♻</span></span>
+          </div>
+        </div>
+        <p style="margin-top:12px; font-size:13.5px; color:var(--red); font-weight:600">⚠ 자기 강화적 메커니즘 — 한번 빠지면 빠져나오기 매우 어렵습니다.</p>
       </div>
-      <div class="ko-block">사람들은 그저 기다립니다 — 마치 "이 할인이 정말 끝나는 게 맞나?"라고 의심하며 구매를 미루는 쇼핑객처럼.</div>
+
+      <div class="en-block">
+        <p>Fisher believed this self-reinforcing dynamic was a <strong>key reason why the Great Depression of 1929 became so severe</strong>.</p>
+        <p>The same logic applies to <strong>interest rates</strong>. What borrowers actually carry is the <strong>real interest rate</strong>, approximately equal to the nominal rate minus expected inflation. If the nominal rate is 3 percent and people expect prices to rise by 2 percent, the real burden on a borrower is only about 1 percent. Under deflation, however, expected inflation turns negative — meaning the money to be repaid in the future becomes <em>more valuable, not less</em>. Even if the central bank lowers the nominal rate close to zero, the <strong>real cost of borrowing rises rather than falls</strong>, making households less willing to consume and firms less willing to invest.</p>
+      </div>
+
+      <div class="ko-block">
+        피셔는 이 자기 강화적 메커니즘이 <strong>1929년 대공황이 그토록 심각해진 핵심 이유</strong>라고 봤습니다.<br><br>
+        같은 논리가 <strong>이자율</strong>에도 적용됩니다. 채무자가 실제로 부담하는 것은 <strong>실질 이자율(real interest rate)</strong>이며, 대략 명목 이자율에서 기대 인플레이션을 뺀 값입니다. 명목 이자율이 3%이고 사람들이 물가가 2% 오를 것이라 예상하면, 채무자의 실질 부담은 약 1%에 불과합니다. 그러나 디플레이션 상황에서는 기대 인플레이션이 <strong>음수</strong>가 됩니다 — 미래에 갚을 돈이 가치가 떨어지는 게 아니라 <em>오히려 더 비싸진다</em>는 뜻입니다. 중앙은행이 명목 이자율을 거의 0까지 내려도 <strong>실질 차입 비용은 떨어지지 않고 오히려 올라가며</strong>, 가계는 소비를, 기업은 투자를 꺼리게 됩니다.
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">Real Interest Rate ≈ Nominal Rate − Expected Inflation</div>
+        <span class="formula-ko">실질 이자율 ≈ 명목 이자율 − 기대 인플레이션 (피셔 방정식)</span>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-label">COMPARISON · 비교</div>
+        <h4>인플레이션 vs. 디플레이션 — 채무자의 실질 부담</h4>
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>상황</th>
+              <th>명목 이자율</th>
+              <th>기대 물가</th>
+              <th>실질 이자율</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>인플레이션 시기</td>
+              <td>3%</td>
+              <td>+2% (상승)</td>
+              <td style="color:var(--green); font-weight:700">≈ 1% (가벼움)</td>
+            </tr>
+            <tr>
+              <td>디플레이션 시기</td>
+              <td>0% (한계)</td>
+              <td>−2% (하락)</td>
+              <td style="color:var(--red); font-weight:700">≈ +2% (무거움)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px; font-size:14px; color:var(--text-mid)">📌 명목 금리가 더 낮아도, 디플레이션에서는 실제 부담이 더 무겁습니다.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 7: QE AND JAPAN ============ -->
-<section id="s7">
-  <div class="section-num">SECTION 07</div>
-  <h2 class="section-title">
-    Quantitative Easing & Japan's Cautionary Tale
-    <span class="ko-h2">양적완화와 일본의 교훈</span>
-  </h2>
-  <div class="section-divider"></div>
-
-  <div class="def">
-    <div class="def-header">
-      <span class="def-tag tag-policy">POLICY RESPONSE</span>
-      <h3>When zero rates aren't enough — QE arrives</h3>
+<!-- ============ CHANNEL 3: STICKY WAGES ============ -->
+<section id="ch3">
+  <div class="channel-card">
+    <div class="channel-head">
+      <span class="channel-num">03</span>
+      <div class="channel-titles">
+        <h3>Sticky Wages and Rising Unemployment</h3>
+        <div class="ko-title">임금 경직성과 실업 증가</div>
+      </div>
     </div>
-    <div class="def-body">
-      <p>When interest rates had already fallen to near zero, central banks turned to <span class="term">quantitative easing (QE)</span> — <strong>purchasing large amounts of financial assets</strong> to inject money directly into the economy and push inflation expectations upward.</p>
-      <div class="ko-block">금리가 이미 0에 근접한 상황에서 중앙은행들은 <strong>양적완화(QE)</strong>로 전환했습니다 — 대량의 금융 자산을 매입하여 경제에 직접 자금을 주입하고 인플레이션 기대를 끌어올리는 정책입니다.</div>
+    <div class="channel-body">
 
-      <p style="margin-top:14px"><strong>Japan pioneered this approach</strong> in the early 2000s. The U.S. Federal Reserve and European Central Bank followed after the global financial crisis of <strong>2008</strong>.</p>
-      <div class="ko-block">일본이 2000년대 초 이 접근법을 선도했고, 2008년 글로벌 금융위기 이후 미국 연방준비제도와 유럽중앙은행이 뒤따랐습니다.</div>
+      <div class="en-block">
+        <p>When prices fall, business revenues decline, and firms must reduce costs to survive. The largest cost for most companies is wages — but <strong>cutting wages is not easy</strong>. As Keynes noted long ago, and as later research by Truman Bewley and George Akerlof has confirmed, workers <strong>strongly resist reductions in their nominal pay</strong>; economists call this <span class="term-red">downward nominal wage rigidity</span>.</p>
+        <p>Because firms cannot easily lower wages, they often respond by <strong>laying off workers instead</strong>. Higher unemployment then reduces household income, which further weakens demand. The "rise in real wages" that some students imagine may indeed benefit those who keep their jobs, but it comes at the <strong>cost of others losing theirs entirely</strong>. From a macroeconomic point of view, this is only a partial benefit, not a true gain for the economy as a whole.</p>
+      </div>
 
-      <p style="margin-top:14px">Yet Japan's <strong>decades-long struggle with deflation</strong> stands as a sobering reminder of how difficult it can be to <strong>reverse deflationary expectations once they have taken hold</strong>.</p>
-      <div class="ko-block">하지만 일본의 <strong>수십 년에 걸친 디플레이션과의 사투</strong>는 <strong>디플레이션 기대가 일단 자리잡으면 역전시키기가 얼마나 어려운지</strong>를 보여주는 냉정한 교훈입니다.</div>
-    </div>
-  </div>
+      <div class="ko-block">
+        물가가 하락하면 기업 매출이 줄어들고, 기업은 생존을 위해 비용을 줄여야 합니다. 대부분 기업의 가장 큰 비용은 임금입니다 — 그런데 <strong>임금을 깎기는 쉽지 않습니다</strong>. 케인스가 오래전 지적했고, 이후 트루먼 베울리(Truman Bewley)와 조지 애컬로프(George Akerlof)의 연구로 확인된 바와 같이, 근로자들은 <strong>명목 임금 삭감을 강하게 거부</strong>합니다. 경제학자들은 이를 <strong>"하방 명목 임금 경직성(downward nominal wage rigidity)"</strong>이라 부릅니다.<br><br>
+        기업이 임금을 쉽게 낮출 수 없기에, 대신 <strong>근로자를 해고</strong>하는 방식으로 대응하는 경우가 많습니다. 실업이 증가하면 가계 소득이 줄고, 이는 다시 수요를 약화시킵니다. 일부 학생들이 상상하는 "실질 임금 상승"은 직장을 유지한 사람들에게는 혜택일 수 있지만, 그 대가는 <strong>다른 사람들이 일자리를 완전히 잃는 것</strong>입니다. 거시경제학 관점에서 이는 부분적 이익일 뿐, 경제 전체로 보면 진정한 이득이 아닙니다.
+      </div>
 
-  <div class="tip" style="background:var(--purple-soft); border-color:#d8b4fe; border-left-color:var(--purple)">
-    <div class="tip-label" style="color:var(--purple)">↳ Why Japan matters</div>
-    <h4>The "Lost Decades" — what they teach us</h4>
-    <p>Japan's bubble burst in 1990. Even after near-zero interest rates (1999), QE (2001), and Abenomics (2013), Japan struggled to escape deflation for 30+ years. The lesson: <strong>preventing deflationary expectations from forming is far easier than reversing them</strong>. This is why central banks now target 2% inflation rather than 0%.</p>
-    <div class="ko-block" style="margin-top:8px">
-      일본은 1990년 버블 붕괴 후 제로 금리(1999), 양적완화(2001), 아베노믹스(2013)를 도입했음에도 30년 넘게 디플레이션에서 벗어나지 못했습니다. 교훈: <strong>디플레이션 기대를 막는 것이, 일단 형성된 기대를 되돌리는 것보다 훨씬 쉽습니다</strong>. 중앙은행들이 0%가 아닌 2% 인플레이션을 목표로 삼는 이유입니다.
+      <div class="concept">
+        <div class="concept-label">KEY TERM · 핵심 용어</div>
+        <h4>Downward Nominal Wage Rigidity · 하방 명목 임금 경직성</h4>
+        <p>"명목 임금은 잘 내려가지 않는다"는 노동시장의 특성. 이유는 심리적·계약적·법적입니다 — 근로자들은 시급 1만원에서 9천원으로 깎이는 것을 인플레이션 시기에 시급은 그대로 두는 것(실질 임금 하락)보다 훨씬 강하게 거부합니다. <strong>같은 결과인데도</strong> 말이죠 (화폐 환상, money illusion).</p>
+      </div>
+
+      <div class="insight">
+        <div class="ins-label">↳ Connection to unemployment</div>
+        <h4>지난 단원 복습 — 구조적 실업과의 연결</h4>
+        <p>이는 우리가 배운 <strong>구조적 실업(structural unemployment)</strong>의 또 다른 형태입니다. 임금이 충분히 떨어지지 않아 노동 공급량이 수요량을 초과하는 상태 — 디플레이션은 이를 더 악화시킵니다. 4주차의 최저임금 그래프를 떠올려보세요: 임금이 균형보다 높게 고정되면 실업이 발생합니다.</p>
+      </div>
+
+      <div class="spiral">
+        <h4>Sticky Wages → Unemployment Chain · 경직된 임금이 만드는 실업 연쇄</h4>
+        <div class="spiral-steps">
+          <div class="spiral-step">
+            <span class="step-num">STEP 1</span>
+            <span>Prices fall → firms' revenues fall<br><span class="ko">물가 하락 → 기업 매출 하락</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 2</span>
+            <span>Firms try to cut costs; biggest cost is wages<br><span class="ko">기업이 비용 절감 시도, 가장 큰 비용은 임금</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 3</span>
+            <span>Workers resist wage cuts (sticky wages)<br><span class="ko">근로자가 임금 삭감 거부 (경직성)</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 4</span>
+            <span>Firms lay off workers instead<br><span class="ko">기업이 임금 인하 대신 해고를 선택</span></span>
+          </div>
+          <div class="spiral-arrow">↓</div>
+          <div class="spiral-step">
+            <span class="step-num">STEP 5</span>
+            <span>Household income ↓ → demand ↓ → back to Step 1<br><span class="ko">가계 소득 하락 → 수요 하락 → 1단계로 ♻</span></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 8: CONCLUSION ============ -->
-<section id="s8">
-  <div class="section-num">SECTION 08</div>
+<!-- ============ CHANNEL 4: LIQUIDITY TRAP ============ -->
+<section id="ch4">
+  <div class="channel-card">
+    <div class="channel-head">
+      <span class="channel-num">04</span>
+      <div class="channel-titles">
+        <h3>The Limits of Monetary Policy: The Liquidity Trap</h3>
+        <div class="ko-title">통화정책의 한계: 유동성 함정</div>
+      </div>
+    </div>
+    <div class="channel-body">
+
+      <div class="en-block">
+        <p>In a normal recession, central banks lower interest rates to make borrowing cheaper and to encourage spending and investment. <strong>Under deflation, however, this standard tool runs into a serious limit.</strong> Nominal interest rates cannot be pushed much below zero, because if banks charged sharply negative rates on deposits, savers would simply withdraw cash and store it themselves. Since the real rate — not the nominal rate — is what drives economic decisions, the central bank may appear to have acted aggressively while actual borrowing costs remain stubbornly positive. Economists describe this situation as one in which <em>"nominal policy looks loose, but real policy is actually tight."</em></p>
+      </div>
+
+      <div class="ko-block">
+        일반적인 경기 침체 시 중앙은행은 차입 비용을 낮추고 지출·투자를 장려하기 위해 이자율을 인하합니다. <strong>그러나 디플레이션에서는 이 표준 도구가 심각한 한계에 부딪힙니다.</strong> 명목 이자율은 0 아래로 크게 내려갈 수 없습니다. 은행이 예금에 큰 폭의 마이너스 금리를 부과하면, 예금자들은 그냥 현금을 인출해 직접 보관하면 되니까요(현금의 명목 수익률은 0). 명목 이자율이 아닌 <strong>실질 이자율이 경제 결정을 좌우하므로</strong>, 중앙은행은 적극적으로 행동한 것처럼 보이지만 실제 차입 비용은 계속 양(+)의 값으로 머물러 있습니다. 경제학자들은 이 상황을 <em>"명목 정책은 완화적으로 보이지만, 실질 정책은 사실상 긴축적"</em>이라고 표현합니다.
+      </div>
+
+      <div class="concept">
+        <div class="concept-label">WHY ZERO IS A FLOOR · 왜 0%가 바닥인가</div>
+        <h4>Zero Lower Bound · 제로 금리 하한</h4>
+        <p>은행이 예금에 -3% 금리를 부과한다고 가정해봅시다. 합리적인 예금자는 돈을 인출해 금고나 베개 밑에 보관할 것입니다(0% 수익이지만 손실은 없음). 따라서 명목 금리는 사실상 0%가 바닥입니다. 그런데 디플레이션 -2%라면 실질 금리 = 0 - (-2) = <strong>+2%</strong>. 중앙은행이 더 이상 내릴 수 없는 상황입니다.</p>
+      </div>
+
+      <div class="en-block">
+        <p>This situation is known as a <span class="term-red">liquidity trap</span> — a condition in which monetary expansion fails to stimulate the economy because households and firms, expecting prices to keep falling, prefer to <strong>hold cash rather than spend or invest</strong>. Keynes first described this phenomenon in <em>The General Theory</em> (1936), and <strong>Paul Krugman</strong> reformulated it for the modern era in his influential 1998 paper <em>"It's Baaack: Japan's Slump and the Return of the Liquidity Trap"</em> (Brookings Papers on Economic Activity).</p>
+        <p>Krugman's key insight was that escaping a liquidity trap depends less on <strong>how much money the central bank prints today</strong> and more on <strong>whether the public genuinely believes it will keep policy generous until prices have risen sufficiently</strong>. Without that belief, even large injections of money sit idle. People simply wait — much like shoppers who keep holding off on a purchase because they are not convinced the sale is really ending.</p>
+      </div>
+
+      <div class="ko-block">
+        이 상황은 <strong>유동성 함정(liquidity trap)</strong>으로 알려져 있습니다 — 통화 확장이 경제를 자극하지 못하는 상태입니다. 가계와 기업이 물가가 계속 떨어질 것이라 예상하면, <strong>돈을 쓰거나 투자하기보다 현금을 그냥 보유하는 것을 선호</strong>하기 때문입니다. 케인스가 1936년 <em>일반이론(The General Theory)</em>에서 처음 설명했고, <strong>폴 크루그먼(Paul Krugman)</strong>이 1998년 영향력 있는 논문 <em>"It's Baaack: Japan's Slump and the Return of the Liquidity Trap"</em>에서 현대적으로 재정립했습니다.<br><br>
+        크루그먼의 핵심 통찰: 유동성 함정에서 빠져나오는 것은 <strong>중앙은행이 오늘 얼마나 많은 돈을 찍어내느냐</strong>가 아니라, <strong>물가가 충분히 오를 때까지 완화 정책을 유지할 것이라고 대중이 진정으로 믿는지</strong>에 달려 있습니다. 그 믿음이 없으면, 아무리 많은 돈을 풀어도 그 돈은 사용되지 않고 묶여 있습니다. 사람들은 그저 기다립니다 — 마치 "할인이 정말 끝나는 게 맞나?" 의심하면서 구매를 계속 미루는 쇼핑객처럼 말이죠.
+      </div>
+
+      <div class="key-term">
+        <div class="label">CONCEPT · 핵심 개념</div>
+        <h4>Liquidity Trap · 유동성 함정</h4>
+        <p>이자율이 거의 0%에 도달했지만 통화 확장이 더 이상 경제를 자극하지 못하는 상태. 사람들이 돈을 받아도 쓰지 않고 보관만 합니다. 케인스가 처음 제시했고, 크루그먼이 1990년대 일본을 보며 재발견했습니다.</p>
+      </div>
+
+      <div class="en-block">
+        <p>When interest rates had already fallen to near zero, central banks turned to <strong>quantitative easing (QE)</strong> — purchasing large amounts of financial assets to inject money directly into the economy and push inflation expectations upward. <strong>Japan pioneered this approach in the early 2000s</strong>, and the U.S. Federal Reserve and the European Central Bank followed after the global financial crisis of 2008. Yet <strong>Japan's decades-long struggle with deflation</strong> stands as a sobering reminder of how difficult it can be to reverse deflationary expectations once they have taken hold.</p>
+      </div>
+
+      <div class="ko-block">
+        이자율이 이미 거의 0%까지 떨어진 상황에서, 중앙은행들은 <strong>양적 완화(Quantitative Easing, QE)</strong>로 전환했습니다 — 대규모 금융 자산을 매입해 경제에 돈을 직접 주입하고 인플레이션 기대를 끌어올리는 정책입니다. <strong>일본이 2000년대 초 이 방식을 처음 시도</strong>했고, 2008년 글로벌 금융위기 이후 미 연준과 유럽중앙은행도 뒤따랐습니다. 그러나 <strong>일본이 수십 년간 디플레이션과 싸우고 있다는 사실</strong>은, 디플레이션 기대가 일단 자리 잡으면 되돌리기가 얼마나 어려운지를 보여주는 냉정한 교훈입니다.
+      </div>
+
+      <div class="key-term">
+        <div class="label">POLICY TOOL · 정책 수단</div>
+        <h4>Quantitative Easing (QE) · 양적 완화</h4>
+        <p>중앙은행이 국채·회사채·주택담보증권 등을 대규모로 매입해 시중에 직접 돈을 푸는 정책. 명목 금리를 더 내릴 수 없을 때 사용하는 비전통적 통화정책. 일본(2001), 미국 연준(2008), 유럽 ECB(2015)가 차례로 시행. 그러나 효과는 제한적이라는 점을 일본의 사례가 보여줍니다.</p>
+      </div>
+
+      <div class="insight">
+        <div class="ins-label">↳ Japan's Lost Decades · 일본의 잃어버린 수십 년</div>
+        <h4>왜 일본은 빠져나오지 못했나?</h4>
+        <p>1990년대 자산 버블 붕괴 이후 일본은 30년 가까이 디플레이션과 싸우고 있습니다. 양적 완화, 마이너스 금리, 아베노믹스까지 동원했지만 효과는 제한적이었습니다. 한번 형성된 디플레이션 기대 심리(=물가가 안 오를 거라는 믿음)를 깨는 것이 얼마나 어려운지 보여주는 살아있는 사례입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section id="conclusion">
+  <div class="section-num">CONCLUSION</div>
   <h2 class="section-title">
-    Conclusion — Mild Inflation vs. Deflation
-    <span class="ko-h2">결론 — 온건한 인플레이션 vs 디플레이션 비교</span>
+    The Bigger Threat
+    <span class="ko-h2">결론 — 더 큰 위협은 무엇인가</span>
   </h2>
   <div class="section-divider"></div>
 
-  <p class="section-intro">
-    Mild inflation has real costs, but it also encourages spending and investment, lightens the real burden of debt, and can be controlled relatively well through familiar tools. Deflation does the opposite on every dimension.
-  </p>
+  <div class="en-block">
+    <p>Mild inflation has real costs, but it also <strong>encourages spending and investment, lightens the real burden of debt, and can be controlled relatively well through familiar tools such as raising interest rates</strong>. Deflation, by contrast, <strong>delays consumption, increases the real value of debts, raises unemployment through sticky wages, and weakens the central bank's ability to respond</strong>.</p>
+    <p>To describe deflation simply as <em>"a chance to buy things more cheaply"</em> captures only a small part of the truth. From a broader economic perspective, deflation is better understood as a process in which <strong>jobs and incomes disappear faster than prices</strong> — and that is why economists consider it, in many cases, an even greater threat than inflation.</p>
+  </div>
+
   <div class="ko-block">
-    온건한 인플레이션도 실질 비용이 있지만, 동시에 지출과 투자를 장려하고, 부채의 실질 부담을 덜어주며, 익숙한 도구로 비교적 잘 통제될 수 있습니다. 디플레이션은 모든 측면에서 정반대로 작동합니다.
+    완만한 인플레이션도 실질적인 비용이 있지만, <strong>지출과 투자를 장려하고, 부채의 실질 부담을 줄여주며, 금리 인상 같은 익숙한 도구로 비교적 잘 통제할 수 있습니다</strong>. 반면 디플레이션은 <strong>소비를 지연시키고, 부채의 실질 가치를 증가시키며, 임금 경직성을 통해 실업을 늘리고, 중앙은행의 대응 능력을 약화시킵니다</strong>.<br><br>
+    디플레이션을 단순히 <em>"물건을 더 싸게 살 기회"</em>로 설명하는 것은 진실의 작은 일부만을 포착할 뿐입니다. 더 넓은 경제적 관점에서 보면, 디플레이션은 <strong>일자리와 소득이 물가보다 더 빨리 사라지는 과정</strong>이며 — 이것이 바로 경제학자들이 많은 경우 디플레이션을 인플레이션보다 더 큰 위협으로 간주하는 이유입니다.
   </div>
 
-  <table class="final-table">
+  <div class="conclusion" style="margin-top:24px">
+    <h3>The Two-Sentence Takeaway · 두 문장 정리</h3>
+    <p><strong>1. Inflation</strong> is uncomfortable but manageable — central banks have tools (raising interest rates) and people still spend.<br>
+    <span class="ko">인플레이션은 불편하지만 관리 가능하다 — 중앙은행에 도구가 있고 사람들은 여전히 소비한다.</span></p>
+    <p><strong>2. Deflation</strong> is dangerous because it feeds on itself — postponed spending, growing debt, layoffs, and a powerless central bank reinforce each other in a spiral that is very hard to escape.<br>
+    <span class="ko">디플레이션은 위험하다 — 소비 지연, 늘어나는 부채, 해고, 무력해진 중앙은행이 서로를 강화하며 빠져나오기 매우 어려운 악순환을 만든다.</span></p>
+  </div>
+</section>
+
+<!-- ============ BIG PICTURE SUMMARY ============ -->
+<section id="summary">
+  <div class="section-num">SUMMARY</div>
+  <h2 class="section-title">
+    Big Picture — Inflation vs. Deflation
+    <span class="ko-h2">큰 그림 정리 — 한눈에 보는 비교표</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <table class="compare-table">
     <thead>
       <tr>
         <th></th>
-        <th class="inf-head">Mild Inflation <span class="ko-inline">온건한 인플레이션</span></th>
+        <th class="inf-head">Mild Inflation <span class="ko-inline">완만한 인플레이션</span></th>
         <th class="def-head">Deflation <span class="ko-inline">디플레이션</span></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Consumption</td>
+        <td>Consumer behavior</td>
         <td>
-          Encourages spending now
-          <div class="ko-block">현재 소비 장려</div>
+          Spending continues (buy now before prices rise)
+          <div class="ko-block">지출 지속 (가격 오르기 전에 사자)</div>
         </td>
         <td>
-          Delays consumption → demand falls
-          <div class="ko-block">소비 지연 → 수요 감소</div>
-        </td>
-      </tr>
-      <tr>
-        <td>Real debt</td>
-        <td>
-          Lightens debt burden
-          <div class="ko-block">부채 실질 부담 경감</div>
-        </td>
-        <td>
-          Raises real value of debts
-          <div class="ko-block">부채 실질 가치 상승</div>
+          Spending delayed (wait, prices will fall more)
+          <div class="ko-block">지출 지연 (기다리자, 더 떨어질 거야)</div>
         </td>
       </tr>
       <tr>
-        <td>Employment</td>
+        <td>Real debt burden</td>
         <td>
-          Allows real wage adjustment via prices
-          <div class="ko-block">물가를 통한 실질 임금 조정 가능</div>
+          Decreases over time (debts get easier)
+          <div class="ko-block">시간이 지나며 가벼워짐</div>
         </td>
         <td>
-          Sticky wages → layoffs → unemployment
-          <div class="ko-block">끈끈한 임금 → 해고 → 실업 증가</div>
-        </td>
-      </tr>
-      <tr>
-        <td>Monetary policy</td>
-        <td>
-          Central bank can raise rates if needed
-          <div class="ko-block">필요시 금리 인상 가능</div>
-        </td>
-        <td>
-          Liquidity trap — policy loses traction
-          <div class="ko-block">유동성 함정 — 정책 효과 상실</div>
+          Increases automatically (Fisher's insight)
+          <div class="ko-block">자동으로 증가 (피셔의 통찰)</div>
         </td>
       </tr>
       <tr>
-        <td>Reversibility</td>
+        <td>Wages & employment</td>
         <td>
-          Controllable with familiar tools
-          <div class="ko-block">익숙한 도구로 통제 가능</div>
+          Real wages adjust naturally; less unemployment
+          <div class="ko-block">실질 임금이 자연스럽게 조정, 실업 적음</div>
         </td>
         <td>
-          Expectations sticky once formed (Japan)
-          <div class="ko-block">기대가 일단 형성되면 끈질김 (일본 사례)</div>
+          Sticky wages → firms lay off workers
+          <div class="ko-block">경직된 임금 → 기업의 해고 선택</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Central bank power</td>
+        <td>
+          Strong (raise rates to cool things)
+          <div class="ko-block">강력함 (금리 인상으로 진정)</div>
+        </td>
+        <td>
+          Weak (zero bound, liquidity trap)
+          <div class="ko-block">무력함 (제로 금리 하한, 유동성 함정)</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Self-correcting?</td>
+        <td>
+          Yes — manageable through standard tools
+          <div class="ko-block">예 — 표준적 도구로 관리 가능</div>
+        </td>
+        <td>
+          No — feedback loops deepen the problem
+          <div class="ko-block">아니오 — 피드백 루프가 문제를 심화</div>
+        </td>
+      </tr>
+      <tr>
+        <td>Real-world example</td>
+        <td>
+          Most healthy economies (target ~2%)
+          <div class="ko-block">대부분의 건강한 경제 (목표 ~2%)</div>
+        </td>
+        <td>
+          Great Depression (1929), Japan (1990s~), Eurozone (2010s)
+          <div class="ko-block">대공황(1929), 일본(1990년대~), 유로존(2010년대)</div>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <div class="quote-big" style="margin-top:28px">
-    <blockquote>To describe deflation simply as "a chance to buy things more cheaply" captures only a small part of the truth. From a broader economic perspective, deflation is better understood as a process in which <strong>jobs and incomes disappear faster than prices</strong> — and that is why economists consider it, in many cases, an even greater threat than inflation.</blockquote>
-    <div class="attribution">— Reading conclusion</div>
-    <div class="ko-block" style="margin-top:10px">
-      디플레이션을 단순히 "더 싸게 살 기회"로 묘사하는 것은 진실의 일부만 포착합니다. 더 넓은 경제학적 관점에서 디플레이션은 <strong>물가보다 일자리와 소득이 더 빨리 사라지는 과정</strong>으로 이해되어야 합니다 — 바로 이것이 경제학자들이 많은 경우 디플레이션을 인플레이션보다 더 큰 위협으로 보는 이유입니다.
-    </div>
+  <div class="concept" style="margin-top:24px">
+    <div class="concept-label">KEY TERMS · 핵심 용어 총정리</div>
+    <h4>이 글에서 꼭 외워야 할 8개 개념</h4>
+    <ol style="margin-top:10px; padding-left:20px; font-size:14.5px;">
+      <li style="margin-bottom:6px"><strong>Deflation</strong> · 디플레이션 — 지속적 물가 하락</li>
+      <li style="margin-bottom:6px"><strong>Fallacy of Composition</strong> · 구성의 오류 — 개인에게 합리적인 것이 전체에는 해로움</li>
+      <li style="margin-bottom:6px"><strong>Debt-Deflation Theory</strong> · 부채-디플레이션 이론 — Fisher (1933)</li>
+      <li style="margin-bottom:6px"><strong>Real Debt</strong> · 실질 부채 = 명목 부채 ÷ 물가</li>
+      <li style="margin-bottom:6px"><strong>Real Interest Rate</strong> · 실질 이자율 ≈ 명목 이자율 − 기대 인플레이션</li>
+      <li style="margin-bottom:6px"><strong>Sticky Wages / Downward Nominal Wage Rigidity</strong> · 임금 경직성</li>
+      <li style="margin-bottom:6px"><strong>Liquidity Trap</strong> · 유동성 함정 — Keynes (1936), Krugman (1998)</li>
+      <li style="margin-bottom:6px"><strong>Quantitative Easing (QE)</strong> · 양적 완화 — 중앙은행의 비전통적 정책</li>
+    </ol>
   </div>
 
-  <div class="tip">
-    <div class="tip-label">↳ Key takeaways for the exam</div>
-    <h4>5 things to remember</h4>
-    <p style="margin-bottom:6px"><strong>1.</strong> Falling prices look good for individuals but harm the economy (fallacy of composition).</p>
-    <p style="margin-bottom:6px"><strong>2.</strong> Fisher's Debt-Deflation (1933) — real debt = nominal debt ÷ price level. "The more debtors pay, the more they owe."</p>
-    <p style="margin-bottom:6px"><strong>3.</strong> Real rate ≈ Nominal − Expected Inflation. When inflation goes negative, real rate rises even at 0% nominal.</p>
-    <p style="margin-bottom:6px"><strong>4.</strong> Sticky wages → layoffs (links to structural unemployment from Week 3).</p>
-    <p><strong>5.</strong> Liquidity trap (Keynes, Krugman) → QE → Japan's lost decades = the cautionary tale.</p>
-    <div class="ko-block" style="margin-top:10px">
-      ① 구성의 오류 — 개인에게 좋은 것이 경제 전체엔 해로움<br>
-      ② 피셔 부채-디플레이션 — 실질 부채 = 명목 부채 / 물가<br>
-      ③ 실질 이자율 ≈ 명목 − 기대 인플레, 디플레 하에선 명목 0%도 실질 부담 큼<br>
-      ④ 끈끈한 임금 → 해고 → 구조적 실업과 연결<br>
-      ⑤ 유동성 함정 → 양적완화 → 일본의 잃어버린 수십 년이 가장 강력한 교훈
-    </div>
+  <div class="insight">
+    <div class="ins-label">↳ Exam tip</div>
+    <h4>AP 거시경제학 시험 대비 핵심 포인트</h4>
+    <p>이 글의 4가지 채널은 AP Macro의 거의 모든 디플레이션 관련 문제의 답이 됩니다. 특히 <strong>① Fisher의 부채-디플레이션 메커니즘</strong>과 <strong>② 유동성 함정에서 명목 vs 실질 금리</strong> 구분은 FRQ(자유 응답형 문제)에 자주 출제됩니다. 실질 이자율 공식과 일본·대공황 사례를 함께 외워두면 강력한 답안이 됩니다.</p>
   </div>
 </section>
 
 </main>
 
 <footer>
-  AP Macroeconomics 2026 · Reading 07 — Why Deflation Can Be More Dangerous Than Inflation
-  <br><span class="ko">디플레이션이 인플레이션보다 위험한 이유 · 학습 자료</span>
+  AP Macroeconomics 2026 · Seoul Global High School<br>
+  Why Deflation Can Be More Dangerous Than Inflation — Reading Comprehension Notes
+  <br><span class="ko">왜 디플레이션이 인플레이션보다 더 위험할 수 있는가 — 학습 정리</span>
 </footer>
 
 </body>
