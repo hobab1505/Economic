@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 10 – Aggregate Demand and Aggregate Supply</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0eee8;
+    --paper: #f8f6f1;
+    --dark: #151210;
+    --accent: #c22828;
+    --accent2: #1f52a0;
+    --accent3: #c97d10;
+    --muted: #5a4e3c;
+    --border: #ccc0a4;
+    --highlight: #fff0b8;
+    --highlight2: #cce6ff;
+    --term-bg: #1a1008;
+    --term-text: #f5e6c8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    color: var(--dark);
+    line-height: 1.8;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: var(--dark);
+    color: #f5e6c8;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,.025) 40px,
+      rgba(255,255,255,.025) 41px
+    );
+  }
+  .chapter-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--accent3); }
+  .hero .chapter-num {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    opacity: .07;
+    position: absolute;
+    right: 40px; top: 10px;
+    line-height: 1;
+  }
+  .hero .subtitle {
+    font-size: 15px;
+    opacity: .65;
+    margin-top: 6px;
+    
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Section Labels ── */
+  .section-block {
+    margin: 48px 0 0;
+    padding: 36px 40px;
+    background: var(--paper);
+    border-left: 5px solid var(--accent);
+    position: relative;
+  }
+  .section-block.blue { border-left-color: var(--accent2); }
+  .section-block.gold { border-left-color: var(--accent3); }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .section-label.blue { color: var(--accent2); }
+  .section-label.gold { color: var(--accent3); }
+  .section-label::before {
+    content: '▮';
+    font-size: 8px;
+  }
+
+  h2.chapter-title {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  h3.sub-title {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: 700;
+    color: var(--accent2);
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--highlight2);
+  }
+  h3.sub-title.red { color: var(--accent); border-bottom-color: #fde; }
+  h3.sub-title.gold { color: var(--accent3); border-bottom-color: #fef3cd; }
+
+  /* ── Bilingual paragraph ── */
+  .para-block {
+    margin-bottom: 24px;
+  }
+  .para-en {
+    font-size: 15px;
+    color: #2a1f10;
+    line-height: 1.85;
+    margin-bottom: 8px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,.55);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .para-ko {
+    font-size: 14.5px;
+    color: #3a2e1a;
+    line-height: 1.9;
+    padding: 12px 18px;
+    background: #fffef5;
+    border-left: 3px solid var(--accent3);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  /* Inline term highlight */
+  .term { 
+    background: var(--highlight);
+    border-bottom: 2px solid var(--accent3);
+    padding: 0 3px;
+    font-weight: 600;
+    cursor: help;
+    border-radius: 2px;
+  }
+  .term.blue {
+    background: var(--highlight2);
+    border-bottom-color: var(--accent2);
+  }
+
+  /* ── Glossary sidebar ── */
+  .glossary-rail {
+    background: var(--term-bg);
+    color: var(--term-text);
+    padding: 28px 32px;
+    margin: 32px 0;
+    border-radius: 2px;
+    position: relative;
+  }
+  .glossary-rail::before {
+    content: '용어 정리 / KEY TERMS';
+    display: block;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent3);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .glossary-item {
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+  }
+  .glossary-item .term-name {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #f5d98a;
+    margin-bottom: 3px;
+  }
+  .glossary-item .term-name span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--accent3);
+    margin-left: 6px;
+    
+  }
+  .glossary-item .term-def-en {
+    font-size: 12px;
+    opacity: .7;
+    margin-bottom: 4px;
+    
+  }
+  .glossary-item .term-def-ko {
+    font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #f0e0c0;
+  }
+
+  /* ── Section header badge ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 52px 0 24px;
+    padding: 18px 24px;
+    background: linear-gradient(90deg, var(--accent2) 0%, #1a3a5c 100%);
+    color: white;
+    border-radius: 2px;
+  }
+  .section-header .num {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    opacity: .5;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .section-header .text h2 {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .section-header .text .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    opacity: .7;
+    margin-top: 3px;
+  }
+
+  .fact-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 36px 0 16px;
+  }
+  .fact-badge {
+    flex-shrink: 0;
+    width: 42px; height: 42px;
+    background: var(--accent);
+    color: white;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+    border-radius: 1px;
+  }
+  .fact-badge.blue { background: var(--accent2); }
+  .fact-badge.gold { background: var(--accent3); }
+  .fact-title {
+    flex: 1;
+  }
+  .fact-title h3 {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark);
+  }
+  .fact-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* ── Chart ── */
+  .chart-wrapper {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+    margin: 36px 0;
+  }
+  .chart-title-area {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .chart-title-area h4 {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .chart-title-area p {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+  }
+  .chart-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    
+  }
+
+  canvas { display: block; width: 100% !important; }
+
+  .chart-panel-label {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 20px 0 6px;
+  }
+
+  /* recession band legend */
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .legend-box {
+    width: 16px; height: 12px;
+    background: rgba(180,0,0,.15);
+    border: 1px solid rgba(180,0,0,.3);
+  }
+
+  /* ── Callout box ── */
+  .callout {
+    background: var(--highlight2);
+    border: 1px solid var(--accent2);
+    border-left: 4px solid var(--accent2);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.yellow {
+    background: var(--highlight);
+    border-color: var(--accent3);
+    border-left-color: var(--accent3);
+  }
+
+  /* ── Quick Quiz ── */
+  .quick-quiz {
+    background: var(--dark);
+    color: #f5e6c8;
+    padding: 22px 28px;
+    margin: 36px 0 0;
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .quiz-badge {
+    flex-shrink: 0;
+    background: var(--accent);
+    color: white;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    margin-top: 2px;
+  }
+  .quiz-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .quiz-text .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    opacity: .75;
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* divider */
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* nav */
+  .top-nav {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .5px;
+  }
+  .top-nav span { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .section-block { padding: 24px 18px; }
+    .hero { padding: 40px 20px 36px; }
+  }
+
+  /* ── Tooltip ── */
+  .term {
+    position: relative;
+    cursor: pointer;
+  }
+  .term .tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    background: #1a1208;
+    color: #f5e6c8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    z-index: 9999;
+    pointer-events: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.65;
+    white-space: normal;
+    text-align: left;
+  }
+  .term:hover .tooltip-box,
+  .term:focus .tooltip-box {
+    display: block;
+    animation: tipFadeIn .18s ease;
+  }
+  .term .tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: #1a1208;
+  }
+  .term .tip-en {
+    font-weight: 600;
+    color: #f5d98a;
+    font-size: 13px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .term .tip-ko {
+    font-size: 12px;
+    color: #e0cfb0;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .term .tip-def {
+    font-size: 11.5px;
+    color: rgba(245,230,200,.75);
+    display: block;
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+  /* ── Model Answer ── */
+  .answer-toggle-wrap {
+    margin-top: 16px;
+    text-align: center;
+  }
+  .answer-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: 2px solid var(--accent2);
+    color: var(--accent2);
+    padding: 11px 28px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all .2s;
+    letter-spacing: .3px;
+  }
+  .answer-toggle-btn:hover {
+    background: var(--accent2);
+    color: white;
+  }
+  .answer-toggle-btn .btn-icon {
+    font-size: 11px;
+    transition: transform .25s;
+  }
+  .answer-toggle-btn.open .btn-icon {
+    transform: rotate(90deg);
+  }
+  .answer-toggle-btn .btn-label-en {
+    font-size: 12px;
+    opacity: .7;
+  }
+
+  .model-answer {
+    display: none;
+    margin-top: 20px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent2);
+    padding: 32px 36px;
+    animation: answerSlide .3s ease;
+  }
+  .model-answer.open { display: block; }
+  @keyframes answerSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .answer-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .answer-badge {
+    background: var(--accent2);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+  .answer-title strong {
+    display: block;
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 2px;
+  }
+  .answer-title span {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .answer-fact {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .answer-fact:last-of-type { border-bottom: none; }
+
+  .answer-fact-num {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    border-radius: 50%;
+    color: white;
+  }
+  .answer-fact-num.red  { background: var(--accent); }
+  .answer-fact-num.blue { background: var(--accent2); }
+  .answer-fact-num.gold { background: var(--accent3); }
+
+  .answer-fact-body h4 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .answer-fact-body h4 .ko-h4 {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .answer-en {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #2a1f10;
+    padding: 12px 16px;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .answer-ko {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: #3a2e1a;
+    padding: 12px 16px;
+    background: #fffdf0;
+    border-left: 3px solid var(--accent3);
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .answer-summary {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--highlight2);
+    border: 1px solid var(--accent2);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.75;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .answer-summary .summary-icon { font-size: 20px; flex-shrink: 0; }
+  .answer-summary .hl {
+    background: #cce6ff;
+    padding: 0 4px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  경제학 원론 &nbsp;/&nbsp; <span>Chapter 10</span> &nbsp;/&nbsp; Aggregate Demand and Aggregate Supply
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="chapter-tag">Chapter 10</div>
+    <h1>Aggregate Demand<br>and <span>Aggregate Supply</span></h1>
+    <p class="subtitle">총수요(總需要)와 총공급(總供給)</p>
+    <div class="chapter-num">10</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── INTRO ── -->
+  <div class="section-block" style="margin-top:40px;">
+    <div class="section-label">도입 / Introduction</div>
+
+    <div class="para-block">
+      <div class="para-en">
+        Economic activity fluctuates from year to year. In most years, the production of goods and services rises. Because of increases in the labor force, increases in the capital stock, and advances in technological knowledge, the economy can produce more and more over time. This growth allows everyone to enjoy a higher standard of living. On average, over the past half century, the production of the U.S. economy as measured by real GDP has grown by about 3 percent per year.
+      </div>
+      <div class="para-ko">
+        경제 활동(economic activity)은 해마다 변동한다. 대부분의 해에는 재화와 서비스의 생산이 증가한다. 노동력의 증가, 자본 스톡(capital stock)의 확대, 기술 지식(technological knowledge)의 발전 덕분에, 경제는 시간이 지남에 따라 점점 더 많이 생산할 수 있다. 이러한 성장은 모든 사람이 더 높은 생활 수준을 누릴 수 있게 해준다. 평균적으로, 지난 반 세기 동안 실질 GDP(real GDP)로 측정한 미국 경제의 생산은 연간 약 3%씩 성장했다.
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">
+        In some years, however, instead of expanding, the economy contracts. Firms find themselves unable to sell all the goods and services they have to offer, so they reduce production. Workers are laid off, unemployment becomes widespread, and factories are left idle. With the economy producing fewer goods and services, real GDP and other measures of income decline. Such a period of falling incomes and rising unemployment is called a <span class="term">recession<span class="tooltip-box"><span class="tip-en">Recession 경기침체</span><span class="tip-ko">비교적 온건한 경기 하강 국면</span><span class="tip-def">A period of declining real incomes and rising unemployment</span></span></span> if it is relatively mild and a <span class="term">depression<span class="tooltip-box"><span class="tip-en">Depression 대공황/불황</span><span class="tip-ko">심각한 경기침체</span><span class="tip-def">A severe recession with prolonged decline in economic activity</span></span></span> if it is more severe.
+      </div>
+      <div class="para-ko">
+        그러나 어떤 해에는 확장 대신 경제가 수축한다. 기업들은 자신들이 제공하는 모든 재화와 서비스를 팔지 못하게 되어 생산을 줄인다. 노동자들은 해고되고, 실업이 만연해지며, 공장들은 가동을 멈춘다. 경제가 더 적은 재화와 서비스를 생산함에 따라 실질 GDP와 기타 소득 지표들이 감소한다. 이처럼 소득이 하락하고 실업이 증가하는 시기를 비교적 온건한 경우 <span class="term">경기침체(recession)<span class="tooltip-box"><span class="tip-en">Recession 경기침체</span><span class="tip-ko">실질 소득 감소 + 실업 증가 시기</span><span class="tip-def">A period of declining real incomes and rising unemployment</span></span></span>, 더 심각한 경우 <span class="term">대공황(depression)<span class="tooltip-box"><span class="tip-en">Depression 대공황/불황</span><span class="tip-ko">심각한 경기침체</span><span class="tip-def">A severe recession with prolonged economic decline</span></span></span>이라고 부른다.
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">
+        An example of such a downturn occurred in 2008 and 2009. From the fourth quarter of 2007 to the second quarter of 2009, real GDP for the U.S. economy fell by 4.2 percent. The rate of unemployment rose from 4.4 percent in May 2007 to 10.0 percent in October 2009—the highest level in more than a quarter century. Not surprisingly, students graduating during this time found that desirable jobs were hard to come by.
+      </div>
+      <div class="para-ko">
+        이러한 경기 침체의 대표적인 사례가 2008년과 2009년에 발생했다. 2007년 4분기부터 2009년 2분기까지 미국 경제의 실질 GDP(real GDP)는 4.2% 하락했다. 실업률(unemployment rate)은 2007년 5월의 4.4%에서 2009년 10월에는 10.0%로 상승했는데, 이는 4분의 1세기 이상 만에 가장 높은 수준이었다. 놀랍지 않게도, 이 시기에 졸업하는 학생들은 좋은 일자리를 구하기가 매우 어렵다는 것을 알게 되었다.
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">
+        What causes short-run fluctuations in economic activity? What, if anything, can public policy do to prevent periods of falling incomes and rising unemployment? When recessions and depressions occur, how can policymakers reduce their length and severity? These are the questions we take up now.
+      </div>
+      <div class="para-ko">
+        경제 활동의 단기 변동(short-run fluctuations)을 일으키는 원인은 무엇인가? 공공 정책(public policy)이 소득 하락과 실업 증가 시기를 예방하기 위해 무엇을 할 수 있는가? 경기침체와 대공황이 발생할 때, 정책 입안자들은 어떻게 그 기간과 심각성을 줄일 수 있는가? 이것이 바로 우리가 지금 다루게 될 질문들이다.
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">
+        The variables that we study are largely those we have seen in previous chapters. They include GDP, unemployment, interest rates, and the price level. Also familiar are the policy instruments of government spending, taxes, and the money supply. What differs from our earlier analysis is the time horizon. So far, our goal has been to explain the behavior of these variables in the long run. Our goal now is to explain their short-run deviations from long-run trends. In other words, instead of focusing on the forces that explain economic growth from generation to generation, we are now interested in the forces that explain economic fluctuations from year to year.
+      </div>
+      <div class="para-ko">
+        우리가 연구할 변수들은 대체로 이전 장들에서 이미 다룬 것들이다. 여기에는 GDP, 실업, 이자율, 그리고 물가 수준이 포함된다. 정책 수단인 정부 지출, 세금, 통화량도 익숙하다. 이전 분석과 다른 점은 시간적 지평(time horizon)이다. 지금까지 우리의 목표는 장기적(long run)으로 이러한 변수들의 행태를 설명하는 것이었다. 이제 우리의 목표는 장기 추세로부터 단기적(short-run) 이탈을 설명하는 것이다. 즉, 세대에서 세대로 경제 성장을 설명하는 힘에 초점을 맞추는 대신, 우리는 이제 해마다 경제 변동을 설명하는 힘에 관심을 갖는다.
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">
+        There is some debate among economists about how best to analyze short-run fluctuations, but most economists use the <span>model of aggregate demand and aggregate supply</span>. Learning how to use this model for analyzing the short-run effects of various events and policies is the primary task ahead. This chapter introduces the model's two pieces: the aggregate-demand curve and the aggregate-supply curve. Before turning to the model, however, let's look at some of the key facts that describe the ups and downs of the economy.
+      </div>
+      <div class="para-ko">
+        경제학자들 사이에서 단기 변동을 어떻게 분석할지에 대해 어느 정도 논쟁이 있지만, 대부분의 경제학자들은 <span>총수요-총공급 모형(model of aggregate demand and aggregate supply)</span>을 사용한다. 다양한 사건과 정책의 단기적 효과를 분석하기 위해 이 모형을 사용하는 법을 배우는 것이 앞으로의 주요 과제이다. 이 장은 모형의 두 가지 구성 요소인 총수요 곡선(aggregate-demand curve)과 총공급 곡선(aggregate-supply curve)을 소개한다. 그러나 모형으로 넘어가기 전에, 경제의 호황과 불황을 설명하는 몇 가지 주요 사실들을 살펴보자.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GLOSSARY ── -->
+  <div class="glossary-rail">
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <div class="term-name">Recession <span>경기침체</span></div>
+        <div class="term-def-en">a period of declining real incomes and rising unemployment</div>
+        <div class="term-def-ko">실질 소득이 감소하고 실업이 증가하는 시기</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Depression <span>대공황 / 불황</span></div>
+        <div class="term-def-en">a severe recession</div>
+        <div class="term-def-ko">심각한 경기침체</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Real GDP <span>실질 국내총생산</span></div>
+        <div class="term-def-en">GDP measured in constant prices, adjusted for inflation</div>
+        <div class="term-def-ko">물가 변동을 조정한 불변 가격 기준 GDP</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Business Cycle <span>경기 순환</span></div>
+        <div class="term-def-en">fluctuations in economic activity corresponding to changes in business conditions</div>
+        <div class="term-def-ko">경제 활동의 반복적인 확장과 수축의 변동</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SECTION 33-1 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="num">33-1</div>
+    <div class="text">
+      <h2>Three Key Facts about Economic Fluctuations</h2>
+      <div class="ko">경제 변동에 관한 세 가지 핵심 사실</div>
+    </div>
+  </div>
+
+  <div class="section-block blue">
+    <div class="para-block">
+      <div class="para-en">
+        Short-run fluctuations in economic activity have occurred in all countries throughout history. As a starting point for understanding these year-to-year fluctuations, let's discuss some of their most important properties.
+      </div>
+      <div class="para-ko">
+        경제 활동의 단기 변동(short-run fluctuations)은 역사 전반에 걸쳐 모든 나라에서 발생해 왔다. 이러한 연간 변동을 이해하기 위한 출발점으로, 그 가장 중요한 특성 몇 가지를 논의해 보자.
+      </div>
+    </div>
+  </div>
+
+  <!-- FACT 1 -->
+  <div class="fact-header">
+    <div class="fact-badge red">FACT<br>1</div>
+    <div class="fact-title">
+      <h3>Fact 1: Economic Fluctuations Are Irregular and Unpredictable</h3>
+      <div class="ko">사실 1: 경제 변동은 불규칙하고 예측 불가능하다</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      Fluctuations in the economy are often called <span class="term">the business cycle<span class="tooltip-box"><span class="tip-en">Business Cycle 경기 순환</span><span class="tip-ko">경기 확장과 수축이 반복되는 주기</span><span class="tip-def">Fluctuations in economic activity corresponding to changes in business conditions</span></span></span>. As this term suggests, economic fluctuations correspond to changes in business conditions. When real GDP grows rapidly, business is good. During such periods of economic expansion, most firms find that customers are plentiful and that profits are growing. When real GDP falls during recessions, businesses have trouble. During such periods of economic contraction, most firms experience declining sales and dwindling profits.
+    </div>
+    <div class="para-ko">
+      경제의 변동은 흔히 <span class="term" style="background:#fff0b8; border-bottom-color:#c97d10;">경기 순환(the business cycle)<span class="tooltip-box"><span class="tip-en">Business Cycle 경기 순환</span><span class="tip-ko">경기 확장과 수축이 반복되는 주기</span><span class="tip-def">Fluctuations in economic activity corresponding to changes in business conditions</span></span></span>이라고 불린다. 이 용어가 시사하듯, 경제 변동은 경기 상황의 변화와 일치한다. 실질 GDP(real GDP)가 빠르게 성장하면 경기가 좋다. 이런 경제 확장(economic expansion) 시기에는 대부분의 기업들은 고객이 풍부하고 이익이 늘어나고 있다는 것을 알게 된다. 경기침체 동안 실질 GDP가 하락하면 기업들은 어려움을 겪는다. 이런 경제 수축(economic contraction) 시기에는 대부분의 기업들이 매출 감소와 이익 축소를 경험한다.
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      The term <span>business cycle</span> is somewhat misleading because it suggests that economic fluctuations follow a regular, predictable pattern. In fact, economic fluctuations are not at all regular, and they are almost impossible to predict with much accuracy. Panel (a) of Figure 1 shows the real GDP of the U.S. economy since 1972. The shaded areas represent times of recession. As the figure shows, recessions do not come at regular intervals. Sometimes recessions are close together, such as the recessions of 1980 and 1982. Sometimes the economy goes many years without a recession. The longest period in U.S. history without a recession was the economic expansion from 1991 to 2001.
+    </div>
+    <div class="para-ko">
+      <span>경기 순환(business cycle)</span>이라는 용어는 경제 변동이 규칙적이고 예측 가능한 패턴을 따른다는 것을 시사하기 때문에 다소 오해를 불러일으킨다. 실제로, 경제 변동은 전혀 규칙적이지 않으며, 높은 정확도로 예측하는 것은 거의 불가능하다. 그림 1의 패널 (a)는 1972년 이후 미국 경제의 실질 GDP를 보여준다. 음영 처리된 부분은 경기침체 시기를 나타낸다. 그림에서 보듯이, 경기침체는 규칙적인 간격으로 오지 않는다. 때때로 경기침체는 1980년과 1982년의 경기침체처럼 가깝게 붙어서 오기도 한다. 때로는 경제가 경기침체 없이 수년을 보내기도 한다. 미국 역사에서 경기침체 없이 가장 긴 기간은 1991년부터 2001년까지의 경제 확장이었다.
+    </div>
+  </div>
+
+  <!-- ── FIGURE 1: Charts ── -->
+  <div class="chart-wrapper">
+    <div class="chart-title-area">
+      <h4>Figure 1 — A Look at Short-Run Economic Fluctuations</h4>
+      <p>단기 경제 변동 그래프 · 음영 부분 = 경기침체(Recession) 시기 · 출처: U.S. Department of Commerce; U.S. Department of Labor</p>
+    </div>
+
+    <div class="legend-row">
+      <div class="legend-box"></div>
+      <span>경기침체(Recession) 시기</span>
+    </div>
+
+    <div class="chart-panel-label" style="margin-top:20px;">(a) Real GDP — 실질 국내총생산 (2009년 달러 기준, 단위: 십억 달러)</div>
+    <canvas id="chartGDP" height="220"></canvas>
+
+    <div class="chart-panel-label" style="margin-top:28px;">(b) Investment Spending — 투자 지출 (2009년 달러 기준, 단위: 십억 달러)</div>
+    <canvas id="chartInv" height="200"></canvas>
+
+    <div class="chart-panel-label" style="margin-top:28px;">(c) Unemployment Rate — 실업률 (노동력 대비 %)</div>
+    <canvas id="chartUnemp" height="200"></canvas>
+
+    <p class="chart-note">※ 데이터는 교재 Figure 1 그래프를 기반으로 근사 재현한 것입니다. Source: U.S. Department of Commerce; U.S. Department of Labor.</p>
+  </div>
+
+  <!-- FACT 2 -->
+  <div class="fact-header">
+    <div class="fact-badge blue">FACT<br>2</div>
+    <div class="fact-title">
+      <h3>Fact 2: Most Macroeconomic Quantities Fluctuate Together</h3>
+      <div class="ko">사실 2: 대부분의 거시경제 지표들은 함께 변동한다</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      Real GDP is the variable most commonly used to monitor short-run changes in the economy because it is the most comprehensive measure of economic activity. Real GDP measures the value of all final goods and services produced within a given period of time. It also measures the total income (adjusted for inflation) of everyone in the economy.
+    </div>
+    <div class="para-ko">
+      실질 GDP(real GDP)는 경제 활동의 가장 포괄적인 지표이기 때문에 경제의 단기 변화를 모니터링하는 데 가장 일반적으로 사용되는 변수이다. 실질 GDP는 일정 기간 내에 생산된 모든 최종 재화와 서비스의 가치를 측정한다. 또한 경제 내 모든 사람의 총소득(인플레이션 조정 후)을 측정한다.
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      It turns out, however, that for monitoring short-run fluctuations, it does not really matter which measure of economic activity one looks at. Most macroeconomic variables that measure some type of income, spending, or production fluctuate closely together. When real GDP falls in a recession, so do personal income, corporate profits, consumer spending, investment spending, industrial production, retail sales, home sales, auto sales, and so on. Because recessions are economy-wide phenomena, they show up in many sources of macroeconomic data.
+    </div>
+    <div class="para-ko">
+      그러나 단기 변동을 모니터링하는 데 있어서는 어떤 경제 활동 지표를 보느냐는 별로 중요하지 않다. 소득, 지출, 또는 생산의 어떤 유형을 측정하는 대부분의 거시경제(macroeconomic) 변수들은 밀접하게 함께 변동한다. 경기침체에서 실질 GDP가 하락하면, 개인 소득, 기업 이익, 소비자 지출, 투자 지출, 산업 생산, 소매 판매, 주택 판매, 자동차 판매 등도 함께 하락한다. 경기침체는 경제 전반에 걸친 현상이기 때문에, 다양한 거시경제 데이터에서 나타난다.
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      Although many macroeconomic variables fluctuate together, they fluctuate by different amounts. In particular, as panel (b) of Figure 1 shows, investment spending varies greatly over the business cycle. Even though investment averages about one-sixth of GDP, declines in investment account for about two-thirds of the declines in GDP during recessions. In other words, when economic conditions deteriorate, much of the decline is attributable to reductions in spending on new factories, housing, and inventories.
+    </div>
+    <div class="para-ko">
+      많은 거시경제 변수들이 함께 변동하지만, 변동의 크기는 서로 다르다. 특히, 그림 1의 패널 (b)에서 보듯이, 투자 지출(investment spending)은 경기 순환에 따라 크게 변한다. 투자가 GDP의 약 6분의 1에 불과함에도 불구하고, 투자 감소가 경기침체 중 GDP 감소의 약 3분의 2를 차지한다. 즉, 경제 상황이 악화될 때, 감소의 상당 부분은 새 공장, 주택, 재고(inventories)에 대한 지출 감소에 기인한다.
+    </div>
+  </div>
+
+  <div class="callout yellow">
+    💡 <strong>핵심 포인트:</strong> 투자 지출(investment spending)은 GDP의 약 1/6에 불과하지만, 경기침체 시 GDP 감소의 약 2/3를 차지할 만큼 경기 변동에 가장 민감하게 반응한다.
+  </div>
+
+  <!-- FACT 3 -->
+  <div class="fact-header">
+    <div class="fact-badge gold">FACT<br>3</div>
+    <div class="fact-title">
+      <h3>Fact 3: As Output Falls, Unemployment Rises</h3>
+      <div class="ko">사실 3: 생산량이 감소하면 실업이 증가한다</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      Changes in the economy's output of goods and services are strongly correlated with changes in the economy's utilization of its labor force. In other words, when real GDP declines, the rate of unemployment rises. This fact is hardly surprising: When firms choose to produce a smaller quantity of goods and services, they lay off workers, expanding the pool of unemployed.
+    </div>
+    <div class="para-ko">
+      재화와 서비스의 경제적 산출량(output) 변화는 경제의 노동력 활용도 변화와 강한 상관관계(correlation)를 가진다. 즉, 실질 GDP가 하락하면 실업률(unemployment rate)이 오른다. 이 사실은 거의 놀랍지 않다. 기업들이 더 적은 양의 재화와 서비스를 생산하기로 선택하면, 노동자들을 해고하여 실업자 풀을 확대시킨다.
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">
+      Panel (c) of Figure 1 shows the unemployment rate in the U.S. economy since 1972. Once again, the shaded areas in the figure indicate periods of recession. The figure shows clearly the impact of recessions on unemployment. In each of the recessions, the unemployment rate rises substantially. When the recession ends and real GDP starts to expand, the unemployment rate gradually declines. Because there are always some workers between jobs, the unemployment rate never approaches zero. Instead, it fluctuates around its natural rate of about 5 or 6 percent.
+    </div>
+    <div class="para-ko">
+      그림 1의 패널 (c)는 1972년 이후 미국 경제의 실업률을 보여준다. 다시 한번, 그림에서 음영 처리된 부분은 경기침체 시기를 나타낸다. 그림은 경기침체가 실업에 미치는 영향을 명확히 보여준다. 각 경기침체마다 실업률이 크게 상승한다. 경기침체가 끝나고 실질 GDP가 확장되기 시작하면, 실업률은 점차 하락한다. 항상 직장을 사이에 두고 이직 중인 노동자들이 있기 때문에, 실업률은 결코 0에 가까워지지 않는다. 대신, 자연 실업률(natural rate) 약 5~6% 주변에서 변동한다.
+    </div>
+  </div>
+
+  <!-- ── Additional Glossary ── -->
+  <div class="glossary-rail" style="margin-top:36px;">
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <div class="term-name">Business Cycle <span>경기 순환</span></div>
+        <div class="term-def-en">fluctuations in economic activity corresponding to changes in business conditions</div>
+        <div class="term-def-ko">경기 상황 변화에 따른 경제 활동의 변동 (확장 + 수축의 반복)</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Economic Expansion <span>경제 확장</span></div>
+        <div class="term-def-en">period when real GDP grows rapidly and business conditions improve</div>
+        <div class="term-def-ko">실질 GDP가 빠르게 성장하고 경기 상황이 개선되는 시기</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Economic Contraction <span>경제 수축</span></div>
+        <div class="term-def-en">period when real GDP falls and business conditions worsen</div>
+        <div class="term-def-ko">실질 GDP가 하락하고 경기 상황이 악화되는 시기</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Natural Rate of Unemployment <span>자연 실업률</span></div>
+        <div class="term-def-en">the normal rate of unemployment around which the actual rate fluctuates (~5–6%)</div>
+        <div class="term-def-ko">실제 실업률이 그 주변에서 변동하는 정상 실업률 (약 5~6%)</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Investment Spending <span>투자 지출</span></div>
+        <div class="term-def-en">spending on new factories, housing, and inventories; highly volatile over the business cycle</div>
+        <div class="term-def-ko">새 공장·주택·재고에 대한 지출; 경기 순환에 따라 매우 크게 변동</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Macroeconomic Variables <span>거시경제 변수</span></div>
+        <div class="term-def-en">economy-wide measures such as GDP, unemployment, price level, and interest rates</div>
+        <div class="term-def-ko">GDP, 실업, 물가 수준, 이자율 등 경제 전체를 측정하는 지표들</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Quiz -->
+  <div class="quick-quiz">
+    <div class="quiz-badge">Quick Quiz</div>
+    <div class="quiz-text">
+      List and discuss three key facts about economic fluctuations.
+      <span class="ko">경제 변동에 관한 세 가지 핵심 사실을 나열하고 논의하시오.</span>
+    </div>
+  </div>
+
+  <!-- Model Answer Toggle -->
+  <div class="answer-toggle-wrap">
+    <button class="answer-toggle-btn" onclick="toggleAnswer()" id="answerBtn">
+      <span class="btn-icon">▶</span>
+      <span class="btn-label">예시 답안 보기</span>
+      <span class="btn-label-en">Show Model Answer</span>
+    </button>
+  </div>
+
+  <div class="model-answer" id="modelAnswer">
+    <div class="answer-header">
+      <div class="answer-badge">Model Answer</div>
+      <div class="answer-title">
+        <strong>예시 답안</strong>
+        <span>List and discuss three key facts about economic fluctuations.</span>
+      </div>
+    </div>
+
+    <!-- Fact 1 -->
+    <div class="answer-fact">
+      <div class="answer-fact-num red">01</div>
+      <div class="answer-fact-body">
+        <h4>Economic Fluctuations Are Irregular and Unpredictable
+          <span class="ko-h4">경제 변동은 불규칙하고 예측 불가능하다</span>
+        </h4>
+        <div class="answer-en">
+          Economic activity fluctuates over time in what is commonly referred to as the <strong>business cycle</strong>. However, this term can be misleading — it implies a regular, predictable pattern that does not actually exist. In reality, recessions occur at irregular intervals and vary widely in their severity and duration. For example, the recessions of 1980 and 1982 occurred close together, while the expansion from 1991 to 2001 lasted a full decade. Because these fluctuations cannot be reliably predicted in advance, both businesses and policymakers must constantly adapt to unexpected changes in economic conditions.
+        </div>
+        <div class="answer-ko">
+          경제 활동은 흔히 <strong>경기 순환(business cycle)</strong>이라 불리는 형태로 시간이 지남에 따라 변동한다. 그러나 이 용어는 실제로 존재하지 않는 규칙적이고 예측 가능한 패턴을 암시하기 때문에 오해를 불러일으킬 수 있다. 실제로 경기침체는 불규칙한 간격으로 발생하며 심각성과 지속 기간도 다양하다. 예를 들어, 1980년과 1982년의 경기침체는 가깝게 붙어 발생한 반면, 1991년부터 2001년까지의 확장기는 10년 동안 지속되었다. 이러한 변동은 미리 예측할 수 없기 때문에, 기업과 정책 입안자들은 예상치 못한 경제 상황 변화에 지속적으로 적응해야 한다.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fact 2 -->
+    <div class="answer-fact">
+      <div class="answer-fact-num blue">02</div>
+      <div class="answer-fact-body">
+        <h4>Most Macroeconomic Quantities Fluctuate Together
+          <span class="ko-h4">대부분의 거시경제 지표들은 함께 변동한다</span>
+        </h4>
+        <div class="answer-en">
+          When the economy goes into recession, the decline is not limited to a single sector — it is an <strong>economy-wide phenomenon</strong>. Real GDP, personal income, corporate profits, consumer spending, industrial production, retail sales, and many other macroeconomic variables all tend to fall together. This co-movement occurs because a drop in demand in one part of the economy quickly spreads to others. Notably, <strong>investment spending</strong> is particularly volatile: although it accounts for only about one-sixth of GDP, it explains roughly two-thirds of the GDP decline during a typical recession, as firms sharply cut back on spending for new factories, housing, and inventories when conditions deteriorate.
+        </div>
+        <div class="answer-ko">
+          경기침체가 발생하면, 그 하락은 특정 부문에 한정되지 않고 <strong>경제 전반에 걸친 현상</strong>이 된다. 실질 GDP, 개인 소득, 기업 이익, 소비자 지출, 산업 생산, 소매 판매 등 다양한 거시경제 변수들이 모두 함께 하락하는 경향이 있다. 이러한 동조화는 경제 한 부문의 수요 감소가 빠르게 다른 부문으로 전파되기 때문에 발생한다. 특히 <strong>투자 지출(investment spending)</strong>은 변동성이 매우 크다. GDP의 약 6분의 1에 불과하지만, 경기침체 시 GDP 감소의 약 3분의 2를 차지한다. 이는 상황이 악화될 때 기업들이 새 공장, 주택, 재고에 대한 지출을 크게 줄이기 때문이다.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fact 3 -->
+    <div class="answer-fact">
+      <div class="answer-fact-num gold">03</div>
+      <div class="answer-fact-body">
+        <h4>As Output Falls, Unemployment Rises
+          <span class="ko-h4">생산량이 감소하면 실업이 증가한다</span>
+        </h4>
+        <div class="answer-en">
+          Changes in output and changes in unemployment are strongly correlated. When firms face falling demand and reduce production, they lay off workers, causing the <strong>unemployment rate</strong> to rise. This relationship is clearly visible in the data: each recession shown in Figure 1 is accompanied by a significant spike in unemployment. Conversely, when the economy recovers and real GDP begins to grow again, firms rehire workers and unemployment gradually declines. Because some workers are always in transition between jobs — a phenomenon called <strong>frictional unemployment</strong> — the unemployment rate never reaches zero. Instead, it fluctuates around a <strong>natural rate of approximately 5–6%</strong>, rising above it during recessions and falling back toward it during expansions.
+        </div>
+        <div class="answer-ko">
+          생산량의 변화와 실업의 변화는 강한 상관관계를 가진다. 기업들이 수요 감소에 직면해 생산을 줄이면 노동자들을 해고하게 되어 <strong>실업률(unemployment rate)</strong>이 상승한다. 이 관계는 데이터에서 명확히 확인된다. 그림 1에 나타난 경기침체마다 실업률의 큰 상승이 동반된다. 반대로 경제가 회복되어 실질 GDP가 다시 성장하기 시작하면, 기업들은 노동자들을 재고용하고 실업률은 점차 감소한다. 일부 노동자들은 항상 일자리를 옮기는 중이어서 — <strong>마찰적 실업(frictional unemployment)</strong>이라 불리는 현상 — 실업률은 결코 0에 도달하지 않는다. 대신, <strong>자연 실업률 약 5~6%</strong> 수준에서 변동하며, 경기침체 시 이를 웃돌고 경기 확장 시 다시 수렴한다.
+        </div>
+      </div>
+    </div>
+
+    <div class="answer-summary">
+      <div class="summary-icon">💡</div>
+      <div class="summary-text">
+        <strong>핵심 요약 / Summary</strong><br>
+        경제 변동은 <span class="hl">불규칙하고 예측 불가</span>하며, 침체 시 <span class="hl">거시경제 변수들이 동반 하락</span>하고, <span class="hl">실업률은 생산량과 반대로 움직인다</span>. 이 세 가지 사실은 총수요·총공급 모형(AD-AS model)의 이론적 토대가 된다.
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 60px;"></div>
+</div><!-- /container -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// ── Recession bands helper ──
+// Recession periods (approximate, from textbook / NBER):
+// 1973-75, 1980, 1981-82, 1990-91, 2001, 2007-09
+const RECESSIONS = [
+  [1973.75, 1975.25],
+  [1980.0,  1980.5],
+  [1981.5,  1982.75],
+  [1990.5,  1991.25],
+  [2001.25, 2001.75],
+  [2007.75, 2009.5],
+];
+
+function recessionAnnotations(xMin, xMax, color) {
+  return RECESSIONS.map(([s, e]) => ({
+    type: 'box',
+    xMin: s, xMax: e,
+    backgroundColor: 'rgba(180,0,0,0.10)',
+    borderColor: 'rgba(180,0,0,0.22)',
+    borderWidth: 1,
+  }));
+}
+
+// ── Data ──
+// Real GDP (billions 2009$) — approximate annual values 1970–2015
+const years = [];
+for (let y = 1970; y <= 2015; y++) years.push(y);
+
+const realGDP = [
+  5136,5322,5572,5887,6015,6282,6593,6977,7307,7508,
+  7701,7841,8010,8361,8704,8952,9341,9734,10106,10502,
+  10581,10952,11404,11770,12235,12638,13094,13569,13908,14065,
+  13854,14292,14779,15053,15470,15785,15962,16155,16272,16360,
+  16716,17082,17443,17814,18121,18562
+];
+
+// Investment (billions 2009$) — approximate
+const invest = [
+  735,762,826,910,896,956,1040,1115,1182,1148,
+  1092,1180,1228,1335,1430,1499,1613,1745,1885,2009,
+  1918,2052,2225,2337,2479,2620,2819,3003,2940,2617,
+  1881,2098,2489,2678,2837,2960,3000,3050,3100,3150,
+  3200,3250,3300,3350,3380,3420
+];
+
+// Unemployment rate (%)
+const unemp = [
+  4.9,5.9,5.6,4.9,5.6,8.5,7.7,7.1,6.1,5.8,
+  7.1,7.6,9.7,9.6,7.5,7.2,7.0,6.2,5.5,5.3,
+  5.6,6.8,7.5,6.9,6.1,5.6,5.4,4.9,4.5,4.2,
+  5.8,4.7,5.8,6.0,5.5,5.1,4.7,4.6,5.8,9.3,
+  9.6,8.9,8.1,7.4,6.2,5.3
+];
+
+// ── Chart defaults ──
+Chart.defaults.font.family = "'Source Serif 4', Georgia, serif";
+Chart.defaults.color = '#6b5b45';
+
+// ── GDP Chart ──
+const gdpCtx = document.getElementById('chartGDP').getContext('2d');
+new Chart(gdpCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Real GDP',
+      data: realGDP,
+      borderColor: '#1a3a6c',
+      backgroundColor: 'rgba(26,58,108,0.06)',
+      borderWidth: 2,
+      pointRadius: 0,
+      fill: true,
+      tension: 0.3,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => `$${ctx.parsed.y.toLocaleString()}B`
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { maxTicksLimit: 10, font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,.06)' }
+      },
+      y: {
+        ticks: {
+          callback: v => `$${(v/1000).toFixed(0)}T`,
+          font: { size: 11 }
+        },
+        grid: { color: 'rgba(0,0,0,.06)' },
+        title: { display: true, text: 'Billions of 2009 Dollars', font: { size: 11 } }
+      }
+    }
+  },
+  plugins: [{
+    id: 'recBands',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if (!chartArea) return;
+      ctx.save();
+      RECESSIONS.forEach(([s, e]) => {
+        const x1 = scales.x.getPixelForValue(years.indexOf(Math.ceil(s)));
+        const x2 = scales.x.getPixelForValue(years.indexOf(Math.floor(e) + 1));
+        ctx.fillStyle = 'rgba(180,0,0,0.10)';
+        ctx.fillRect(x1, chartArea.top, x2 - x1, chartArea.height);
+      });
+      ctx.restore();
+    }
+  }]
+});
+
+// ── Investment Chart ──
+const invCtx = document.getElementById('chartInv').getContext('2d');
+new Chart(invCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Investment Spending',
+      data: invest,
+      borderColor: '#2d7a4f',
+      backgroundColor: 'rgba(45,122,79,0.06)',
+      borderWidth: 2,
+      pointRadius: 0,
+      fill: true,
+      tension: 0.3,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,.06)' } },
+      y: {
+        ticks: { callback: v => `$${v.toLocaleString()}B`, font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,.06)' },
+        title: { display: true, text: 'Billions of 2009 Dollars', font: { size: 11 } }
+      }
+    }
+  },
+  plugins: [{
+    id: 'recBands',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if (!chartArea) return;
+      ctx.save();
+      RECESSIONS.forEach(([s, e]) => {
+        const x1 = scales.x.getPixelForValue(years.indexOf(Math.ceil(s)));
+        const x2 = scales.x.getPixelForValue(years.indexOf(Math.floor(e) + 1));
+        ctx.fillStyle = 'rgba(180,0,0,0.10)';
+        ctx.fillRect(x1, chartArea.top, x2 - x1, chartArea.height);
+      });
+      ctx.restore();
+    }
+  }]
+});
+
+// ── Unemployment Chart ──
+const unCtx = document.getElementById('chartUnemp').getContext('2d');
+new Chart(unCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Unemployment Rate',
+      data: unemp,
+      borderColor: '#b03030',
+      backgroundColor: 'rgba(176,48,48,0.07)',
+      borderWidth: 2,
+      pointRadius: 0,
+      fill: true,
+      tension: 0.3,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,.06)' } },
+      y: {
+        min: 0, max: 12,
+        ticks: { callback: v => `${v}%`, font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,.06)' },
+        title: { display: true, text: '% of Labor Force', font: { size: 11 } }
+      }
+    }
+  },
+  plugins: [{
+    id: 'recBands',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if (!chartArea) return;
+      ctx.save();
+      RECESSIONS.forEach(([s, e]) => {
+        const x1 = scales.x.getPixelForValue(years.indexOf(Math.ceil(s)));
+        const x2 = scales.x.getPixelForValue(years.indexOf(Math.floor(e) + 1));
+        ctx.fillStyle = 'rgba(180,0,0,0.10)';
+        ctx.fillRect(x1, chartArea.top, x2 - x1, chartArea.height);
+      });
+      ctx.restore();
+    }
+  }]
+});
+
+function toggleAnswer() {
+  const ans = document.getElementById('modelAnswer');
+  const btn = document.getElementById('answerBtn');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+</script>
+</body>
+</html>
