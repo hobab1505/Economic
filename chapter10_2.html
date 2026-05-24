@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>33-3 The Aggregate-Demand Curve</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f0eee8; --paper:#f8f6f1; --dark:#151210;
+    --accent:#c22828; --accent2:#1f52a0; --accent3:#c97d10;
+    --green:#1e7a44; --purple:#6040b0;
+    --muted:#5a4e3c; --border:#ccc0a4;
+    --hl:#fff0b8; --hl2:#cce6ff; --hl3:#d4f0e0;
+    --term-bg:#1a1008; --term-text:#f5e6c8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'Noto Sans KR','Inter',sans-serif;color:var(--dark);line-height:1.8;}
+
+  .top-nav{background:var(--paper);border-bottom:1px solid var(--border);padding:12px 24px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .top-nav a{color:var(--accent2);text-decoration:none;font-weight:500;}
+  .top-nav a:hover{text-decoration:underline;}
+  .top-nav .sep{color:var(--border);}
+
+  .hero{background:var(--dark);color:#f5e6c8;padding:56px 40px 48px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px);}
+  .hero::after{content:'33-3';position:absolute;right:36px;top:10px;font-family:'Inter',sans-serif;font-size:120px;font-weight:900;opacity:.06;line-height:1;color:white;}
+  .chapter-tag{display:inline-block;background:var(--accent2);color:#fff;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:4px 14px;margin-bottom:16px;border-radius:2px;}
+  .hero h1{font-family:'Inter',sans-serif;font-size:clamp(26px,4.5vw,46px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:8px;}
+  .hero h1 span{color:#60a5fa;}
+  .hero .subtitle{font-size:15px;opacity:.6;font-family:'Noto Sans KR',sans-serif;}
+
+  .container{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  .section-header{display:flex;align-items:center;gap:14px;margin:48px 0 24px;padding:18px 24px;background:linear-gradient(90deg,var(--accent2) 0%,#143560 100%);color:white;border-radius:2px;}
+  .section-header .num{font-family:'Inter',sans-serif;font-size:32px;font-weight:900;opacity:.45;flex-shrink:0;}
+  .section-header .text h2{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;}
+  .section-header .text .ko{font-family:'Noto Sans KR',sans-serif;font-size:13px;opacity:.68;margin-top:3px;}
+
+  .sub-header{display:flex;align-items:flex-start;gap:12px;margin:36px 0 16px;}
+  .sub-badge{flex-shrink:0;background:var(--accent2);color:white;font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 9px;border-radius:2px;margin-top:3px;white-space:nowrap;}
+  .sub-badge.red{background:var(--accent);}
+  .sub-title-text h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:var(--dark);line-height:1.3;}
+  .sub-title-text .ko{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);margin-top:2px;}
+
+  /* Effect label */
+  .effect-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:6px 16px 6px 10px;border-radius:2px;margin:28px 0 10px;color:white;}
+  .effect-label.red{background:var(--accent);}
+  .effect-label.blue{background:var(--accent2);}
+  .effect-label.green{background:var(--green);}
+  .effect-label .nc{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;}
+
+  /* Para */
+  .para-block{margin-bottom:20px;}
+  .para-en{font-size:14.5px;color:#2a1f10;line-height:1.88;margin-bottom:6px;padding:14px 18px;background:rgba(255,255,255,.58);border-radius:4px;border:1px solid var(--border);}
+  .para-ko{font-size:14px;color:#3a2e1a;line-height:1.92;padding:12px 18px;background:#fffef5;border-left:3px solid var(--accent3);font-family:'Noto Sans KR',sans-serif;border-radius:0 4px 4px 0;}
+
+  /* Key logic (verbatim italic from textbook) */
+  .key-logic{background:#fff8e6;border:1px solid #e8c96a;border-left:4px solid var(--accent3);padding:16px 20px;margin:14px 0 6px;border-radius:0 4px 4px 0;}
+  .key-logic .en{font-size:14px;line-height:1.88;color:#2a1a00;}
+  .key-logic .ko{margin-top:10px;padding-top:10px;border-top:1px solid #e8c96a;font-family:'Noto Sans KR',sans-serif;font-size:13.5px;color:#5a3e00;line-height:1.9;}
+  .key-logic-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent3);margin-bottom:6px;display:block;}
+
+  /* Figure */
+  .figure-wrap{background:var(--paper);border:1px solid var(--border);padding:24px 20px;margin:30px 0;}
+  .figure-title{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--accent2);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+  .figure-desc{font-size:12.5px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;margin-bottom:16px;line-height:1.6;}
+
+  /* GDP Box */
+  .gdp-box{text-align:center;margin:20px 0;padding:20px;background:var(--paper);border:2px solid var(--accent2);border-radius:4px;}
+  .gdp-box .formula{font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:var(--accent2);letter-spacing:1px;}
+  .gdp-box .label{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);margin-top:8px;}
+
+  /* Summing up */
+  .summing-up{background:#eef6ff;border:1px solid var(--accent2);border-left:4px solid var(--accent2);padding:18px 22px;margin:24px 0;border-radius:0 4px 4px 0;}
+  .summing-up h4{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .summing-up ol{padding-left:20px;font-size:14px;line-height:1.88;color:#1a2e50;}
+  .summing-up ol li{margin-bottom:6px;}
+  .summing-up .ko-list{margin-top:10px;padding-top:10px;border-top:1px solid #b3d4f8;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#1a2e50;}
+
+  /* Thought experiment */
+  .thought-exp{background:#f5f0ff;border:1px solid #b09ee8;border-left:4px solid var(--purple);padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+  .thought-exp .en{font-size:14px;line-height:1.88;color:#1a0a30;}
+  .thought-exp .ko{margin-top:10px;padding-top:10px;border-top:1px solid #c0b0e8;font-family:'Noto Sans KR',sans-serif;font-size:13.5px;color:#3a2060;line-height:1.9;}
+  .thought-exp-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--purple);margin-bottom:6px;display:block;}
+
+  /* Shift color blocks */
+  .shift-block{padding:16px 20px;margin:18px 0;border-radius:0 4px 4px 0;}
+  .shift-block.consumption{background:#fef9f0;border:1px solid #e8c96a;border-left:4px solid var(--accent3);}
+  .shift-block.investment{background:#f0f5ff;border:1px solid #9bbce8;border-left:4px solid var(--accent2);}
+  .shift-block.government{background:#f4f0ff;border:1px solid #b09ee8;border-left:4px solid var(--purple);}
+  .shift-block.netexports{background:#f0fdf4;border:1px solid #86d4a4;border-left:4px solid var(--green);}
+  .shift-block-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+  .shift-block.consumption .shift-block-label{color:var(--accent3);}
+  .shift-block.investment  .shift-block-label{color:var(--accent2);}
+  .shift-block.government  .shift-block-label{color:var(--purple);}
+  .shift-block.netexports  .shift-block-label{color:var(--green);}
+  .shift-block .en{font-size:14px;line-height:1.88;margin-bottom:8px;}
+  .shift-block .ko{font-family:'Noto Sans KR',sans-serif;font-size:13.5px;line-height:1.9;border-top:1px solid rgba(0,0,0,.07);padding-top:8px;}
+
+  /* Shift summary cards */
+  .shift-cards{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 28px;justify-content:center;}
+  .shift-card{flex:1;min-width:200px;max-width:280px;background:var(--paper);border:1px solid var(--border);padding:14px 16px;border-radius:4px;}
+  .shift-card.right{border-top:4px solid var(--green);}
+  .shift-card.left {border-top:4px solid var(--accent);}
+  .shift-card h5{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+  .shift-card.right h5{color:var(--green);}
+  .shift-card.left  h5{color:var(--accent);}
+  .shift-card ul{list-style:none;text-align:left;font-size:12.5px;font-family:'Noto Sans KR',sans-serif;line-height:1.78;color:var(--muted);}
+  .shift-card ul li::before{content:'→ ';font-weight:700;}
+  .shift-card.right ul li::before{color:var(--green);}
+  .shift-card.left  ul li::before{color:var(--accent);}
+
+  /* Table 1 */
+  .table-wrap{background:#fffdf0;border:1px solid #e0c860;padding:24px 26px;margin:32px 0;}
+  .table-wrap .table-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent3);text-transform:uppercase;margin-bottom:3px;}
+  .table-wrap .table-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e0c860;}
+  .table-section{font-size:13px;font-weight:700;color:var(--accent2);margin:16px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
+  .table-section.ko{color:var(--muted);font-size:12px;text-transform:none;letter-spacing:0;margin-top:2px;}
+  .table-ol{padding-left:18px;font-size:13.5px;line-height:1.88;color:#2a2010;margin-bottom:6px;}
+  .table-ol li{margin-bottom:8px;}
+
+  /* Tooltip */
+  .term{position:relative;cursor:pointer;background:var(--hl);border-bottom:2px solid var(--accent3);padding:0 3px;font-weight:600;border-radius:2px;}
+  .term.blue{background:var(--hl2);border-bottom-color:var(--accent2);}
+  .term .tooltip-box{display:none;position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:260px;background:#1a1208;color:#f5e6c8;border-radius:6px;padding:12px 14px;box-shadow:0 8px 28px rgba(0,0,0,.35);z-index:9999;pointer-events:none;font-size:12.5px;line-height:1.65;white-space:normal;text-align:left;font-weight:400;}
+  .term:hover .tooltip-box{display:block;animation:tipIn .18s ease;}
+  .term .tooltip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#1a1208;}
+  .term .tip-en{font-weight:700;color:#f5d98a;font-size:13px;display:block;margin-bottom:4px;}
+  .term .tip-ko{font-size:12px;color:#e0cfb0;display:block;margin-bottom:5px;}
+  .term .tip-def{font-size:11.5px;color:rgba(245,230,200,.75);display:block;border-top:1px solid rgba(255,255,255,.12);padding-top:6px;}
+  @keyframes tipIn{from{opacity:0;transform:translateX(-50%) translateY(4px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+
+  /* Glossary */
+  .glossary-rail{background:var(--term-bg);color:var(--term-text);padding:26px 30px;margin:32px 0;border-radius:2px;}
+  .glossary-rail::before{content:'용어 정리 / KEY TERMS';display:block;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--accent3);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .glossary-item{border-left:3px solid var(--accent);padding-left:13px;}
+  .glossary-item .term-name{font-size:14px;font-weight:700;color:#f5d98a;margin-bottom:2px;}
+  .glossary-item .term-name span{font-size:12px;font-weight:400;color:var(--accent3);margin-left:6px;}
+  .glossary-item .term-def-en{font-size:11.5px;opacity:.68;margin-bottom:3px;}
+  .glossary-item .term-def-ko{font-size:12.5px;font-family:'Noto Sans KR',sans-serif;color:#f0e0c0;}
+
+  /* Quick Quiz */
+  .quick-quiz{background:var(--dark);color:#f5e6c8;padding:20px 26px;margin:36px 0 0;border-radius:2px;display:flex;align-items:flex-start;gap:14px;}
+  .quiz-badge{flex-shrink:0;background:var(--accent);color:white;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;margin-top:2px;}
+  .quiz-text{font-size:14px;line-height:1.7;}
+  .quiz-text .ko{font-family:'Noto Sans KR',sans-serif;font-size:13px;opacity:.72;margin-top:5px;display:block;}
+
+  /* Model Answer */
+  .answer-toggle-wrap{margin-top:14px;text-align:center;}
+  .answer-toggle-btn{display:inline-flex;align-items:center;gap:10px;background:none;border:2px solid var(--accent2);color:var(--accent2);padding:10px 26px;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:3px;transition:all .2s;}
+  .answer-toggle-btn:hover{background:var(--accent2);color:white;}
+  .answer-toggle-btn .btn-icon{font-size:11px;transition:transform .25s;}
+  .answer-toggle-btn.open .btn-icon{transform:rotate(90deg);}
+  .answer-toggle-btn .btn-label-en{font-size:12px;opacity:.7;}
+  .model-answer{display:none;margin-top:18px;background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--accent2);padding:28px 32px;animation:answerSlide .3s ease;}
+  .model-answer.open{display:block;}
+  @keyframes answerSlide{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  .answer-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+  .answer-badge{background:var(--accent2);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;border-radius:2px;flex-shrink:0;}
+  .answer-title strong{display:block;font-size:15px;margin-bottom:2px;}
+  .answer-title span{font-size:12px;color:var(--muted);}
+  .answer-fact{display:flex;gap:18px;margin-bottom:26px;padding-bottom:22px;border-bottom:1px dashed var(--border);}
+  .answer-fact:last-of-type{border-bottom:none;}
+  .answer-fact-num{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:16px;font-weight:800;border-radius:50%;color:white;}
+  .answer-fact-num.red{background:var(--accent);}
+  .answer-fact-num.blue{background:var(--accent2);}
+  .answer-fact-num.green{background:var(--green);}
+  .answer-fact-body h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.35;}
+  .answer-fact-body h4 .ko-h4{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:2px;font-family:'Noto Sans KR',sans-serif;}
+  .answer-en{font-size:14px;line-height:1.88;padding:12px 15px;background:rgba(255,255,255,.6);border:1px solid var(--border);border-radius:4px;margin-bottom:9px;}
+  .answer-ko{font-size:13.5px;line-height:1.9;padding:11px 15px;background:#fffdf0;border-left:3px solid var(--accent3);font-family:'Noto Sans KR',sans-serif;border-radius:0 4px 4px 0;}
+  .answer-summary{display:flex;gap:14px;align-items:flex-start;background:var(--hl2);border:1px solid var(--accent2);padding:15px 18px;border-radius:4px;margin-top:8px;font-size:14px;line-height:1.75;font-family:'Noto Sans KR',sans-serif;}
+  .answer-summary .hl{background:#cce6ff;padding:0 4px;border-radius:2px;font-weight:600;}
+
+  @media(max-width:600px){
+    .hero{padding:36px 18px 30px;}
+    .container{padding:0 16px;}
+    .shift-cards{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="chapter10_aggregate_demand_supply.html">← Chapter 10 메인</a>
+  <span class="sep">|</span>
+  경제학 원론 <span class="sep">/</span> Chapter 10 <span class="sep">/</span>
+  <strong>33-3 The Aggregate-Demand Curve</strong>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <div class="chapter-tag">33-3 · Chapter 10</div>
+    <h1>The <span>Aggregate-Demand</span> Curve</h1>
+    <p class="subtitle">총수요 곡선 — 물가 수준과 수요량의 관계</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══ 33-3 INTRO ══ -->
+  <div class="section-header">
+    <div class="num">33-3</div>
+    <div class="text">
+      <h2>The Aggregate-Demand Curve</h2>
+      <div class="ko">총수요 곡선</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The aggregate-demand curve tells us the quantity of all goods and services demanded in the economy at any given price level. As Figure 3 illustrates, the aggregate-demand curve slopes downward. This means that, other things being equal, a decrease in the economy's overall level of prices (from, say, P<sub>1</sub> to P<sub>2</sub>) raises the quantity of goods and services demanded (from Y<sub>1</sub> to Y<sub>2</sub>). Conversely, an increase in the price level reduces the quantity of goods and services demanded.</div>
+    <div class="para-ko">총수요 곡선(aggregate-demand curve)은 주어진 물가 수준에서 경제 내에서 수요되는 모든 재화와 서비스의 수량을 알려준다. 그림 3에서 보듯이, 총수요 곡선은 우하향한다. 이는 다른 조건이 동일할 때, 경제의 전반적인 물가 수준의 하락(예: P₁에서 P₂로)이 수요되는 재화와 서비스의 수량을 증가시킨다는 것을 의미한다(Y₁에서 Y₂로). 반대로, 물가 수준의 상승은 수요되는 재화와 서비스의 수량을 감소시킨다.</div>
+  </div>
+
+  <!-- ══ FIGURE 3 ══ -->
+  <div class="figure-wrap">
+    <div class="figure-title">Figure 3 — The Aggregate-Demand Curve</div>
+    <div class="figure-desc">물가 수준이 P₁에서 P₂로 하락 → 수요량이 Y₁에서 Y₂로 증가 · 우하향의 세 가지 이유: 부의 효과 · 이자율 효과 · 환율 효과</div>
+    <div style="display:flex;justify-content:center;padding:8px 0;">
+      <svg viewBox="0 0 480 300" width="100%" style="max-width:480px;font-family:'Noto Sans KR','Inter',sans-serif;">
+        <line x1="60" y1="260" x2="440" y2="260" stroke="#555" stroke-width="2"/>
+        <line x1="60" y1="260" x2="60" y2="24" stroke="#555" stroke-width="2"/>
+        <polygon points="440,255 440,265 452,260" fill="#555"/>
+        <polygon points="55,24 65,24 60,12" fill="#555"/>
+        <text x="456" y="264" font-size="11" fill="#444">Q</text>
+        <text x="16" y="26" font-size="11" fill="#555">물가</text>
+        <text x="8" y="39" font-size="10" fill="#888">Price</text>
+        <text x="8" y="51" font-size="10" fill="#888">Level</text>
+        <text x="336" y="278" font-size="11" fill="#555">산출량 (Quantity of Output)</text>
+        <path d="M 100 60 C 160 100 280 180 400 240" stroke="#1f52a0" stroke-width="3" fill="none"/>
+        <text x="402" y="238" font-size="13" font-weight="700" fill="#1f52a0">AD</text>
+        <text x="378" y="252" font-size="10" fill="#1f52a0">총수요</text>
+        <line x1="60" y1="95" x2="205" y2="95" stroke="#c22828" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <circle cx="205" cy="95" r="4" fill="#c22828"/>
+        <text x="30" y="99" font-size="12" font-weight="700" fill="#c22828">P₁</text>
+        <line x1="60" y1="170" x2="330" y2="170" stroke="#c22828" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <circle cx="330" cy="170" r="4" fill="#c22828"/>
+        <text x="30" y="174" font-size="12" font-weight="700" fill="#c22828">P₂</text>
+        <line x1="44" y1="105" x2="44" y2="160" stroke="#c97d10" stroke-width="1.5"/>
+        <polygon points="40,158 48,158 44,167" fill="#c97d10"/>
+        <line x1="205" y1="95" x2="205" y2="260" stroke="#c97d10" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="197" y="276" font-size="12" font-weight="700" fill="#c97d10">Y₁</text>
+        <line x1="330" y1="170" x2="330" y2="260" stroke="#c97d10" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="322" y="276" font-size="12" font-weight="700" fill="#c97d10">Y₂</text>
+        <line x1="215" y1="268" x2="320" y2="268" stroke="#1e7a44" stroke-width="1.5"/>
+        <polygon points="318,264 318,272 327,268" fill="#1e7a44"/>
+        <rect x="62" y="108" width="134" height="46" rx="3" fill="#fff8e6" stroke="#c97d10" stroke-width="1"/>
+        <text x="70" y="124" font-size="11" fill="#5a3e00">1. A decrease in</text>
+        <text x="70" y="137" font-size="11" fill="#5a3e00">the price level ...</text>
+        <text x="70" y="150" font-size="11" fill="#5a3e00">물가 하락 →</text>
+        <rect x="192" y="228" width="152" height="28" rx="3" fill="#e8f4ea" stroke="#1e7a44" stroke-width="1"/>
+        <text x="200" y="243" font-size="11" fill="#1a4a2a">2. ... increases the quantity of</text>
+        <text x="200" y="254" font-size="10" fill="#1a4a2a">goods and services demanded.</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 33-3a ══ -->
+  <div class="sub-header">
+    <div class="sub-badge">33-3a</div>
+    <div class="sub-title-text">
+      <h3>Why the Aggregate-Demand Curve Slopes Downward</h3>
+      <div class="ko">왜 총수요 곡선은 우하향하는가</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Why does a change in the price level move the quantity of goods and services demanded in the opposite direction? To answer this question, it is useful to recall that an economy's GDP (which we denote as Y) is the sum of its consumption (C), investment (I), government purchases (G), and net exports (NX):</div>
+    <div class="para-ko">왜 물가 수준의 변화는 수요되는 재화와 서비스의 수량을 반대 방향으로 이동시키는가? 이 질문에 답하려면, 경제의 GDP(Y로 표기)는 소비(C), 투자(I), 정부 구매(G), 순수출(NX)의 합임을 기억하는 것이 유용하다:</div>
+  </div>
+
+  <div class="gdp-box">
+    <div class="formula">Y = C + I + G + NX</div>
+    <div class="label">GDP = 소비(Consumption) + 투자(Investment) + 정부 구매(Government Purchases) + 순수출(Net Exports)</div>
+  </div>
+
+  <div class="para-block" style="margin-top:20px;">
+    <div class="para-en">Each of these four components contributes to the aggregate demand for goods and services. For now, we assume that government spending is fixed by policy. The other three components of spending—consumption, investment, and net exports—depend on economic conditions and, in particular, on the price level. Therefore, to understand the downward slope of the aggregate-demand curve, we must examine how the price level affects the quantity of goods and services demanded for consumption, investment, and net exports.</div>
+    <div class="para-ko">이 네 가지 구성 요소 각각이 재화와 서비스에 대한 총수요에 기여한다. 지금은 정부 지출이 정책에 의해 고정되어 있다고 가정한다. 나머지 세 가지 지출 구성 요소인 소비, 투자, 순수출은 경제 상황, 특히 물가 수준에 따라 달라진다. 따라서 총수요 곡선의 우하향 기울기를 이해하려면, 물가 수준이 소비, 투자, 순수출을 위해 수요되는 재화와 서비스의 수량에 어떻게 영향을 미치는지를 검토해야 한다.</div>
+  </div>
+
+  <!-- ── Effect 1: Wealth Effect ── -->
+  <div class="effect-label red">
+    <div class="nc">1</div>
+    The Price Level and Consumption: The Wealth Effect &nbsp;·&nbsp; 소비와 물가: 부의 효과
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Consider the money that you hold in your wallet and your bank account. The nominal value of this money is fixed: One dollar is always worth one dollar. Yet the <em>real</em> value of a dollar is not fixed. If a candy bar costs one dollar, then a dollar is worth one candy bar. If the price of a candy bar falls to 50 cents, then one dollar is worth two candy bars. Thus, when the price level falls, the dollars you are holding rise in value, which increases your real wealth and your ability to buy goods and services.</div>
+    <div class="para-ko">지갑과 은행 계좌에 보유하고 있는 화폐를 생각해 보자. 이 화폐의 명목 가치(nominal value)는 고정되어 있다. 1달러는 항상 1달러의 가치가 있다. 그러나 달러의 실질 가치(real value)는 고정되어 있지 않다. 사탕 한 개가 1달러라면, 1달러는 사탕 한 개의 가치가 있다. 사탕 가격이 50센트로 떨어지면, 1달러는 사탕 두 개의 가치가 있다. 따라서 물가 수준이 하락하면, 보유하고 있는 달러의 가치가 상승하여 실질 부(real wealth)와 재화·서비스 구매 능력이 증가한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">This logic gives us the first reason the aggregate-demand curve slopes downward.</div>
+    <div class="para-ko">이 논리가 총수요 곡선이 우하향하는 첫 번째 이유를 제시한다.</div>
+  </div>
+
+  <div class="key-logic">
+    <span class="key-logic-label">📖 원문 핵심 논리 (Verbatim Key Logic — Wealth Effect)</span>
+    <div class="en"><em>A decrease in the price level raises the real value of money and makes consumers wealthier, which in turn encourages them to spend more. The increase in consumer spending means a larger quantity of goods and services demanded. Conversely, an increase in the price level reduces the real value of money and makes consumers poorer, which in turn reduces consumer spending and the quantity of goods and services demanded.</em></div>
+    <div class="ko">물가 수준의 하락은 화폐의 실질 가치를 높이고 소비자들을 더 부유하게 만들며, 이는 다시 소비자들이 더 많이 지출하도록 장려한다. 소비자 지출의 증가는 더 많은 재화와 서비스가 수요된다는 것을 의미한다. 반대로, 물가 수준의 상승은 화폐의 실질 가치를 낮추고 소비자들을 더 가난하게 만들며, 이는 다시 소비자 지출과 수요되는 재화와 서비스의 수량을 감소시킨다.</div>
+  </div>
+
+  <!-- ── Effect 2: Interest-Rate Effect ── -->
+  <div class="effect-label blue">
+    <div class="nc">2</div>
+    The Price Level and Investment: The Interest-Rate Effect &nbsp;·&nbsp; 투자와 물가: 이자율 효과
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The price level is one determinant of the quantity of money demanded. When the price level is lower, households do not need to hold as much money to buy the goods and services they want. Therefore, when the price level falls, households try to reduce their holdings of money by lending some of it out. For instance, a household might use its excess money to buy interest-bearing bonds. Or it might deposit its excess money in an interest-bearing savings account, and the bank would use these funds to make more loans. In either case, as households try to convert some of their money into interest-bearing assets, they drive down interest rates. (The next chapter analyzes this process in more detail.)</div>
+    <div class="para-ko">물가 수준은 화폐 수요량의 결정 요인 중 하나이다. 물가 수준이 낮을 때, 가계는 원하는 재화와 서비스를 구입하기 위해 그리 많은 화폐를 보유할 필요가 없다. 따라서 물가 수준이 하락하면, 가계는 일부를 빌려줌으로써 화폐 보유량을 줄이려 한다. 예를 들어, 가계는 여분의 화폐로 이자 지급 채권(interest-bearing bonds)을 구입할 수 있다. 또는 이자 지급 저축 계좌에 예치할 수 있고, 은행은 이 자금을 더 많은 대출에 활용한다. 어느 경우든, 가계가 일부 화폐를 이자 수익 자산으로 전환하려 하면서 이자율(interest rates)이 낮아진다. (다음 장에서 이 과정을 더 자세히 분석한다.)</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Interest rates, in turn, affect spending on goods and services. Because a lower interest rate makes borrowing less expensive, it encourages firms to borrow more to invest in new plants and equipment, and it encourages households to borrow more to invest in new housing. (A lower interest rate might also stimulate consumer spending, especially spending on large durable purchases such as cars, which are often bought on credit.) Thus, a lower interest rate increases the quantity of goods and services demanded.</div>
+    <div class="para-ko">이자율은 다시 재화와 서비스에 대한 지출에 영향을 미친다. 낮은 이자율은 차입 비용을 낮추기 때문에, 기업들이 새 공장과 장비에 투자하기 위해 더 많이 차입하도록 장려하고, 가계가 새 주택에 투자하기 위해 더 많이 차입하도록 장려한다. (낮은 이자율은 특히 신용으로 구입되는 자동차 같은 내구재에 대한 소비 지출도 자극할 수 있다.) 따라서 낮은 이자율은 수요되는 재화와 서비스의 수량을 증가시킨다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">This logic gives us the second reason the aggregate-demand curve slopes downward.</div>
+    <div class="para-ko">이 논리가 총수요 곡선이 우하향하는 두 번째 이유를 제시한다.</div>
+  </div>
+
+  <div class="key-logic">
+    <span class="key-logic-label">📖 원문 핵심 논리 (Verbatim Key Logic — Interest-Rate Effect)</span>
+    <div class="en"><em>A lower price level reduces the interest rate, encourages greater spending on investment goods, and thereby increases the quantity of goods and services demanded. Conversely, a higher price level raises the interest rate, discourages investment spending, and decreases the quantity of goods and services demanded.</em></div>
+    <div class="ko">낮은 물가 수준은 이자율을 낮추고, 투자재에 대한 지출 증가를 장려하며, 그로 인해 수요되는 재화와 서비스의 수량을 증가시킨다. 반대로, 높은 물가 수준은 이자율을 높이고, 투자 지출을 억제하며, 수요되는 재화와 서비스의 수량을 감소시킨다.</div>
+  </div>
+
+  <!-- ── Effect 3: Exchange-Rate Effect ── -->
+  <div class="effect-label green">
+    <div class="nc">3</div>
+    The Price Level and Net Exports: The Exchange-Rate Effect &nbsp;·&nbsp; 순수출과 물가: 환율 효과
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">As we have just discussed, a lower price level in the United States lowers the U.S. interest rate. In response to the lower interest rate, some U.S. investors will seek higher returns by investing abroad. For instance, as the interest rate on U.S. government bonds falls, a mutual fund might sell U.S. government bonds to buy German government bonds. As the mutual fund tries to convert its dollars into euros to buy the German bonds, it increases the supply of dollars in the market for foreign-currency exchange.</div>
+    <div class="para-ko">방금 논의했듯이, 미국의 물가 수준 하락은 미국의 이자율을 낮춘다. 낮아진 이자율에 대응하여 일부 미국 투자자들은 해외 투자를 통해 더 높은 수익을 추구하려 할 것이다. 예를 들어, 미국 정부 채권의 이자율이 하락하면, 투자 신탁 회사가 미국 정부 채권을 매각하여 독일 정부 채권을 구입할 수 있다. 투자 신탁 회사가 독일 채권 구입을 위해 달러를 유로로 전환하려 하면서, 외환 시장에서 달러의 공급이 증가한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The increased supply of dollars to be turned into euros causes the dollar to depreciate relative to the euro. This leads to a change in the real exchange rate—the relative price of domestic and foreign goods. Because each dollar buys fewer units of foreign currencies, foreign goods become more expensive relative to domestic goods.</div>
+    <div class="para-ko">유로로 전환하기 위한 달러 공급 증가는 달러가 유로 대비 평가절하(depreciate)되게 한다. 이는 실질 환율(real exchange rate) — 국내 및 외국 재화의 상대 가격 — 의 변화를 가져온다. 달러로 외화를 더 적게 살 수 있게 되어, 외국 재화가 국내 재화에 비해 더 비싸진다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The change in relative prices affects spending, both at home and abroad. Because foreign goods are now more expensive, Americans buy less from other countries, causing U.S. imports of goods and services to decrease. At the same time, because U.S. goods are now cheaper, foreigners buy more from the United States, so U.S. exports increase. Net exports equal exports minus imports, so both of these changes cause U.S. net exports to increase. Thus, the fall in the real exchange value of the dollar leads to an increase in the quantity of goods and services demanded.</div>
+    <div class="para-ko">상대 가격의 변화는 국내외 지출에 영향을 미친다. 외국 재화가 이제 더 비싸지므로, 미국인들은 다른 나라에서 덜 구입하게 되어 미국의 재화와 서비스 수입(imports)이 감소한다. 동시에, 미국 재화가 이제 더 저렴해지므로 외국인들이 미국에서 더 많이 구입하게 되어 미국의 수출(exports)이 증가한다. 순수출(net exports)은 수출에서 수입을 뺀 것이므로, 이 두 가지 변화 모두 미국의 순수출을 증가시킨다. 따라서 달러의 실질 환율 가치 하락은 수요되는 재화와 서비스의 수량 증가로 이어진다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">This logic yields the third reason the aggregate-demand curve slopes downward.</div>
+    <div class="para-ko">이 논리가 총수요 곡선이 우하향하는 세 번째 이유를 제시한다.</div>
+  </div>
+
+  <div class="key-logic">
+    <span class="key-logic-label">📖 원문 핵심 논리 (Verbatim Key Logic — Exchange-Rate Effect)</span>
+    <div class="en"><em>When a fall in the U.S. price level causes U.S. interest rates to fall, the real value of the dollar declines in foreign exchange markets. This depreciation stimulates U.S. net exports and thereby increases the quantity of goods and services demanded. Conversely, when the U.S. price level rises and causes U.S. interest rates to rise, the real value of the dollar increases, and this appreciation reduces U.S. net exports and the quantity of goods and services demanded.</em></div>
+    <div class="ko">미국의 물가 수준 하락이 미국의 이자율 하락을 유발하면, 달러의 실질 가치가 외환 시장에서 하락한다. 이 평가절하(depreciation)는 미국의 순수출을 자극하고 그로 인해 수요되는 재화와 서비스의 수량을 증가시킨다. 반대로, 미국의 물가 수준이 상승하고 미국의 이자율 상승을 유발하면, 달러의 실질 가치가 증가하고 이 평가절상(appreciation)은 미국의 순수출과 수요되는 재화와 서비스의 수량을 감소시킨다.</div>
+  </div>
+
+  <!-- Summing Up -->
+  <div class="summing-up">
+    <h4>📌 Summing Up — 세 가지 효과 요약</h4>
+    <ol>
+      <li><strong>Consumers are wealthier,</strong> which stimulates the demand for consumption goods.</li>
+      <li><strong>Interest rates fall,</strong> which stimulates the demand for investment goods.</li>
+      <li><strong>The currency depreciates,</strong> which stimulates the demand for net exports.</li>
+    </ol>
+    <div class="ko-list">
+      The same three effects work in reverse: When the price level rises, decreased wealth depresses consumer spending, higher interest rates depress investment spending, and a currency appreciation depresses net exports.<br><br>
+      <strong>역방향:</strong> 물가 수준 상승 시 → ① 부 감소로 소비 위축, ② 이자율 상승으로 투자 위축, ③ 통화 절상으로 순수출 위축
+    </div>
+  </div>
+
+  <!-- Thought Experiment -->
+  <div class="thought-exp">
+    <span class="thought-exp-label">💭 사고 실험 (Thought Experiment)</span>
+    <div class="en">Here is a thought experiment to hone your intuition about these effects. Imagine that one day you wake up and notice that, for some mysterious reason, the prices of all goods and services have fallen by half, so the dollars you are holding are worth twice as much. In real terms, you now have twice as much money as you had when you went to bed the night before. What would you do with the extra money? You could spend it at your favorite restaurant, increasing consumer spending. You could lend it out (by buying a bond or depositing it in your bank), reducing interest rates and increasing investment spending. Or you could invest it overseas (by buying shares in an international mutual fund), reducing the real exchange value of the dollar and increasing net exports. Whichever of these three responses you choose, the fall in the price level leads to an increase in the quantity of goods and services demanded. This is what the downward slope of the aggregate-demand curve represents.</div>
+    <div class="ko">이 효과들에 대한 직관을 갈고닦기 위한 사고 실험이 있다. 어느 날 잠에서 깨어나 보니, 어떤 불가사의한 이유로 모든 재화와 서비스의 가격이 절반으로 떨어져 보유하고 있는 달러의 가치가 두 배가 되었다고 상상해 보자. 실질적으로, 당신은 이제 전날 밤 잠자리에 들기 전보다 두 배의 화폐를 갖게 된 것이다. 여분의 돈으로 무엇을 할 것인가? 좋아하는 식당에서 소비할 수 있으며, 이는 소비자 지출을 증가시킨다. 채권 구입이나 은행 예치를 통해 빌려줄 수도 있으며, 이는 이자율을 낮추고 투자 지출을 증가시킨다. 또는 해외 투자(국제 투자 신탁 펀드 주식 구입)를 통해 달러의 실질 환율 가치를 낮추고 순수출을 증가시킬 수도 있다. 이 세 가지 대응 중 어느 것을 선택하든, 물가 수준의 하락은 수요되는 재화와 서비스의 수량 증가로 이어진다. 이것이 총수요 곡선의 우하향 기울기가 나타내는 바이다.</div>
+  </div>
+
+  <div class="para-block" style="margin-top:20px;">
+    <div class="para-en">It is important to keep in mind that the aggregate-demand curve (like all demand curves) is drawn holding "other things equal." In particular, our three explanations of the downward-sloping aggregate-demand curve assume that the money supply is fixed. That is, we have been considering how a change in the price level affects the demand for goods and services, holding the amount of money in the economy constant. As we will see, a change in the quantity of money shifts the aggregate-demand curve. At this point, just keep in mind that the aggregate-demand curve is drawn for a given quantity of the money supply.</div>
+    <div class="para-ko">총수요 곡선은 (모든 수요 곡선과 마찬가지로) "다른 조건이 동일하다(other things equal)"는 가정 하에 그려진다는 점을 기억하는 것이 중요하다. 특히, 우하향하는 총수요 곡선에 대한 세 가지 설명은 통화량(money supply)이 고정되어 있다고 가정한다. 즉, 경제의 화폐량을 일정하게 유지하면서 물가 수준의 변화가 재화와 서비스에 대한 수요에 어떻게 영향을 미치는지를 살펴본 것이다. 앞으로 보게 되겠지만, 통화량의 변화는 총수요 곡선을 이동시킨다. 지금은 총수요 곡선이 주어진 통화량에 대해 그려진다는 점만 기억하면 된다.</div>
+  </div>
+
+  <!-- ══ 33-3b ══ -->
+  <div class="sub-header">
+    <div class="sub-badge red">33-3b</div>
+    <div class="sub-title-text">
+      <h3>Why the Aggregate-Demand Curve Might Shift</h3>
+      <div class="ko">왜 총수요 곡선이 이동할 수 있는가</div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The downward slope of the aggregate-demand curve shows that a fall in the price level raises the overall quantity of goods and services demanded. Many other factors, however, affect the quantity of goods and services demanded at a given price level. When one of these other factors changes, the quantity of goods and services demanded at every price level changes and the aggregate-demand curve shifts.</div>
+    <div class="para-ko">총수요 곡선의 우하향 기울기는 물가 수준의 하락이 수요되는 재화와 서비스의 전체 수량을 증가시킨다는 것을 보여준다. 그러나 주어진 물가 수준에서 수요되는 재화와 서비스의 수량에 영향을 미치는 다른 많은 요인들이 있다. 이러한 다른 요인 중 하나가 변하면, 모든 물가 수준에서 수요되는 재화와 서비스의 수량이 변하고 총수요 곡선이 이동(shift)한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Let's consider some examples of events that shift aggregate demand. We can categorize them according to the component of spending that is most directly affected.</div>
+    <div class="para-ko">총수요를 이동시키는 사건들의 예를 살펴보자. 가장 직접적으로 영향을 받는 지출 구성 요소에 따라 분류할 수 있다.</div>
+  </div>
+
+  <!-- Shift 1 -->
+  <div class="shift-block consumption">
+    <div class="shift-block-label">Shifts Arising from Changes in Consumption · 소비 변화로 인한 이동</div>
+    <div class="en">Suppose Americans suddenly become more concerned about saving for retirement and, as a result, reduce their current consumption. Because the quantity of goods and services demanded at any price level is lower, the aggregate-demand curve shifts to the left. Conversely, imagine that a stock market boom makes people wealthier and less concerned about saving. The resulting increase in consumer spending means a greater quantity of goods and services demanded at any given price level, so the aggregate-demand curve shifts to the right.<br><br>
+    Thus, any event that changes how much people want to consume at a given price level shifts the aggregate-demand curve. One policy variable that has this effect is the level of taxation. When the government cuts taxes, it encourages people to spend more, so the aggregate-demand curve shifts to the right. When the government raises taxes, people cut back on their spending and the aggregate-demand curve shifts to the left.</div>
+    <div class="ko">미국인들이 갑자기 은퇴를 위한 저축에 더 관심을 갖게 되어 현재 소비를 줄인다고 가정하자. 모든 물가 수준에서 수요되는 재화와 서비스의 수량이 낮아지므로, 총수요 곡선은 왼쪽으로 이동한다. 반대로, 주식 시장 호황이 사람들을 더 부유하게 만들고 저축에 덜 관심을 갖게 한다고 상상해 보자. 그 결과 소비 지출 증가는 주어진 물가 수준에서 더 많은 수요량을 의미하므로, 총수요 곡선은 오른쪽으로 이동한다.<br><br>
+    따라서 주어진 물가 수준에서 사람들이 소비하기를 원하는 양을 변화시키는 모든 사건이 총수요 곡선을 이동시킨다. 이러한 효과를 갖는 정책 변수 중 하나가 조세(taxation) 수준이다. 정부가 세금을 줄이면 사람들의 지출을 장려하여 총수요 곡선이 오른쪽으로 이동한다. 정부가 세금을 올리면 사람들이 지출을 줄여 총수요 곡선은 왼쪽으로 이동한다.</div>
+  </div>
+
+  <!-- Shift 2 -->
+  <div class="shift-block investment">
+    <div class="shift-block-label">Shifts Arising from Changes in Investment · 투자 변화로 인한 이동</div>
+    <div class="en">Any event that changes how much firms want to invest at a given price level also shifts the aggregate-demand curve. For instance, imagine that the computer industry introduces a faster line of computers and many firms decide to invest in new computer systems. Because the quantity of goods and services demanded at any price level is higher, the aggregate-demand curve shifts to the right. Conversely, if firms become pessimistic about future business conditions, they may cut back on investment spending, shifting the aggregate-demand curve to the left.<br><br>
+    Tax policy can also influence aggregate demand through investment. For example, an investment tax credit (a tax rebate tied to a firm's investment spending) increases the quantity of investment goods that firms demand at any given interest rate and therefore shifts the aggregate-demand curve to the right. The repeal of an investment tax credit reduces investment and shifts the aggregate-demand curve to the left.<br><br>
+    Another policy variable that can influence investment and aggregate demand is the money supply. As we discuss more fully in the next chapter, an increase in the money supply lowers the interest rate in the short run. This decrease in the interest rate makes borrowing less costly, which stimulates investment spending and thereby shifts the aggregate-demand curve to the right. Conversely, a decrease in the money supply raises the interest rate, discourages investment spending, and thereby shifts the aggregate-demand curve to the left. Many economists believe that throughout U.S. history, changes in monetary policy have been an important source of shifts in aggregate demand.</div>
+    <div class="ko">주어진 물가 수준에서 기업들이 투자하려는 양을 변화시키는 모든 사건도 총수요 곡선을 이동시킨다. 예를 들어, 컴퓨터 산업이 더 빠른 컴퓨터를 출시하고 많은 기업들이 새 컴퓨터 시스템에 투자하기로 결정했다고 상상해 보자. 모든 물가 수준에서 수요량이 높아지므로 총수요 곡선은 오른쪽으로 이동한다. 반대로 기업들이 미래 경기에 비관적이 되면 투자를 줄여 총수요 곡선이 왼쪽으로 이동한다.<br><br>
+    투자를 통한 조세 정책도 총수요에 영향을 미칠 수 있다. 예를 들어, 투자 세액 공제(investment tax credit — 기업의 투자 지출에 연동된 세금 환급)는 주어진 이자율에서 기업들이 수요하는 투자재의 수량을 증가시키고 따라서 총수요 곡선을 오른쪽으로 이동시킨다. 투자 세액 공제의 폐지는 투자를 줄이고 총수요 곡선을 왼쪽으로 이동시킨다.<br><br>
+    투자와 총수요에 영향을 미칠 수 있는 또 다른 정책 변수는 통화량(money supply)이다. 다음 장에서 더 자세히 다루겠지만, 통화량 증가는 단기적으로 이자율을 낮춘다. 이자율의 이러한 하락은 차입 비용을 낮추고, 이는 투자 지출을 자극하여 총수요 곡선을 오른쪽으로 이동시킨다. 반대로 통화량 감소는 이자율을 높이고, 투자 지출을 억제하며, 따라서 총수요 곡선을 왼쪽으로 이동시킨다. 많은 경제학자들은 미국 역사 전반에 걸쳐 통화 정책의 변화가 총수요 이동의 중요한 원인이었다고 믿는다.</div>
+  </div>
+
+  <!-- Shift 3 -->
+  <div class="shift-block government">
+    <div class="shift-block-label">Shifts Arising from Changes in Government Purchases · 정부 구매 변화로 인한 이동</div>
+    <div class="en">The most direct way that policymakers shift the aggregate-demand curve is through government purchases. For example, suppose Congress decides to reduce purchases of new weapons systems. Because the quantity of goods and services demanded at any price level is lower, the aggregate-demand curve shifts to the left. Conversely, if state governments start building more highways, the result is a greater quantity of goods and services demanded at any price level, so the aggregate-demand curve shifts to the right.</div>
+    <div class="ko">정책 입안자들이 총수요 곡선을 이동시키는 가장 직접적인 방법은 정부 구매(government purchases)를 통해서이다. 예를 들어, 의회가 새 무기 체계 구매를 줄이기로 결정했다고 가정하자. 모든 물가 수준에서 수요되는 재화와 서비스의 수량이 낮아지므로, 총수요 곡선은 왼쪽으로 이동한다. 반대로, 주정부들이 더 많은 고속도로를 건설하기 시작하면, 모든 물가 수준에서 더 많은 수요량이 나타나 총수요 곡선은 오른쪽으로 이동한다.</div>
+  </div>
+
+  <!-- Shift 4 -->
+  <div class="shift-block netexports">
+    <div class="shift-block-label">Shifts Arising from Changes in Net Exports · 순수출 변화로 인한 이동</div>
+    <div class="en">Any event that changes net exports for a given price level also shifts aggregate demand. For instance, when Europe experiences a recession, it buys fewer goods from the United States. This reduces U.S. net exports at every price level and shifts the aggregate-demand curve for the U.S. economy to the left. When Europe recovers from its recession, it starts buying U.S. goods again and the aggregate-demand curve shifts to the right.<br><br>
+    Net exports can also change because international speculators cause movements in the exchange rate. Suppose, for instance, that these speculators lose confidence in foreign economies and want to move some of their wealth into the U.S. economy. In doing so, they bid up the value of the U.S. dollar in the foreign exchange market. This appreciation of the dollar makes U.S. goods more expensive compared to foreign goods, which depresses net exports and shifts the aggregate-demand curve to the left. Conversely, speculation that causes a depreciation of the dollar stimulates net exports and shifts the aggregate-demand curve to the right.</div>
+    <div class="ko">주어진 물가 수준에서 순수출(net exports)을 변화시키는 모든 사건도 총수요를 이동시킨다. 예를 들어, 유럽이 경기침체를 겪으면 미국으로부터의 구입을 줄인다. 이는 모든 물가 수준에서 미국의 순수출을 감소시키고 미국 경제의 총수요 곡선을 왼쪽으로 이동시킨다. 유럽이 경기침체에서 회복되면, 다시 미국 재화를 구입하기 시작하여 총수요 곡선이 오른쪽으로 이동한다.<br><br>
+    국제 투기꾼들이 환율 변동을 유발함으로써 순수출이 변할 수도 있다. 예를 들어, 이 투기꾼들이 외국 경제에 대한 신뢰를 잃고 자산 일부를 미국 경제로 이전하려 한다고 가정하자. 그렇게 함으로써 외환 시장에서 미국 달러의 가치를 올린다. 달러의 이러한 평가절상(appreciation)은 미국 재화를 외국 재화에 비해 더 비싸게 만들고, 이는 순수출을 억제하여 총수요 곡선을 왼쪽으로 이동시킨다. 반대로 달러의 평가절하(depreciation)를 유발하는 투기는 순수출을 자극하고 총수요 곡선을 오른쪽으로 이동시킨다.</div>
+  </div>
+
+  <!-- Summing Up 33-3b -->
+  <div class="para-block" style="margin-top:20px;">
+    <div class="para-en"><strong>Summing Up</strong>&nbsp;&nbsp;In the next chapter, we analyze the aggregate-demand curve in more detail. There we examine more precisely how the tools of monetary and fiscal policy can shift aggregate demand and whether policymakers should use these tools for that purpose. At this point, however, you should have some idea about why the aggregate-demand curve slopes downward and what kinds of events and policies can shift this curve. Table 1 summarizes what we have learned so far.</div>
+    <div class="para-ko"><strong>요약</strong>&nbsp;&nbsp;다음 장에서 우리는 총수요 곡선을 더 자세히 분석한다. 거기서 통화 정책과 재정 정책의 도구들이 어떻게 총수요를 이동시킬 수 있는지, 그리고 정책 입안자들이 이러한 목적을 위해 이 도구들을 사용해야 하는지를 더 정확하게 검토한다. 그러나 지금 이 시점에서, 왜 총수요 곡선이 우하향하는지, 그리고 어떤 종류의 사건과 정책이 이 곡선을 이동시킬 수 있는지에 대한 개념을 가져야 한다. 표 1은 지금까지 배운 것을 요약한다.</div>
+  </div>
+
+  <!-- Shift Summary Cards -->
+  <div style="margin:20px 0 8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;">AD 곡선 이동 방향 요약</div>
+  <div class="shift-cards">
+    <div class="shift-card right">
+      <h5>→ 우측 이동 (AD 증가)</h5>
+      <ul>
+        <li>소비 증가 (감세, 주가 상승)</li>
+        <li>투자 증가 (낙관, 투자 세액 공제, 통화량↑)</li>
+        <li>정부 지출 증가 (국방·인프라)</li>
+        <li>순수출 증가 (교역국 호황, 달러 약세)</li>
+      </ul>
+    </div>
+    <div class="shift-card left">
+      <h5>← 좌측 이동 (AD 감소)</h5>
+      <ul>
+        <li>소비 감소 (증세, 저축 증가)</li>
+        <li>투자 감소 (비관, 세액 공제 폐지, 통화량↓)</li>
+        <li>정부 지출 감소 (재정 긴축)</li>
+        <li>순수출 감소 (교역국 침체, 달러 강세)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ TABLE 1 ══ -->
+  <div class="table-wrap">
+    <div class="table-tag">Table 1</div>
+    <div class="table-title">The Aggregate-Demand Curve: Summary &nbsp;/&nbsp; 총수요 곡선 요약</div>
+
+    <div class="table-section">Why Does the Aggregate-Demand Curve Slope Downward?</div>
+    <div class="table-section ko">왜 총수요 곡선은 우하향하는가?</div>
+    <ol class="table-ol">
+      <li><em>The Wealth Effect:</em> A lower price level increases real wealth, which stimulates spending on consumption.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">부의 효과: 물가 수준 하락 → 실질 부 증가 → 소비 지출 자극</span></li>
+      <li><em>The Interest-Rate Effect:</em> A lower price level reduces the interest rate, which stimulates spending on investment.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">이자율 효과: 물가 수준 하락 → 이자율 하락 → 투자 지출 자극</span></li>
+      <li><em>The Exchange-Rate Effect:</em> A lower price level causes the real exchange rate to depreciate, which stimulates spending on net exports.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">환율 효과: 물가 수준 하락 → 실질 환율 절하 → 순수출 자극</span></li>
+    </ol>
+
+    <div class="table-section" style="margin-top:20px;">Why Might the Aggregate-Demand Curve Shift?</div>
+    <div class="table-section ko">왜 총수요 곡선이 이동할 수 있는가?</div>
+    <ol class="table-ol">
+      <li><em>Shifts Arising from Changes in Consumption:</em> An event that causes consumers to spend more at a given price level (a tax cut, a stock market boom) shifts the aggregate-demand curve to the right. An event that causes consumers to spend less at a given price level (a tax hike, a stock market decline) shifts the aggregate-demand curve to the left.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">소비 변화: 감세·주가 상승 → 우측 이동 / 증세·주가 하락 → 좌측 이동</span></li>
+      <li><em>Shifts Arising from Changes in Investment:</em> An event that causes firms to invest more at a given price level (optimism about the future, a fall in interest rates due to an increase in the money supply) shifts the aggregate-demand curve to the right. An event that causes firms to invest less at a given price level (pessimism about the future, a rise in interest rates due to a decrease in the money supply) shifts the aggregate-demand curve to the left.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">투자 변화: 낙관·금리하락(통화량↑) → 우측 / 비관·금리상승(통화량↓) → 좌측</span></li>
+      <li><em>Shifts Arising from Changes in Government Purchases:</em> An increase in government purchases of goods and services (greater spending on defense or highway construction) shifts the aggregate-demand curve to the right. A decrease in government purchases on goods and services (a cutback in defense or highway spending) shifts the aggregate-demand curve to the left.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">정부 구매 변화: 지출 증가 → 우측 / 지출 삭감 → 좌측</span></li>
+      <li><em>Shifts Arising from Changes in Net Exports:</em> An event that raises spending on net exports at a given price level (a boom overseas, speculation that causes an exchange-rate depreciation) shifts the aggregate-demand curve to the right. An event that reduces spending on net exports at a given price level (a recession overseas, speculation that causes an exchange-rate appreciation) shifts the aggregate-demand curve to the left.<br><span style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--muted);">순수출 변화: 해외 호황·달러 약세 → 우측 / 해외 침체·달러 강세 → 좌측</span></li>
+    </ol>
+  </div>
+
+  <!-- Glossary -->
+  <div class="glossary-rail">
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <div class="term-name">Wealth Effect <span>부의 효과</span></div>
+        <div class="term-def-en">fall in price level → rise in real wealth → more consumption</div>
+        <div class="term-def-ko">물가 하락 → 보유 화폐 실질 가치 상승 → 소비 증가</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Interest-Rate Effect <span>이자율 효과</span></div>
+        <div class="term-def-en">fall in price level → fall in interest rate → more investment</div>
+        <div class="term-def-ko">물가 하락 → 화폐 수요 감소 → 이자율 하락 → 투자 증가</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Exchange-Rate Effect <span>환율 효과</span></div>
+        <div class="term-def-en">fall in price level → dollar depreciates → net exports rise</div>
+        <div class="term-def-ko">물가 하락 → 이자율 하락 → 달러 약세 → 순수출 증가</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Real Exchange Rate <span>실질 환율</span></div>
+        <div class="term-def-en">relative price of domestic and foreign goods</div>
+        <div class="term-def-ko">국내 재화와 외국 재화의 상대 가격</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Net Exports <span>순수출</span></div>
+        <div class="term-def-en">exports minus imports; a component of aggregate demand (Y)</div>
+        <div class="term-def-ko">수출 − 수입; GDP의 구성 요소 중 하나</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Investment Tax Credit <span>투자 세액 공제</span></div>
+        <div class="term-def-en">a tax rebate tied to a firm's investment spending; shifts AD right</div>
+        <div class="term-def-ko">기업 투자 지출에 연동된 세금 환급 → 총수요 곡선 우측 이동</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Depreciation <span>평가절하</span></div>
+        <div class="term-def-en">fall in the value of a currency relative to other currencies</div>
+        <div class="term-def-ko">자국 통화 가치가 외국 통화 대비 하락하는 것 → 수출 증가</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Appreciation <span>평가절상</span></div>
+        <div class="term-def-en">rise in the value of a currency relative to other currencies</div>
+        <div class="term-def-ko">자국 통화 가치가 외국 통화 대비 상승하는 것 → 수출 감소</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Quiz -->
+  <div class="quick-quiz">
+    <div class="quiz-badge">Quick Quiz</div>
+    <div class="quiz-text">
+      Explain the three reasons the aggregate-demand curve slopes downward. · Give an example of an event that would shift the aggregate-demand curve. In which direction would this event shift the curve?
+      <span class="ko">총수요 곡선이 우하향하는 세 가지 이유를 설명하라. · 총수요 곡선을 이동시킬 사건의 예를 들어라. 그 사건은 곡선을 어느 방향으로 이동시키는가?</span>
+    </div>
+  </div>
+
+  <!-- Model Answer -->
+  <div class="answer-toggle-wrap">
+    <button class="answer-toggle-btn" onclick="toggleAnswer()" id="answerBtn">
+      <span class="btn-icon">▶</span>
+      <span class="btn-label">예시 답안 보기</span>
+      <span class="btn-label-en">Show Model Answer</span>
+    </button>
+  </div>
+
+  <div class="model-answer" id="modelAnswer">
+    <div class="answer-header">
+      <div class="answer-badge">Model Answer</div>
+      <div class="answer-title">
+        <strong>예시 답안</strong>
+        <span>33-3 Quick Quiz — AD Curve: Slope &amp; Shifts</span>
+      </div>
+    </div>
+
+    <div class="answer-fact">
+      <div class="answer-fact-num red">Q1</div>
+      <div class="answer-fact-body">
+        <h4>Three Reasons the AD Curve Slopes Downward
+          <span class="ko-h4">총수요 곡선이 우하향하는 세 가지 이유</span>
+        </h4>
+        <div class="answer-en">
+          When the overall price level falls, the quantity of goods and services demanded rises for three distinct but related reasons:<br><br>
+          <strong>① The Wealth Effect:</strong> A fall in the price level raises the real value of money holdings. People feel wealthier and therefore increase consumption spending at every price level.<br><br>
+          <strong>② The Interest-Rate Effect:</strong> A fall in the price level reduces the demand for money. Households lend out excess cash (e.g., buy bonds or deposit in savings accounts), which drives down interest rates. Lower interest rates make borrowing cheaper, encouraging firms to invest in new plants and equipment and households to spend on housing and durables.<br><br>
+          <strong>③ The Exchange-Rate Effect:</strong> A fall in the price level lowers U.S. interest rates, leading some U.S. investors to seek higher returns abroad. The resulting increase in the supply of dollars in foreign exchange markets causes the dollar to depreciate. A weaker dollar makes U.S. exports cheaper and imports more expensive, raising net exports and thus total spending.
+        </div>
+        <div class="answer-ko">
+          물가 수준이 하락하면 다음 세 가지 이유로 수요량이 증가한다:<br><br>
+          <strong>① 부의 효과(Wealth Effect):</strong> 물가 하락 → 보유 화폐의 실질 가치 상승 → 소비자가 부유해짐 → 소비 지출 증가<br><br>
+          <strong>② 이자율 효과(Interest-Rate Effect):</strong> 물가 하락 → 화폐 수요 감소 → 남은 화폐를 채권·저축으로 전환 → 이자율 하락 → 차입 비용 감소 → 기업 투자·주택 구입 증가<br><br>
+          <strong>③ 환율 효과(Exchange-Rate Effect):</strong> 물가 하락 → 이자율 하락 → 일부 투자자 해외 투자 → 외환 시장 달러 공급 증가 → 달러 평가절하 → 수출 증가·수입 감소 → 순수출 증가 → 총수요 증가
+        </div>
+      </div>
+    </div>
+
+    <div class="answer-fact" style="border-bottom:none;">
+      <div class="answer-fact-num blue">Q2</div>
+      <div class="answer-fact-body">
+        <h4>Example: A Tax Cut Shifts the AD Curve to the Right
+          <span class="ko-h4">예시: 세금 인하 → 총수요 곡선 우측 이동</span>
+        </h4>
+        <div class="answer-en">
+          Suppose the government announces a significant income tax cut. With more disposable income, households increase their consumption spending at every price level. Because the quantity of goods and services demanded rises at every given price level, the aggregate-demand curve shifts to the right.<br><br>
+          <strong>Other rightward-shift examples:</strong> a stock market boom (wealth↑ → consumption↑), an increase in the money supply (interest rate↓ → investment↑), increased government highway spending (direct government purchases↑), or a boom in major trading partners (U.S. exports↑).<br><br>
+          <strong>Leftward-shift examples:</strong> a tax hike, firm pessimism about the future, a decrease in the money supply, a recession in major trading partners, or dollar appreciation caused by international speculators.
+        </div>
+        <div class="answer-ko">
+          정부가 대규모 소득세 인하를 발표했다고 가정하자. 가처분 소득(disposable income)이 증가한 가계는 모든 물가 수준에서 소비 지출을 늘린다. 모든 주어진 물가 수준에서 수요량이 증가하므로, 총수요 곡선은 오른쪽으로 이동한다.<br><br>
+          <strong>우측 이동 추가 사례:</strong> 주가 급등(부↑ → 소비↑), 통화량 증가(이자율↓ → 투자↑), 정부 도로 지출 확대, 주요 교역국 경기 호황(수출↑)<br><br>
+          <strong>좌측 이동 사례:</strong> 증세, 기업들의 비관적 전망, 통화량 감소, 교역국 경기침체, 국제 투기로 인한 달러 평가절상
+        </div>
+      </div>
+    </div>
+
+    <div class="answer-summary">
+      <div style="font-size:20px;flex-shrink:0;">💡</div>
+      <div>
+        <strong>핵심 요약 / Summary</strong><br>
+        AD 곡선의 우하향은 <span class="hl">부의 효과·이자율 효과·환율 효과</span> 세 가지로 설명된다. 물가 수준 변화는 곡선 위의 이동(movement along the curve)이고, 물가 외 요인의 변화는 <span class="hl">곡선 자체의 이동(shift of the curve)</span>을 일으킨다. 곡선 이동의 네 가지 원천은 소비·투자·정부 구매·순수출이다.
+      </div>
+    </div>
+  </div>
+
+  <div style="height:64px;"></div>
+</div>
+
+<script>
+function toggleAnswer() {
+  const ans = document.getElementById('modelAnswer');
+  const btn = document.getElementById('answerBtn');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+</script>
+</body>
+</html>
