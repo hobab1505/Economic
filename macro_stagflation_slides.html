@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 1970s Oil Shocks & the Crisis of Mainstream Economics — Slide Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0c2d48;
+    --navy-deep:#08233a;
+    --teal:#117a76;
+    --teal-br:#1a9e94;
+    --teal-light:#e7f1f1;
+    --card:#eef3f5;
+    --card-br:#dde7eb;
+    --ink:#2b3a44;
+    --red:#d62d20;
+    --blue:#2a7ad0;
+    --purple:#7b3fa0;
+    --paper:#f4f7f8;
+    --serif:'Lora', 'Noto Sans KR', serif;
+    --round:'Quicksand', 'Noto Sans KR', sans-serif;
+    --kr:'Noto Sans KR', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--kr);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- TOP BAR / NAV ---------- */
+  .topnav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,35,58,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:3px solid var(--teal-br);
+    padding:10px 18px;
+  }
+  .topnav .brand{
+    color:#fff;font-family:var(--round);font-weight:700;
+    font-size:13px;letter-spacing:.5px;margin-bottom:7px;display:flex;
+    align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .topnav .brand .pill{
+    background:var(--teal-br);color:#06212f;border-radius:20px;
+    padding:1px 10px;font-size:11px;font-weight:700;
+  }
+  .toc{display:flex;flex-wrap:wrap;gap:6px;}
+  .toc a{
+    color:#cfe6e4;text-decoration:none;font-family:var(--round);
+    font-weight:600;font-size:11.5px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:7px;padding:3px 9px;transition:.15s;
+  }
+  .toc a:hover{background:var(--teal-br);color:#06212f;border-color:var(--teal-br);}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1080px;margin:0 auto;padding:34px 18px 80px;}
+  .deck-head{text-align:center;margin-bottom:40px;}
+  .deck-head .eyebrow{
+    font-family:var(--round);font-weight:700;color:var(--teal);
+    letter-spacing:2px;font-size:13px;text-transform:uppercase;
+  }
+  .deck-head h1{
+    font-family:var(--serif);color:var(--navy);font-weight:700;
+    font-size:clamp(26px,5vw,42px);line-height:1.2;margin:10px 0 8px;
+  }
+  .deck-head p{color:#5a6b75;font-family:var(--round);font-weight:500;font-size:15px;}
+
+  .unit{margin-bottom:46px;}
+
+  /* ---------- SLIDE (mimics PPT) ---------- */
+  .slide{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 10px 34px rgba(12,45,72,.13);
+    position:relative;
+  }
+  .slide .bar{
+    height:9px;
+    background:linear-gradient(90deg,var(--navy-deep) 0%,var(--navy) 40%,var(--teal) 80%,var(--teal-br) 100%);
+  }
+  .slide-body{padding:34px 40px 38px;position:relative;font-family:var(--round);}
+  .slide-num{
+    position:absolute;top:18px;right:26px;
+    font-family:var(--round);font-weight:700;font-size:12px;
+    color:#9fb3bd;letter-spacing:1px;
+  }
+  .s-kicker{font-family:var(--round);font-weight:700;color:var(--teal);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;}
+  .s-title{
+    font-family:var(--serif);font-weight:700;color:var(--navy);
+    font-size:clamp(22px,3.4vw,30px);line-height:1.2;
+    padding-left:16px;border-left:6px solid var(--teal);
+    margin:4px 0 22px;
+  }
+  .slide-body p{font-size:15.5px;color:#33424c;margin-bottom:12px;font-weight:500;}
+  .slide-body .lead{font-size:16px;}
+  .hl-red{color:var(--red);font-weight:700;}
+  .hl-blue{color:var(--blue);font-weight:700;}
+  .hl-teal{color:var(--teal);font-weight:700;}
+  .hl-purple{color:var(--purple);font-weight:700;}
+
+  /* two-column PPT cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+  .cards.three{grid-template-columns:repeat(3,1fr);}
+  .pcard{
+    background:var(--card);border-radius:11px;padding:20px 20px 22px;
+    border-top:3px solid var(--teal);
+  }
+  .pcard.red{border-top-color:var(--red);}
+  .pcard.blue{border-top-color:#5bb8e8;}
+  .pcard .ic{font-size:22px;margin-bottom:8px;}
+  .pcard h4{font-family:var(--serif);color:var(--navy);font-size:19px;font-weight:700;margin-bottom:9px;}
+  .pcard p{font-size:14.5px;margin-bottom:0;}
+  .center-statement{
+    text-align:center;font-family:var(--serif);color:var(--navy);
+    font-size:clamp(22px,4vw,34px);font-weight:700;margin:18px 0;
+  }
+  .center-sub{text-align:center;font-size:16px;color:#33424c;font-weight:500;}
+  .teal-divider{width:64px;height:5px;background:var(--teal);border-radius:3px;margin:14px auto;}
+  .result-line{
+    color:var(--teal);font-weight:700;font-size:17px;margin-top:20px;
+    text-align:center;font-family:var(--round);
+  }
+  .stat-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:6px;}
+  .bignum{font-family:var(--serif);color:var(--teal);font-weight:700;font-size:clamp(54px,11vw,92px);line-height:1;}
+  .bignum small{display:block;font-size:17px;color:var(--navy);font-weight:700;margin-top:4px;font-family:var(--round);}
+  .stat-note{flex:1;min-width:240px;}
+  .listrow{display:flex;gap:11px;margin-bottom:15px;align-items:flex-start;}
+  .listrow .badge{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;
+    background:var(--teal);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-size:13px;font-weight:700;margin-top:2px;
+  }
+  .listrow b{color:var(--navy);}
+
+  /* ---------- NOTES (Korean study panel) ---------- */
+  .notes{
+    background:#fff;border:1px solid var(--card-br);border-radius:14px;
+    margin-top:14px;padding:26px 30px 30px;
+    border-top:5px solid var(--teal);
+    box-shadow:0 4px 18px rgba(12,45,72,.06);
+  }
+  .notes-tag{
+    display:inline-block;font-family:var(--round);font-weight:700;
+    background:var(--navy);color:#fff;font-size:11.5px;letter-spacing:1px;
+    padding:4px 12px;border-radius:20px;margin-bottom:16px;
+  }
+  .box{border-radius:10px;padding:15px 18px;margin-bottom:14px;}
+  .box:last-child{margin-bottom:0;}
+  .box h5{font-size:14.5px;margin-bottom:7px;font-weight:700;display:flex;gap:7px;align-items:center;}
+  .box p, .box li{font-size:14.5px;color:#37454e;}
+  .box .en{font-style:italic;color:#566972;}
+  .box ul{padding-left:2px;list-style:none;}
+  .box ul li{margin-bottom:5px;padding-left:18px;position:relative;}
+  .box ul li::before{content:"·";position:absolute;left:5px;color:var(--teal);font-weight:700;}
+  .b-msg{background:var(--teal-light);border-left:4px solid var(--teal);}
+  .b-msg h5{color:var(--teal);}
+  .b-trans{background:#f6f8f9;border-left:4px solid #9fb3bd;}
+  .b-trans h5{color:#5a6b75;}
+  .b-ex{background:#fdf3ee;border-left:4px solid #e08a5a;}
+  .b-ex h5{color:#c9622e;}
+  .b-tip{background:#fef7e7;border-left:4px solid #e2a93b;}
+  .b-tip h5{color:#b07d12;}
+  .b-link{background:#eef4fb;border-left:4px solid var(--blue);}
+  .b-link h5{color:var(--blue);}
+  .ko-strong{color:var(--navy);font-weight:700;}
+  .formula{
+    background:#08233a;color:#e9f3f2;font-family:var(--round);font-weight:600;
+    border-radius:8px;padding:11px 16px;margin:10px 0;text-align:center;font-size:15px;
+  }
+  .formula b{color:var(--teal-br);}
+
+  /* ---------- SUMMARY ---------- */
+  .summary{
+    background:linear-gradient(160deg,var(--navy-deep),var(--navy));
+    color:#e9f1f2;border-radius:16px;padding:36px 36px 40px;margin-top:50px;
+  }
+  .summary h2{font-family:var(--serif);color:#fff;font-size:26px;margin-bottom:6px;}
+  .summary .sub{color:var(--teal-br);font-family:var(--round);font-weight:600;font-size:13px;letter-spacing:1px;margin-bottom:22px;}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:18px 0 24px;}
+  .flow .step{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:9px;padding:9px 13px;font-size:13.5px;font-family:var(--round);font-weight:600;}
+  .flow .arr{color:var(--teal-br);font-weight:700;font-size:17px;}
+  .summary table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:13.5px;}
+  .summary th,.summary td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.13);vertical-align:top;}
+  .summary th{color:var(--teal-br);font-family:var(--round);font-weight:700;font-size:12.5px;}
+  .summary td b{color:#fff;}
+  .terms{margin-top:24px;}
+  .terms h3{font-family:var(--round);color:var(--teal-br);font-size:14px;letter-spacing:1px;margin-bottom:12px;}
+  .terms ol{padding-left:20px;}
+  .terms li{margin-bottom:7px;font-size:14px;color:#dde9ea;}
+  .terms li b{color:#fff;}
+  .examtip{background:rgba(26,158,148,.14);border:1px solid rgba(26,158,148,.4);border-radius:10px;padding:16px 18px;margin-top:22px;}
+  .examtip h4{font-family:var(--round);color:var(--teal-br);font-size:14px;margin-bottom:7px;}
+  .examtip p{font-size:14px;color:#e3eeef;}
+
+  footer{text-align:center;color:#7e909a;font-family:var(--round);font-size:12.5px;margin-top:44px;line-height:1.9;}
+
+  @media(max-width:720px){
+    .slide-body{padding:26px 20px 30px;}
+    .notes{padding:22px 18px 26px;}
+    .cards,.cards.three{grid-template-columns:1fr;}
+    .summary{padding:26px 20px 30px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<div class="topnav">
+  <div class="brand">📑 AP Macroeconomics · SGHS 2026 <span class="pill">17th · Stagflation</span></div>
+  <div class="toc">
+    <a href="#s1">① Title</a>
+    <a href="#s2">② Shock to Theory</a>
+    <a href="#s3">③ Old Confidence</a>
+    <a href="#s4">④ Phillips Curve</a>
+    <a href="#s5">⑤ Expectations</a>
+    <a href="#s6">⑥ Blow to AS</a>
+    <a href="#s7">⑦ Oil Shocks</a>
+    <a href="#s8">⑧ Stagflation</a>
+    <a href="#s9">⑨ Paralysis</a>
+    <a href="#s10">⑩ Volcker</a>
+    <a href="#s11">⑪ Severe Cost</a>
+    <a href="#s12">⑫ Plaza Accord</a>
+    <a href="#summary">★ 정리</a>
+  </div>
+</div>
+
+<main>
+  <div class="deck-head">
+    <div class="eyebrow">A Macroeconomics Reading</div>
+    <h1>The 1970s Oil Shocks &amp; the Crisis of Mainstream Economics</h1>
+    <p>The Paradox of Stagflation · 스태그플레이션의 역설 — 슬라이드 12장 + 한글 학습 정리</p>
+  </div>
+
+  <!-- ===================== SLIDE 1 ===================== -->
+  <section class="unit" id="s1">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">01 / 12</div>
+        <div class="s-kicker">AP Macroeconomics 2026</div>
+        <div class="center-statement" style="margin-top:26px;">The 1970s Oil Shocks<br>and the Crisis of Mainstream Economics</div>
+        <div class="center-sub hl-teal" style="font-family:var(--serif);font-size:22px;">The Paradox of Stagflation</div>
+        <div class="teal-divider"></div>
+        <p style="text-align:center;color:#7e909a;font-size:13.5px;">Seoul Global High School · 17th</p>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 01 · 표지 해설</span>
+      <div class="box b-msg">
+        <h5>📌 핵심 메시지</h5>
+        <p>1970년대 <span class="ko-strong">두 차례의 오일쇼크</span>는 당시 주류 경제학(케인스주의)에 큰 위기를 안겼습니다. 핵심 질문은 <span class="ko-strong">"인플레이션과 실업이 어떻게 동시에 발생할 수 있는가?"</span>입니다. 기존 이론은 둘이 반대로 움직인다고 봤기에 이 현상 — 즉 <span class="ko-strong">스태그플레이션(stagflation = stagnation + inflation)</span> — 을 설명하지 못했습니다.</p>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 학습 로드맵</h5>
+        <p>이 자료는 "<span class="ko-strong">왜 옛 이론이 무너졌고, 무엇이 그 자리를 대신했는가</span>"의 흐름으로 읽으면 됩니다. ① 케인스적 자신감 → ② 필립스 곡선 트레이드오프 → ③ 기대(expectations)의 경고 → ④ 공급충격(AS shock) → ⑤ 정책 마비 → ⑥ 볼커의 통화주의 전환 → ⑦ 신뢰성·기대 중심의 현대 통화정책. AP에서는 특히 <span class="ko-strong">SRAS 충격, SRPC vs LRPC, 볼커 디스인플레이션</span>이 단골 출제됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 2 ===================== -->
+  <section class="unit" id="s2">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">02 / 12</div>
+        <div class="s-title">The Shock to Economic Theory</div>
+        <p class="lead">The two oil crises of the 1970s delivered an enormous shock to the mainstream economics of the era.</p>
+        <p>Economists encountered a painful limit: <span class="hl-red">standard theories could not readily explain the phenomena triggered by the oil shocks.</span></p>
+        <p><b>Key Insight:</b> This crisis laid the groundwork for a massive shift in macroeconomic policy and understanding.</p>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 02 · 경제 이론에 가해진 충격</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p class="en">"1970년대 두 차례의 오일위기는 당시 주류 경제학에 엄청난 충격을 주었다. 경제학자들은 고통스러운 한계에 직면했다 — <span class="ko-strong">표준 이론으로는 오일쇼크가 촉발한 현상을 쉽게 설명할 수 없었다.</span> 핵심 통찰: 이 위기는 거시경제 정책과 이해의 대대적 전환의 토대를 놓았다."</p>
+      </div>
+      <div class="box b-msg">
+        <h5>🔍 왜 설명하지 못했을까?</h5>
+        <p>당시 주류였던 케인스 모델은 <span class="ko-strong">총수요(AD) 관리</span>에 초점을 맞췄습니다. 모델상 인플레이션이 오르면 실업은 내려가야 했죠(필립스 곡선). 그런데 오일쇼크 후 <span class="ko-strong">인플레이션과 실업이 함께 치솟았습니다.</span> 이것은 기존 이론으로는 "있을 수 없는 일"이었기에, 경제학 자체의 위기로 번진 것입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 3 ===================== -->
+  <section class="unit" id="s3">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">03 / 12</div>
+        <div class="s-title">Confidence of Traditional Economics</div>
+        <div class="cards">
+          <div class="pcard">
+            <div class="ic">🏛️</div>
+            <h4>Keynesian Dominance</h4>
+            <p>Focused mainly on <span class="hl-red">managing Aggregate Demand (AD)</span> to steer the economy toward stability.</p>
+          </div>
+          <div class="pcard">
+            <div class="ic">📈</div>
+            <h4>Policy Levers</h4>
+            <p><span class="hl-blue">Expanding demand to fight unemployment, or contracting it to fight inflation</span> was the standard toolkit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 03 · 전통 경제학의 자신감</span>
+      <div class="box b-trans">
+        <h5>📝 두 카드 번역</h5>
+        <ul>
+          <li><span class="ko-strong">케인스주의의 지배</span> — 경제를 안정으로 이끌기 위해 주로 <span class="ko-strong">총수요(AD) 관리</span>에 집중했다.</li>
+          <li><span class="ko-strong">정책 지렛대</span> — 실업과 싸우려면 수요 확대, 인플레와 싸우려면 수요 축소가 표준 도구함이었다.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🎯 핵심 개념 — "AD만 잘 조절하면 된다"</h5>
+        <p>이 시기 경제학자들의 자신감은 <span class="ko-strong">AD-AS 모형에서 AD 곡선을 좌우로 미는 것</span>만으로 경제를 미세조정할 수 있다는 믿음이었습니다. 경기 침체면 재정·통화 확대로 AD를 오른쪽으로, 과열이면 긴축으로 왼쪽으로 — 마치 온도조절기처럼요. 문제는 이 도구가 <span class="ko-strong">수요 측 충격</span>에만 통한다는 점이었습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 4 ===================== -->
+  <section class="unit" id="s4">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">04 / 12</div>
+        <div class="s-title">The Phillips Curve "Trade-off"</div>
+        <div class="cards">
+          <div class="pcard">
+            <h4>Inverse Relationship</h4>
+            <p>Prices and unemployment were believed to move in opposite directions. <span class="hl-red">High inflation meant low unemployment.</span></p>
+          </div>
+          <div class="pcard">
+            <h4>Policymaker's Choice</h4>
+            <p>Officials believed they simply had to choose which problem to tackle and adjust aggregate demand accordingly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 04 · 필립스 곡선의 "트레이드오프"</span>
+      <div class="box b-trans">
+        <h5>📝 두 카드 번역</h5>
+        <ul>
+          <li><span class="ko-strong">역(逆)의 관계</span> — 물가와 실업은 반대 방향으로 움직인다고 믿었다. <span class="ko-strong">높은 인플레이션 = 낮은 실업.</span></li>
+          <li><span class="ko-strong">정책결정자의 선택</span> — 관료들은 어느 문제를 다룰지 고른 뒤 총수요를 그에 맞게 조정하기만 하면 된다고 믿었다.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>📉 단기 필립스 곡선 (SRPC)</h5>
+        <p>이것이 바로 우하향하는 <span class="ko-strong">단기 필립스 곡선</span>입니다. 인플레와 실업 사이에 안정적인 메뉴판이 있어서, 정책결정자가 "인플레 2%·실업 6%" 또는 "인플레 5%·실업 4%" 같은 조합을 골라잡을 수 있다고 본 것이죠.</p>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 짚고 가기</h5>
+        <p>이 "선택 가능한 트레이드오프"라는 믿음이 다음 슬라이드에서 무너집니다. 핵심은 <span class="ko-strong">이 관계가 영원하지 않다</span>는 점이에요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 5 ===================== -->
+  <section class="unit" id="s5">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">05 / 12</div>
+        <div class="s-title">The Warning: Inflation Expectations</div>
+        <div class="listrow"><span class="badge">!</span><p><b>Early Warnings:</b> Some economists noted that the Phillips Curve trade-off might <span class="hl-blue">only hold in the short run.</span></p></div>
+        <div class="listrow"><span class="badge">↻</span><p><b>Adjustment:</b> Workers and firms eventually <span class="hl-blue">adjust their expectations of inflation, neutralizing the trade-off.</span></p></div>
+        <div class="listrow"><span class="badge">⏱</span><p><b>Long-Run Distinction:</b> This led to the vital distinction between Short-Run and Long-Run Phillips Curves.</p></div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 05 · 경고: 인플레이션 기대</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <ul>
+          <li><span class="ko-strong">초기 경고</span> — 일부 경제학자는 필립스 곡선 트레이드오프가 <span class="ko-strong">단기에만 성립할 수 있다</span>고 지적했다.</li>
+          <li><span class="ko-strong">조정</span> — 노동자와 기업은 결국 <span class="ko-strong">인플레이션 기대를 조정</span>하여 트레이드오프를 무력화한다.</li>
+          <li><span class="ko-strong">장기 구분</span> — 이는 단기 필립스 곡선과 장기 필립스 곡선이라는 중요한 구분으로 이어졌다.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🧠 기대-보강 필립스 곡선 (Expectations-Augmented PC)</h5>
+        <p>프리드먼(Friedman)과 펠프스(Phelps)가 던진 경고입니다. 노동자가 "올해도 물가가 5% 오르겠지"라고 <span class="ko-strong">기대</span>하면, 임금 인상을 그만큼 요구합니다. 그 결과 인플레로 실업을 낮추는 효과는 <span class="ko-strong">기대가 따라잡는 순간 사라집니다.</span></p>
+        <div class="formula">단기에는 인플레↑ → 실업↓ &nbsp;|&nbsp; 장기에는 <b>실업 = 자연실업률</b>로 복귀</div>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 SRPC vs LRPC (시험 핵심)</h5>
+        <p><span class="ko-strong">단기 필립스 곡선(SRPC)</span>은 우하향. <span class="ko-strong">장기 필립스 곡선(LRPC)</span>은 <span class="ko-strong">자연실업률에서 수직</span>. 즉 장기적으로는 인플레를 아무리 높여도 실업은 줄지 않습니다 — 통화의 장기 중립성(money neutrality)과 연결됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 6 ===================== -->
+  <section class="unit" id="s6">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">06 / 12</div>
+        <div class="s-title">Blow to Aggregate Supply</div>
+        <p class="lead">Inflationary pressure was already rising in the U.S. due to several factors:</p>
+        <div class="cards three">
+          <div class="pcard"><div class="ic">💵</div><p>Years of <b>expansionary fiscal policy.</b></p></div>
+          <div class="pcard"><div class="ic">🔁</div><p>Collapse of the <b>Bretton Woods system.</b></p></div>
+          <div class="pcard"><div class="ic">🏷️</div><p>Lifting of earlier <b>wage-and-price controls.</b></p></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 06 · 총공급에 가해진 타격 (전제 조건)</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p>미국에서는 여러 요인으로 인플레이션 압력이 <span class="ko-strong">이미</span> 상승하고 있었다: ① 수년간의 <span class="ko-strong">확장적 재정정책</span>, ② <span class="ko-strong">브레튼우즈 체제의 붕괴</span>, ③ 이전의 <span class="ko-strong">임금·가격 통제 해제</span>.</p>
+      </div>
+      <div class="box b-msg">
+        <h5>🔍 오일쇼크 "이전"에 이미 깔린 인플레</h5>
+        <ul>
+          <li><span class="ko-strong">확장적 재정정책</span> — 베트남 전쟁비 + 복지지출로 AD가 계속 우측 이동 → 수요견인(demand-pull) 인플레.</li>
+          <li><span class="ko-strong">브레튼우즈 붕괴(1971 닉슨 쇼크)</span> — 달러의 금 태환 정지 → 달러 약세 → 수입물가 상승.</li>
+          <li><span class="ko-strong">가격통제 해제</span> — 인위적으로 눌러뒀던 물가가 통제 해제와 함께 한꺼번에 튀어오름.</li>
+        </ul>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 왜 이 슬라이드가 중요한가</h5>
+        <p>스태그플레이션은 <span class="ko-strong">"이미 달궈진 솥(누적된 인플레) + 공급충격(오일쇼크)"</span>의 합작품이었습니다. 오일쇼크만의 문제가 아니라는 점이 AP 서술형에서 좋은 포인트입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 7 ===================== -->
+  <section class="unit" id="s7">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">07 / 12</div>
+        <div class="s-title">The Supply Shocks of the 1970s</div>
+        <div class="cards">
+          <div class="pcard">
+            <h4>First Oil Shock (1973)</h4>
+            <p>Arab members of OPEC imposed an oil embargo in response to the Yom Kippur War.</p>
+          </div>
+          <div class="pcard">
+            <h4>Second Oil Shock (1979)</h4>
+            <p>Supply disruptions following the Iranian Revolution and subsequent regional turmoil.</p>
+          </div>
+        </div>
+        <div class="result-line">Result: Crude oil prices rose sharply, creating a powerful Aggregate Supply (AS) shock.</div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 07 · 1970년대의 공급충격</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <ul>
+          <li><span class="ko-strong">1차 오일쇼크(1973)</span> — 욤키푸르 전쟁에 대응해 OPEC의 아랍 회원국들이 석유 금수조치(embargo)를 단행.</li>
+          <li><span class="ko-strong">2차 오일쇼크(1979)</span> — 이란 혁명과 이후 지역 혼란으로 공급에 차질 발생.</li>
+          <li><span class="ko-strong">결과</span> — 원유 가격이 급등하여 강력한 <span class="ko-strong">총공급(AS) 충격</span>을 일으킴.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🛢️ 비용인상 인플레이션 (Cost-Push Inflation)</h5>
+        <p>원유는 거의 모든 산업의 생산 투입요소입니다. 유가 급등 → 생산비 전반 상승 → 기업의 공급 능력 위축. AD-AS 모형에서 이것은 <span class="ko-strong">SRAS 곡선의 좌측 이동</span>으로 나타납니다. 이것이 다음 슬라이드 "스태그플레이션"의 직접 원인입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 8 ===================== -->
+  <section class="unit" id="s8">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">08 / 12</div>
+        <div class="center-statement" style="margin-top:18px;">The Paradox of Stagflation</div>
+        <div class="teal-divider"></div>
+        <p class="center-sub">Rising production costs shifted the <b>SRAS curve left</b>, causing two disasters simultaneously.</p>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 08 · 스태그플레이션의 역설</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p class="en">"생산비 상승이 <span class="ko-strong">SRAS 곡선을 왼쪽으로 이동</span>시켜 두 가지 재앙을 동시에 일으켰다."</p>
+      </div>
+      <div class="box b-msg">
+        <h5>📊 SRAS 좌측 이동 = 두 재앙 동시 발생</h5>
+        <p>SRAS가 왼쪽으로 가면 새 균형점에서 <span class="ko-strong">물가는 더 높아지고(인플레이션) 실질산출은 줄어듭니다(경기침체·실업↑)</span>. 수요충격과 달리 공급충격은 물가와 산출을 <span class="ko-strong">반대가 아니라 "나쁜 쪽으로 함께"</span> 움직이게 합니다.</p>
+        <div class="formula">SRAS ← &nbsp;⇒&nbsp; <b>물가↑ (Inflation)</b> &nbsp;+&nbsp; <b>산출↓ / 실업↑ (Stagnation)</b></div>
+      </div>
+      <div class="box b-link">
+        <h5>🔗 필립스 곡선과의 연결</h5>
+        <p>이것이 바로 슬라이드 4의 "트레이드오프"가 깨진 순간입니다. 공급충격은 <span class="ko-strong">단기 필립스 곡선 자체를 오른쪽 위로(바깥쪽으로) 이동</span>시켜, 모든 인플레-실업 조합을 더 나쁘게 만듭니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 9 ===================== -->
+  <section class="unit" id="s9">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">09 / 12</div>
+        <div class="s-title">The Policy Paralysis</div>
+        <p class="lead" style="font-style:italic;">Traditional tools were paralyzed as inflation and unemployment rose together:</p>
+        <div class="cards">
+          <div class="pcard red">
+            <h4>Expansionary Risk</h4>
+            <p>Injecting money to fight unemployment would risk <span class="hl-red">pushing already-runaway inflation even higher.</span></p>
+          </div>
+          <div class="pcard blue">
+            <h4>Contractionary Risk</h4>
+            <p>Tightening money to fight inflation would risk <span class="hl-blue">crushing a weak economy and increasing unemployment.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 09 · 정책의 마비</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p>인플레이션과 실업이 함께 오르자 전통적 도구는 마비되었다.</p>
+        <ul>
+          <li><span class="ko-strong">확장의 위험</span> — 실업과 싸우려 돈을 풀면, 이미 폭주하는 인플레가 더 높아질 위험.</li>
+          <li><span class="ko-strong">긴축의 위험</span> — 인플레와 싸우려 돈을 조이면, 약한 경제를 짓눌러 실업이 더 늘어날 위험.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>⚖️ AD 도구의 근본 한계</h5>
+        <p>AD 정책은 <span class="ko-strong">"인플레 vs 실업" 중 하나만 고를 수 있는</span> 도구입니다. 그런데 공급충격은 둘을 동시에 악화시켰기에, AD를 어느 쪽으로 밀든 <span class="ko-strong">다른 한쪽이 반드시 나빠지는</span> 진퇴양난(deadlock)이 발생했습니다. 이것이 케인스적 미세조정의 한계를 드러낸 순간입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 10 ===================== -->
+  <section class="unit" id="s10">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">10 / 12</div>
+        <div class="s-title">A Shift in Policy Paradigm</div>
+        <p><b>The 1979 Decision:</b> Chairman Volcker chose to treat <b>inflation</b> as the most urgent problem.</p>
+        <div class="pcard" style="margin-top:6px;">
+          <p>The Fed shifted its target toward <span class="hl-red">controlling the money supply directly</span> — an approach from <span class="hl-red">Monetarism.</span></p>
+          <p style="margin-top:10px;"><b>Result:</b> Federal funds rate driven up to <b>19–20%</b> in the early 1980s.</p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 10 · 정책 패러다임의 전환</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p><span class="ko-strong">1979년의 결정</span> — 볼커(Volcker) 연준 의장은 인플레이션을 가장 시급한 문제로 다루기로 결정했다. 연준은 <span class="ko-strong">통화량을 직접 통제</span>하는 쪽으로 목표를 전환했는데, 이는 <span class="ko-strong">통화주의(Monetarism)</span>의 접근법이었다. 그 결과 1980년대 초 연방기금금리가 <span class="ko-strong">19~20%</span>까지 치솟았다.</p>
+      </div>
+      <div class="box b-msg">
+        <h5>🏦 케인스주의 → 통화주의 (Monetarism)</h5>
+        <p>볼커는 "둘 다 잡으려다 둘 다 놓치는" 대신 <span class="ko-strong">인플레부터 확실히 깨는</span> 길을 택했습니다. 통화주의의 핵심 명제는 <span class="ko-strong">"인플레는 언제나 화폐적 현상"</span>(프리드먼)이라는 것. 그래서 금리(가격)가 아니라 <span class="ko-strong">통화량(수량)</span>을 직접 조였습니다. 의도적으로 경기침체를 감수하면서 <span class="ko-strong">인플레 기대 자체를 꺾으려</span> 한 것입니다.</p>
+      </div>
+      <div class="box b-ex">
+        <h5>🗂 실제 맥락 — 볼커 디스인플레이션</h5>
+        <p>20%에 가까운 금리는 차입·투자·소비를 급격히 위축시켰습니다. 단기적으로는 극심한 고통이었지만, 이것이 다음 슬라이드의 "심각한 대가를 치른 승리"로 이어집니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 11 ===================== -->
+  <section class="unit" id="s11">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">11 / 12</div>
+        <div class="s-title">Victory at a Severe Cost</div>
+        <div class="stat-row">
+          <div class="bignum">10.8%<small>Unemployment Peak (1982)</small></div>
+          <div class="stat-note pcard">
+            <h4>The Turning Point</h4>
+            <p>Unemployment reached its highest level since the Great Depression.</p>
+            <p style="margin-top:8px;"><span class="hl-red">Inflation was finally broken,</span> and central banks reshaped their focus toward <span class="hl-red">credibility</span> and <span class="hl-red">inflation expectations.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 11 · 심각한 대가를 치른 승리</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p><span class="ko-strong">전환점</span> — 실업률이 1982년 <span class="ko-strong">10.8%</span>로 대공황 이후 최고 수준에 도달했다. 그러나 <span class="ko-strong">인플레이션은 마침내 꺾였고</span>, 중앙은행들은 초점을 <span class="ko-strong">신뢰성(credibility)과 인플레이션 기대</span>로 재편했다.</p>
+      </div>
+      <div class="box b-msg">
+        <h5>💸 디스인플레이션의 비용 (Sacrifice Ratio)</h5>
+        <p>인플레를 낮추려면 <span class="ko-strong">실업·산출 손실</span>이라는 대가를 치러야 합니다. 이를 희생률(sacrifice ratio)이라 부르며, 1982년의 10.8% 실업이 바로 그 청구서였습니다. 그래도 이후 <span class="ko-strong">"대안정기(Great Moderation)"</span>의 토대가 되었습니다.</p>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 현대 통화정책의 출발점</h5>
+        <p>이 사건 이후 중앙은행의 핵심 임무는 <span class="ko-strong">기대 관리</span>가 되었습니다. "중앙은행이 인플레를 반드시 잡는다"는 <span class="ko-strong">신뢰성</span>이 있으면, 사람들의 기대가 안정되어 더 적은 고통으로 물가를 잡을 수 있습니다 — 슬라이드 5의 "기대"가 정책 핵심으로 승격된 셈입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 12 ===================== -->
+  <section class="unit" id="s12">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">12 / 12</div>
+        <div class="s-title">From Tight Money to Plaza Accord</div>
+        <p>High U.S. interest rates attracted global capital, creating the era of the <span class="hl-purple">"King Dollar."</span></p>
+        <div class="pcard" style="margin-top:6px;">
+          <p>Along with large tax cuts and increased defense spending, this contributed to a dramatic <span class="hl-red">overvaluation of the dollar.</span></p>
+          <p style="margin-top:10px;" class="hl-teal"><b>Paving the way for the Plaza Accord of 1985.</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 12 · 긴축 통화에서 플라자 합의로</span>
+      <div class="box b-trans">
+        <h5>📝 본문 번역</h5>
+        <p>높은 미국 금리가 글로벌 자본을 끌어들여 <span class="ko-strong">"킹 달러(King Dollar)"</span>의 시대를 열었다. 대규모 감세 및 국방비 증가와 맞물려 이는 <span class="ko-strong">달러의 극심한 과대평가</span>를 초래했고, <span class="ko-strong">1985년 플라자 합의(Plaza Accord)</span>의 길을 열었다.</p>
+      </div>
+      <div class="box b-msg">
+        <h5>🌐 고금리 → 강달러 → 플라자 합의</h5>
+        <p>고금리는 전 세계 자본을 미국으로 빨아들였고(자본 유입), 달러 수요 급등으로 달러가 초강세가 되었습니다. 강달러는 미국 수출을 약화시키고 <span class="ko-strong">무역적자</span>를 키웠죠. 결국 1985년 G5(미·일·독·영·프)가 모여 <span class="ko-strong">달러를 인위적으로 절하</span>(엔·마르크 절상)하기로 합의한 것이 플라자 합의입니다.</p>
+      </div>
+      <div class="box b-link">
+        <h5>🔗 거시 연결 — "정책 믹스"의 부작용</h5>
+        <p>긴축 통화정책 + 확장 재정정책(감세·국방비)이라는 <span class="ko-strong">상반된 정책 믹스</span>가 금리를 더 끌어올렸고, 이것이 환율·국제수지로 파급된 사례입니다. AP에서 <span class="ko-strong">금리 → 자본이동 → 환율</span> 연결고리로 활용하기 좋습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <section class="summary" id="summary">
+    <h2>큰 그림 정리 — The Big Picture</h2>
+    <div class="sub">옛 패러다임의 붕괴와 새 패러다임의 탄생</div>
+
+    <p style="color:#cfe0e1;font-size:15px;">1970년대 스태그플레이션은 <b style="color:#fff;">"수요 관리만으로 경제를 다스릴 수 있다"</b>는 케인스적 자신감을 무너뜨리고, <b style="color:#fff;">공급 측 충격·기대·신뢰성</b>을 중심에 둔 현대 거시경제학을 탄생시켰습니다.</p>
+
+    <div class="flow">
+      <span class="step">누적 인플레 + 오일쇼크</span><span class="arr">→</span>
+      <span class="step">SRAS 좌측 이동</span><span class="arr">→</span>
+      <span class="step">스태그플레이션</span><span class="arr">→</span>
+      <span class="step">AD 정책 마비</span><span class="arr">→</span>
+      <span class="step">볼커 통화주의 전환</span><span class="arr">→</span>
+      <span class="step">신뢰성·기대 중심 정책</span>
+    </div>
+
+    <table>
+      <thead><tr><th>구분</th><th>수요충격 (Demand Shock)</th><th>공급충격 (Supply Shock · 1970s)</th></tr></thead>
+      <tbody>
+        <tr><td><b>물가 & 산출</b></td><td>같은 방향 (둘 다 ↑ 또는 둘 다 ↓)</td><td>반대 방향 → <b>물가↑ + 산출↓</b></td></tr>
+        <tr><td><b>필립스 곡선</b></td><td>곡선 위를 이동</td><td><b>곡선 자체가 바깥으로 이동</b></td></tr>
+        <tr><td><b>AD 정책 효과</b></td><td>유효 (미세조정 가능)</td><td><b>딜레마 (한쪽은 반드시 악화)</b></td></tr>
+        <tr><td><b>대표 사례</b></td><td>대공황·일반 경기변동</td><td><b>1973·1979 오일쇼크</b></td></tr>
+        <tr><td><b>정책 해법</b></td><td>재정·통화로 AD 조절</td><td><b>인플레 기대 차단 (볼커)</b></td></tr>
+      </tbody>
+    </table>
+
+    <div class="terms">
+      <h3>꼭 외워야 할 10개 핵심 용어</h3>
+      <ol>
+        <li><b>Stagflation</b> · 스태그플레이션 — 경기침체(stagnation) + 인플레이션의 동시 발생</li>
+        <li><b>Supply Shock / SRAS Shift</b> · 공급충격 — SRAS 곡선의 좌측 이동</li>
+        <li><b>Cost-Push Inflation</b> · 비용인상 인플레이션 — 생산비 상승발 물가 상승</li>
+        <li><b>Phillips Curve (SRPC)</b> · 단기 필립스 곡선 — 우하향, 인플레-실업 트레이드오프</li>
+        <li><b>Long-Run Phillips Curve (LRPC)</b> · 장기 필립스 곡선 — 자연실업률에서 수직</li>
+        <li><b>Inflation Expectations</b> · 인플레이션 기대 — 트레이드오프를 무력화하는 핵심 변수</li>
+        <li><b>Natural Rate of Unemployment</b> · 자연실업률 — 장기 균형 실업률</li>
+        <li><b>Monetarism</b> · 통화주의 — 통화량 통제를 중시 (Friedman)</li>
+        <li><b>Volcker Disinflation</b> · 볼커 디스인플레이션 — 고금리(19~20%)로 인플레 진압</li>
+        <li><b>Credibility</b> · 신뢰성 — 현대 중앙은행 정책의 핵심 기둥</li>
+      </ol>
+    </div>
+
+    <div class="examtip">
+      <h4>↳ AP 거시경제학 시험 대비 핵심 포인트</h4>
+      <p>FRQ에서는 ① <b>AD-AS 그래프로 공급충격 그리기</b>(SRAS 좌측 이동 → 물가↑·산출↓), ② <b>SRPC vs LRPC 구분과 기대의 역할</b>, ③ <b>볼커의 긴축이 인플레와 실업에 미친 영향</b>이 단골입니다. "수요충격과 공급충격에서 물가·산출이 어떻게 다르게 움직이는가"를 한 문장으로 설명할 수 있으면 강력한 답안이 됩니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    AP Macroeconomics 2026 · Seoul Global High School · 17th<br>
+    The 1970s Oil Shocks and the Crisis of Mainstream Economics — The Paradox of Stagflation<br>
+    슬라이드 원문 + 한글 학습 정리
+  </footer>
+</main>
+
+</body>
+</html>
