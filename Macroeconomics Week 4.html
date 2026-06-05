@@ -1,0 +1,579 @@
+html_content = """<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics - Unemployment Week 4 (Perfect Guide)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0c2d48;
+    --navy-deep:#08233a;
+    --teal:#117a76;
+    --teal-br:#1a9e94;
+    --teal-light:#e7f1f1;
+    --card:#eef3f5;
+    --card-br:#dde7eb;
+    --ink:#2b3a44;
+    --red:#d62d20;
+    --blue:#2a7ad0;
+    --purple:#7b3fa0;
+    --paper:#f4f7f8;
+    --serif:'Lora', 'Noto Sans KR', serif;
+    --round:'Quicksand', 'Noto Sans KR', sans-serif;
+    --kr:'Noto Sans KR', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--kr);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- TOP BAR / NAV ---------- */
+  .topnav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,35,58,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:3px solid var(--teal-br);
+    padding:10px 18px;
+  }
+  .topnav .brand{
+    color:#fff;font-family:var(--round);font-weight:700;
+    font-size:13px;letter-spacing:.5px;margin-bottom:7px;display:flex;
+    align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .topnav .brand .pill{
+    background:var(--teal-br);color:#06212f;border-radius:20px;
+    padding:1px 10px;font-size:11px;font-weight:700;
+  }
+  .toc{display:flex;flex-wrap:wrap;gap:6px;}
+  .toc a{
+    color:#cfe6e4;text-decoration:none;font-family:var(--round);
+    font-weight:600;font-size:11.5px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:7px;padding:3px 9px;transition:.15s;
+  }
+  .toc a:hover{background:var(--teal-br);color:#06212f;border-color:var(--teal-br);}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1080px;margin:0 auto;padding:34px 18px 80px;}
+  .deck-head{text-align:center;margin-bottom:40px;}
+  .deck-head .eyebrow{
+    font-family:var(--round);font-weight:700;color:var(--teal);
+    letter-spacing:2px;font-size:13px;text-transform:uppercase;
+  }
+  .deck-head h1{
+    font-family:var(--serif);color:var(--navy);font-weight:700;
+    font-size:clamp(26px,5vw,42px);line-height:1.2;margin:10px 0 8px;
+  }
+  .deck-head p{color:#5a6b75;font-family:var(--round);font-weight:500;font-size:15px;}
+
+  .unit{margin-bottom:46px;}
+
+  /* ---------- SLIDE (mimics PPT) ---------- */
+  .slide{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 10px 34px rgba(12,45,72,.13);
+    position:relative;
+  }
+  .slide .bar{
+    height:9px;
+    background:linear-gradient(90deg,var(--navy-deep) 0%,var(--navy) 40%,var(--teal) 80%,var(--teal-br) 100%);
+  }
+  .slide-body{padding:34px 40px 38px;position:relative;font-family:var(--round);}
+  .slide-num{
+    position:absolute;top:18px;right:26px;
+    font-family:var(--round);font-weight:700;font-size:12px;
+    color:#9fb3bd;letter-spacing:1px;
+  }
+  .s-kicker{font-family:var(--round);font-weight:700;color:var(--teal);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;}
+  .s-title{
+    font-family:var(--serif);font-weight:700;color:var(--navy);
+    font-size:clamp(22px,3.4vw,30px);line-height:1.2;
+    padding-left:16px;border-left:6px solid var(--teal);
+    margin:4px 0 22px;
+  }
+  .slide-body p{font-size:15.5px;color:#33424c;margin-bottom:12px;font-weight:500;}
+  .slide-body .lead{font-size:16px;}
+  .hl-red{color:var(--red);font-weight:700;}
+  .hl-blue{color:var(--blue);font-weight:700;}
+  .hl-teal{color:var(--teal);font-weight:700;}
+  .hl-purple{color:var(--purple);font-weight:700;}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+  .cards.three{grid-template-columns:repeat(3,1fr);}
+  .pcard{
+    background:var(--card);border-radius:11px;padding:20px 20px 22px;
+    border-top:3px solid var(--teal);
+  }
+  .pcard.red{border-top-color:var(--red);}
+  .pcard.blue{border-top-color:#5bb8e8;}
+  .pcard .ic{font-size:22px;margin-bottom:8px;}
+  .pcard h4{font-family:var(--serif);color:var(--navy);font-size:19px;font-weight:700;margin-bottom:9px;}
+  .pcard p{font-size:14.5px;margin-bottom:0;}
+  .center-statement{
+    text-align:center;font-family:var(--serif);color:var(--navy);
+    font-size:clamp(22px,4vw,34px);font-weight:700;margin:18px 0;
+  }
+  .center-sub{text-align:center;font-size:16px;color:#33424c;font-weight:500;}
+  .teal-divider{width:64px;height:5px;background:var(--teal);border-radius:3px;margin:14px auto;}
+  
+  /* ---------- NOTES (Korean study panel) ---------- */
+  .notes{
+    background:#fff;border:1px solid var(--card-br);border-radius:14px;
+    margin-top:14px;padding:26px 30px 30px;
+    border-top:5px solid var(--teal);
+    box-shadow:0 4px 18px rgba(12,45,72,.06);
+  }
+  .notes-tag{
+    display:inline-block;font-family:var(--round);font-weight:700;
+    background:var(--navy);color:#fff;font-size:11.5px;letter-spacing:1px;
+    padding:4px 12px;border-radius:20px;margin-bottom:16px;
+  }
+  .box{border-radius:10px;padding:15px 18px;margin-bottom:14px;}
+  .box:last-child{margin-bottom:0;}
+  .box h5{font-size:14.5px;margin-bottom:7px;font-weight:700;display:flex;gap:7px;align-items:center;}
+  .box p, .box li{font-size:14.5px;color:#37454e;}
+  .box .en{font-style:italic;color:#566972; margin-bottom: 4px; font-weight:600;}
+  .box ul{padding-left:2px;list-style:none;}
+  .box ul li{margin-bottom:12px;padding-left:18px;position:relative;}
+  .box ul li::before{content:"·";position:absolute;left:5px;color:var(--teal);font-weight:700;}
+  .b-msg{background:var(--teal-light);border-left:4px solid var(--teal);}
+  .b-msg h5{color:var(--teal);}
+  .b-trans{background:#f6f8f9;border-left:4px solid #9fb3bd;}
+  .b-trans h5{color:#5a6b75;}
+  .b-ex{background:#fdf3ee;border-left:4px solid #e08a5a;}
+  .b-ex h5{color:#c9622e;}
+  .b-tip{background:#fef7e7;border-left:4px solid #e2a93b;}
+  .b-tip h5{color:#b07d12;}
+  .ko-strong{color:var(--navy);font-weight:700;}
+
+  /* ---------- SUMMARY ---------- */
+  .summary{
+    background:linear-gradient(160deg,var(--navy-deep),var(--navy));
+    color:#e9f1f2;border-radius:16px;padding:36px 36px 40px;margin-top:50px;
+  }
+  .summary h2{font-family:var(--serif);color:#fff;font-size:26px;margin-bottom:6px;}
+  .summary .sub{color:var(--teal-br);font-family:var(--round);font-weight:600;font-size:13px;letter-spacing:1px;margin-bottom:22px;}
+  .summary table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:13.5px;}
+  .summary th,.summary td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.13);vertical-align:top;}
+  .summary th{color:var(--teal-br);font-family:var(--round);font-weight:700;font-size:12.5px;}
+  .summary td b{color:#fff;}
+  .terms{margin-top:24px;}
+  .terms h3{font-family:var(--round);color:var(--teal-br);font-size:14px;letter-spacing:1px;margin-bottom:12px;}
+  .terms ol{padding-left:20px;}
+  .terms li{margin-bottom:7px;font-size:14px;color:#dde9ea;}
+  .terms li b{color:#fff;}
+  .examtip{background:rgba(26,158,148,.14);border:1px solid rgba(26,158,148,.4);border-radius:10px;padding:16px 18px;margin-top:22px;}
+  .examtip h4{font-family:var(--round);color:var(--teal-br);font-size:14px;margin-bottom:7px;}
+  .examtip p{font-size:14px;color:#e3eeef;}
+
+  footer{text-align:center;color:#7e909a;font-family:var(--round);font-size:12.5px;margin-top:44px;line-height:1.9;}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<div class="topnav">
+  <div class="brand">📑 AP Macroeconomics · SGHS 2026 <span class="pill">Week 4 · Unemployment</span></div>
+  <div class="toc">
+    <a href="#s1">1. Title</a>
+    <a href="#s2">2. Intro 1</a>
+    <a href="#s3">3. Intro 2</a>
+    <a href="#s4">4. Intro 3</a>
+    <a href="#s5">5. Min Wage</a>
+    <a href="#s6">6. Graph</a>
+    <a href="#s7">7. Structural</a>
+    <a href="#s8">8. Debate 1</a>
+    <a href="#s9">9. Debate 2</a>
+    <a href="#summary">★ 최종 정리</a>
+  </div>
+</div>
+
+<main>
+  <div class="deck-head">
+    <div class="eyebrow">Macroeconomics Week 4</div>
+    <h1>Topic: Minimum Wage Laws</h1>
+    <p>원문 100% 반영 직독직해 & 완벽 시험 대비 가이드 (누락 없음)</p>
+  </div>
+
+  <!-- ===================== SLIDE 1 ===================== -->
+  <section class="unit" id="s1">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">01 / 09</div>
+        <div class="s-kicker">MACROECONOMICS</div>
+        <div class="center-statement" style="margin-top:26px;">Exploring the Key Components<br>Of Global Economies</div>
+        <div class="center-sub hl-teal" style="font-family:var(--serif);font-size:22px;">Topic: Minimum Wage Laws</div>
+        <div class="teal-divider"></div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 01 · 표지 번역</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해 (단어 단위 해석)</h5>
+        <ul>
+          <li><p class="en">MACROECONOMICS</p> 거시경제학</li>
+          <li><p class="en">Exploring the Key Components Of Global Economies</p> 글로벌 경제의 핵심 구성 요소 탐구하기</li>
+          <li><p class="en">Topic: Minimum Wage Laws</p> 주제: 최저임금법</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 2 ===================== -->
+  <section class="unit" id="s2">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">02 / 09</div>
+        <div class="s-title">INTRO ACTIVITY: SGHS STEAKHOUSE</div>
+        <p class="lead"><b>Today we are running a restaurant together! SGHS Steakhouse is a very sophisticated and popular restaurant in Hyehwa. As co-owners, we have to decide how to spend our hiring budget for workers.</b></p>
+        <p class="lead" style="margin-top:12px;"><b>We have a hiring budget of ₩100,000 for workers' hourly wages. Is our job to figure out as a class which workers we need to hire to run our restaurant.</b></p>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 02 · 도입 활동: 식당 운영 시뮬레이션</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해 (원문 100% 반영)</h5>
+        <ul>
+          <li><p class="en">INTRO ACTIVITY: SGHS STEAKHOUSE</p> 도입 활동: SGHS 스테이크하우스</li>
+          <li><p class="en">Today we are running a restaurant together!</p> 오늘 우리는 함께 식당을 운영할 것입니다!</li>
+          <li><p class="en">SGHS Steakhouse is a very sophisticated and popular restaurant in Hyehwa.</p> SGHS 스테이크하우스는 혜화에 있는 매우 세련되고 인기 있는 식당입니다.</li>
+          <li><p class="en">As co-owners, we have to decide how to spend our hiring budget for workers.</p> 공동 사장으로서, 우리는 직원 고용 예산을 어떻게 쓸지 결정해야 합니다.</li>
+          <li><p class="en">We have a hiring budget of ₩100,000 for workers' hourly wages.</p> 우리에게는 직원의 시간당 임금으로 쓸 수 있는 100,000원의 고용 예산이 있습니다.</li>
+          <li><p class="en">Is our job to figure out as a class which workers we need to hire to run our restaurant.</p> 우리 식당을 운영하기 위해 어떤 직원을 고용해야 할지 학급 전체가 함께 알아내는 것이 우리의 임무입니다.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🔍 상황 파악하기</h5>
+        <p>선생님께서 여러분에게 <b>'예산의 한계(10만 원)'</b>라는 경제학적 제약을 주고, 어떻게 한정된 자원으로 직원을 뽑을지 고민하게 만드는 워밍업 활동입니다. 'Budget(예산)'과 'Hire(고용하다)'라는 단어를 꼭 기억하세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 3 ===================== -->
+  <section class="unit" id="s3">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">03 / 09</div>
+        <div class="s-title">INTRO ACTIVITY: SGHS STEAKHOUSE</div>
+        <div class="cards">
+          <div class="pcard">
+            <h4>Applicant pool:</h4>
+            <ul style="padding-left:18px; font-size:14px; margin-top:8px;">
+              <li>Mina - Expert Chef, ₩35,000/hr</li>
+              <li>Jisoo - Experienced Server, ₩15,000/hr</li>
+              <li>Joshua - Dishwasher, ₩10,000/hr</li>
+              <li>Olivia - Hostess, ₩15,000/hr</li>
+              <li>Nathan - Prep Cook, ₩15,000/hr</li>
+              <li>Minho - Busser, ₩10,000/hr</li>
+              <li>Anna - Social Media Manager, ₩10,000/hr</li>
+              <li>Joe - Delivery Driver, ₩15,000/hr</li>
+            </ul>
+          </div>
+          <div class="pcard red">
+            <h4>New Law:</h4>
+            <p style="font-size:16px; font-weight:700; color:var(--red); margin-top:10px;">All workers must now earn at least ₩25,000/hr</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 03 · 지원자 목록과 새로운 법(최저임금) 등장</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Applicant pool:</p> 지원자 풀 (면접자 목록):</li>
+          <li><p class="en">(기존 임금 목록)</p> 미나(전문 셰프 35,000원), 지수(경력 서버 15,000원), 조슈아(식기세척 10,000원), 올리비아(안내 15,000원), 네이선(주방보조 15,000원), 민호(테이블정리 10,000원), 안나(SNS관리 10,000원), 조(배달기사 15,000원)</li>
+          <li><p class="en">New Law: All workers must now earn at least ₩25,000/hr</p> <b>새로운 법: 이제 모든 근로자는 최소 시간당 25,000원을 벌어야 합니다.</b></li>
+        </ul>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 영어 표현 정리</h5>
+        <p><b>at least:</b> 최소한, 적어도. 즉, 25,000원 밑으로는 줄 수 없다는 법(최저임금법)이 생겼다는 뜻입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 4 ===================== -->
+  <section class="unit" id="s4">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">04 / 09</div>
+        <div class="s-title">INTRO ACTIVITY: SGHS STEAKHOUSE</div>
+        <p><b>Applicant pool (new wages):</b></p>
+        <div class="cards" style="margin-top:10px;">
+          <div class="pcard blue">
+            <ul style="padding-left:18px; font-size:14px;">
+              <li>Mina - Expert Chef, ₩35,000/hr</li>
+              <li>Jisoo - Experienced Server, <span class="hl-red">₩25,000/hr</span></li>
+              <li>Joshua - Dishwasher, <span class="hl-red">₩25,000/hr</span></li>
+              <li>Olivia - Hostess, <span class="hl-red">₩25,000/hr</span></li>
+            </ul>
+          </div>
+          <div class="pcard blue">
+            <ul style="padding-left:18px; font-size:14px;">
+              <li>Nathan - Prep Cook, <span class="hl-red">₩25,000/hr</span></li>
+              <li>Minho - Busser, <span class="hl-red">₩25,000/hr</span></li>
+              <li>Anna - Social Media Manager, <span class="hl-red">₩25,000/hr</span></li>
+              <li>Joe - Delivery Driver, <span class="hl-red">₩25,000/hr</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="pcard" style="margin-top:16px;">
+          <p><b>Who did we decide to keep? Why?</b></p>
+          <p><b>What are some things we might have to do to make up for the workers we lost?</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 04 · 인건비 상승과 해고의 딜레마</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Applicant pool (new wages):</p> 지원자 풀 (새로운 임금 적용): (미나를 제외한 전원의 시급이 25,000원으로 올랐습니다.)</li>
+          <li><p class="en">Who did we decide to keep? Why?</p> 우리는 누구를 남기기로 결정했나요? 그 이유는 무엇인가요?</li>
+          <li><p class="en">What are some things we might have to do to make up for the workers we lost?</p> 우리가 잃은(해고한) 직원들을 보충하기 위해 해야 할지도 모르는 일들은 무엇인가요?</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🎯 출제자의 의도 파악하기</h5>
+        <p>10만 원이라는 예산은 그대로인데 직원 4명만 고용해도 10만 원이 끝납니다. 예전에는 6~7명도 고용할 수 있었죠. 즉, <b>"임금이 강제로 오르면 기업은 직원을 덜 뽑거나 해고하게 된다"</b>는 경제학적 원리를 스스로 깨닫게 하는 질문입니다. (남은 직원들이 일(업무량)을 더 많이 해야겠죠!)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 5 ===================== -->
+  <section class="unit" id="s5">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">05 / 09</div>
+        <div class="s-title">MINIMUM WAGE LAWS</div>
+        
+        <div class="pcard">
+          <h4>Minimum Wage:</h4>
+          <p style="font-size:16px; margin-top:8px;">The lowest possible hourly wage that employers are allowed to pay employees by law</p>
+        </div>
+        
+        <div class="pcard red" style="margin-top:16px;">
+          <p style="font-size:18px; font-weight:700; color:var(--red); text-align:center;">This is an example of a price floor</p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 05 · 최저임금의 정의 (시험 출제 1순위)</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Minimum Wage:</p> 최저임금:</li>
+          <li><p class="en">The lowest possible hourly wage</p> 가능한 가장 낮은 시간당 임금</li>
+          <li><p class="en">that employers are allowed to pay employees by law</p> 고용주가 법에 의해 근로자에게 지불하도록 허용된</li>
+          <li><p class="en">This is an example of a price floor</p> <b>이것은 가격 하한제(price floor)의 한 예시입니다.</b></li>
+        </ul>
+      </div>
+      <div class="box b-tip">
+        <h5>💯 100점 마스터 키: Price Floor</h5>
+        <p>최저임금을 묻는 객관식 문제에서 무조건 정답으로 나오는 단어가 바로 <b>'Price floor(가격 하한제)'</b>입니다. 가격이 일정 수준(바닥, floor) 밑으로 떨어지지 못하게 막는 정부의 규제를 뜻합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 6 ===================== -->
+  <section class="unit" id="s6">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">06 / 09</div>
+        <div class="s-title">MINIMUM WAGE LAWS</div>
+        <p class="lead">Minimum Wage and Unemployment</p>
+        
+        <div style="background:#f4f7f8; border:1px solid #dde7eb; border-radius:8px; padding:20px; text-align:center; margin-bottom:20px; font-family:var(--round);">
+          <p style="color:var(--navy); font-weight:700;">[Graph Structure Analysis]</p>
+          <p>Y-axis: <b>Wage</b> | X-axis: <b>Quantity of Labor</b></p>
+          <p>Intersection = <b>$W_E$ (Equilibrium Wage)</b></p>
+          <p>The <b>Minimum wage</b> line is drawn horizontally above $W_E$.</p>
+          <p style="color:var(--red); font-weight:700; margin-top:10px;">At the minimum wage line: <b>$L_S > L_D$</b></p>
+          <p style="color:var(--red); font-weight:700;"><b>Surplus of labor = Unemployment</b></p>
+        </div>
+
+        <div class="listrow"><span class="badge">1</span><p><b>Another way to define unemployment is as a surplus of labour.</b></p></div>
+        <div class="listrow"><span class="badge">2</span><p><b>In theory, increasing the minimum wage would cause a labour surplus and a subsequent rise in unemployment.</b></p></div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 06 · 최저임금과 실업 (그래프 완벽 분석)</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Another way to define unemployment</p> 실업(unemployment)을 정의하는 또 다른 방법은</li>
+          <li><p class="en">is as a surplus of labour.</p> <b>노동의 초과 공급(surplus of labour)</b>으로 보는 것입니다.</li>
+          <li><p class="en">In theory, increasing the minimum wage</p> 이론적으로, 최저임금을 인상하는 것은</li>
+          <li><p class="en">would cause a labour surplus and a subsequent rise in unemployment.</p> 노동 초과 공급과 그에 뒤따르는 실업의 상승을 야기할 것입니다.</li>
+        </ul>
+      </div>
+      <div class="box b-ex">
+        <h5>📊 원문 그래프 완벽 해설 (서술형 필수)</h5>
+        <p>1. 균형 임금($W_E$)보다 높은 곳에 최저임금 선을 긋습니다.<br>
+        2. 선이 높은 곳에 있으니 일자리를 제공하는 사장님들(Labor demand, $L_D$)은 사람을 적게 뽑고 왼쪽으로 이동합니다.<br>
+        3. 반면 일하고 싶은 알바생들(Labor supply, $L_S$)은 돈을 많이 주니 오른쪽으로 늘어납니다.<br>
+        4. 결과적으로 <b>일하려는 사람($L_S$)이 일자리($L_D$)보다 많아져 남는 현상(Surplus of labor)</b>이 생깁니다. 경제학에서는 이를 똑같은 말로 <b>실업(Unemployment)</b>이라고 부릅니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 7 ===================== -->
+  <section class="unit" id="s7">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">07 / 09</div>
+        <div class="s-title">MINIMUM WAGE LAWS</div>
+        <p class="lead">Minimum Wage and Structural Unemployment</p>
+        
+        <div class="pcard">
+          <p><b>Unemployment caused by minimum wage laws is an example of <span class="hl-teal">structural unemployment</span></b></p>
+        </div>
+
+        <div class="pcard blue" style="margin-top:16px;">
+          <p><b>There is a failure of wages to balance labour supply and demand. This is a structural issue, not a natural consequence of a free labour market</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 07 · 최저임금과 구조적 실업 (단어 암기 필수)</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Unemployment caused by minimum wage laws</p> 최저임금법에 의해 발생한 실업은</li>
+          <li><p class="en">is an example of structural unemployment</p> <b>구조적 실업(structural unemployment)</b>의 한 예시입니다.</li>
+          <li><p class="en">There is a failure of wages to balance labour supply and demand.</p> 임금이 노동 공급과 수요의 균형을 맞추는 데 실패한 현상이 존재합니다.</li>
+          <li><p class="en">This is a structural issue, not a natural consequence of a free labour market</p> 이것은 <b>구조적인 문제</b>이며, 자유 노동 시장의 자연스러운 결과가 아닙니다.</li>
+        </ul>
+      </div>
+      <div class="box b-msg">
+        <h5>🔍 '구조적 실업'이 뭔가요?</h5>
+        <p>실업에는 여러 가지가 있습니다. 회사를 이직하다가 잠깐 쉬는 건 마찰적 실업(frictional)입니다. 하지만 최저임금 때문에 생기는 실업은 정부가 개입해서 시장의 <b>'구조'</b> 자체가 왜곡되어 생기는 것이므로 <b>구조적 실업(Structural Unemployment)</b>이라고 부릅니다. 빈칸 채우기 문제로 아주 잘 나옵니다!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 8 ===================== -->
+  <section class="unit" id="s8">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">08 / 09</div>
+        <div class="s-title">CLASS DEBATE: MINIMUM WAGE</div>
+        
+        <p><b>The concept of a minimum wage is a much debated topic among economists. Today it is our turn to argue whether having a minimum wage is good or bad for society</b></p>
+        
+        <div class="pcard" style="margin-top:16px;">
+          <p><b>Instructions: Half of the class will be responsible for arguing for minimum wage in society, while the other half will argue against it</b></p>
+          <p style="margin-top:12px;"><b>You will have the remainder of today's period to work on your arguments for the debate, which will be held at the beginning of next week's class</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 08 · 학급 토론 안내 1</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">The concept of a minimum wage is a much debated topic among economists.</p> 최저임금이라는 개념은 경제학자들 사이에서도 논쟁이 많은 주제입니다.</li>
+          <li><p class="en">Today it is our turn to argue whether having a minimum wage is good or bad for society</p> 오늘, 최저임금이 사회에 좋은지 나쁜지를 논쟁하는 것이 우리의 차례입니다.</li>
+          <li><p class="en">Instructions: Half of the class will be responsible for arguing for minimum wage in society, while the other half will argue against it</p> 지시사항: 학급의 절반은 사회에서 최저임금을 <b>찬성(for)</b>하는 주장을 맡고, 나머지 절반은 그것을 <b>반대(against)</b>하는 주장을 맡을 것입니다.</li>
+          <li><p class="en">You will have the remainder of today's period to work on your arguments for the debate, which will be held at the beginning of next week's class</p> 여러분은 오늘 남은 수업 시간 동안 토론을 위한 주장을 준비하게 되며, 토론은 다음 주 수업 시작 시에 열릴 것입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SLIDE 9 ===================== -->
+  <section class="unit" id="s9">
+    <div class="slide">
+      <div class="bar"></div>
+      <div class="slide-body">
+        <div class="slide-num">09 / 09</div>
+        <div class="s-title">CLASS DEBATE: MINIMUM WAGE</div>
+        <p><b>Instructions cont'd: You are encouraged to do some research to help with your arguments. Each half of the class will be responsible for dividing debate prep among yourselves as follows:</b></p>
+        
+        <div class="pcard" style="margin-top:16px;">
+          <ul style="padding-left:18px; font-size:14px;">
+            <li><b>Opening Statement Team (2-3 people)</b> • Defines and introduces your sides main argument briefly (what are you trying to prove?)</li>
+            <li><b>Evidence Team (2-4 people)</b> • Find evidence for why your side is correct. You can use online sources or class materials</li>
+            <li><b>Rebuttal Team (2-3 people)</b> • Predicts what the other side might argue and prepares counter points</li>
+            <li><b>Closing Statement Team (1-2 people)</b> • Creates a final statement to summarize your stance on the topic</li>
+          </ul>
+        </div>
+
+        <div class="result-line">One person from each team on both sides of the debate should be ready to speak on debate day (4 people total from each side)</div>
+      </div>
+    </div>
+    <div class="notes">
+      <span class="notes-tag">SLIDE 09 · 학급 토론 안내 2 (역할 분담)</span>
+      <div class="box b-trans">
+        <h5>📝 직독직해</h5>
+        <ul>
+          <li><p class="en">Instructions cont'd: You are encouraged to do some research to help with your arguments. Each half of the class will be responsible for dividing debate prep among yourselves as follows:</p> 지시사항 계속: 주장을 뒷받침하기 위해 조사를 해볼 것을 권장합니다. 각 절반의 학생들은 다음과 같이 토론 준비를 분담할 책임이 있습니다:</li>
+          <li><p class="en">Opening Statement Team (2-3 people) • Defines and introduces your sides main argument briefly (what are you trying to prove?)</p> 기조 발언 팀 (2-3명) • 여러분 측의 주요 주장을 짧게 정의하고 소개합니다. (무엇을 증명하려고 하나요?)</li>
+          <li><p class="en">Evidence Team (2-4 people) • Find evidence for why your side is correct. You can use online sources or class materials</p> 증거 수집 팀 (2-4명) • 여러분 측이 왜 맞는지에 대한 증거를 찾습니다. 온라인 자료나 수업 자료를 활용할 수 있습니다.</li>
+          <li><p class="en">Rebuttal Team (2-3 people) • Predicts what the other side might argue and prepares counter points</p> 반박 팀 (2-3명) • 상대방이 어떤 주장을 할지 예측하고 반론을 준비합니다.</li>
+          <li><p class="en">Closing Statement Team (1-2 people) • Creates a final statement to summarize your stance on the topic</p> 최종 발언 팀 (1-2명) • 해당 주제에 대한 여러분의 입장을 요약하는 마지막 발언을 작성합니다.</li>
+          <li><p class="en">One person from each team on both sides of the debate should be ready to speak on debate day (4 people total from each side)</p> 양측의 각 팀에서 한 명씩 토론 당일에 발표할 준비를 해야 합니다. (각 측에서 총 4명)</li>
+        </ul>
+      </div>
+      <div class="box b-tip">
+        <h5>💡 토론 대비 핵심 단어</h5>
+        <p>• <b>Argue for:</b> 찬성하다<br>• <b>Argue against:</b> 반대하다<br>• <b>Rebuttal:</b> 반박 (시험이나 영어 토론에서 정말 자주 쓰이는 고급 어휘입니다!)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <section class="summary" id="summary">
+    <h2>100점 마스터 필수 암기 노트</h2>
+    <div class="sub">시험 직전, 이 4가지만 외우면 객관식/서술형 완벽 대비 끝!</div>
+
+    <div class="terms">
+      <ol>
+        <li><b style="color:var(--teal-br); font-size: 16px;">Minimum Wage = Price Floor (가격 하한제)</b><br>
+        정부가 법으로 정해놓은 '임금의 바닥'입니다. 균형 임금보다 무조건 <b>위에(above)</b> 설정됩니다.</li>
+        
+        <li style="margin-top: 10px;"><b style="color:var(--teal-br); font-size: 16px;">Surplus of Labor = Unemployment (초과 공급 = 실업)</b><br>
+        시급이 비싸지니 사장님은 고용을 줄이고($L_D$ 감소), 일하려는 알바생은 늘어나서($L_S$ 증가), 남는 인력이 발생합니다. 서술형에 <b>"Surplus of labor"</b>를 꼭 적으세요.</li>
+        
+        <li style="margin-top: 10px;"><b style="color:var(--teal-br); font-size: 16px;">Structural Unemployment (구조적 실업)</b><br>
+        최저임금 때문에 발생하는 실업의 종류를 묻는다면 무조건 '구조적 실업'입니다. 시장의 자연스러운 흐름이 아니라 규제 때문에 발생한 문제이기 때문입니다.</li>
+        
+        <li style="margin-top: 10px;"><b style="color:var(--teal-br); font-size: 16px;">서술형 마스터 문장 (통째로 외우세요!)</b><br>
+        "An increase in the minimum wage above the equilibrium wage acts as a <span style="text-decoration: underline;">price floor</span>, which causes the <span style="text-decoration: underline;">quantity of labor supplied to exceed the quantity of labor demanded</span>, resulting in a <span style="text-decoration: underline;">surplus of labor (unemployment)</span>."</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    AP Macroeconomics 2026 · Seoul Global High School<br>
+    Week 4: Minimum Wage Laws and Unemployment<br>
+    PDF 원문 100% 무손실 반영 + 영포자 완벽 대비 100점 해설
+  </footer>
+</main>
+
+</body>
+</html>
+"""
+
+with open('/mnt/data/macroeconomics_minimum_wage_perfect_v2.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+    
+print("File successfully generated: /mnt/data/macroeconomics_minimum_wage_perfect_v2.html")
