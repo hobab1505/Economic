@@ -573,7 +573,7 @@ html_content = """<!DOCTYPE html>
 </html>
 """
 
-with open('/mnt/data/macroeconomics_minimum_wage_perfect.html', 'w', encoding='utf-8') as f:
+with open('/mnt/data/macroeconomics_minimum_wage_perfect_v2.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
     
-print("File successfully generated: /mnt/data/macroeconomics_minimum_wage_perfect.html")
+print("File successfully generated: /mnt/data/macroeconomics_minimum_wage_perfect_v2.html")
