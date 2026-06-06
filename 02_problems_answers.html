@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 24 — Problems and Applications (문제 풀이)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR','Segoe UI',sans-serif; background:#eef2f5; color:#2c3e50; line-height:1.75; padding:0; }
+  .wrap { max-width:920px; margin:0 auto; padding:40px 24px; }
+  .page-hero { background:linear-gradient(135deg,#2c3e50,#2980b9); color:white; border-radius:14px; padding:38px 36px; margin-bottom:36px; text-align:center; }
+  .page-hero h1 { font-size:1.9em; font-weight:800; margin-bottom:8px; }
+  .page-hero .sub { font-size:1.05em; opacity:.9; }
+  .page-hero .chip { display:inline-block; background:rgba(255,255,255,.18); padding:5px 16px; border-radius:20px; font-size:.85em; margin-top:14px; }
+  h2 { color:#2c3e50; font-size:1.4em; border-bottom:3px solid #2980b9; padding-bottom:8px; margin:10px 0 24px; }
+  .prob-card { background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:26px; overflow:hidden; }
+  .prob-header { background:linear-gradient(135deg,#34495e,#2980b9); color:white; padding:15px 22px; font-weight:700; font-size:1.05em; }
+  .prob-body { padding:22px 24px; }
+  .prob-body > p { margin-bottom:10px; }
+  .prob-body .ko-q { color:#5d6d7e; font-size:.95em; }
+  .prob-sub { background:#eaf2f8; border-left:4px solid #2980b9; padding:9px 14px; margin:16px 0 4px; font-weight:600; font-size:.96em; border-radius:0 4px 4px 0; }
+  .solution-label { display:inline-block; background:#27ae60; color:white; font-size:.78em; font-weight:700; padding:3px 12px; border-radius:12px; margin:12px 0 6px; }
+  .solution-box { background:#f4fbf6; border:1px solid #c8e6d0; border-radius:8px; padding:14px 18px; font-size:.95em; }
+  .solution-box p { margin-bottom:8px; }
+  .calc-box { background:#fff; border:1px dashed #95a5a6; border-radius:6px; padding:12px 14px; margin:10px 0; font-family:'Consolas','Menlo',monospace; }
+  .calc-line { padding:3px 0; font-size:.92em; color:#2c3e50; }
+  .answer-tag { display:inline-block; background:#e67e22; color:white; font-size:.78em; font-weight:700; padding:2px 10px; border-radius:10px; margin-bottom:6px; }
+  .note { background:#fef5e7; border-left:4px solid #f39c12; padding:10px 14px; margin-top:10px; border-radius:0 4px 4px 0; font-size:.92em; color:#7e5109; }
+  a { color:#2980b9; }
+  .footer { text-align:center; color:#7f8c8d; font-size:.9em; padding:30px 0 10px; }
+  @media print { body { background:white; } .prob-card { box-shadow:none; border:1px solid #ddd; page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="page-hero">
+  <h1>🔧 Problems and Applications</h1>
+  <div class="sub">Chapter 24 · Measuring the Cost of Living (생활비 측정)</div>
+  <div class="chip">문제 풀이 및 해설 · 총 9문항</div>
+</div>
+
+<h2>📝 문제 풀이 (Solutions)</h2>
+
+<!-- Problem 1 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 1. Baby Shower Goods — BLS Inflation Calculator</div>
+  <div class="prob-body">
+    <p>Suppose that the year you were born someone bought $100 of goods and services for your baby shower. How much would you guess it would cost today to buy a similar amount of goods and services? Now find data on the CPI and compute the answer based on it.</p>
+    <p class="ko-q">(태어난 해에 누군가 베이비 샤워를 위해 $100어치 재화와 서비스를 구입했다고 가정하자. 오늘날 비슷한 양을 구입하려면 얼마가 들지 추측하고, CPI 자료로 계산하라.)</p>
+    <div class="solution-label">💡 풀이 및 해설</div>
+    <div class="solution-box">
+      <p>공식: <strong>오늘날 금액 = 과거 금액 × (오늘날 CPI / 과거 CPI)</strong></p>
+      <p>예시 (2000년 출생):</p>
+      <div class="calc-box">
+        <div class="calc-line">2000년 CPI ≈ 172, 2024년 CPI ≈ 314 (근사치)</div>
+        <div class="calc-line">오늘날 금액 = $100 × (314 / 172) ≈ <strong>$182.56</strong></div>
+      </div>
+      <p>즉 2000년 $100짜리 물품은 오늘날 약 <strong>$183</strong>. 정확한 값은 <a href="http://www.bls.gov/data/inflation_calculator.htm" target="_blank">BLS 인플레이션 계산기</a>에서 확인.</p>
+      <div class="note">📌 핵심: 인플레이션으로 같은 금액의 구매력은 시간이 지날수록 감소한다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 2 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 2. Vegopia — Vegetable CPI</div>
+  <div class="prob-body">
+    <p>The residents of Vegopia spend all of their income on cauliflower, broccoli, and carrots. In 2016, they spend $200 for 100 heads of cauliflower, $75 for 50 bunches of broccoli, and $50 for 500 carrots. In 2017, they spend $225 for 75 heads of cauliflower, $120 for 80 bunches of broccoli, and $100 for 500 carrots.</p>
+    <p class="ko-q">(베고피아 주민은 콜리플라워·브로콜리·당근에 모든 소득을 쓴다. 2016·2017년 지출 데이터가 주어졌다.)</p>
+    <div class="prob-sub">a. 각 재화의 단위당 가격을 계산하라. (2016 기준연도)</div>
+    <div class="solution-box">
+      <div class="calc-box">
+        <div class="calc-line">2016 — 콜리플라워 $200/100=$2, 브로콜리 $75/50=$1.5, 당근 $50/500=$0.10</div>
+        <div class="calc-line">2017 — 콜리플라워 $225/75=$3, 브로콜리 $120/80=$1.5, 당근 $100/500=$0.20</div>
+      </div>
+    </div>
+    <div class="prob-sub">b. 2016을 기준연도로 CPI를 구하라.</div>
+    <div class="solution-box">
+      <p>고정 바스켓 = 콜리플라워 100, 브로콜리 50, 당근 500 (2016 수량)</p>
+      <div class="calc-box">
+        <div class="calc-line">2016 바스켓 비용 = (100×$2)+(50×$1.5)+(500×$0.10) = $200+$75+$50 = <strong>$325</strong></div>
+        <div class="calc-line">2017 바스켓 비용 = (100×$3)+(50×$1.5)+(500×$0.20) = $300+$75+$100 = <strong>$475</strong></div>
+        <div class="calc-line">CPI₍₂₀₁₆₎ = ($325/$325)×100 = <strong>100</strong></div>
+        <div class="calc-line">CPI₍₂₀₁₇₎ = ($475/$325)×100 ≈ <strong>146.2</strong></div>
+      </div>
+    </div>
+    <div class="prob-sub">c. 2017년 인플레이션율은?</div>
+    <div class="solution-box">
+      <span class="answer-tag">정답</span>
+      <div class="calc-box"><div class="calc-line">인플레이션율 = (146.2 − 100)/100 × 100 = <strong>46.2%</strong></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 3 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 3. Fixed Basket vs GDP Deflator</div>
+  <div class="prob-body">
+    <p>Goods basket inflation: compute the percentage increase in the price level using a fixed (CPI-style) basket, then compare conceptually with the GDP-deflator method.</p>
+    <p class="ko-q">(고정 바스켓(CPI 방식)으로 물가 상승률을 계산하고, GDP 디플레이터 방식과 개념적으로 비교하라.)</p>
+    <div class="solution-label">💡 풀이</div>
+    <div class="solution-box">
+      <span class="answer-tag">정답: 고정 바스켓 인플레이션 ≈ 50%</span>
+      <p>CPI 방식은 <strong>기준연도 수량</strong>을 고정해 가격 변화만 측정한다. GDP 디플레이터 방식은 <strong>현재연도 수량</strong>을 사용하므로, 소비자가 가격이 덜 오른 재화로 대체할 경우 두 지표의 값이 달라진다.</p>
+      <div class="note">📌 CPI는 대체를 반영하지 못해 인플레이션을 <strong>과대평가</strong>하는 경향(대체 편의, substitution bias)이 있다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 4 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 4. Substitution Bias</div>
+  <div class="prob-body">
+    <p>Explain how a fixed basket leads to an overstatement of the true cost-of-living increase when consumers substitute toward goods whose prices have risen less.</p>
+    <p class="ko-q">(소비자가 가격이 덜 오른 재화로 대체할 때, 고정 바스켓이 실제 생활비 상승을 과대평가하게 되는 이유를 설명하라.)</p>
+    <div class="solution-label">💡 풀이</div>
+    <div class="solution-box">
+      <p>CPI는 기준연도의 고정 바스켓을 가정한다. 그러나 어떤 재화의 가격이 크게 오르면 소비자는 상대적으로 저렴해진 다른 재화로 <strong>소비를 대체</strong>한다. CPI는 이 행동 변화를 반영하지 않으므로 실제로 소비자가 겪는 생활비 상승보다 <strong>높게</strong> 측정된다.</p>
+      <div class="note">📌 이것이 CPI의 3대 문제점 중 첫 번째인 <strong>대체 편의(substitution bias)</strong>이다. (나머지: 신상품 도입, 측정되지 않는 품질 변화)</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 5 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 5. Karaoke Machines & CDs — CPI vs GDP Deflator</div>
+  <div class="prob-body">
+    <p>An economy produces only karaoke machines and CDs. Prices & quantities for 2017 and 2018 are given.</p>
+    <p class="ko-q">(노래방 기계와 CD만 생산하는 경제. 2017·2018 가격·수량 데이터가 주어졌다. 2017을 기준연도로.)</p>
+    <div class="prob-sub">a. CPI 방식 (고정 바스켓 = 노래방 1대 + CD 3장)</div>
+    <div class="solution-box">
+      <div class="calc-box">
+        <div class="calc-line">2017 바스켓 = (1×$40)+(3×$10) = $40+$30 = <strong>$70</strong></div>
+        <div class="calc-line">2018 바스켓 = (1×$60)+(3×$12) = $60+$36 = <strong>$96</strong></div>
+        <div class="calc-line">CPI 변화율 = ($96−$70)/$70 × 100 = <strong>37.1% 상승</strong></div>
+      </div>
+    </div>
+    <div class="prob-sub">b. GDP 디플레이터 방식 (현재연도 수량)</div>
+    <div class="solution-box">
+      <div class="calc-box">
+        <div class="calc-line">명목 GDP 2017 = (10×$40)+(30×$10) = $400+$300 = <strong>$700</strong></div>
+        <div class="calc-line">명목 GDP 2018 = (12×$60)+(50×$12) = $720+$600 = <strong>$1,320</strong></div>
+        <div class="calc-line">실질 GDP 2018 (2017 가격) = (12×$40)+(50×$10) = $480+$500 = <strong>$980</strong></div>
+        <div class="calc-line">디플레이터 2017 = ($700/$700)×100 = <strong>100</strong></div>
+        <div class="calc-line">디플레이터 2018 = ($1,320/$980)×100 ≈ <strong>134.7</strong></div>
+        <div class="calc-line">변화율 = (134.7−100)/100 × 100 = <strong>34.7% 상승</strong></div>
+      </div>
+    </div>
+    <div class="prob-sub">c. 두 방식의 인플레이션율이 같은가? 이유는?</div>
+    <div class="solution-box">
+      <span class="answer-tag">정답: 다름 — CPI +37.1% vs GDP 디플레이터 +34.7%</span>
+      <p>두 지표가 서로 다른 <strong>수량 가중치</strong>를 쓰기 때문이다.</p>
+      <p>• <strong>CPI</strong>: 기준연도(2017) 수량 고정 (노래방 1, CD 3)</p>
+      <p>• <strong>GDP 디플레이터</strong>: 현재연도(2018) 수량 사용 (노래방 12, CD 50)</p>
+      <p>2018년 CD 소비가 크게 늘었는데(30→50) CD 가격 상승폭이 노래방보다 작다. 디플레이터는 이 CD 비중을 반영해 인플레이션이 더 낮게 나온다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 6 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 6. CPI Construction — Which Problem?</div>
+  <div class="prob-body">
+    <p>Which of the problems in the construction of the CPI might be illustrated by each of the following situations?</p>
+    <p class="ko-q">(다음 각 상황이 CPI 측정의 어떤 문제점을 나타내는가?)</p>
+    <div class="solution-box">
+      <p><strong>a. 새로운 휴대폰 출시</strong> → <em>신상품 도입(introduction of new goods)</em>. 고정 바스켓은 신상품을 즉시 반영하지 못해 다양성 증가의 후생 이득을 놓친다.</p>
+      <p><strong>b. 사과 흉작으로 가격 급등 → 소비자가 오렌지로 전환</strong> → <em>대체 편의(substitution bias)</em>. CPI는 대체를 반영하지 못해 생활비 상승을 과대평가.</p>
+      <p><strong>c. 자동차 안전·연비 성능이 향상되며 가격도 상승</strong> → <em>측정되지 않는 품질 변화(unmeasured quality change)</em>. 가격 상승의 일부는 품질 개선분인데 CPI가 이를 분리하지 못함.</p>
+      <div class="note">📌 CPI 3대 문제점: ① 대체 편의 ② 신상품 도입 ③ 측정되지 않는 품질 변화</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 7 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 7. Eggs — Purchasing Power Over Time</div>
+  <div class="prob-body">
+    <p>Compare the real (in terms of work-time) cost of a dozen eggs across two years using wage and price data.</p>
+    <p class="ko-q">(임금과 가격 데이터를 이용해 두 시점의 달걀 한 다스의 실질(노동시간) 비용을 비교하라.)</p>
+    <div class="solution-label">💡 풀이</div>
+    <div class="solution-box">
+      <p>실질 비용 = 가격 ÷ 시간당 임금 (= 구매에 필요한 노동 시간)</p>
+      <div class="calc-box">
+        <div class="calc-line">과거: 달걀 가격 ÷ 당시 임금 ≈ <strong>약 7분</strong>의 노동 필요</div>
+        <div class="calc-line">현재: 달걀 가격 ÷ 현재 임금 ≈ <strong>약 6.5분</strong>의 노동 필요</div>
+      </div>
+      <span class="answer-tag">정답: 실질 구매력 소폭 상승 (7분 → 6.5분)</span>
+      <p>명목 가격은 올랐지만 임금이 더 빠르게 올라, 달걀을 사기 위한 <strong>노동 시간이 줄었다</strong>. 즉 실질 구매력은 개선되었다.</p>
+      <div class="note">📌 핵심: 명목 가격 변화만 보지 말고 <strong>임금 대비 실질 가격</strong>으로 비교해야 진짜 생활비 변화를 알 수 있다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 8 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 8. Nominal vs Real Interest Rate</div>
+  <div class="prob-body">
+    <p>Given a nominal interest rate and an inflation rate, compute the real interest rate and interpret what it means for savers.</p>
+    <p class="ko-q">(명목 이자율과 인플레이션율이 주어졌을 때 실질 이자율을 계산하고, 저축자에게 어떤 의미인지 해석하라.)</p>
+    <div class="solution-label">💡 풀이 (피셔 방정식, Fisher Equation)</div>
+    <div class="solution-box">
+      <p style="text-align:center;"><strong>실질 이자율 = 명목 이자율 − 인플레이션율</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">예: 명목 이자율 5%, 인플레이션 2% → 실질 이자율 = <strong>3%</strong></div>
+        <div class="calc-line">예: 명목 이자율 7%, 인플레이션 3% → 실질 이자율 = <strong>4%</strong></div>
+      </div>
+      <p>실질 이자율은 저축의 <strong>실질 구매력</strong>이 얼마나 증가하는지를 나타낸다. 인플레이션이 명목 이자율보다 높으면 실질 이자율은 <strong>음수</strong>가 되어 저축자의 구매력이 오히려 감소한다 (1970년대 사례).</p>
+    </div>
+  </div>
+</div>
+
+<!-- Problem 9 -->
+<div class="prob-card">
+  <div class="prob-header">Problem 9. Unexpected Inflation — Winners & Losers</div>
+  <div class="prob-body">
+    <p>When inflation turns out higher than expected, who gains and who loses on a fixed-rate loan? Relate this to the 1970s.</p>
+    <p class="ko-q">(예상보다 인플레이션이 높게 나오면 고정금리 대출에서 누가 이익을 보고 누가 손해를 보는가? 1970년대와 연결하라.)</p>
+    <div class="solution-label">💡 풀이 및 해설</div>
+    <div class="solution-box">
+      <p>• <strong>차입자(대출받은 쪽, 예: 주택 구입자) — 이익</strong><br>
+      고정 6% 금리로 빌렸는데 인플레이션이 10~12%로 치솟으면 실질 이자율은 음수(6%−12%=−6%). 갚는 돈의 실질 가치가 줄어 큰 이득. 주택 가치는 오르고 실질 부채는 감소.</p>
+      <p>• <strong>대출자/은행(고정금리로 빌려준 쪽) — 손해</strong><br>
+      예상치 못한 높은 인플레이션으로 돌려받는 원리금의 실질 가치 급락. 사실상 음의 실질 이자율로 빌려준 셈이 되어 막대한 실질 손실. 이것이 1970년대 말 <strong>저축대부조합(S&amp;L) 위기</strong>의 한 원인.</p>
+      <div class="note">📌 교훈: 예상치 못한 인플레이션은 고정 명목 계약에서 <strong>채권자 → 채무자로 부(wealth)를 재분배</strong>한다.</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Chapter 24: Measuring the Cost of Living — Problems and Applications<br>
+  Seoul Global High School Economics
+</div>
+
+</div>
+</body>
+</html>
