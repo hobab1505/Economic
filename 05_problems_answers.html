@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 28 — Unemployment: 완벽 정답집</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR','Segoe UI',sans-serif; background:#eef2f5; color:#2c3e50; line-height:1.78; }
+  .wrap { max-width:960px; margin:0 auto; padding:40px 24px; }
+  .page-hero { background:linear-gradient(135deg,#1a252f,#2e86ab); color:white; border-radius:14px; padding:40px 36px; margin-bottom:36px; text-align:center; }
+  .page-hero .ch-label { font-size:2.4em; font-weight:900; letter-spacing:1px; margin-bottom:6px; text-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .page-hero h1 { font-size:1.7em; font-weight:700; margin-bottom:8px; }
+  .page-hero .sub { font-size:1.05em; opacity:.9; }
+  .page-hero .sub strong { font-weight:800; }
+  .page-hero .chip { display:inline-block; background:rgba(255,255,255,.18); padding:5px 16px; border-radius:20px; font-size:.85em; margin-top:14px; }
+  h2 { color:#1a252f; font-size:1.35em; border-bottom:3px solid #2e86ab; padding-bottom:8px; margin:10px 0 22px; }
+  /* QuickQuiz section */
+  .qq-section { background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); padding:28px; margin-bottom:28px; }
+  .qq-q { margin-bottom:20px; padding-bottom:20px; border-bottom:1px dashed #ddd; }
+  .qq-q:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .qq-stem { font-size:.97em; font-weight:600; margin-bottom:8px; }
+  .qq-ko { font-size:.88em; color:#7f8c8d; margin-bottom:8px; }
+  .qq-choices { font-size:.92em; color:#555; margin-bottom:8px; }
+  .qq-ans { display:inline-block; background:#27ae60; color:white; font-size:.78em; font-weight:700; padding:3px 12px; border-radius:12px; margin-bottom:6px; }
+  .qq-exp { background:#f4fbf6; border:1px solid #c8e6d0; border-radius:6px; padding:10px 14px; font-size:.92em; }
+  /* Review section */
+  .review-section { background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); padding:28px; margin-bottom:28px; }
+  .rev-q { margin-bottom:22px; padding-bottom:22px; border-bottom:1px dashed #ddd; }
+  .rev-q:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .rev-q-text { font-size:.97em; font-weight:600; color:#2c3e50; margin-bottom:6px; }
+  .rev-q-ko { font-size:.88em; color:#7f8c8d; margin-bottom:10px; }
+  /* Problem cards */
+  .prob-card { background:white; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:26px; overflow:hidden; }
+  .prob-header { background:linear-gradient(135deg,#1a252f,#2e86ab); color:white; padding:14px 22px; font-weight:700; font-size:1.03em; }
+  .prob-body { padding:22px 24px; }
+  .prob-body > p { margin-bottom:10px; font-size:.97em; }
+  .prob-ko { color:#5d6d7e; font-size:.9em; margin-bottom:12px; }
+  .prob-sub { background:#eaf4fb; border-left:4px solid #2e86ab; padding:9px 14px; margin:14px 0 4px; font-weight:600; font-size:.95em; border-radius:0 4px 4px 0; }
+  .prob-sub-ko { font-size:.86em; color:#5d6d7e; font-weight:400; }
+  .solution-label { display:inline-block; background:#27ae60; color:white; font-size:.78em; font-weight:700; padding:3px 12px; border-radius:12px; margin:10px 0 6px; }
+  .solution-box { background:#f4fbf6; border:1px solid #c8e6d0; border-radius:8px; padding:14px 18px; font-size:.93em; }
+  .solution-box p { margin-bottom:8px; }
+  .calc-box { background:#fff; border:1px dashed #95a5a6; border-radius:6px; padding:11px 14px; margin:8px 0; font-family:'Consolas','Menlo',monospace; }
+  .calc-line { padding:3px 0; font-size:.9em; }
+  .note { background:#fef5e7; border-left:4px solid #f39c12; padding:9px 14px; margin-top:10px; border-radius:0 4px 4px 0; font-size:.9em; color:#7e5109; }
+  .ans-tag { display:inline-block; background:#e67e22; color:white; font-size:.78em; font-weight:700; padding:2px 10px; border-radius:10px; margin-bottom:6px; }
+  .tbl { width:100%; border-collapse:collapse; margin:12px 0; font-size:.88em; }
+  .tbl th { background:#2e86ab; color:white; padding:8px 10px; text-align:left; }
+  .tbl td { border:1px solid #ddd; padding:8px 10px; }
+  .tbl tr:nth-child(even) { background:#f7fbfd; }
+  .footer { text-align:center; color:#7f8c8d; font-size:.9em; padding:30px 0 10px; }
+  @media print { body { background:white; } .prob-card,.qq-section,.review-section { box-shadow:none; border:1px solid #ddd; page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="page-hero">
+  <div class="ch-label">Chapter 28</div>
+  <h1>🏭 Unemployment — 완벽 정답집</h1>
+  <div class="sub"><strong>Chapter 28</strong> · Unemployment (실업)</div>
+  <div class="chip">QuickQuiz · Questions for Review · Problems &amp; Applications — 완전 해설</div>
+</div>
+<!-- QUICKQUIZ -->
+<h2>📝 Chapter QuickQuiz</h2>
+<div class="qq-section">
+
+<div class="qq-q">
+  <div class="qq-stem">1. The population of Ectenia is 100 people: 40 work full-time, 20 work half-time but would prefer full-time, 10 are looking for a job, 10 would like to work but are so discouraged they have given up looking, 10 are full-time students not interested in working, and 10 are retired. What is the number of unemployed?</div>
+  <div class="qq-ko">에크테니아 인구는 100명. 40명 풀타임 근무, 20명 하프타임(풀타임 원함), 10명 구직 중, 10명 구직 포기(낙담 실업자), 10명 학생(일 관심 없음), 10명 은퇴. 실업자 수는?</div>
+  <div class="qq-choices">a. 10 &nbsp;&nbsp; b. 20 &nbsp;&nbsp; c. 30 &nbsp;&nbsp; d. 40</div>
+  <div class="qq-ans">정답: a. 10</div>
+  <div class="qq-exp">BLS 기준으로 <strong>실업자 = 일자리가 없고 적극적으로 구직 중인 사람</strong>. 10명만 해당. 낙담 실업자(구직 포기)는 <em>비경제활동인구</em>로 분류되어 실업자 수에 포함되지 않음. 하프타임 근로자는 취업자로 집계.</div>
+</div>
+
+<div class="qq-q">
+  <div class="qq-stem">2. Using the numbers in the preceding question, what is the size of Ectenia's labor force?</div>
+  <div class="qq-ko">위 에크테니아의 노동력 규모는?</div>
+  <div class="qq-choices">a. 50 &nbsp;&nbsp; b. 60 &nbsp;&nbsp; c. 70 &nbsp;&nbsp; d. 80</div>
+  <div class="qq-ans">정답: c. 70</div>
+  <div class="qq-exp"><strong>노동력(labor force) = 취업자 + 실업자</strong> = (40 풀타임 + 20 하프타임) + 10 구직자 = <strong>70</strong>. 낙담 실업자·학생·은퇴자는 비경제활동인구로 노동력에 미포함.</div>
+</div>
+
+<div class="qq-q">
+  <div class="qq-stem">3. The main policy goal of the unemployment insurance system is to reduce the</div>
+  <div class="qq-ko">실업보험 제도의 주요 정책 목표는?</div>
+  <div class="qq-choices">a. search effort of the unemployed. &nbsp;&nbsp; b. income uncertainty that workers face. &nbsp;&nbsp; c. role of unions in wage setting. &nbsp;&nbsp; d. amount of frictional unemployment.</div>
+  <div class="qq-ans">정답: b. income uncertainty that workers face</div>
+  <div class="qq-exp">실업보험의 목적은 근로자가 일자리를 잃었을 때 <strong>소득 불확실성을 줄여</strong> 소비 안정을 도모하는 것. (단, 실업급여가 구직 노력을 줄이는 부작용도 있어 마찰적 실업을 오히려 늘릴 수 있다는 점도 함께 이해해야 함)</div>
+</div>
+
+<div class="qq-q">
+  <div class="qq-stem">4. In a competitive labor market, when the government increases the minimum wage, the result is a(n) ___ in the quantity of labor supplied and a(n) ___ in the quantity of labor demanded.</div>
+  <div class="qq-ko">경쟁적 노동 시장에서 최저임금이 인상되면 노동 공급량은 ___하고 노동 수요량은 ___한다.</div>
+  <div class="qq-choices">a. increase, increase &nbsp;&nbsp; b. increase, decrease &nbsp;&nbsp; c. decrease, increase &nbsp;&nbsp; d. decrease, decrease</div>
+  <div class="qq-ans">정답: b. increase, decrease</div>
+  <div class="qq-exp">최저임금 인상(균형임금 위) → 임금↑ → 일하려는 사람 <strong>증가(공급↑)</strong>, 기업이 고용하려는 사람 <strong>감소(수요↓)</strong> → 공급 초과 = 실업 발생.</div>
+</div>
+
+<div class="qq-q">
+  <div class="qq-stem">5. Unionized workers are paid about ___ percent more than similar nonunion workers.</div>
+  <div class="qq-ko">노조 가입 근로자는 비슷한 비노조 근로자보다 약 ___% 더 많이 받는다.</div>
+  <div class="qq-choices">a. 2 &nbsp;&nbsp; b. 5 &nbsp;&nbsp; c. 15 &nbsp;&nbsp; d. 40</div>
+  <div class="qq-ans">정답: c. 15</div>
+  <div class="qq-exp">실증 연구에 따르면 노조 근로자는 학력·경력·직종이 유사한 비노조 근로자보다 <strong>약 10~20%(약 15%)를 더 받는 것</strong>으로 알려져 있음.</div>
+</div>
+
+<div class="qq-q">
+  <div class="qq-stem">6. According to the theory of efficiency wages,</div>
+  <div class="qq-ko">효율임금 이론에 따르면,</div>
+  <div class="qq-choices">a. firms may find it profitable to pay above-equilibrium wages. &nbsp;&nbsp; b. an excess supply of labor puts downward pressure on wages. &nbsp;&nbsp; c. sectoral shifts are the main source of frictional unemployment. &nbsp;&nbsp; d. right-to-work laws reduce the bargaining power of unions.</div>
+  <div class="qq-ans">정답: a. firms may find it profitable to pay above-equilibrium wages</div>
+  <div class="qq-exp">효율임금 이론: 기업이 <strong>균형임금보다 높은 임금을 지불하면 더 많은 이윤을 얻을 수 있다</strong>는 이론. 이유: 근로자 건강 개선, 이직률 감소, 우수 인재 유인, 근로 노력 증가. 이것이 실업률이 0이 되지 않는 이유 중 하나.</div>
+</div>
+
+</div>
+<!-- QUESTIONS FOR REVIEW -->
+<h2>📖 Questions for Review — 복습 문제</h2>
+<div class="review-section">
+
+<div class="rev-q">
+  <div class="rev-q-text">1. What are the three categories into which the Bureau of Labor Statistics divides everyone? How does the BLS compute the labor force, the unemployment rate, and the labor-force participation rate?</div>
+  <div class="rev-q-ko">BLS가 모든 사람을 나누는 세 범주는? BLS는 노동력·실업률·노동력 참가율을 어떻게 계산하는가?</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <p><strong>세 범주:</strong> ① 취업자(employed) ② 실업자(unemployed) ③ 비경제활동인구(not in the labor force)</p>
+    <div class="calc-box">
+      <div class="calc-line">노동력 = 취업자 + 실업자</div>
+      <div class="calc-line">실업률 = (실업자 / 노동력) × 100</div>
+      <div class="calc-line">노동력 참가율 = (노동력 / 성인 인구) × 100</div>
+    </div>
+    <p>취업자: 지난 주에 유급으로 일한 사람. 실업자: 일자리 없으나 <em>적극적으로 구직 중</em>인 사람. 비경제활동인구: 위 두 범주에 해당하지 않는 사람(학생, 주부, 낙담 실업자, 은퇴자 등).</p>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">2. Is unemployment typically short-term or long-term? Explain.</div>
+  <div class="rev-q-ko">실업은 일반적으로 단기인가 장기인가? 설명하라.</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <p><strong>대부분의 실업 에피소드는 단기</strong>이지만, 측정 시점의 실업자 중 상당수는 장기 실업자이다(역설적).</p>
+    <p>예: 실업자 10명 중 8명은 1개월 이내에 재취업하고 2명은 12개월간 실업 → 전체 실업일수의 대부분은 2명의 장기 실업자가 차지. BLS가 특정 시점에 조사하면 장기 실업자 비율이 높게 나타남. 즉, 개별 에피소드 수 기준으로는 단기가 많지만, 총 실업량의 상당 부분은 장기 실업자에 의한 것이다.</p>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">3. Why is frictional unemployment inevitable? How might the government reduce the amount of frictional unemployment?</div>
+  <div class="rev-q-ko">마찰적 실업은 왜 불가피한가? 정부는 마찰적 실업을 어떻게 줄일 수 있는가?</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <p><strong>불가피한 이유:</strong> 근로자들은 다양한 기술과 선호를 가지고 있고, 일자리마다 요구 사항이 다르다. 어떤 사람이 일자리를 잃거나 새로운 노동 시장에 들어올 때 자신에게 맞는 일자리를 찾는 데 시간이 걸린다. 산업 구조는 끊임없이 변하기 때문에 언제나 일부 근로자는 구직 중 상태에 있다.</p>
+    <p><strong>정부 정책:</strong></p>
+    <ul style="margin-left:20px; font-size:.93em;">
+      <li>고용 정보 서비스 강화 (취업 공고 통합 플랫폼)</li>
+      <li>직업 훈련·재교육 프로그램</li>
+      <li>지역 간 이동을 돕는 보조금</li>
+      <li>실업보험 설계 개선 (구직 기간을 단축하는 인센티브)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">4. Are minimum-wage laws a better explanation for structural unemployment among teenagers or among college graduates? Why?</div>
+  <div class="rev-q-ko">최저임금법은 청소년과 대학 졸업자 중 어느 쪽의 구조적 실업을 더 잘 설명하는가? 이유는?</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <p><strong>청소년의 실업을 더 잘 설명한다.</strong></p>
+    <p>최저임금이 <em>균형임금을 초과</em>할 때만 실업을 일으킨다. 청소년은 경력·기술·교육 수준이 낮아 시장 균형임금이 최저임금 근처나 아래에 있을 가능성이 높다 → 최저임금이 <strong>구속력 있는 하한(binding constraint)</strong>으로 작용.</p>
+    <p>반면 대학 졸업자는 높은 생산성 덕분에 시장 균형임금이 최저임금을 크게 초과한다 → 최저임금이 구속력이 없어 거의 영향을 주지 않음.</p>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">5. How do unions affect the natural rate of unemployment?</div>
+  <div class="rev-q-ko">노조는 자연실업률에 어떤 영향을 미치는가?</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <p>노조는 단체 교섭을 통해 노조 가입 사업장의 임금을 균형임금보다 높게 유지한다. 이는 <strong>구조적 실업을 증가</strong>시켜 자연실업률을 높인다.</p>
+    <p>높은 임금 → 기업의 노동 수요↓ → 공급 초과(실업). 또한 노조 사업장에서 밀려난 근로자들이 비노조 섹터로 몰려 비노조 부문 임금을 낮추는 이중 효과도 발생. 결과적으로 내부자(insider, 고임금 노조 근로자)와 외부자(outsider, 실업자) 사이의 격차가 커진다.</p>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">6. What claims do advocates of unions make to argue that unions are good for the economy?</div>
+  <div class="rev-q-ko">노조 지지자들은 노조가 경제에 유익하다고 어떤 주장을 하는가?</div>
+  <div class="solution-label">정답</div>
+  <div class="solution-box">
+    <ul style="margin-left:20px; font-size:.93em;">
+      <li>대기업의 <strong>수요독점(monopsony) 권력에 대한 균형추</strong> 역할 → 시장 임금보다 낮은 임금 지급을 막음</li>
+      <li>근로 조건·안전 문제 등 <strong>근로자 집단의 목소리</strong>를 경영진에 효과적으로 전달</li>
+      <li>공정한 처우 보장 → 직원 사기·충성도 향상 → 생산성 향상</li>
+      <li>이직률 감소 → 기업의 훈련 비용 절감, 인적 자본 축적</li>
+      <li>구매력 향상을 통해 총수요를 늘린다는 주장(경제 전체적 관점)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-q">
+  <div class="rev-q-text">7. Explain four ways in which a firm might increase its profits by raising the wages it pays.</div>
+  <div class="rev-q-ko">기업이 임금을 인상함으로써 이윤을 늘릴 수 있는 네 가지 방법을 설명하라.</div>
+  <div class="solution-label">정답 — 효율임금(Efficiency Wages) 이론</div>
+  <div class="solution-box">
+    <p>① <strong>근로자 건강 개선 (Worker health):</strong> 높은 임금 → 더 나은 영양·주거·의료 → 근로자가 더 건강하고 활기차게 일함 → 생산성↑. 특히 저임금 개도국에서 유효.</p>
+    <p>② <strong>이직률 감소 (Worker turnover):</strong> 임금↑ → 이 일자리를 잃고 싶지 않음 → 이직률↓ → 채용·훈련 비용↓ → 전체 비용 절감.</p>
+    <p>③ <strong>우수 인재 유인 (Worker quality / adverse selection):</strong> 높은 임금 → 더 능력 있는 지원자 몰림 → 역선택 문제 해소 → 생산성↑.</p>
+    <p>④ <strong>근로 노력 강화 (Worker effort / moral hazard):</strong> 높은 임금 → 해고되면 잃을 게 많음 → 열심히 일할 유인↑ → 태만 감소 → 생산성↑.</p>
+  </div>
+</div>
+
+</div>
+<!-- PROBLEMS 1-5 -->
+<h2>🔧 Problems and Applications — 상세 정답·해설</h2>
+
+<!-- ===== PROBLEM 1 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 1 · Great Recession Labor Statistics (2009)</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> In June 2009, at the trough of the Great Recession, the Bureau of Labor Statistics announced that of all adult Americans, <strong>140,196,000</strong> were employed, <strong>14,729,000</strong> were unemployed, and <strong>80,729,000</strong> were not in the labor force. Use this information to calculate the adult population, labor force, labor-force participation rate, and unemployment rate.</p>
+    <p class="prob-ko">2009년 6월, 대침체의 저점에서 BLS가 발표한 자료: 취업자 140,196,000명 / 실업자 14,729,000명 / 비경제활동인구 80,729,000명. 다음 지표들을 계산하라.</p>
+
+    <div class="prob-sub">a. the adult population <span class="prob-sub-ko">성인 인구 (Adult Population)</span></div>
+    <div class="solution-label">풀이</div>
+    <div class="solution-box">
+      <p><strong>개념:</strong> 성인 인구 = 취업자 + 실업자 + 비경제활동인구. BLS는 민간 비기관 거주 성인(만 16세 이상)을 세 그룹 중 하나로 분류한다.</p>
+      <div class="calc-box">
+        <div class="calc-line">성인 인구 = 취업자 + 실업자 + 비경제활동인구</div>
+        <div class="calc-line">= 140,196,000 + 14,729,000 + 80,729,000</div>
+        <div class="calc-line">= <strong>235,654,000명 (약 2억 3,565만 명)</strong></div>
+      </div>
+    </div>
+
+    <div class="prob-sub">b. the labor force <span class="prob-sub-ko">노동력 (Labor Force)</span></div>
+    <div class="solution-label">풀이</div>
+    <div class="solution-box">
+      <p><strong>개념:</strong> 노동력 = 취업자 + 실업자. 비경제활동인구(학생·은퇴자·주부·낙담 실업자)는 포함되지 않는다. 노동력은 "일하고 있거나 일자리를 적극적으로 찾고 있는" 사람들의 집합이다.</p>
+      <div class="calc-box">
+        <div class="calc-line">노동력 = 취업자 + 실업자</div>
+        <div class="calc-line">= 140,196,000 + 14,729,000</div>
+        <div class="calc-line">= <strong>154,925,000명 (약 1억 5,493만 명)</strong></div>
+      </div>
+    </div>
+
+    <div class="prob-sub">c. the labor-force participation rate <span class="prob-sub-ko">노동력 참가율</span></div>
+    <div class="solution-label">풀이</div>
+    <div class="solution-box">
+      <p><strong>개념:</strong> 노동력 참가율 = 성인 인구 중 노동력에 속하는 비율. 이 지표는 사람들이 얼마나 적극적으로 노동 시장에 참여하는지를 보여준다. 경기침체 때 낙담 실업자가 늘면 노동력 참가율이 하락하여 실업률이 과소평가될 수 있다.</p>
+      <div class="calc-box">
+        <div class="calc-line">노동력 참가율 = (노동력 / 성인 인구) × 100</div>
+        <div class="calc-line">= (154,925,000 / 235,654,000) × 100</div>
+        <div class="calc-line">= <strong>약 65.7%</strong></div>
+      </div>
+      <div class="note">📌 비교: 2023년 미국 노동력 참가율은 약 62~63% 수준. 대침체 직후 65.7%는 이후 지속적으로 하락했는데, 이는 낙담 실업자 증가와 베이비붐 세대 은퇴가 겹쳤기 때문이다.</div>
+    </div>
+
+    <div class="prob-sub">d. the unemployment rate <span class="prob-sub-ko">실업률</span></div>
+    <div class="solution-label">풀이</div>
+    <div class="solution-box">
+      <p><strong>개념:</strong> 실업률 = 노동력 중 실업자의 비율. 일할 의사와 능력이 있으면서 일자리를 찾고 있음에도 취업하지 못한 사람의 비율을 나타낸다.</p>
+      <div class="calc-box">
+        <div class="calc-line">실업률 = (실업자 / 노동력) × 100</div>
+        <div class="calc-line">= (14,729,000 / 154,925,000) × 100</div>
+        <div class="calc-line">= <strong>약 9.5%</strong></div>
+      </div>
+      <div class="note">📌 9.5%는 2009년 당시 미국의 <em>공식</em> 실업률(U-3). 구직 포기자·비자발적 파트타임 근로자까지 포함하는 광의의 U-6 실업률은 약 16.5%에 달했다. 이 차이가 공식 실업률의 한계를 보여준다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 2 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 2 · GoT Characters — Unemployment Rate &amp; Labor-Force Participation Rate</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Explain whether each of the following events increases, decreases, or has no effect on the unemployment rate and the labor-force participation rate.</p>
+    <p class="prob-ko">다음 각 사건이 실업률과 노동력 참가율에 어떤 영향(증가·감소·무변화)을 미치는지 설명하라.</p>
+    <div class="note" style="margin-bottom:14px;">📌 <strong>분석 방법:</strong> 각 사건이 ① 취업자(E), ② 실업자(U), ③ 비경제활동인구(N)를 어떻게 바꾸는지 파악 → 노동력(LF=E+U)과 성인인구(P=E+U+N)의 변화를 계산 → 실업률(U/LF)과 참가율(LF/P) 방향 도출.</div>
+
+    <div class="prob-sub">a. After a long search, Jon finds a job. <span class="prob-sub-ko">Jon이 오랜 구직 끝에 취업했다.</span></div>
+    <div class="solution-box">
+      <p>Jon: <strong>실업자 → 취업자</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">U: ↓1 (실업자 감소) / LF: 불변 (E↑1, U↓1 → LF = E+U 불변) / P: 불변</div>
+        <div class="calc-line">실업률 = U/LF → 분자↓, 분모 불변 → <strong>실업률 감소 ↓</strong></div>
+        <div class="calc-line">참가율 = LF/P → 불변/불변 → <strong>노동력 참가율 무변화</strong></div>
+      </div>
+      <p>Jon은 이미 구직 중이었으므로 노동력(Labor Force)에 속해 있었다. 취업하면 실업자 수만 줄고 노동력 크기는 그대로이므로 실업률만 하락.</p>
+    </div>
+
+    <div class="prob-sub">b. Tyrion, a full-time college student, graduates and is immediately employed. <span class="prob-sub-ko">풀타임 대학생 Tyrion이 졸업 후 즉시 취업했다.</span></div>
+    <div class="solution-box">
+      <p>Tyrion: <strong>비경제활동인구(학생) → 취업자</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">E: ↑1 / U: 불변 / N: ↓1 → LF(=E+U): ↑1 / P: 불변</div>
+        <div class="calc-line">실업률 = U/LF → 분자 불변, 분모↑ → <strong>실업률 감소 ↓</strong></div>
+        <div class="calc-line">참가율 = LF/P → 분자↑, 분모 불변 → <strong>노동력 참가율 증가 ↑</strong></div>
+      </div>
+      <p>풀타임 학생은 비경제활동인구. 취업 후 처음으로 노동력에 합류하며 분모(LF)가 늘어나 실업률은 하락, 참가율은 상승.</p>
+    </div>
+
+    <div class="prob-sub">c. After an unsuccessful job search, Arya gives up and retires. <span class="prob-sub-ko">Arya가 구직에 실패하고 포기하여 은퇴했다(낙담 실업자).</span></div>
+    <div class="solution-box">
+      <p>Arya: <strong>실업자 → 비경제활동인구(낙담 실업자)</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">U: ↓1 / LF: ↓1 / P: 불변</div>
+        <div class="calc-line">실업률 = (U-1)/(LF-1) vs U/LF → LF &gt; U이면 비율 감소 → <strong>실업률 감소 ↓</strong></div>
+        <div class="calc-line">참가율 = LF/P → 분자↓, 분모 불변 → <strong>노동력 참가율 감소 ↓</strong></div>
+      </div>
+      <p><strong>중요 포인트:</strong> 공식 실업률이 하락하지만 이는 노동 시장이 개선된 게 아니라 Arya가 포기한 것. 이것이 실업률의 한계로, 낙담 실업자를 포함한 광의 실업률(U-6)이 더 현실적인 지표가 되는 이유이다.</p>
+    </div>
+
+    <div class="prob-sub">d. Daenerys quits her job to become a stay-at-home mom. <span class="prob-sub-ko">Daenerys가 일을 그만두고 전업주부가 되었다.</span></div>
+    <div class="solution-box">
+      <p>Daenerys: <strong>취업자 → 비경제활동인구</strong> (구직 의사 없음)</p>
+      <div class="calc-box">
+        <div class="calc-line">E: ↓1 / U: 불변 / N: ↑1 → LF: ↓1 / P: 불변</div>
+        <div class="calc-line">실업률 = U/(LF-1) → 분모↓, 분자 불변 → <strong>실업률 증가 ↑</strong></div>
+        <div class="calc-line">참가율 = LF/P → 분자↓, 분모 불변 → <strong>노동력 참가율 감소 ↓</strong></div>
+      </div>
+      <p>일자리를 떠났지만 구직 활동을 하지 않으므로 실업자 수는 변하지 않는다. 노동력 분모만 줄어 실업률이 역설적으로 상승.</p>
+    </div>
+
+    <div class="prob-sub">e. Sansa has a birthday, becomes an adult, but has no interest in working. <span class="prob-sub-ko">Sansa가 성인이 되었으나 일할 의사가 없다.</span></div>
+    <div class="solution-box">
+      <p>Sansa: <strong>미성년 → 성인 비경제활동인구</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">P: ↑1 / LF: 불변 / U: 불변</div>
+        <div class="calc-line">실업률 = U/LF → 불변/불변 → <strong>실업률 무변화</strong></div>
+        <div class="calc-line">참가율 = LF/P → 불변/↑ → <strong>노동력 참가율 감소 ↓</strong></div>
+      </div>
+      <p>성인 인구만 늘고 노동력은 그대로이므로 참가율만 하락. 인구 고령화로 은퇴자가 늘어날 때 같은 원리가 작동하며 참가율이 장기적으로 하락하는 현상을 설명한다.</p>
+    </div>
+
+    <div class="prob-sub">f. Jaime has a birthday, becomes an adult, and starts looking for a job. <span class="prob-sub-ko">Jaime이 성인이 되어 즉시 구직을 시작했다(아직 미취업).</span></div>
+    <div class="solution-box">
+      <p>Jaime: <strong>미성년 → 성인 실업자(구직 중)</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">P: ↑1 / LF: ↑1 / U: ↑1</div>
+        <div class="calc-line">실업률 = (U+1)/(LF+1): U/LF &lt; 1이면 분자 증가 비율 &gt; 분모 증가 비율 → <strong>실업률 증가 ↑</strong></div>
+        <div class="calc-line">참가율 = LF/P → 둘 다 1 증가: LF/P &lt; 1이면 → <strong>노동력 참가율 증가 ↑</strong></div>
+      </div>
+    </div>
+
+    <div class="prob-sub">g. Cersei dies while enjoying retirement. <span class="prob-sub-ko">Cersei가 은퇴 중 사망했다.</span></div>
+    <div class="solution-box">
+      <p>Cersei: <strong>비경제활동인구(은퇴자) 사망</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">P: ↓1 / LF: 불변 / U: 불변</div>
+        <div class="calc-line">실업률 = U/LF → 불변 → <strong>실업률 무변화</strong></div>
+        <div class="calc-line">참가율 = LF/P → 불변/↓ → <strong>노동력 참가율 증가 ↑</strong></div>
+      </div>
+      <p>은퇴자(비경제활동인구)가 사망하면 노동력은 변하지 않고 총 인구만 줄어든다. 분모가 작아지므로 참가율은 역설적으로 상승.</p>
+    </div>
+
+    <div class="prob-sub">h. Jorah dies working long hours at the office. <span class="prob-sub-ko">Jorah가 사무실에서 일하다 사망했다.</span></div>
+    <div class="solution-box">
+      <p>Jorah: <strong>취업자 사망</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">P: ↓1 / LF: ↓1 / E: ↓1 / U: 불변</div>
+        <div class="calc-line">실업률 = U/(LF-1) → 분모↓, 분자 불변 → <strong>실업률 증가 ↑</strong></div>
+        <div class="calc-line">참가율 = (LF-1)/(P-1): LF/P 비율보다 하락 (P &gt; LF이므로) → <strong>노동력 참가율 감소 ↓</strong></div>
+      </div>
+    </div>
+
+    <div style="background:#f0f4f8;border-radius:6px;padding:14px;margin-top:16px;font-size:.9em;">
+      <strong>📊 요약표</strong>
+      <table class="tbl" style="margin-top:8px;font-size:.88em;">
+        <tr><th>사건</th><th>실업률</th><th>노동력 참가율</th></tr>
+        <tr><td>a. Jon 취업</td><td>↓</td><td>무변화</td></tr>
+        <tr><td>b. Tyrion 졸업·즉시 취업</td><td>↓</td><td>↑</td></tr>
+        <tr><td>c. Arya 구직 포기·은퇴</td><td>↓</td><td>↓</td></tr>
+        <tr><td>d. Daenerys 전업주부 전환</td><td>↑</td><td>↓</td></tr>
+        <tr><td>e. Sansa 성인, 일 관심 없음</td><td>무변화</td><td>↓</td></tr>
+        <tr><td>f. Jaime 성인, 구직 시작</td><td>↑</td><td>↑</td></tr>
+        <tr><td>g. Cersei 은퇴 중 사망</td><td>무변화</td><td>↑</td></tr>
+        <tr><td>h. Jorah 근무 중 사망</td><td>↑</td><td>↓</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 3 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 3 · BLS Website — Current Unemployment Rate</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Go to the website of the Bureau of Labor Statistics (http://www.bls.gov). What is the national unemployment rate right now? Find the unemployment rate for the demographic group that best fits a description of you (for example, based on age, sex, and race). Is it higher or lower than the national average? Why do you think this is so?</p>
+    <p class="prob-ko">BLS 웹사이트에서 현재 전국 실업률을 찾아라. 또한 자신의 인구통계학적 특성(나이·성별·인종 등)에 해당하는 집단의 실업률을 찾아라. 전국 평균보다 높은가 낮은가? 왜 그러한가?</p>
+    <div class="solution-label">모범 답안 구조 및 경제학적 해석</div>
+    <div class="solution-box">
+      <p><strong>Step 1 — 데이터 접근:</strong> www.bls.gov → "Data Tools" → "Labor Force Statistics from the CPS (Current Population Survey)" → 인구 집단별 실업률 테이블(Table A-3~A-16) 참조.</p>
+      <p><strong>Step 2 — 예시 데이터 (2024년 기준 근사치):</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">전국 전체 실업률:       ≈ 3.7%</div>
+        <div class="calc-line">20~24세 남성 실업률:   ≈ 7.5%  (전국 평균의 약 2배)</div>
+        <div class="calc-line">25~54세 대졸 여성:      ≈ 2.5%  (전국 평균 이하)</div>
+        <div class="calc-line">16~19세 (청소년):       ≈ 12.5% (전국 평균의 약 3배)</div>
+      </div>
+      <p><strong>Step 3 — 차이의 경제학적 이유:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>젊은 층이 높은 이유:</strong> 노동 시장 경험 부족 → 직업 매칭 시간이 길다(마찰적 실업↑). 특정 기술 미보유 → 구조적 실업 가능성. 최저임금의 영향을 더 많이 받음.</li>
+        <li><strong>교육 수준이 높을수록 낮은 이유:</strong> 대졸자는 기술 범용성이 높아 다양한 직종에 지원 가능. 구직 네트워크(인맥)가 더 광범위. 높은 생산성 → 고용주 수요 많음.</li>
+        <li><strong>인종별 차이:</strong> 역사적 차별, 교육 기회 격차, 특정 산업 집중 등 구조적 요인으로 인해 인종별 실업률이 체계적으로 다르게 나타남.</li>
+      </ul>
+      <div class="note">📌 BLS의 U-6 광의 실업률도 함께 확인하면 더 완전한 그림을 얻을 수 있다. U-6는 공식 실업자 + 낙담 실업자 + 비자발적 파트타임 근로자를 모두 포함한다.</div>
+    </div>
+  </div>
+</div>
+<!-- ===== PROBLEM 4 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 4 · Employment +12.1M vs Unemployment −7.3M (2010–2016)</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Between January 2010 and January 2016, U.S. employment increased by 12.1 million workers, but the number of unemployed workers declined by only 7.3 million. How are these numbers consistent with each other? Why might one expect a reduction in the number of people counted as unemployed to be smaller than the increase in the number of people employed?</p>
+    <p class="prob-ko">2010년 1월~2016년 1월 사이, 미국 취업자 수는 1,210만 명 증가했지만 실업자 수는 730만 명밖에 감소하지 않았다. 이 두 수치가 어떻게 일치하는가? 왜 실업자 감소분이 취업자 증가분보다 더 적을 수 있는가?</p>
+    <div class="solution-label">상세 풀이</div>
+    <div class="solution-box">
+      <p><strong>핵심 회계 항등식:</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">취업자 증가 = 실업자 감소분 + 비경제활동인구(NILF)에서 취업 전환분</div>
+        <div class="calc-line">12,100,000  =    7,300,000    +        4,800,000</div>
+      </div>
+      <p>즉, 새로 취업한 1,210만 명 중 730만 명은 이전에 실업자였고, 나머지 <strong>480만 명은 비경제활동인구에서 직접 취업</strong>했다. 이들은 실업자로 집계된 적이 없으므로 실업자 감소분에는 잡히지 않는다.</p>
+
+      <p style="margin-top:12px;"><strong>비경제활동인구에서 직접 취업하는 세 유형:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>① 낙담 실업자(Discouraged workers)의 복귀:</strong> 경기침체 때 구직을 포기한 사람들이 경기가 좋아지면 다시 일자리를 찾음. 이들이 구직에 성공하면 '실업자 감소' 없이 '취업자 증가'만 발생.</li>
+        <li><strong>② 인구 증가에 따른 신규 진입자:</strong> 6년 사이 성인 인구 자체가 수백만 명 증가. 새로 성인이 된 사람이 바로 취업하면 취업자는 늘지만 실업자는 변화 없음.</li>
+        <li><strong>③ 비자발적 비경제활동인구의 재진입:</strong> 육아·학업 등으로 잠시 노동 시장을 떠났다가 직접 일자리를 구해 복귀한 경우.</li>
+      </ul>
+
+      <p style="margin-top:12px;"><strong>추가적인 미묘한 이유 — 낙담 실업자 재진입의 통계적 효과:</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">경기가 좋아지면 → 일부 낙담 실업자가 다시 구직 시작 → 실업자로 재분류</div>
+        <div class="calc-line">→ 이들이 바로 취업하면 OK지만, 구직 중에는 오히려 실업자 수를 일시적으로 늘림</div>
+        <div class="calc-line">→ 결과: 실업자 순감소분이 실제 고용 회복보다 작게 보임</div>
+      </div>
+      <div class="note">📌 이 문제는 왜 노동 시장 회복 판단에 실업률 하나만으로는 부족한지를 잘 보여준다. 고용-인구 비율, 노동력 참가율, 취업자 수 절대값을 함께 봐야 한다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 5 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 5 · Unemployment Rate vs Employment-Population Ratio — 6가지 시나리오</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Economists use labor-market data to evaluate how well an economy is using its most valuable resource—its people. Two closely watched statistics are the unemployment rate and the employment-population ratio. Explain what happens to each of these in the following scenarios. In your opinion, which statistic is the more meaningful gauge of how well the economy is doing?</p>
+    <p class="prob-ko">경제학자들이 주목하는 두 지표인 실업률과 고용-인구 비율이 각 시나리오에서 어떻게 변하는지 설명하라. 어느 지표가 경제 상황을 더 잘 반영하는가?</p>
+
+    <div class="prob-sub">a. An auto company goes bankrupt and lays off workers, who immediately start looking for new jobs. <span class="prob-sub-ko">자동차 회사 파산, 직원 즉시 해고 → 즉시 구직 시작</span></div>
+    <div class="solution-box">
+      <p>취업자 → 실업자 전환. U↑, LF 불변(구직 중이므로 노동력 유지), P 불변.</p>
+      <p>→ <strong>실업률 ↑ 증가 / 고용-인구 비율 ↓ 감소</strong></p>
+      <p>두 지표 모두 노동 시장 악화를 정확히 반영하는 상황.</p>
+    </div>
+
+    <div class="prob-sub">b. After an unsuccessful search, some of the laid-off workers quit looking for new jobs. <span class="prob-sub-ko">일부 해고자들이 구직을 포기했다(낙담 실업자).</span></div>
+    <div class="solution-box">
+      <p>실업자 → 비경제활동인구(낙담). U↓, LF↓, P 불변, E 불변.</p>
+      <p>→ <strong>실업률 ↓ 감소 (하락!) / 고용-인구 비율 무변화</strong></p>
+      <p><strong>핵심 포인트:</strong> 이 시나리오가 두 지표의 차이를 극명히 보여준다. 실업률은 <em>개선된 것처럼</em> 보이지만 실제로는 사람들이 포기한 것. 고용-인구 비율은 여전히 낮은 수준을 유지하며 현실을 더 정확히 반영한다.</p>
+      <div class="note">📌 이것이 2009~2011년 대침체 회복 초기에 실업률이 하락했음에도 경제학자들이 노동 시장 개선을 긍정적으로 평가하지 않았던 이유다.</div>
+    </div>
+
+    <div class="prob-sub">c. Numerous students graduate from college but cannot find work. <span class="prob-sub-ko">많은 대학생들이 졸업 후 일자리를 못 찾았다.</span></div>
+    <div class="solution-box">
+      <p>비경제활동인구(학생) → 실업자(구직 중). U↑, LF↑, P 불변(이미 성인으로 집계된 경우), E 불변.</p>
+      <p>→ <strong>실업률 ↑ 증가 / 고용-인구 비율 무변화</strong></p>
+      <p>취업자 수는 변하지 않지만 실업률이 오른다. 고용-인구 비율은 현실 노동력 활용도를 보여주는 반면, 실업률은 구직자 증가를 포착.</p>
+    </div>
+
+    <div class="prob-sub">d. Numerous students graduate from college and immediately begin new jobs. <span class="prob-sub-ko">많은 대학생들이 졸업 후 즉시 취업했다.</span></div>
+    <div class="solution-box">
+      <p>비경제활동인구 → 취업자. E↑, LF↑, P 불변, U 불변.</p>
+      <p>→ <strong>실업률 ↓ 감소 / 고용-인구 비율 ↑ 증가</strong></p>
+      <p>두 지표 모두 노동 시장 개선을 반영. 가장 이상적인 시나리오.</p>
+    </div>
+
+    <div class="prob-sub">e. A stock market boom induces newly enriched 60-year-old workers to take early retirement. <span class="prob-sub-ko">주가 급등으로 60대 근로자들이 자발적 조기 은퇴를 결정했다.</span></div>
+    <div class="solution-box">
+      <p>취업자 → 비경제활동인구(자발적 은퇴). E↓, LF↓, P 불변, U 불변.</p>
+      <p>→ <strong>실업률 ↑ 증가 / 고용-인구 비율 ↓ 감소</strong></p>
+      <p><strong>주의:</strong> 실업률이 오르지만 이는 경제 악화가 아니라 사람들이 자발적으로 풍요로운 노후를 즐기기 위해 일을 그만둔 것. 두 지표 모두 수치 악화를 보이지만 이를 부정적으로 해석하면 안 된다 → 지표의 맥락 해석이 중요.</p>
+    </div>
+
+    <div class="prob-sub">f. Advances in healthcare prolong the life of many retirees. <span class="prob-sub-ko">의료 발전으로 많은 은퇴자들의 수명이 늘어났다.</span></div>
+    <div class="solution-box">
+      <p>은퇴자(비경제활동인구) 생존 기간 증가 → P↑, LF 불변, U 불변, E 불변.</p>
+      <p>→ <strong>실업률 무변화 / 고용-인구 비율 ↓ 감소</strong></p>
+      <p>노동 시장과 무관한 인구 구조 변화가 고용-인구 비율을 하락시킨다. 일본·한국처럼 고령화 사회에서 고용-인구 비율이 지속적으로 하락하는 것을 이것으로 설명할 수 있다.</p>
+    </div>
+
+    <div style="background:#eaf4fb;border-radius:6px;padding:14px;margin-top:16px;">
+      <strong>💬 어느 지표가 더 의미 있는가?</strong>
+      <p style="margin-top:8px;font-size:.93em;"><strong>고용-인구 비율이 더 의미 있다는 견해:</strong> b시나리오에서 보듯 실업률은 낙담 실업자를 제외하여 노동 시장 악화를 숨길 수 있다. 고용-인구 비율은 "실제로 일하는 사람의 비율"을 직접 측정하므로 경제의 생산 능력과 인적 자원 활용도를 더 직관적으로 보여준다.</p>
+      <p style="font-size:.93em;"><strong>실업률이 더 의미 있다는 견해:</strong> f시나리오처럼 인구 구조 변화(고령화, 의료 발전)가 고용-인구 비율을 왜곡할 수 있다. 실업률은 "일하고 싶은 사람 중 일을 못 하는 비율"에 집중하므로 수요-공급 미스매치를 더 잘 포착.</p>
+      <p style="font-size:.93em;"><strong>결론:</strong> 두 지표를 함께 사용하는 것이 가장 바람직하며, 낙담 실업자를 포함한 U-6 광의 실업률도 보완 지표로 활용해야 한다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 6 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 6 · Short-Term or Long-Term Unemployment? — 5가지 사례</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Are the following workers more likely to experience short-term or long-term unemployment? Explain.</p>
+    <p class="prob-ko">다음 근로자들은 단기 실업과 장기 실업 중 어느 쪽을 경험할 가능성이 높은가? 설명하라.</p>
+    <div class="note" style="margin-bottom:14px;">📌 <strong>판단 기준:</strong> 단기(마찰적) vs 장기(구조적) 실업을 나누는 핵심은 ① 기존 기술의 이전 가능성(transferability), ② 지역 노동 시장의 대안적 일자리 존재 여부, ③ 실업의 원인(일시적·계절적 vs 산업 구조 변화)이다.</div>
+    <div class="solution-box">
+      <p><strong>a. 악천후로 일시 해고된 건설 노동자</strong></p>
+      <p>→ <strong>단기 실업 가능성 높음</strong>. 날씨가 회복되면 즉시 복직 가능한 계절적·일시적 실업. 건설 기술은 수요가 지속되며 동일 고용주나 인근 현장에서 재취업 가능. 마찰적 실업의 전형적 사례.</p>
+
+      <p style="margin-top:12px;"><strong>b. 오지 고립 공장 폐쇄로 일자리를 잃은 제조업 노동자</strong></p>
+      <p>→ <strong>장기 실업 가능성 높음</strong>. 오지라는 지리적 제약으로 인근에 대안 고용주가 없다. 이사 비용과 주택 매각 손실 등이 지역 이동을 어렵게 한다. 특히 해당 공장에 특화된 기술을 보유한 경우 구조적 실업으로 발전할 가능성이 있다.</p>
+
+      <p style="margin-top:12px;"><strong>c. 철도에 밀려 일자리를 잃은 역마차 산업 노동자</strong></p>
+      <p>→ <strong>장기 실업 가능성 매우 높음</strong>. 가장 극단적인 구조적 실업 사례. 역마차 산업 자체가 역사 속으로 사라지며 관련 기술이 완전히 쓸모없어짐. 재교육 없이는 다른 직종으로 전환이 어렵고, 이 전환 과정에 수년이 걸릴 수 있다. 오늘날로 치면 자동화·AI로 대체되는 직업군과 유사.</p>
+
+      <p style="margin-top:12px;"><strong>d. 맞은편에 새 식당이 생겨 일자리를 잃은 즉석요리 요리사</strong></p>
+      <p>→ <strong>단기 실업 가능성 높음</strong>. 마찰적 실업의 전형. 요리 기술은 범용적이고 지역 내 다른 식당에서 수요가 있다. 새 식당이 생긴 것은 지역 내 식음료 산업이 확장된 것이므로 사실 노동 수요 자체는 늘어난 상황. 빠른 재취업이 기대됨.</p>
+
+      <p style="margin-top:12px;"><strong>e. 자동 용접기 도입으로 해고된 숙련 용접공</strong></p>
+      <p>→ <strong>장기 실업 가능성 높음</strong>. 자동화로 인한 구조적 실업. 수동 용접 기술의 시장 수요가 장기적으로 감소. "숙련(expert)"이지만 그 기술이 바로 대체된 기술이라는 점이 문제. 형식적 교육이 부족하면 재교육도 어려울 수 있다. 40~50대라면 새로운 기술 습득의 기회비용도 높음.</p>
+    </div>
+    <div class="note">📌 장기 실업의 공통점: 기술 특수성 높음, 지역·산업 이동성 낮음, 구조적 변화(기술·무역)에 의한 일자리 소멸. 마찰적 실업과 달리 구조적 실업은 정부의 적극적 재교육·이주 지원 정책이 필요하다.</div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 7 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 7 · Minimum Wage — Labor Market Diagram</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Using a diagram of the labor market, show the effect of an increase in the minimum wage on the wage paid to workers, the number of workers supplied, the number of workers demanded, and the amount of unemployment.</p>
+    <p class="prob-ko">노동 시장 다이어그램으로 최저임금 인상이 임금·노동 공급량·노동 수요량·실업량에 미치는 효과를 보여라.</p>
+    <div class="solution-label">그래프 및 상세 해설</div>
+    <div class="solution-box">
+      <div style="display:flex;justify-content:center;padding:10px 0;">
+        <svg viewBox="0 0 480 300" width="100%" style="max-width:460px;background:white;border-radius:4px;border:1px solid #ddd;">
+          <line x1="55" y1="255" x2="440" y2="255" stroke="#555" stroke-width="2"/>
+          <line x1="55" y1="255" x2="55" y2="20" stroke="#555" stroke-width="2"/>
+          <polygon points="440,250 440,260 452,255" fill="#555"/>
+          <polygon points="50,20 60,20 55,8" fill="#555"/>
+          <text x="458" y="259" font-size="11" fill="#444">노동량(L)</text>
+          <text x="10" y="22" font-size="10" fill="#555">임금(W)</text>
+          <!-- Supply -->
+          <path d="M 90 240 Q 240 150 400 50" stroke="#1f52a0" stroke-width="2.5" fill="none"/>
+          <text x="368" y="40" font-size="11" font-weight="700" fill="#1f52a0">노동 공급(S)</text>
+          <!-- Demand -->
+          <path d="M 90 50 Q 240 150 400 240" stroke="#c22828" stroke-width="2.5" fill="none"/>
+          <text x="368" y="250" font-size="11" font-weight="700" fill="#c22828">노동 수요(D)</text>
+          <!-- Equilibrium -->
+          <circle cx="245" cy="150" r="5" fill="#555" stroke="white" stroke-width="1.5"/>
+          <line x1="55" y1="150" x2="245" y2="150" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="18" y="154" font-size="11" font-weight="700" fill="#555">W*</text>
+          <line x1="245" y1="255" x2="245" y2="150" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="233" y="270" font-size="11" font-weight="700" fill="#555">L*</text>
+          <!-- Minimum wage line -->
+          <line x1="55" y1="98" x2="440" y2="98" stroke="#e67e22" stroke-width="2.5"/>
+          <text x="18" y="102" font-size="11" font-weight="700" fill="#e67e22">Wmin</text>
+          <rect x="300" y="75" width="130" height="22" rx="3" fill="#fff8f0" stroke="#e67e22" stroke-width="1"/>
+          <text x="308" y="90" font-size="9" fill="#e67e22">최저임금 &gt; W* (구속력)</text>
+          <!-- Ld at Wmin -->
+          <circle cx="160" cy="98" r="5" fill="#c22828" stroke="white" stroke-width="1.5"/>
+          <line x1="160" y1="98" x2="160" y2="255" stroke="#c22828" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="150" y="270" font-size="11" font-weight="700" fill="#c22828">Ld</text>
+          <!-- Ls at Wmin -->
+          <circle cx="330" cy="98" r="5" fill="#1f52a0" stroke="white" stroke-width="1.5"/>
+          <line x1="330" y1="98" x2="330" y2="255" stroke="#1f52a0" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="320" y="270" font-size="11" font-weight="700" fill="#1f52a0">Ls</text>
+          <!-- Unemployment bracket -->
+          <line x1="160" y1="244" x2="330" y2="244" stroke="#e67e22" stroke-width="3"/>
+          <line x1="160" y1="238" x2="160" y2="250" stroke="#e67e22" stroke-width="2"/>
+          <line x1="330" y1="238" x2="330" y2="250" stroke="#e67e22" stroke-width="2"/>
+          <text x="205" y="239" font-size="10" font-weight="700" fill="#e67e22">실업(Ls − Ld)</text>
+        </svg>
+      </div>
+      <p style="margin-top:12px;"><strong>그래프 핵심 포인트 4가지:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>임금 변화:</strong> W* → Wmin으로 상승. 최저임금이 균형임금보다 높아야(Wmin &gt; W*) 구속력(binding)이 생긴다. Wmin ≤ W*이면 아무 효과 없음.</li>
+        <li><strong>노동 공급량 변화:</strong> L* → Ls로 증가. 더 높은 임금을 받을 수 있으므로 일하려는 사람이 늘어남(공급 곡선 위를 따라 이동).</li>
+        <li><strong>노동 수요량 변화:</strong> L* → Ld로 감소. 더 높은 임금을 지불해야 하므로 기업의 고용이 줄어듦(수요 곡선 위를 따라 이동).</li>
+        <li><strong>실업량:</strong> Ls − Ld = 노동 공급 초과(labor surplus). 일하고 싶지만 일자리를 못 구하는 사람들이 생긴다.</li>
+      </ul>
+      <div class="note">📌 최저임금의 실업 효과는 최저임금이 <strong>균형임금보다 높을수록</strong>, 그리고 <strong>노동 수요가 탄력적일수록</strong> 크다. 청소년·저숙련 노동자의 균형임금이 낮아 최저임금의 구속력이 강하다.</div>
+    </div>
+  </div>
+</div>
+<!-- ===== PROBLEM 8 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 8 · Two Labor Markets — Manufacturing Union &amp; Service Workers</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Consider an economy with two labor markets—one for manufacturing workers and one for service workers. Suppose initially that neither is unionized.</p>
+    <p class="prob-ko">제조업 노동 시장과 서비스업 노동 시장, 두 시장이 있다. 초기에 둘 다 비노조 상태.</p>
+
+    <div class="prob-sub">a. If manufacturing workers formed a union, what impact would you predict on the wages and employment in manufacturing? <span class="prob-sub-ko">제조업에 노조가 생기면 제조업 임금과 고용에 어떤 영향?</span></div>
+    <div class="solution-box">
+      <p><strong>메커니즘 (단계별):</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>① 노조 결성 → 단체 교섭:</strong> 노조는 조합원들을 대표해 고용주와 임금·근로 조건을 협상. 개별 근로자보다 훨씬 강한 협상력 보유.</li>
+        <li><strong>② 임금 균형임금 초과 설정:</strong> 노조는 W* (균형임금)보다 높은 WU를 요구하고 관철. 이는 공급 초과(surplus)를 의미.</li>
+        <li><strong>③ 제조업 고용 감소:</strong> 더 높은 임금 → 기업의 노동 수요 감소 → L*에서 LD(WU)로 줄어든 고용. 일부 근로자는 일자리를 잃거나 신규 채용이 억제됨.</li>
+      </ul>
+      <div class="calc-box">
+        <div class="calc-line">결과: 제조업 임금 WU &gt; W* (↑) / 제조업 고용 LD &lt; L* (↓)</div>
+        <div class="calc-line">노조 가입 근로자: 이득 / 노조에서 탈락하거나 채용 안 된 근로자: 피해</div>
+      </div>
+      <div class="note">📌 이것이 '내부자-외부자 문제(insider-outsider problem)'. 현재 노조원(내부자)은 혜택을 받지만, 일자리를 잃은 노동자(외부자)는 피해를 봄.</div>
+    </div>
+
+    <div class="prob-sub">b. How would these changes in the manufacturing labor market affect the supply of labor in the market for service workers? What would happen to the equilibrium wage and employment in this labor market? <span class="prob-sub-ko">이 변화가 서비스업 노동 시장에 어떤 영향?</span></div>
+    <div class="solution-box">
+      <p><strong>노동의 이동(Labor Mobility) 효과:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>① 공급 이동:</strong> 제조업에서 일자리를 잃은 근로자들이 서비스업으로 유입 → 서비스업 노동 공급 곡선이 <strong>우측(오른쪽) 이동</strong>.</li>
+        <li><strong>② 서비스업 임금 하락:</strong> 공급↑ + 수요 불변 → 서비스업 균형 임금 W_S <strong>하락</strong> (W_S* → W_S').</li>
+        <li><strong>③ 서비스업 고용 증가:</strong> 낮아진 임금에서 기업이 더 많이 고용 → 서비스업 고용 <strong>증가</strong> (L_S* → L_S').</li>
+      </ul>
+      <div class="calc-box">
+        <div class="calc-line">결과: 서비스업 임금 ↓ (하락) / 서비스업 고용 ↑ (증가)</div>
+      </div>
+      <p><strong>전체 경제적 함의:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li>노조가 있는 제조업: 고임금·낮은 고용</li>
+        <li>노조가 없는 서비스업: 저임금·높은 고용 (제조업 이탈 노동자 흡수)</li>
+        <li>임금 불평등 심화: 노조 가입 여부에 따른 임금 격차</li>
+        <li>총 실업 효과: 제조업 고용 감소분 일부가 서비스업에 흡수되지만, 임금 손실을 감수해야 함</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 9 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 9 · Structural Unemployment — Auto vs Aircraft Manufacturing</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Structural unemployment is sometimes said to result from a mismatch between the job skills that employers want and the job skills that workers have. To explore this idea, consider an economy with two industries: auto manufacturing and aircraft manufacturing.</p>
+    <p class="prob-ko">구조적 실업은 고용주가 원하는 기술과 근로자가 보유한 기술의 불일치에서 비롯된다. 자동차·항공기 두 제조업 경제를 생각하자.</p>
+
+    <div class="prob-sub">a. 두 산업의 훈련이 유사하고, 경력 초기에 진로를 선택할 수 있다면? <span class="prob-sub-ko">If workers in these industries require similar training, and if workers at the beginning of their careers can choose which industry to train for, what would you expect to happen to the wages in these two industries? How long would this process take?</span></div>
+    <div class="solution-box">
+      <p><strong>① 초기 상태:</strong> 두 산업 간에 임금 차이가 있다고 가정(예: 항공기 &gt; 자동차).</p>
+      <p><strong>② 노동 이동 메커니즘:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li>경력 초기 근로자들이 임금 높은 항공기 산업을 선호 → 항공기 지원자 증가, 자동차 지원자 감소.</li>
+        <li>훈련 기간(수년)이 지나면 항공기 노동 공급↑ → 항공기 임금 하락 압력.</li>
+        <li>자동차는 공급 부족 → 자동차 임금 상승 압력.</li>
+        <li>장기 균형: <strong>두 산업의 임금이 균등화</strong>(비금전적 차이 조정 후 동일한 경제적 보상).</li>
+      </ul>
+      <p><strong>③ 소요 시간:</strong> 수년~수십 년. 훈련 기간(대학·직업훈련) + 기존 근로자들의 은퇴 사이클까지 기다려야 완전 균등화. 현실에서는 완전 균형에 도달하기 전에 또 다른 충격이 발생하는 경우가 많다.</p>
+    </div>
+
+    <div class="prob-sub">b. 무역 개방으로 자동차를 수입하고 항공기를 수출하게 된다면? <span class="prob-sub-ko">Suppose that one day the economy opens itself to international trade and starts importing autos and exporting aircraft. What would happen to the demand for labor in these two industries?</span></div>
+    <div class="solution-box">
+      <p><strong>비교우위(Comparative Advantage) 효과:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>자동차 산업:</strong> 수입 경쟁 증가 → 국내 자동차 수요↓ → 자동차 노동 수요 <strong>감소</strong> → 자동차 임금↓, 고용↓ → 자동차 노동자들이 실업 위기에 처함.</li>
+        <li><strong>항공기 산업:</strong> 수출 기회 증가 → 항공기 생산 확대 → 항공기 노동 수요 <strong>증가</strong> → 항공기 임금↑, 고용↑ → 항공기 노동자 부족.</li>
+      </ul>
+      <p><strong>단기적 결과:</strong> 두 산업에 동시에 불균형 발생. 자동차: 실업 급증. 항공기: 인력 부족. 총 실업은 증가.</p>
+    </div>
+
+    <div class="prob-sub">c. 근로자들이 빠르게 재교육받을 수 없다면? 단기·장기 임금과 실업에 어떤 영향? <span class="prob-sub-ko">Suppose that workers in one industry cannot be quickly retrained for the other. How would these shifts in demand affect equilibrium wages both in the short run and in the long run?</span></div>
+    <div class="solution-box">
+      <p><strong>단기 (재교육 전):</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">자동차: 수요↓ + 공급 고정 → 자동차 임금 大폭 하락, 대규모 실업 발생</div>
+        <div class="calc-line">항공기: 수요↑ + 공급 고정 → 항공기 임금 大폭 상승, 인력 부족</div>
+        <div class="calc-line">두 산업 간 임금 격차 급격히 확대</div>
+      </div>
+      <p><strong>장기 (재교육 후):</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li>임금 격차가 신규 노동자들의 진로 선택에 영향 → 항공기 훈련 선택 증가</li>
+        <li>일부 자동차 노동자들이 상당한 비용과 시간을 들여 재교육</li>
+        <li>천천히 임금 격차 축소되며 새 균형으로 수렴</li>
+        <li>하지만 재교육 기간 동안 <strong>장기 구조적 실업</strong>이 지속</li>
+      </ul>
+      <div class="note">📌 이것이 오늘날 제조업 자동화·AI 대체로 인한 구조적 실업 문제와 정확히 같은 메커니즘이다. 재교육 기간과 비용이 클수록 구조적 실업 기간이 길어진다.</div>
+    </div>
+
+    <div class="prob-sub">d. 어떤 이유로 임금이 새 균형 수준으로 조정되지 않는다면? <span class="prob-sub-ko">If for some reason wages fail to adjust to the new equilibrium levels, what would occur?</span></div>
+    <div class="solution-box">
+      <p><strong>임금 경직성(Wage Rigidity) 시나리오:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>자동차 산업 (임금 너무 높게 유지):</strong> 최저임금·노조 협약·효율임금 등으로 임금이 하락하지 않으면 → 수요 감소 상황에서 임금 초과 → <strong>지속적인 구조적 실업</strong>. 기업은 고비용으로 생산을 더 줄이고 실업은 더 늘어남.</li>
+        <li><strong>항공기 산업 (임금 너무 낮게 유지):</strong> 임금이 오르지 않으면 → 공급 부족 지속 → <strong>지속적인 노동 부족(labor shortage)</strong>. 생산 목표 달성 불가, 경제적 기회 상실.</li>
+      </ul>
+      <p><strong>결론:</strong> 임금이 시장 청산(market-clearing) 수준으로 조정되지 않으면 두 시장 모두 비효율적인 자원 배분이 지속되며 사회 전체적인 후생 손실이 발생한다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM 10 ===== -->
+<div class="prob-card">
+  <div class="prob-header">Problem 10 · Employer Mandate — Healthcare Benefit ($4/hour)</div>
+  <div class="prob-body">
+    <p><strong>[문제]</strong> Suppose that Congress passes a law requiring employers to provide employees some benefit (such as healthcare) that raises the cost of an employee by $4 per hour.</p>
+    <p class="prob-ko">의회가 고용주에게 직원 1인당 $4/시간의 비용이 드는 복리후생(예: 건강보험)을 의무 제공하도록 요구하는 법을 통과시켰다.</p>
+
+    <div class="prob-sub">a. 이 고용주 의무 부담이 노동 수요에 어떤 효과를 미치는가? <span class="prob-sub-ko">What effect does this employer mandate have on the demand for labor? (Be quantitative when you can.)</span></div>
+    <div class="solution-box">
+      <p><strong>분석:</strong> 고용주 입장에서 직원 1명 고용의 총 비용 = 임금(W) + 복리후생($4). 이는 고용 비용을 $4만큼 증가시킨다.</p>
+      <div class="calc-box">
+        <div class="calc-line">기존: 고용 비용 = W</div>
+        <div class="calc-line">의무화 후: 고용 비용 = W + $4</div>
+        <div class="calc-line">→ 노동 수요 곡선이 아래로 $4만큼 이동 (하향 이동)</div>
+        <div class="calc-line">→ 모든 임금 수준에서 기업이 고용하려는 노동량 감소</div>
+      </div>
+      <p>그래프로 보면: 동일한 고용량을 유지하려면 고용주가 지불할 수 있는 <em>임금</em>이 $4만큼 줄어야 함 → 수요 곡선이 수직으로 $4 하락.</p>
+    </div>
+
+    <div class="prob-sub">b. 근로자들이 복리후생을 정확히 $4의 가치로 여긴다면, 노동 공급에 어떤 효과? <span class="prob-sub-ko">If employees place a value on this benefit exactly equal to its cost, what effect does this employer mandate have on the supply of labor?</span></div>
+    <div class="solution-box">
+      <p><strong>핵심 논리:</strong> 근로자 입장에서 총 보상 = 임금(W) + 복리후생($4 가치). 만약 복리후생을 $4로 평가한다면, 이전에 W를 받을 때와 동일한 효용을 얻으려면 이제 (W−$4)의 임금만 받아도 충분하다.</p>
+      <div class="calc-box">
+        <div class="calc-line">근로자 총 보상 = 현금 임금 + 복리후생 가치 = W + $4 (주관적 가치)</div>
+        <div class="calc-line">→ $4 낮은 임금에서도 같은 만족 → 공급 곡선이 아래로 $4만큼 이동</div>
+      </div>
+      <p>공급 측면에서 근로자들은 $4 낮은 임금에서도 동일한 노동량을 공급하려 함 → <strong>노동 공급 곡선도 $4 하방 이동</strong>.</p>
+    </div>
+
+    <div class="prob-sub">c. 임금이 자유롭게 조정된다면, 이 법이 임금·고용에 미치는 영향? 고용주·근로자는 이득인가 손해인가? <span class="prob-sub-ko">If the wage can freely adjust to balance supply and demand, how does this law affect the wage, the level of employment? Are employers better or worse off? Are employees better or worse off?</span></div>
+    <div class="solution-box">
+      <span class="ans-tag">핵심 결과</span>
+      <p>수요 곡선 $4 하락 + 공급 곡선 $4 하락이 <em>동시에</em> 발생.</p>
+      <div class="calc-box">
+        <div class="calc-line">균형 고용량: <strong>불변</strong> (두 곡선이 같은 방향으로 같은 크기 이동)</div>
+        <div class="calc-line">균형 임금: <strong>$4 하락</strong> (현금 임금 감소, 하지만 복리후생 $4 증가로 상쇄)</div>
+        <div class="calc-line">근로자 총 보상: 불변 (임금 −$4 + 복리후생 +$4 = 0)</div>
+        <div class="calc-line">고용주 총 비용: 불변 (임금 −$4 + 복리후생 +$4 = 0)</div>
+      </div>
+      <p><strong>결론:</strong> 임금이 자유롭게 조정될 수 있고 근로자가 복리후생을 정확히 $4로 평가한다면, <strong>고용주도 손해 없고, 근로자도 손해 없으며, 고용량도 변하지 않는다.</strong> 단지 보상 형태가 현금→현물(복리후생)로 바뀌는 것뿐.</p>
+      <div class="note">📌 이것은 "세금의 귀착(tax incidence)"과 같은 원리. 명목적으로 누가 부담하는지가 아니라 <em>탄력성과 가치 평가</em>에 따라 실질 부담이 결정된다.</div>
+    </div>
+
+    <div class="prob-sub">d. 의무 부담 전 임금이 최저임금보다 $3 높았다면? <span class="prob-sub-ko">Suppose that, before the mandate, the wage in this market was $3 above the minimum wage. In this case, how does the employer mandate affect the wage, the level of employment, and the level of unemployment?</span></div>
+    <div class="solution-box">
+      <p><strong>최저임금 제약 시나리오:</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">현재 임금: W = 최저임금 + $3</div>
+        <div class="calc-line">임금이 하락할 수 있는 최대값: $3 (최저임금까지만)</div>
+        <div class="calc-line">필요한 임금 하락: $4 (복리후생 비용 흡수에 필요)</div>
+        <div class="calc-line">→ 임금은 $3만 하락하고 나머지 $1은 흡수 불가</div>
+      </div>
+      <p><strong>결과:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li>임금은 최저임금 수준까지 $3 하락 (이 이하로는 불법).</li>
+        <li>기업의 실질 고용 비용은 여전히 $1 초과 상태 → 최적 고용보다 적게 고용 → <strong>고용 감소·실업 발생</strong>.</li>
+        <li>c와 달리 이 경우 의무 부담이 순수하게 부정적 고용 효과를 낳는다.</li>
+      </ul>
+    </div>
+
+    <div class="prob-sub">e. 근로자들이 복리후생에 전혀 가치를 두지 않는다면? (b)와 (c)의 답이 어떻게 바뀌는가? <span class="prob-sub-ko">Now suppose that workers do not value the mandated benefit at all. How does this alternative assumption change your answers to parts (b) and (c)?</span></div>
+    <div class="solution-box">
+      <p><strong>(b) 공급 변화:</strong> 근로자가 복리후생에 가치를 두지 않으므로 공급 곡선은 <strong>이동하지 않는다</strong>. 임금이 낮아지면 공급이 줄어들 뿐.</p>
+      <p><strong>(c) 균형의 변화:</strong></p>
+      <div class="calc-box">
+        <div class="calc-line">수요 곡선: $4 하방 이동 (불변)</div>
+        <div class="calc-line">공급 곡선: 이동 없음 (근로자 가치 평가 = $0)</div>
+        <div class="calc-line">→ 균형 임금 하락 폭이 줄고, 균형 고용량 감소 발생</div>
+      </div>
+      <p><strong>고용주·근로자의 상황:</strong></p>
+      <ul style="margin-left:20px;font-size:.93em;line-height:1.9;">
+        <li><strong>고용주:</strong> 총 고용 비용 증가(임금 조정이 불충분하므로) → <strong>손해</strong>.</li>
+        <li><strong>근로자:</strong> 임금이 일부 하락하면서 고용도 감소. 받는 복리후생도 가치 없게 느낌 → <strong>손해</strong>.</li>
+        <li><strong>사회 전체:</strong> 고용 감소 + 양쪽 모두 손해 → 사중손실(deadweight loss) 발생.</li>
+      </ul>
+      <div class="note">📌 <strong>핵심 교훈:</strong> 복리후생 의무화의 효율성은 근로자가 그 복리후생을 얼마나 가치 있게 여기느냐에 결정적으로 달려 있다. 근로자가 원하는 복리후생을 제공한다면 경제적 손실 없이 보상 구조를 바꿀 수 있지만, 원치 않는 복리후생을 강제하면 고용 감소와 후생 손실이 발생한다.</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Chapter 28: Unemployment — 완벽 정답집 (상세 해설 버전)<br>
+  QuickQuiz · Questions for Review · Problems and Applications 1~10<br>
+  Seoul Global High School Economics · Mankiw Principles of Economics
+</div>
+</div>
+</body>
+</html>
