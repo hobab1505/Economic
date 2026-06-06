@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 10 Problems & Applications — 완벽 정답집 (영문·해석·그래프)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans KR','Inter',sans-serif; background: linear-gradient(135deg,#f0eee8 0%,#faf8f3 100%); color:#1a1a1a; line-height:1.8; }
+    .hero { background: linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); color:#f5e6c8; padding:52px 40px; text-align:center; }
+    .hero h1 { font-size:30px; font-weight:700; margin-bottom:8px; }
+    .hero .subtitle { font-size:15px; opacity:.85; }
+    .container { max-width:1020px; margin:0 auto; padding:40px; }
+    .toc { background:#fff8f0; border:2px solid #c97d10; border-radius:4px; padding:24px 28px; margin-bottom:40px; }
+    .toc h3 { color:#c97d10; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; }
+    .toc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+    .toc-item { background:white; border-left:4px solid #c97d10; padding:10px 14px; border-radius:2px; font-size:13px; }
+    .toc-item strong { color:#c97d10; }
+    .problem-section { background:white; border:1px solid #ddd; border-radius:4px; padding:32px; margin-bottom:32px; page-break-inside:avoid; }
+    .problem-header { display:flex; align-items:flex-start; gap:16px; margin-bottom:20px; padding-bottom:16px; border-bottom:2px solid #e8d4b8; }
+    .problem-num { background:#1a1a2e; color:#f5e6c8; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; flex-shrink:0; }
+    .problem-title h2 { font-size:18px; color:#1a1a2e; margin-bottom:6px; font-weight:700; }
+    .problem-title .subtitle { font-size:13px; color:#666; font-style:italic; }
+    /* 문제 본문 */
+    .problem-stem { background:#f9f7f2; border-left:4px solid #c22828; padding:14px 18px; margin-bottom:18px; border-radius:0 4px 4px 0; }
+    .problem-stem .en { font-size:13.5px; font-weight:600; color:#1a1a2e; }
+    .problem-stem .ko { display:block; margin-top:6px; font-size:13px; color:#666; }
+    /* 소문제 */
+    .subq { border:1px solid #e5e0d5; border-radius:4px; margin:14px 0; overflow:hidden; }
+    .subq-q { background:#f4f1ea; padding:12px 16px; display:flex; gap:12px; align-items:flex-start; }
+    .subq-letter { background:#c97d10; color:white; width:26px; height:26px; border-radius:50%; text-align:center; line-height:26px; font-weight:700; font-size:13px; flex-shrink:0; }
+    .subq-text .en { font-size:13px; font-weight:600; color:#2a2a3a; }
+    .subq-text .ko { display:block; margin-top:5px; font-size:12.5px; color:#777; }
+    .subq-a { padding:14px 16px 14px 54px; background:#f0fdf4; border-top:1px solid #d4f0dd; }
+    .subq-a .ans-label { display:inline-block; background:#15803d; color:white; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; margin-bottom:8px; letter-spacing:.5px; }
+    .ans-content { font-size:13px; line-height:1.8; color:#1a2010; }
+    .ans-content ul, .ans-content ol { margin:8px 0 8px 22px; }
+    .ans-content li { margin-bottom:6px; }
+    .ans-content strong { color:#15803d; }
+    .ans-content em { color:#059669; font-style:italic; }
+    .key-point { background:#fef3c7; border-left:4px solid #f59e0b; padding:10px 14px; margin:12px 0; border-radius:0 4px 4px 0; font-size:12.5px; color:#78350f; }
+    .key-point strong { color:#b45309; }
+    .graph-section { background:#f5f5f5; border:1px solid #ddd; border-radius:4px; padding:14px; margin:14px 0; text-align:center; }
+    .graph-title { font-size:11.5px; font-weight:700; color:#555; text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px; }
+    .graph-svg { display:inline-block; max-width:100%; background:white; border-radius:2px; }
+    .verdict { display:inline-block; background:#1f52a0; color:white; font-size:12px; font-weight:700; padding:3px 12px; border-radius:14px; margin-bottom:8px; }
+    .footer { text-align:center; padding:40px; color:#666; font-size:13px; }
+    @media print { body { background:white; } .problem-section { page-break-inside:avoid; } }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <h1>📘 Chapter 10: Aggregate Demand and Aggregate Supply</h1>
+  <div class="subtitle">Problems and Applications — 완벽 정답집 (영문 원문 · 한글 해석 · 그래프)</div>
+  <div class="subtitle" style="font-size:13px; margin-top:10px;">Mankiw's Principles of Economics · Seoul Global High School</div>
+</div>
+<div class="container">
+<div class="toc">
+  <h3>📑 목차 — Problems 1~10</h3>
+  <div class="toc-grid">
+    <div class="toc-item"><strong>1.</strong> 주식 폭락 (a~f)</div>
+    <div class="toc-item"><strong>2.</strong> LRAS 변화 (a~d)</div>
+    <div class="toc-item"><strong>3.</strong> 통화량 증가 (a~c)</div>
+    <div class="toc-item"><strong>4.</strong> 루즈벨트 정책</div>
+    <div class="toc-item"><strong>5.</strong> 거짓 명제 (a~d)</div>
+    <div class="toc-item"><strong>6.</strong> 3가지 이론 (a~c)</div>
+    <div class="toc-item"><strong>7.</strong> Fed 의장 (a~f)</div>
+    <div class="toc-item"><strong>8.</strong> 곡선 이동 (a~c)</div>
+    <div class="toc-item"><strong>9.</strong> 단기·장기 (a~d)</div>
+    <div class="toc-item"><strong>10.</strong> 통화 중립성 (a~f)</div>
+  </div>
+</div>
+<!-- PROBLEM 1 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">1</div>
+    <div class="problem-title"><h2>Stock Market Crash & Long-Run Equilibrium</h2><div class="subtitle">주식 시장 폭락과 장기 균형</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Suppose the economy is in a long-run equilibrium.</div>
+    <div class="ko">경제가 장기 균형 상태에 있다고 가정하자.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">Draw a diagram to illustrate the state of the economy. Be sure to show aggregate demand, short-run aggregate supply, and long-run aggregate supply.</div>
+      <div class="ko">경제의 상태를 보여주는 다이어그램을 그려라. 총수요(AD), 단기 총공급(SRAS), 장기 총공급(LRAS)을 반드시 포함할 것.</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <div class="graph-section"><div class="graph-title">📊 초기 장기 균형 (점 A)</div>
+          <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+            <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+            <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+            <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+            <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+            <path d="M 120 235 Q 240 145 380 55" stroke="#1f52a0" stroke-width="2.5" fill="none"/><text x="345" y="46" font-size="10" font-weight="700" fill="#1f52a0">SRAS</text>
+            <path d="M 100 65 Q 240 155 420 240" stroke="#c22828" stroke-width="2.5" fill="none"/><text x="365" y="252" font-size="10" font-weight="700" fill="#c22828">AD₁</text>
+            <circle cx="240" cy="135" r="5.5" fill="#151210" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="14" font-weight="800" fill="#151210">A</text>
+            <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" font-weight="700" fill="#555">P₁</text>
+            <line x1="240" y1="255" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" font-weight="700" fill="#555">Y*</text>
+          </svg>
+        </div>
+        세 곡선이 한 점(A)에서 만난다: 수직 <strong>LRAS</strong>(자연 산출량 Y*), 우상향 <strong>SRAS</strong>, 우하향 <strong>AD₁</strong>. 점 A에서 물가 P₁, 산출량 Y*, 실업률은 자연실업률.
+      </div>
+    </div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">Now suppose that a stock market crash causes aggregate demand to fall. Use your diagram to show what happens to output and the price level in the short run. What happens to the unemployment rate?</div>
+      <div class="ko">이제 주식 시장 폭락이 총수요를 하락시킨다고 하자. 단기에 산출량과 물가가 어떻게 되는지 그림으로 보여라. 실업률은 어떻게 되는가?</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <div class="graph-section"><div class="graph-title">📊 단기: AD 좌측 이동 (A→B)</div>
+          <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+            <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+            <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+            <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+            <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+            <path d="M 120 235 Q 240 145 380 55" stroke="#1f52a0" stroke-width="2.5" fill="none"/><text x="345" y="46" font-size="10" font-weight="700" fill="#1f52a0">SRAS₁</text>
+            <path d="M 100 65 Q 240 155 420 240" stroke="#ddd" stroke-width="2" fill="none" stroke-dasharray="6,4"/><text x="370" y="252" font-size="9" fill="#999">AD₁</text>
+            <path d="M 70 75 Q 190 155 380 240" stroke="#c22828" stroke-width="2.5" fill="none"/><text x="285" y="248" font-size="10" font-weight="700" fill="#c22828">AD₂</text>
+            <path d="M 330 200 L 295 210" stroke="#c22828" stroke-width="1.5" marker-end="url(#ar)"/>
+            <circle cx="240" cy="135" r="5.5" fill="#151210" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="13" font-weight="800" fill="#151210">A</text>
+            <circle cx="192" cy="160" r="5.5" fill="#c22828" stroke="white" stroke-width="1.5"/><text x="200" y="175" font-size="13" font-weight="800" fill="#c22828">B</text>
+            <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" fill="#555">P₁</text>
+            <line x1="50" y1="160" x2="192" y2="160" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="164" font-size="11" fill="#c22828">P₂</text>
+            <line x1="240" y1="255" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+            <line x1="192" y1="255" x2="192" y2="160" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="180" y="272" font-size="11" fill="#c22828">Y₂</text>
+            <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c22828"/></marker></defs>
+          </svg>
+        </div>
+        주가 폭락 → 가계의 부(wealth) 감소 → 소비 감소 → <strong>AD 좌측 이동(AD₁→AD₂)</strong>. 경제는 SRAS를 따라 A→B로 이동. <strong>산출량은 Y*→Y₂로 하락</strong>, <strong>물가는 P₁→P₂로 하락</strong>. 생산 감소로 기업이 고용을 줄여 <strong>실업률 상승</strong>(자연실업률 초과).
+      </div>
+    </div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">Now show the new long-run equilibrium (call it point C). What causes the economy to move from point B to point C?</div>
+      <div class="ko">새로운 장기 균형(점 C)을 보여라. 경제가 점 B에서 점 C로 이동하는 원인은 무엇인가?</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <div class="graph-section"><div class="graph-title">📊 장기: SRAS 우측 이동 (B→C)</div>
+          <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+            <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+            <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+            <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+            <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+            <path d="M 120 235 Q 240 145 380 55" stroke="#ddd" stroke-width="2" fill="none" stroke-dasharray="6,4"/><text x="345" y="46" font-size="9" fill="#999">SRAS₁</text>
+            <path d="M 100 250 Q 240 125 420 35" stroke="#4ade80" stroke-width="2.5" fill="none"/><text x="360" y="30" font-size="10" font-weight="700" fill="#4ade80">SRAS₂</text>
+            <path d="M 70 75 Q 190 155 380 240" stroke="#c22828" stroke-width="2.5" fill="none"/><text x="285" y="248" font-size="10" font-weight="700" fill="#c22828">AD₂</text>
+            <circle cx="240" cy="135" r="5" fill="#888" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="12" fill="#888">A</text>
+            <circle cx="192" cy="160" r="5" fill="#c22828" stroke="white" stroke-width="1.5"/><text x="200" y="175" font-size="13" font-weight="800" fill="#c22828">B</text>
+            <circle cx="240" cy="125" r="5.5" fill="#4ade80" stroke="white" stroke-width="1.5"/><text x="248" y="115" font-size="13" font-weight="800" fill="#4ade80">C</text>
+            <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="14" y="139" font-size="11" fill="#555">P₁</text>
+            <line x1="50" y1="160" x2="192" y2="160" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="14" y="164" font-size="11" fill="#c22828">P₂</text>
+            <line x1="50" y1="125" x2="240" y2="125" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="14" y="121" font-size="11" fill="#4ade80">P₃</text>
+            <line x1="240" y1="255" x2="240" y2="125" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+            <path d="M 197 158 L 236 128" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arg)"/>
+            <defs><marker id="arg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#4ade80"/></marker></defs>
+          </svg>
+        </div>
+        B→C 이동 원인: <strong>예상 물가의 하향 조정</strong>. 점 B에서 실제 물가(P₂)가 예상보다 낮음 → 시간이 지나며 노동자·기업이 더 낮은 물가를 예상 → 임금 협상에서 더 낮은 명목 임금 수용 → 생산비 하락 → <strong>SRAS 우측 이동(SRAS₁→SRAS₂)</strong> → 점 C에서 산출량 Y* 복귀, 물가는 P₃(더 낮음).
+      </div>
+    </div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">According to the sticky-wage theory of aggregate supply, how do nominal wages at point A compare to nominal wages at point B? How do nominal wages at point B compare to nominal wages at point C?</div>
+      <div class="ko">경직적 임금 이론에 따르면, 점 A의 명목 임금과 점 B의 명목 임금을 비교하면? 점 B와 점 C의 명목 임금을 비교하면?</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <ul>
+          <li><strong>점 A 명목 임금 = 점 B 명목 임금</strong> (거의 동일). 경직적 임금 이론에서 명목 임금은 단기 계약으로 <em>고정</em>되어 있어, A→B로 가는 동안 즉시 조정되지 않음.</li>
+          <li><strong>점 B 명목 임금 > 점 C 명목 임금</strong>. B→C로 가면서 예상 물가가 하향 조정 → 새 노동계약에서 <em>더 낮은</em> 명목 임금 설정.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">e</div><div class="subq-text">
+      <div class="en">According to the sticky-wage theory of aggregate supply, how do real wages at point A compare to real wages at point B? How do real wages at point A compare to real wages at point C?</div>
+      <div class="ko">경직적 임금 이론에 따르면, 점 A의 실질 임금과 점 B의 실질 임금을 비교하면? 점 A와 점 C의 실질 임금을 비교하면?</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <ul>
+          <li><strong>점 A 실질 임금 < 점 B 실질 임금</strong>. 실질 임금 = 명목 임금 / 물가. B에서 명목 임금은 고정인데 물가(P₂)는 하락 → <em>실질 임금 상승</em>. 그래서 기업이 고용을 줄임(산출량↓).</li>
+          <li><strong>점 A 실질 임금 = 점 C 실질 임금</strong>. 장기에 명목 임금과 물가가 같은 비율로 조정 → 실질 임금이 원래 수준으로 복귀.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">f</div><div class="subq-text">
+      <div class="en">Judging by the impact of the recession on nominal and real wages, is this analysis consistent with the proposition that money is neutral in the long run?</div>
+      <div class="ko">경기침체가 명목·실질 임금에 미친 영향으로 판단할 때, 이 분석은 "화폐는 장기에 중립적"이라는 명제와 일치하는가?</div>
+    </div></div>
+    <div class="subq-a">
+      <div class="ans-label">정답</div>
+      <div class="ans-content">
+        <span class="verdict">예 — 일치한다</span>
+        <ul>
+          <li><strong>단기(A→B):</strong> 실질 임금이 변함(상승) → 산출·고용 등 <em>실질 변수</em>가 영향을 받음 → 화폐는 단기에 <em>중립적이지 않음</em>.</li>
+          <li><strong>장기(A→C):</strong> 실질 임금이 원래대로 복귀 → 산출량도 Y*로 복귀 → 변한 것은 오직 <em>물가(명목 변수)</em> → 화폐는 장기에 <em>중립적</em>.</li>
+        </ul>
+        <div class="key-point"><strong>결론:</strong> 경직적 임금이 단기에는 실질 효과를 만들지만, 장기에는 명목 변수만 변한다는 점에서 화폐 중립성 명제와 일치한다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PROBLEM 2 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">2</div>
+    <div class="problem-title"><h2>Long-Run Aggregate Supply Shifts</h2><div class="subtitle">장기 총공급 곡선의 이동</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Explain whether each of the following events will increase, decrease, or have no effect on long-run aggregate supply. Be sure to illustrate your answer with a diagram.</div>
+    <div class="ko">다음 각 사건이 장기 총공급을 증가·감소·무변화시키는지 설명하라. 그림으로 나타낼 것.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">The United States experiences a wave of immigration.</div>
+      <div class="ko">미국이 대규모 이민 물결을 경험한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">증가 (LRAS 우측 이동)</span>
+      이민 증가 = <strong>노동력(L) 증가</strong>. LRAS = f(노동, 자본, 천연자원, 기술). 노동력이 늘면 같은 자본·기술로도 더 많은 산출 가능 → <strong>LRAS 우측 이동</strong>, 자연 산출량 Y* 상향.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">Congress raises the minimum wage to $15 per hour.</div>
+      <div class="ko">의회가 최저임금을 시간당 $15로 인상한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">무변화 (거의 영향 없음)</span>
+      최저임금은 <strong>명목 임금 하한</strong>일 뿐, 경제의 생산 <em>능력</em>(노동·자본·기술)을 바꾸지 않음. 장기에 LRAS는 불변. (단, 최저임금이 시장 균형보다 크게 높으면 일부 실업 발생으로 실효 노동력이 줄어 <em>미세하게 감소</em>할 여지는 있음.)
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">Intel invents a new and more powerful computer chip.</div>
+      <div class="ko">인텔이 더 강력한 새 컴퓨터칩을 발명한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">증가 (LRAS 우측 이동)</span>
+      <strong>기술(T) 향상</strong> = 생산성 증가. 더 강력한 칩이 여러 산업의 효율을 높여 같은 노동·자본으로 더 많은 산출 생산 → <strong>LRAS 우측 이동</strong>, Y* 상향.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">A severe hurricane damages factories along the East Coast.</div>
+      <div class="ko">강력한 허리케인이 동부 해안의 공장들을 파괴한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">감소 (LRAS 좌측 이동)</span>
+      허리케인 → <strong>물리적 자본(K) 파괴</strong>. 공장·설비 손상으로 생산 능력 감소 → <strong>LRAS 좌측 이동</strong>, Y* 하향 (복구 전까지).
+    </div></div>
+  </div>
+
+  <div class="graph-section"><div class="graph-title">📊 LRAS 이동 종합 (a·c = 우측 / d = 좌측 / b = 불변)</div>
+    <svg viewBox="0 0 480 280" class="graph-svg" width="100%" style="max-width:460px;">
+      <line x1="50" y1="235" x2="450" y2="235" stroke="#555" stroke-width="2"/><line x1="50" y1="235" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+      <polygon points="450,230 450,240 462,235" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+      <text x="466" y="239" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+      <line x1="170" y1="230" x2="170" y2="30" stroke="#c22828" stroke-width="2.5"/><text x="120" y="24" font-size="9" font-weight="700" fill="#c22828">LRAS↓ (d)</text>
+      <line x1="250" y1="230" x2="250" y2="30" stroke="#555" stroke-width="2.5"/><text x="226" y="250" font-size="9" font-weight="700" fill="#555">초기(b)</text>
+      <line x1="350" y1="230" x2="350" y2="30" stroke="#1e7a44" stroke-width="2.5"/><text x="312" y="24" font-size="9" font-weight="700" fill="#1e7a44">LRAS↑ (a,c)</text>
+      <path d="M 195 215 L 165 215" stroke="#c22828" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <path d="M 305 215 L 345 215" stroke="#1e7a44" stroke-width="1.5" marker-end="url(#ag2)"/>
+      <text x="100" y="215" font-size="9" fill="#c22828">자본 파괴</text>
+      <text x="362" y="215" font-size="9" fill="#1e7a44">노동·기술↑</text>
+      <defs>
+        <marker id="ar2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c22828"/></marker>
+        <marker id="ag2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e7a44"/></marker>
+      </defs>
+    </svg>
+  </div>
+  <div class="key-point"><strong>핵심:</strong> LRAS는 생산 <em>능력</em>(L·K·기술)의 변화에만 반응한다. 명목 정책(최저임금)이나 수요 측면 변화는 직접 영향이 없다.</div>
+</div>
+<!-- PROBLEM 3 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">3</div>
+    <div class="problem-title"><h2>Money Supply Increase (5%)</h2><div class="subtitle">통화량 5% 증가 — 단기·장기 분석</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Suppose an economy is in long-run equilibrium.</div>
+    <div class="ko">경제가 장기 균형 상태에 있다고 가정하자.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">Use the model of aggregate demand and aggregate supply to illustrate the initial equilibrium (call it point A). Be sure to include both short-run and long-run aggregate supply.</div>
+      <div class="ko">총수요·총공급 모형으로 최초 균형(점 A)을 나타내라. 단기·장기 총공급을 모두 포함할 것.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      점 A에서 AD₁·SRAS₁·LRAS가 모두 교차. 물가 = P₁, 산출량 = Y*(자연 수준), 실업률 = 자연실업률. (그래프는 아래 b·c 통합 그림 참조)
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">The central bank raises the money supply by 5 percent. Use your diagram to show what happens to output and the price level as the economy moves from the initial equilibrium (call it point A) to the new short-run equilibrium (call it point B).</div>
+      <div class="ko">중앙은행이 통화량을 5% 증가시킨다. 경제가 최초 균형(점 A)에서 새로운 단기 균형(점 B)으로 이동할 때 산출량과 물가가 어떻게 되는지 그림으로 보여라.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <div class="graph-section"><div class="graph-title">📊 단기: 통화량 5%↑ → AD 우측 이동 (A→B)</div>
+        <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+          <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+          <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+          <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+          <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+          <path d="M 120 235 Q 240 145 380 55" stroke="#1f52a0" stroke-width="2.5" fill="none"/><text x="345" y="46" font-size="10" font-weight="700" fill="#1f52a0">SRAS₁</text>
+          <path d="M 100 65 Q 240 155 420 240" stroke="#ddd" stroke-width="2" fill="none" stroke-dasharray="6,4"/><text x="305" y="252" font-size="9" fill="#999">AD₁</text>
+          <path d="M 130 55 Q 270 150 450 232" stroke="#fbbf24" stroke-width="2.5" fill="none"/><text x="380" y="244" font-size="10" font-weight="700" fill="#d4920a">AD₂</text>
+          <path d="M 335 175 L 375 175" stroke="#d4920a" stroke-width="1.5" marker-end="url(#ay)"/><text x="340" y="170" font-size="9" fill="#d4920a" font-weight="700">M↑</text>
+          <circle cx="240" cy="135" r="5.5" fill="#151210" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="13" font-weight="800" fill="#151210">A</text>
+          <circle cx="282" cy="120" r="5.5" fill="#d4920a" stroke="white" stroke-width="1.5"/><text x="290" y="112" font-size="13" font-weight="800" fill="#d4920a">B</text>
+          <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" fill="#555">P₁</text>
+          <line x1="50" y1="120" x2="282" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="124" font-size="11" fill="#d4920a">P₂</text>
+          <line x1="240" y1="255" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+          <line x1="282" y1="255" x2="282" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="270" y="272" font-size="11" fill="#d4920a">Y₁</text>
+          <defs><marker id="ay" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d4920a"/></marker></defs>
+        </svg>
+      </div>
+      통화량 5%↑ → 실질 화폐 잔고 증가 → 같은 물가에서 지출 증가 → <strong>AD 우측 이동(AD₁→AD₂)</strong>. 경제가 SRAS₁을 따라 A→B로 이동: <strong>산출량 Y*→Y₁(↑)</strong>, <strong>물가 P₁→P₂(↑, 5% 미만)</strong>, 실업률은 자연율보다 하락(경기 호황).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">Now show the new long-run equilibrium (call it point C). What causes the economy to move from point B to point C?</div>
+      <div class="ko">새로운 장기 균형(점 C)을 보여라. 경제가 점 B에서 점 C로 이동하는 원인은?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <div class="graph-section"><div class="graph-title">📊 장기: 기대 조정 → SRAS 좌측 이동 (B→C)</div>
+        <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+          <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+          <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+          <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+          <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+          <path d="M 120 235 Q 240 145 380 55" stroke="#ddd" stroke-width="2" fill="none" stroke-dasharray="6,4"/><text x="345" y="46" font-size="9" fill="#999">SRAS₁</text>
+          <path d="M 145 225 Q 245 150 355 68" stroke="#e88080" stroke-width="2.5" fill="none"/><text x="318" y="60" font-size="10" font-weight="700" fill="#e88080">SRAS₂</text>
+          <path d="M 130 55 Q 270 150 450 232" stroke="#d4920a" stroke-width="2.5" fill="none"/><text x="380" y="244" font-size="10" font-weight="700" fill="#d4920a">AD₂</text>
+          <circle cx="240" cy="135" r="5" fill="#888" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="12" fill="#888">A</text>
+          <circle cx="282" cy="120" r="5" fill="#d4920a" stroke="white" stroke-width="1.5"/><text x="290" y="113" font-size="13" font-weight="800" fill="#d4920a">B</text>
+          <circle cx="240" cy="103" r="5.5" fill="#4ade80" stroke="white" stroke-width="1.5"/><text x="248" y="95" font-size="13" font-weight="800" fill="#22a14e">C</text>
+          <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" fill="#555">P₁</text>
+          <line x1="50" y1="120" x2="282" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="124" font-size="11" fill="#d4920a">P₂</text>
+          <line x1="50" y1="103" x2="240" y2="103" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="8" y="107" font-size="10" fill="#22a14e">P₃≈1.05P₁</text>
+          <line x1="240" y1="255" x2="240" y2="103" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+          <path d="M 278 122 L 245 106" stroke="#22a14e" stroke-width="1.5" marker-end="url(#agg)"/><text x="248" y="118" font-size="9" fill="#22a14e" font-weight="700">임금↑</text>
+          <defs><marker id="agg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#22a14e"/></marker></defs>
+        </svg>
+      </div>
+      B→C 이동 원인: <strong>예상 물가의 상향 조정</strong>. 점 B에서 실제 물가(P₂)가 예상보다 높음 → 노동자·기업이 높은 물가를 예상 → 더 높은 명목 임금 요구 → 생산비 상승 → <strong>SRAS 좌측 이동(SRAS₁→SRAS₂)</strong> → 점 C에서 산출량 Y* 복귀, 물가 P₃(≈P₁×1.05).
+      <div class="key-point"><strong>화폐 중립성:</strong> 통화량 5% 증가가 장기에 물가만 약 5% 올림. 실질 산출량은 불변 → 장기 화폐 중립.</div>
+    </div></div>
+  </div>
+</div>
+<!-- PROBLEM 4 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">4</div>
+    <div class="problem-title"><h2>Roosevelt's Early Thanksgiving (1939)</h2><div class="subtitle">루즈벨트의 추수감사절 앞당김 정책</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">In 1939, with the U.S. economy not yet fully recovered from the Great Depression, President Roosevelt proclaimed that Thanksgiving would fall a week earlier than usual so that the shopping period before Christmas would be longer. Explain what President Roosevelt might have been trying to achieve, using the model of aggregate demand and aggregate supply.</div>
+    <div class="ko">1939년, 미국 경제가 대공황에서 아직 완전히 회복되지 못한 상황에서, 루즈벨트 대통령은 크리스마스 전 쇼핑 기간을 늘리기 위해 추수감사절을 평소보다 일주일 앞당긴다고 선포했다. 루즈벨트가 무엇을 달성하려 했는지 총수요·총공급 모형으로 설명하라.</div>
+  </div>
+  <div class="subq"><div class="subq-a" style="padding-left:16px;"><div class="ans-label">정답</div><div class="ans-content">
+    <span class="verdict">목표: 총수요 증가를 통한 경기 부양</span>
+    <ul>
+      <li><strong>배경:</strong> 1939년 미국은 여전히 대공황의 여파로 경제가 약했다(높은 실업·낮은 산출).</li>
+      <li><strong>정책 메커니즘:</strong> 추수감사절을 일주일 앞당김 → 크리스마스까지 쇼핑 기간 연장 → 소비자들이 <em>더 오래 더 많이 구매</em> → <strong>소비 지출(C) 증가</strong>.</li>
+      <li><strong>AD-AS 적용:</strong> C↑ → <strong>총수요(AD) 우측 이동</strong>. 경제가 자연 수준 아래에 있으므로 AD 증가는 산출량↑·고용↑·실업↓ 효과.</li>
+      <li><strong>궁극적 목표:</strong> 소비 → 판매 → 생산 확대 → 고용 증가 → 소득 증가 → 추가 소비(승수 효과)로 이어지는 경기 회복.</li>
+    </ul>
+    <div class="key-point"><strong>해석:</strong> 휴일 일정을 조정해 소비 기간을 인위적으로 늘림으로써 총수요를 끌어올리려 한 <em>수요 측면 정책</em>. 케인스 경제학(불충분한 총수요가 경기침체의 원인)의 실제 적용 사례.</div>
+  </div></div></div>
+</div>
+
+<!-- PROBLEM 5 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">5</div>
+    <div class="problem-title"><h2>False Statements — Critical Analysis</h2><div class="subtitle">거짓 명제 비판</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Explain why each of the following statements is false:</div>
+    <div class="ko">다음 각 명제가 거짓인 이유를 설명하라.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">"The aggregate-demand curve slopes downward because it is the horizontal sum of the demand curves for individual goods."</div>
+      <div class="ko">"총수요 곡선이 우하향하는 이유는 그것이 개별 재화 수요 곡선들의 수평 합이기 때문이다."</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>거짓.</strong> 이는 <em>미시경제</em>의 시장 수요 곡선 설명. AD 곡선이 우하향하는 진짜 이유는 <strong>세 가지 효과</strong>: ① 부의 효과(물가↑→실질 부↓→소비↓), ② 이자율 효과(물가↑→통화수요↑→이자율↑→투자↓), ③ 환율 효과(물가↑→수출↓·수입↑). 개별 재화 수요의 단순 합이 아님.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">"The long-run aggregate-supply curve is vertical because economic forces do not affect long-run aggregate supply."</div>
+      <div class="ko">"장기 총공급 곡선이 수직인 이유는 경제적 힘이 장기 총공급에 영향을 주지 않기 때문이다."</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>거짓.</strong> LRAS가 수직인 이유는 산출량이 <em>물가 수준과 무관</em>하기 때문이지, 경제적 힘이 영향을 주지 않아서가 아님. 실제로 기술 혁신·인구 증가·자본 축적 같은 경제적 힘은 LRAS를 <em>이동시킨다</em>. 올바른 표현: "LRAS는 <em>물가 변화</em>에는 영향받지 않지만 <em>생산 능력 변화</em>에는 영향받는다."
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">"If firms adjusted their prices every day, then the short-run aggregate-supply curve would be horizontal."</div>
+      <div class="ko">"기업들이 매일 가격을 조정한다면, 단기 총공급 곡선은 수평이 될 것이다."</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>거짓.</strong> 가격이 매일 조정된다면 가격이 <em>완전히 신축적</em>이라는 뜻 → SRAS는 수평이 아니라 <strong>수직(LRAS)에 가까워진다</strong>. SRAS가 수평이 되는 경우는 오히려 가격이 <em>완전히 고정</em>되어 있을 때다. 명제는 인과를 거꾸로 적용함.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">"Whenever the economy enters a recession, its long-run aggregate-supply curve shifts to the left."</div>
+      <div class="ko">"경제가 경기침체에 들어갈 때마다 장기 총공급 곡선이 왼쪽으로 이동한다."</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>거짓.</strong> 대부분의 경기침체는 <em>총수요 감소</em>(AD 좌측 이동) 때문이며, 이때 생산 능력(노동·자본·기술)은 변하지 않으므로 <strong>LRAS는 불변</strong>. LRAS가 좌측 이동하는 경우는 <em>공급 충격</em>(예: 허리케인으로 자본 파괴, 전쟁으로 노동력 감소)일 때뿐이다.
+    </div></div>
+  </div>
+</div>
+<!-- PROBLEM 6 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">6</div>
+    <div class="problem-title"><h2>Three SRAS Theories — Effects of AD Increase</h2><div class="subtitle">SRAS 우상향 3가지 이론과 총수요 증가</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">For each of the three theories for the upward slope of the short-run aggregate-supply curve, carefully explain the short-run and long-run effects on output and the price level, assuming policymakers take no action, of an increase in aggregate demand.</div>
+    <div class="ko">단기 총공급 곡선이 우상향하는 세 가지 이론 각각에 대해, 정책이 없다고 가정할 때 총수요 증가가 산출량과 물가에 미치는 단기·장기 효과를 설명하라.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">The sticky-wage theory</div>
+      <div class="ko">경직적 임금 이론</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>가정:</strong> 명목 임금이 계약으로 고정되어 단기에 조정되지 않음.<br>
+      <strong>단기:</strong> AD↑ → 물가↑인데 명목 임금 고정 → 실질 임금↓ → 기업이 더 고용 → 산출량↑(자연 수준 초과).<br>
+      <strong>장기:</strong> 다음 임금 협상에서 높아진 물가 반영 → 명목 임금↑ → 비용↑ → SRAS 좌측 이동 → 산출량 자연 수준 복귀, 물가만 상승.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">The sticky-price theory</div>
+      <div class="ko">경직적 가격 이론</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>가정:</strong> 메뉴 비용 때문에 기업들이 가격을 자주 바꾸지 않음.<br>
+      <strong>단기:</strong> AD↑ → 총지출↑인데 많은 기업의 가격이 아직 고정 → 같은 가격에 더 많이 팔림 → 생산량↑ → 산출량↑.<br>
+      <strong>장기:</strong> 기업들이 가격을 조정할 시간이 충분 → 물가↑ → 산출량 자연 수준 복귀.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">The misperceptions theory</div>
+      <div class="ko">오인 이론</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>가정:</strong> 공급자들이 전체 물가 상승과 자기 상품의 상대가격 상승을 단기에 구분 못함.<br>
+      <strong>단기:</strong> AD↑ → 전체 물가↑ → 기업이 "내 상품만 비싸졌다"고 오인 → 더 수익성 있다고 보고 생산량↑ → 산출량↑.<br>
+      <strong>장기:</strong> 전체 물가가 올랐음을 깨달음 → 오인 해소 → 생산량 정상화 → 산출량 자연 수준 복귀, 물가만 상승.
+      <div class="key-point"><strong>세 이론의 공통 결론:</strong> 어떤 메커니즘이든 <em>단기</em>에는 AD 증가가 산출량을 늘리지만, <em>장기</em>에는 기대·정보·가격이 조정되어 산출량이 자연 수준으로 복귀하고 물가만 상승한다.</div>
+    </div></div>
+  </div>
+</div>
+<!-- PROBLEM 7 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">7</div>
+    <div class="problem-title"><h2>Fed Chair Expectations & Chain Reaction</h2><div class="subtitle">새 연준 의장의 인플레이션 관용과 기대 연쇄</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">The economy begins in long-run equilibrium. Then one day, the president appoints a new chair of the Federal Reserve. This new Fed chair is well known for her view that inflation is not a major problem for an economy.</div>
+    <div class="ko">경제가 장기 균형에서 시작한다. 어느 날 대통령이 새 연준 의장을 임명하는데, 이 의장은 인플레이션이 경제에 큰 문제가 아니라는 견해로 잘 알려져 있다.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">How would this news affect the price level that people would expect to prevail?</div>
+      <div class="ko">이 뉴스는 사람들이 예상하는 물가 수준에 어떤 영향을 미치는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>예상 물가 수준 상향.</strong> 인플레이션을 용인하겠다는 의장 → 사람들은 "앞으로 물가가 더 오를 것"이라 예상 → 예상 물가 E(P)↑.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">How would this change in the expected price level affect the nominal wage that workers and firms agree to in their new labor contracts?</div>
+      <div class="ko">예상 물가 수준의 이 변화는 노동자와 기업이 새 노동계약에서 합의하는 명목 임금에 어떤 영향을 미치는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>명목 임금 상향.</strong> 노동자·기업이 예상 물가 상승을 반영해 더 높은 명목 임금에 합의(구매력 보전 목적).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">How does this change in nominal wages affect the profitability of producing goods and services at any given price level?</div>
+      <div class="ko">명목 임금의 이 변화는 주어진 물가 수준에서 재화·서비스 생산의 수익성에 어떤 영향을 미치는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>수익성 감소.</strong> 명목 임금↑ → 기업 비용↑ → 주어진 물가에서 생산의 수익성이 낮아짐.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">How does this change in profitability affect the short-run aggregate-supply curve?</div>
+      <div class="ko">수익성의 이 변화는 단기 총공급 곡선에 어떤 영향을 미치는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>SRAS 좌측 이동.</strong> 수익성 감소로 같은 물가에서 공급량이 줄어 SRAS가 왼쪽으로 이동(AS₁→AS₂). (SRAS의 위치는 예상 물가 수준에 의존.)
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">e</div><div class="subq-text">
+      <div class="en">If aggregate demand is held constant, how does this shift in the short-run aggregate-supply curve affect the price level and the quantity of output?</div>
+      <div class="ko">총수요가 일정하다면, 단기 총공급 곡선의 이 이동은 물가 수준과 산출량에 어떤 영향을 미치는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <div class="graph-section"><div class="graph-title">📊 스태그플레이션: SRAS 좌측 이동 (AD 일정)</div>
+        <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+          <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+          <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+          <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+          <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+          <path d="M 120 235 Q 240 145 380 55" stroke="#ddd" stroke-width="2" fill="none" stroke-dasharray="6,4"/><text x="345" y="46" font-size="9" fill="#999">SRAS₁</text>
+          <path d="M 150 225 Q 240 160 350 80" stroke="#e88080" stroke-width="2.5" fill="none"/><text x="300" y="72" font-size="10" font-weight="700" fill="#e88080">SRAS₂</text>
+          <path d="M 100 65 Q 240 155 420 240" stroke="#c22828" stroke-width="2.5" fill="none"/><text x="300" y="250" font-size="10" font-weight="700" fill="#c22828">AD (일정)</text>
+          <path d="M 335 138 L 305 152" stroke="#e88080" stroke-width="1.5" marker-end="url(#are)"/><text x="305" y="132" font-size="9" fill="#e88080" font-weight="700">E(P)↑</text>
+          <circle cx="240" cy="135" r="5.5" fill="#151210" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="13" font-weight="800" fill="#151210">A</text>
+          <circle cx="210" cy="152" r="5.5" fill="#e88080" stroke="white" stroke-width="1.5"/><text x="216" y="167" font-size="13" font-weight="800" fill="#c22828">B'</text>
+          <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" fill="#555">P₁</text>
+          <line x1="50" y1="152" x2="210" y2="152" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="156" font-size="11" fill="#c22828">P'</text>
+          <line x1="240" y1="255" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+          <line x1="210" y1="255" x2="210" y2="152" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="190" y="272" font-size="11" fill="#c22828">Y'</text>
+          <rect x="95" y="218" width="170" height="34" rx="3" fill="#fff3cd" stroke="#f59e0b" stroke-width="1"/>
+          <text x="103" y="232" font-size="10.5" font-weight="700" fill="#92400e">스태그플레이션</text>
+          <text x="103" y="246" font-size="10" fill="#92400e">산출량↓ + 물가↑</text>
+          <defs><marker id="are" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#e88080"/></marker></defs>
+        </svg>
+      </div>
+      AD 일정 + SRAS 좌측 이동 → <strong>물가 상승(P₁→P'), 산출량 하락(Y*→Y')</strong> → <strong>스태그플레이션</strong>(경기침체 + 인플레이션 동시 발생).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">f</div><div class="subq-text">
+      <div class="en">Do you think this Fed chair was a good appointment?</div>
+      <div class="ko">이 연준 의장 임명이 좋은 인사였다고 생각하는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">아니다 (일반적 평가)</span>
+      인플레이션 기대 상향이 SRAS를 좌측으로 밀어 <em>스태그플레이션</em>을 유발 → 산출량 감소·실업 증가의 실질 피해. 또한 연준이 물가 안정을 가볍게 여기면 통화정책의 신뢰성이 훼손되어 높은 인플레이션 기대가 고착될 수 있음.
+      <div class="key-point"><strong>역사적 사례:</strong> 1970년대 인플레이션을 관용한 결과 스태그플레이션이 발생했고, 이후 폴 볼커(Paul Volcker) 의장이 금리를 급격히 올려 고통스럽게 인플레이션을 잡았다.</div>
+    </div></div>
+  </div>
+</div>
+<!-- PROBLEM 8 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">8</div>
+    <div class="problem-title"><h2>Which Curves Shift?</h2><div class="subtitle">곡선 이동 분류 (SRAS·AD·둘 다·둘 다 아님)</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Explain whether each of the following events shifts the short-run aggregate-supply curve, the aggregate-demand curve, both, or neither. For each event that does shift a curve, draw a diagram to illustrate the effect on the economy.</div>
+    <div class="ko">다음 각 사건이 단기 총공급 곡선·총수요 곡선·둘 다·둘 다 아님 중 무엇을 이동시키는지 설명하라. 곡선을 이동시키는 사건은 그림으로 경제에 미치는 효과를 나타내라.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">Households decide to save a larger share of their income.</div>
+      <div class="ko">가계가 소득 중 더 큰 비중을 저축하기로 결정한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">AD 이동 (좌측)</span>
+      저축 증가 = 현재 소비(C) 감소 → <strong>AD 좌측 이동</strong>. SRAS·LRAS는 불변(생산 능력 변화 없음). 결과: 단기 산출량↓, 물가↓.
+      <div class="key-point" style="margin-top:8px;">참고: 늘어난 저축이 투자(I) 자금으로 흘러 들어가면 장기적으로는 자본 축적에 기여할 수 있으나, 직접적·단기적 효과는 AD 좌측 이동.</div>
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">Florida orange groves suffer a prolonged period of below-freezing temperatures.</div>
+      <div class="ko">플로리다 오렌지 과수원이 장기간 영하의 기온을 겪는다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">SRAS 이동 (좌측)</span>
+      공급 충격: 한파로 작물 손상 → 생산비 상승·공급 능력 감소 → <strong>SRAS 좌측 이동</strong>. AD는 불변. 결과: 산출량↓, 물가↑(스태그플레이션 성격).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">Increased job opportunities overseas cause many people to leave the country.</div>
+      <div class="ko">해외의 일자리 기회 증가로 많은 사람들이 나라를 떠난다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">둘 다 이동 (AD↓ + AS↓)</span>
+      <ul>
+        <li><strong>AD:</strong> 국내 소비자 감소 → 소비 수요↓ → AD 좌측 이동.</li>
+        <li><strong>AS(SRAS·LRAS):</strong> 노동력(L) 감소 → 생산 능력↓ → SRAS·LRAS 좌측 이동.</li>
+      </ul>
+      순효과: 산출량은 확실히 감소, 물가는 두 효과가 상쇄되어 방향이 미결정.
+    </div></div>
+  </div>
+
+  <div class="graph-section"><div class="graph-title">📊 Problem 8 요약: a(AD↓) · b(SRAS↓) · c(AD↓+AS↓)</div>
+    <svg viewBox="0 0 480 250" class="graph-svg" width="100%" style="max-width:460px;">
+      <line x1="50" y1="210" x2="450" y2="210" stroke="#555" stroke-width="2"/><line x1="50" y1="210" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+      <polygon points="450,205 450,215 462,210" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+      <text x="466" y="214" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+      <line x1="250" y1="205" x2="250" y2="30" stroke="#1e7a44" stroke-width="2.5"/><text x="200" y="24" font-size="9" font-weight="700" fill="#1e7a44">LRAS</text>
+      <path d="M 130 195 Q 250 120 370 45" stroke="#1f52a0" stroke-width="2" fill="none"/><text x="335" y="38" font-size="9" fill="#1f52a0">SRAS</text>
+      <path d="M 110 50 Q 250 130 410 198" stroke="#c22828" stroke-width="2" fill="none"/><text x="350" y="208" font-size="9" fill="#c22828">AD</text>
+      <text x="70" y="105" font-size="9" fill="#c22828">a: AD ←</text>
+      <text x="320" y="80" font-size="9" fill="#e88080">b: SRAS ←</text>
+      <text x="120" y="170" font-size="9" fill="#6040b0">c: 둘 다 ←</text>
+      <path d="M 200 130 L 165 138" stroke="#c22828" stroke-width="1.2" marker-end="url(#a8)"/>
+      <path d="M 290 95 L 260 105" stroke="#e88080" stroke-width="1.2" marker-end="url(#b8)"/>
+      <defs>
+        <marker id="a8" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#c22828"/></marker>
+        <marker id="b8" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#e88080"/></marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+<!-- PROBLEM 9 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">9</div>
+    <div class="problem-title"><h2>Short-Run & Long-Run Effects — Four Events</h2><div class="subtitle">4가지 사건의 단기·장기 효과</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">For each of the following events, explain the short-run and long-run effects on output and the price level, assuming policymakers take no action.</div>
+    <div class="ko">정책 입안자가 아무 조치도 취하지 않는다고 가정할 때, 다음 각 사건이 산출량과 물가에 미치는 단기·장기 효과를 설명하라.</div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">The stock market declines sharply, reducing consumers' wealth.</div>
+      <div class="ko">주식 시장이 급락하여 소비자의 부를 감소시킨다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <div class="graph-section"><div class="graph-title">📊 부의 효과: AD↓ (단기 산출↓물가↓ → 장기 산출 복귀)</div>
+        <svg viewBox="0 0 520 230" class="graph-svg" width="100%" style="max-width:500px;">
+          <text x="55" y="20" font-size="11" font-weight="700" fill="#333">단기</text><text x="330" y="20" font-size="11" font-weight="700" fill="#333">장기</text>
+          <line x1="270" y1="15" x2="270" y2="215" stroke="#eee" stroke-width="1"/>
+          <line x1="40" y1="195" x2="255" y2="195" stroke="#555" stroke-width="1.5"/><line x1="40" y1="195" x2="40" y2="35" stroke="#555" stroke-width="1.5"/>
+          <line x1="115" y1="190" x2="115" y2="45" stroke="#1e7a44" stroke-width="2"/>
+          <path d="M 50 60 Q 115 120 235 190" stroke="#ddd" stroke-width="1.3" fill="none" stroke-dasharray="3,2"/><path d="M 58 58 Q 110 115 240 188" stroke="#c22828" stroke-width="1.8" fill="none"/><text x="215" y="190" font-size="8" fill="#c22828">AD↓</text>
+          <circle cx="115" cy="105" r="3.5" fill="#c22828"/><text x="120" y="100" font-size="10" font-weight="700" fill="#c22828">B</text>
+          <text x="14" y="108" font-size="9" fill="#c22828">P↓</text><text x="105" y="208" font-size="9" fill="#c22828">Y↓</text>
+          <line x1="305" y1="195" x2="510" y2="195" stroke="#555" stroke-width="1.5"/><line x1="305" y1="195" x2="305" y2="35" stroke="#555" stroke-width="1.5"/>
+          <line x1="380" y1="190" x2="380" y2="45" stroke="#1e7a44" stroke-width="2"/>
+          <path d="M 315 58 Q 380 115 505 188" stroke="#c22828" stroke-width="1.8" fill="none"/><text x="478" y="190" font-size="8" fill="#c22828">AD↓</text>
+          <path d="M 305 190 Q 380 130 470 55" stroke="#1f52a0" stroke-width="1.8" fill="none"/><text x="448" y="48" font-size="8" fill="#1f52a0">SRAS↑</text>
+          <circle cx="380" cy="118" r="3.5" fill="#4ade80"/><text x="385" y="113" font-size="10" font-weight="700" fill="#22a14e">C</text>
+          <text x="276" y="121" font-size="9" fill="#22a14e">P↓↓</text><text x="370" y="208" font-size="9" fill="#22a14e">Y*</text>
+        </svg>
+      </div>
+      <strong>단기:</strong> 부↓→소비↓→AD↓ → 산출량↓, 물가↓. <strong>장기:</strong> 예상 물가 하락→SRAS 우측 이동 → 산출량 Y* 복귀, 물가 더 낮음.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">The federal government increases spending on national defense.</div>
+      <div class="ko">연방 정부가 국방 지출을 늘린다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <div class="graph-section"><div class="graph-title">📊 정부지출↑: AD↑ (단기 산출↑물가↑ → 장기 산출 복귀)</div>
+        <svg viewBox="0 0 520 230" class="graph-svg" width="100%" style="max-width:500px;">
+          <text x="55" y="20" font-size="11" font-weight="700" fill="#333">단기</text><text x="330" y="20" font-size="11" font-weight="700" fill="#333">장기</text>
+          <line x1="270" y1="15" x2="270" y2="215" stroke="#eee" stroke-width="1"/>
+          <line x1="40" y1="195" x2="255" y2="195" stroke="#555" stroke-width="1.5"/><line x1="40" y1="195" x2="40" y2="35" stroke="#555" stroke-width="1.5"/>
+          <line x1="115" y1="190" x2="115" y2="45" stroke="#1e7a44" stroke-width="2"/>
+          <path d="M 50 150 Q 115 110 235 50" stroke="#ddd" stroke-width="1.3" fill="none" stroke-dasharray="3,2"/><path d="M 58 145 Q 115 105 240 48" stroke="#d4920a" stroke-width="1.8" fill="none"/><text x="215" y="45" font-size="8" fill="#d4920a">AD↑</text>
+          <circle cx="125" cy="80" r="3.5" fill="#d4920a"/><text x="130" y="75" font-size="10" font-weight="700" fill="#d4920a">B</text>
+          <text x="14" y="83" font-size="9" fill="#d4920a">P↑</text><text x="115" y="208" font-size="9" fill="#d4920a">Y↑</text>
+          <line x1="305" y1="195" x2="510" y2="195" stroke="#555" stroke-width="1.5"/><line x1="305" y1="195" x2="305" y2="35" stroke="#555" stroke-width="1.5"/>
+          <line x1="380" y1="190" x2="380" y2="45" stroke="#1e7a44" stroke-width="2"/>
+          <path d="M 315 145 Q 380 105 505 48" stroke="#d4920a" stroke-width="1.8" fill="none"/><text x="478" y="45" font-size="8" fill="#d4920a">AD↑</text>
+          <path d="M 305 188 Q 380 125 465 58" stroke="#e88080" stroke-width="1.8" fill="none"/><text x="445" y="52" font-size="8" fill="#e88080">SRAS↓</text>
+          <circle cx="380" cy="100" r="3.5" fill="#4ade80"/><text x="385" y="95" font-size="10" font-weight="700" fill="#22a14e">C</text>
+          <text x="276" y="103" font-size="9" fill="#22a14e">P↑↑</text><text x="370" y="208" font-size="9" fill="#22a14e">Y*</text>
+        </svg>
+      </div>
+      <strong>단기:</strong> G↑→AD↑ → 산출량↑, 물가↑. <strong>장기:</strong> 예상 물가 상승→SRAS 좌측 이동 → 산출량 Y* 복귀, 물가 높음(화폐 환상 없음).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">A technological improvement raises productivity.</div>
+      <div class="ko">기술 개선이 생산성을 높인다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>단기:</strong> 생산성↑→기업 비용↓·수익성↑→SRAS 우측 이동(공급↑). 산출량↑, 물가는 하락 압력(수요도 늘면 미결정). <strong>장기:</strong> <strong>LRAS 우측 이동</strong> → 자연 산출량 Y* 영구 증가, 물가는 상대적으로 낮게 안정 (높은 성장 + 낮은 인플레이션의 이상적 시나리오).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">A recession overseas causes foreigners to buy fewer U.S. goods.</div>
+      <div class="ko">해외 경기침체로 외국인들이 미국 상품을 덜 구매한다.</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>단기:</strong> 순수출(NX)↓→AD↓ → 산출량↓, 물가↓(특히 수출 산업 타격). <strong>장기:</strong> 예상 물가 하락→SRAS 우측 이동 → 산출량 Y* 복귀, 물가 더 낮음 → 미국 상품의 가격 경쟁력 개선.
+    </div></div>
+  </div>
+</div>
+<!-- PROBLEM 10 -->
+<div class="problem-section">
+  <div class="problem-header">
+    <div class="problem-num">10</div>
+    <div class="problem-title"><h2>Money Neutrality — Complete Trace</h2><div class="subtitle">통화량 5% 증가의 완벽한 추적</div></div>
+  </div>
+  <div class="problem-stem">
+    <div class="en">Suppose the economy is in long-run equilibrium. Then the Federal Reserve increases the money supply by 5 percent. Trace through the impacts, assuming the economy begins at its natural rate of output.</div>
+    <div class="ko">경제가 장기 균형 상태이고, 연준이 통화량을 5% 증가시킨다. 경제가 자연 산출량에서 시작한다고 가정하고 그 영향을 추적하라.</div>
+  </div>
+
+  <div class="graph-section"><div class="graph-title">📊 화폐 중립성 경로: A(초기) → B(단기) → C(장기)</div>
+    <svg viewBox="0 0 480 300" class="graph-svg" width="100%" style="max-width:460px;">
+      <line x1="50" y1="255" x2="450" y2="255" stroke="#555" stroke-width="2"/><line x1="50" y1="255" x2="50" y2="20" stroke="#555" stroke-width="2"/>
+      <polygon points="450,250 450,260 462,255" fill="#555"/><polygon points="45,20 55,20 50,8" fill="#555"/>
+      <text x="466" y="259" font-size="11" fill="#444">Q</text><text x="14" y="22" font-size="10" fill="#555">물가</text>
+      <line x1="240" y1="250" x2="240" y2="25" stroke="#1e7a44" stroke-width="3"/><text x="180" y="18" font-size="10" font-weight="700" fill="#1e7a44">LRAS</text>
+      <path d="M 120 235 Q 240 145 380 55" stroke="#1f52a0" stroke-width="2" fill="none"/><text x="345" y="46" font-size="9" font-weight="700" fill="#1f52a0">SRAS₁</text>
+      <path d="M 150 225 Q 245 150 355 70" stroke="#e88080" stroke-width="2" fill="none"/><text x="318" y="62" font-size="9" font-weight="700" fill="#e88080">SRAS₂</text>
+      <path d="M 100 65 Q 240 155 420 240" stroke="#ddd" stroke-width="1.8" fill="none" stroke-dasharray="6,4"/><text x="300" y="252" font-size="9" fill="#999">AD₁</text>
+      <path d="M 130 55 Q 270 150 450 232" stroke="#d4920a" stroke-width="2" fill="none"/><text x="380" y="244" font-size="9" font-weight="700" fill="#d4920a">AD₂</text>
+      <circle cx="240" cy="135" r="5" fill="#151210" stroke="white" stroke-width="1.5"/><text x="248" y="150" font-size="13" font-weight="800" fill="#151210">A</text>
+      <circle cx="282" cy="120" r="5" fill="#d4920a" stroke="white" stroke-width="1.5"/><text x="290" y="114" font-size="13" font-weight="800" fill="#d4920a">B</text>
+      <circle cx="240" cy="103" r="5.5" fill="#4ade80" stroke="white" stroke-width="1.5"/><text x="248" y="96" font-size="13" font-weight="800" fill="#22a14e">C</text>
+      <line x1="50" y1="135" x2="240" y2="135" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="139" font-size="11" fill="#555">P₁</text>
+      <line x1="50" y1="120" x2="282" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="18" y="124" font-size="11" fill="#d4920a">P₂</text>
+      <line x1="50" y1="103" x2="240" y2="103" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="8" y="107" font-size="10" fill="#22a14e">P₃≈1.05P₁</text>
+      <line x1="240" y1="255" x2="240" y2="103" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="228" y="272" font-size="11" fill="#555">Y*</text>
+      <line x1="282" y1="255" x2="282" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/><text x="272" y="272" font-size="11" fill="#d4920a">Y₁</text>
+    </svg>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">a</div><div class="subq-text">
+      <div class="en">What happens to the aggregate-demand curve?</div>
+      <div class="ko">총수요 곡선에는 무슨 일이 일어나는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>AD 우측 이동(AD₁→AD₂).</strong> 통화량↑ → 실질 화폐 잔고↑ → 주어진 물가에서 총지출 의욕↑ → 총수요 증가.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">b</div><div class="subq-text">
+      <div class="en">In the short run, what happens to output, unemployment, and the price level?</div>
+      <div class="ko">단기에 산출량, 실업률, 물가 수준은 어떻게 되는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      단기(A→B): <strong>산출량↑</strong>(Y*→Y₁), <strong>실업률↓</strong>(자연율 아래), <strong>물가↑</strong>(P₁→P₂, 5% 미만 — 경직성 때문에 부분 조정).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">c</div><div class="subq-text">
+      <div class="en">Does the economy experience inflation, deflation, or neither (in the short run)?</div>
+      <div class="ko">(단기에) 경제는 인플레이션, 디플레이션, 아니면 둘 다 아닌 것을 경험하는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>인플레이션.</strong> 물가가 상승(P₁→P₂)하므로 인플레이션. 단, 통화량 증가분(5%)보다는 작게 상승.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">d</div><div class="subq-text">
+      <div class="en">In the long run, what happens to output, unemployment, and the price level?</div>
+      <div class="ko">장기에 산출량, 실업률, 물가 수준은 어떻게 되는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      장기(B→C): 기대·임금 조정으로 SRAS 좌측 이동 → <strong>산출량 Y* 복귀</strong>, <strong>실업률 자연율 복귀</strong>, <strong>물가 추가 상승</strong>(P₂→P₃≈1.05P₁).
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">e</div><div class="subq-text">
+      <div class="en">Does the economy experience inflation, deflation, or neither (in the long run)?</div>
+      <div class="ko">(장기에) 경제는 인플레이션, 디플레이션, 아니면 둘 다 아닌 것을 경험하는가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <strong>인플레이션(지속).</strong> 단기에서 장기로 가며 물가가 추가 상승 → 최종 물가는 약 5% 높음. 통화량 증가가 온전히 물가로 반영.
+    </div></div>
+  </div>
+
+  <div class="subq">
+    <div class="subq-q"><div class="subq-letter">f</div><div class="subq-text">
+      <div class="en">In this scenario, is money neutral?</div>
+      <div class="ko">이 시나리오에서 화폐는 중립적인가?</div>
+    </div></div>
+    <div class="subq-a"><div class="ans-label">정답</div><div class="ans-content">
+      <span class="verdict">단기 비중립 · 장기 중립</span>
+      <ul>
+        <li><strong>단기:</strong> 산출량·고용 등 실질 변수가 변함 → <em>중립적이지 않음</em>.</li>
+        <li><strong>장기:</strong> 산출량·실업·실질금리가 원래대로 복귀하고, 물가·명목 임금 등 <em>명목 변수만</em> 5% 상승 → <em>중립적</em>.</li>
+      </ul>
+      <div class="key-point"><strong>결론:</strong> 통화량 ×1.05 → 장기 물가 ×1.05. 고전 경제학의 "화폐는 장기에 중립적"과 케인스 경제학의 "단기가 중요하다"가 모두 성립.</div>
+    </div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Chapter 10 Problems and Applications — 완벽 정답집 (영문·해석·그래프)</p>
+  <p>Seoul Global High School Economics Department</p>
+  <p style="margin-top:14px; font-size:12px;">각 소문제는 영문 원문 + 한글 해석 + 정답 + 그래프로 구성되었습니다.</p>
+</div>
+</div>
+</body>
+</html>
