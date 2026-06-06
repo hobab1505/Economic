@@ -34,7 +34,7 @@
     font-size: 15px;
   }
 
-  /* ── HEADER ── */
+  /* HEADER */
   header {
     background: var(--accent);
     color: white;
@@ -73,14 +73,14 @@
     position: relative;
   }
 
-  /* ── LAYOUT ── */
+  /* LAYOUT */
   .container {
     max-width: 920px;
     margin: 0 auto;
     padding: 32px 20px 60px;
   }
 
-  /* ── PROBLEM CARD ── */
+  /* PROBLEM CARD */
   .problem {
     background: var(--bg-card);
     border-radius: 10px;
@@ -89,7 +89,6 @@
     margin-bottom: 28px;
     overflow: hidden;
   }
-
   .problem-header {
     background: var(--accent);
     color: white;
@@ -110,28 +109,46 @@
     font-size: 0.9rem;
     font-weight: 500;
   }
-
   .problem-body {
     padding: 20px 24px;
   }
 
-  /* Question text (Korean translation) */
-  .q-ko {
-    background: var(--accent-pale);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    padding: 10px 14px;
-    margin-bottom: 16px;
-    font-size: 0.92rem;
-    color: #1a3560;
+  /* Question text blocks */
+  .q-wrap {
+    margin-bottom: 18px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #c9d8ee;
   }
   .q-en {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-bottom: 18px;
-    padding-left: 4px;
+    background: #f0f5fc;
+    border-left: 4px solid var(--accent-light);
+    padding: 10px 14px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    color: #1a3560;
+    line-height: 1.6;
   }
+  .q-ko {
+    background: var(--accent-pale);
+    border-left: 4px solid var(--accent);
+    padding: 9px 14px;
+    font-size: 0.88rem;
+    color: #253d6b;
+    border-top: 1px dashed #c9d8ee;
+  }
+  .q-en-label, .q-ko-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 3px;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .q-en-label { background: var(--accent); color: white; }
+  .q-ko-label { background: #5a80b0; color: white; }
 
   /* Sub-question */
   .sub {
@@ -141,10 +158,22 @@
     border: 1px solid var(--border);
   }
   .sub-q {
-    background: #f0f0f0;
+    padding: 0;
+  }
+  .sub-q-en {
+    background: #f5f8ff;
     padding: 8px 14px;
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.97rem;
+    color: #1a3560;
+    border-bottom: 1px dashed #dde6f5;
+    line-height: 1.5;
+  }
+  .sub-q-ko {
+    background: #eef3fb;
+    padding: 7px 14px;
+    font-size: 0.84rem;
+    font-weight: 600;
     color: var(--accent);
     border-bottom: 1px solid var(--border);
   }
@@ -222,7 +251,7 @@
     display: block;
   }
 
-  /* Note / warning */
+  /* Note */
   .note {
     background: var(--gold-light);
     border-left: 3px solid var(--gold);
@@ -233,7 +262,7 @@
     margin-top: 8px;
   }
 
-  /* ── TOC ── */
+  /* TOC */
   .toc {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -267,31 +296,12 @@
   }
   .toc-grid a:hover { background: var(--accent-pale); }
 
-  /* ── GDP Component label ── */
-  .gdp-tag {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 1px 7px;
-    border-radius: 20px;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  .tag-c { background: #dbeafe; color: #1e40af; }
-  .tag-i { background: #dcfce7; color: #166534; }
-  .tag-g { background: #fef9c3; color: #854d0e; }
-  .tag-x { background: #fce7f3; color: #9d174d; }
-  .tag-no { background: #fee2e2; color: #991b1b; }
-
-  /* ── Divider ── */
   hr.section {
     border: none;
     border-top: 2px dashed var(--border);
     margin: 20px 0;
   }
 
-  /* Responsive */
   @media (max-width: 600px) {
     header { padding: 24px 18px; }
     .container { padding: 18px 12px 40px; }
@@ -309,7 +319,6 @@
 
 <div class="container">
 
-  <!-- TOC -->
   <div class="toc">
     <h3>문제 목차</h3>
     <div class="toc-grid">
@@ -327,11 +336,22 @@
       <span class="problem-title">GDP 구성 요소 판별 (C / I / G / NX 또는 미포함)</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">다음 각 거래가 GDP에 어떤 구성 요소로 포함되는지 설명하시오.</div>
-      <div class="q-en">What components of GDP (if any) would each of the following affect? Explain.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          What components of GDP (if any) would each of the following affect? Explain.
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          다음 각 거래가 GDP에 어떤 구성 요소로 포함되는지 설명하시오.
+        </div>
+      </div>
 
       <div class="sub">
-        <div class="sub-q">a. 삼촌 Henry가 국내 제조업체로부터 새 냉장고를 구입한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">a. Uncle Henry buys a new refrigerator from a domestic manufacturer.</div>
+          <div class="sub-q-ko">a. 삼촌 Henry가 국내 제조업체로부터 새 냉장고를 구입한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -341,17 +361,23 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">b. 이모 Jane이 지역 건설업체로부터 새 집을 구입한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">b. Aunt Jane buys a new house from a local builder.</div>
+          <div class="sub-q-ko">b. 이모 Jane이 지역 건설업체로부터 새 집을 구입한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
-            <p><span class="key">투자(I) 증가</span> — 신규 주택 건설은 GDP에서 민간 투자(주거용 투자)로 분류된다. 소비(C)가 아님에 주의.</p>
+            <p><span class="key">투자(I) 증가</span> — 신규 주택 건설은 민간 투자(주거용 투자)로 분류된다. 소비(C)가 아님에 주의.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">c. Jackson 가족이 중고 Victorian 주택을 구입한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">c. The Jackson family buys an old Victorian house from the Walker family.</div>
+          <div class="sub-q-ko">c. Jackson 가족이 Walker 가족으로부터 중고 Victorian 주택을 구입한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -361,37 +387,36 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">d. 사회보장(Social Security) 수표를 받아 이발소에 지불한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">d. You pay a hairdresser for a haircut.</div>
+          <div class="sub-q-ko">d. 이발소에 이발비를 지불한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
-            <p>사회보장 수표 수령 자체는 GDP에 영향 없음(이전지출, transfer payment). 단, <span class="key">이발 서비스 구매는 소비(C) 증가</span>.</p>
+            <p><span class="key">소비(C) 증가</span> — 이발 서비스 구매는 소비재 서비스로 GDP에 포함된다.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">e. Ford가 재고용으로 Mustang을 생산하여 Avis에 판매한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">e. Ford sells a Mustang from its inventory to the Martinez family.</div>
+          <div class="sub-q-ko">e. Ford가 재고에 있던 Mustang을 Martinez 가족에게 판매한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
-            <p><span class="key">투자(I) 증가</span> — 기업의 차량 구매는 설비 투자. (Avis가 렌탈 회사이므로 기업 투자로 분류된다.)</p>
+            <p><span class="key">소비(C) 증가, 투자(I) 감소</span> — 가계 구매로 C 증가. 단 재고에서 팔리므로 재고투자(I)는 동일 금액 감소. 순 GDP 변화 = 0. (재고로 쌓인 시점에 이미 GDP에 계산됨.)</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">f. California가 Highway 101 보수를 위해 공사업체를 고용한다.</div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">정부지출(G) 증가</span> — 주(州) 정부의 도로 보수는 정부구매에 해당한다.</p>
-          </div>
+        <div class="sub-q">
+          <div class="sub-q-en">f. The federal government sends your grandmother a Social Security check.</div>
+          <div class="sub-q-ko">f. 연방 정부가 할머니에게 사회보장(Social Security) 수표를 보낸다.</div>
         </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">g. 연방 정부가 할머니에게 Medicare 수표를 보낸다.</div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -401,17 +426,36 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">h. Honda가 Ohio에 공장을 건설하여 Accord를 생산한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">g. California hires workers to repave Highway 101.</div>
+          <div class="sub-q-ko">g. California주가 Highway 101 보수를 위해 공사업체를 고용한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
-            <p><span class="key">투자(I) 증가</span> — 국내에서 이루어진 외국 기업의 신규 공장 건설은 GDP(투자)에 포함된다. (Honda는 외국 기업이지만 미국 내 생산이므로 미국 GDP에 포함.)</p>
+            <p><span class="key">정부지출(G) 증가</span> — 주(州) 정부의 도로 보수는 정부구매에 해당한다.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">i. 부모님이 프랑스 와인 한 병을 구입한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">h. Honda expands its factory in Ohio.</div>
+          <div class="sub-q-ko">h. Honda가 Ohio 공장을 확장한다.</div>
+        </div>
+        <div class="sub-body">
+          <div class="answer">
+            <div class="answer-label">✔ 정답</div>
+            <p><span class="key">투자(I) 증가</span> — 국내에서 이루어진 외국 기업의 신규 공장 건설은 미국 GDP(투자)에 포함된다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-q">
+          <div class="sub-q-en">i. Your parents buy a bottle of French wine.</div>
+          <div class="sub-q-ko">i. 부모님이 프랑스 와인 한 병을 구입한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -421,7 +465,10 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">j. 미국 정부가 항공모함을 구입한다.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">j. The U.S. government buys a new aircraft carrier.</div>
+          <div class="sub-q-ko">j. 미국 정부가 항공모함을 구입한다.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -439,16 +486,25 @@
       <span class="problem-title">명목 GDP vs. 실질 GDP 계산 (초콜릿 단일재 경제)</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">초콜릿만 생산하는 경제를 고려하시오. 아래 표를 채우고 은행에 설명하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          Consider an economy that produces only chocolate. Fill in the table below and explain to a banker why nominal GDP might be a misleading indicator of economic well-being.
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          초콜릿만 생산하는 경제를 고려하시오. 아래 표를 완성하고, 명목 GDP가 경제 후생의 오해를 불러일으킬 수 있는 이유를 은행원에게 설명하시오.
+        </div>
+      </div>
 
       <table>
         <thead>
           <tr>
-            <th>연도</th>
-            <th>초콜릿 가격 ($)</th>
-            <th>초콜릿 수량</th>
-            <th>명목 GDP ($)</th>
-            <th>실질 GDP ($, 기준연도=2000)</th>
+            <th>연도 / Year</th>
+            <th>가격 / Price</th>
+            <th>수량 / Qty</th>
+            <th>명목 GDP</th>
+            <th>실질 GDP (기준=2000)</th>
             <th>GDP 디플레이터</th>
           </tr>
         </thead>
@@ -459,16 +515,17 @@
         </tbody>
       </table>
 
-      <div class="note">💡 기준연도(2000)의 가격 = $3을 기준으로 실질 GDP 계산</div>
+      <div class="note">💡 기준연도(2000) 가격 $3 적용하여 실질 GDP 산출</div>
 
-      <hr class="section">
-
-      <div class="sub">
-        <div class="sub-q">계산 공식</div>
+      <div class="sub" style="margin-top:16px;">
+        <div class="sub-q">
+          <div class="sub-q-en">Calculation formulas</div>
+          <div class="sub-q-ko">계산 공식</div>
+        </div>
         <div class="sub-body">
-          <code class="formula">명목 GDP = 해당연도 가격 × 해당연도 수량</code>
-          <code class="formula">실질 GDP = 기준연도 가격 × 해당연도 수량</code>
-          <code class="formula">GDP 디플레이터 = (명목 GDP ÷ 실질 GDP) × 100</code>
+          <code class="formula">Nominal GDP = Current Price × Current Quantity</code>
+          <code class="formula">Real GDP = Base Year Price × Current Quantity</code>
+          <code class="formula">GDP Deflator = (Nominal GDP ÷ Real GDP) × 100</code>
           <div class="answer" style="margin-top:10px;">
             <div class="answer-label">✔ 상세 계산</div>
             <ul>
@@ -481,11 +538,14 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">경제 후생이 2017년 대비 2018년에 더 증가했나? 설명하시오.</div>
+        <div class="sub-q">
+          <div class="sub-q-en">Did economic well-being increase more in 2001 or 2002? Explain why the variable that does not change might be a better measure.</div>
+          <div class="sub-q-ko">경제 후생이 2001년에 더 증가했나, 2002년에 더 증가했나? 변화하지 않는 변수가 더 나은 지표인 이유를 설명하시오.</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
-            <p>실질 GDP 성장률로 비교해야 함. 2001년 실질 GDP 증가: $450-$300=$150(50% ↑), 2002년: $600-$450=$150(33.3% ↑). 따라서 <span class="key">2001년(전년 대비) 성장률이 더 높다</span>. 단, 실질 GDP도 후생의 불완전한 지표임을 주의.</p>
+            <p>실질 GDP 성장률로 비교: 2001년 +50% ($300→$450), 2002년 +33.3% ($450→$600). 따라서 <span class="key">2001년 성장률이 더 높다</span>. 실질 GDP는 가격 변화를 제거하므로 순수한 생산량 증가를 반영해 더 좋은 후생 지표가 된다.</p>
           </div>
         </div>
       </div>
@@ -499,13 +559,21 @@
       <span class="problem-title">이전지출과 중고재화 — GDP에서 제외되는 항목</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">정부는 사회보장, 이전지출 같은 지출은 포함하지 않는다. 사용된 재화의 재판매도 GDP에 포함되지 않는다. GDP가 경제 후생의 덜 정확한 지표가 되는 이유를 설명하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          The government purchases component of GDP does not include transfer payments such as Social Security. Thinking about the definition of GDP, explain why transfer payments are excluded. Why would including transfer payments make GDP a less informative measure of economic well-being?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          GDP의 정부지출 항목은 사회보장과 같은 이전지출을 포함하지 않는다. GDP의 정의를 생각하며, 이전지출이 제외되는 이유를 설명하시오. 이전지출을 포함한다면 GDP가 경제 후생의 지표로서 덜 유용해지는 이유는 무엇인가?
+        </div>
+      </div>
       <div class="answer">
         <div class="answer-label">✔ 정답</div>
         <ul>
-          <li><span class="key">이전지출 제외 이유:</span> 사회보장, 실업급여 등은 정부가 재화·서비스를 구매한 것이 아니라 소득을 재분배하는 것. 새로운 생산 없이 돈이 이동하므로 GDP에 포함 안 됨.</li>
-          <li><span class="key">중고재화 재판매 제외 이유:</span> 이미 생산된 연도의 GDP에 계산되었음. 중복계산 방지를 위해 제외.</li>
-          <li>이로 인해 GDP는 <span class="key">현재 생산된 부가가치의 총합</span>이라는 정의에 충실하지만, 전체적인 경제적 활동이나 후생을 완전히 반영하지 못함.</li>
+          <li><span class="key">이전지출 제외 이유:</span> 사회보장, 실업급여 등은 정부가 재화·서비스를 구매한 것이 아니라 소득을 재분배하는 것. 새로운 생산(production) 없이 돈이 이동하므로 GDP 정의("생산된 최종재·서비스의 시장가치")에 해당하지 않음.</li>
+          <li><span class="key">포함 시 문제점:</span> 이전지출을 넣으면 실제 생산 증가 없이 GDP 수치만 커져, 생산 수준을 나타내는 지표로서의 신뢰성이 떨어진다.</li>
         </ul>
       </div>
     </div>
@@ -518,10 +586,19 @@
       <span class="problem-title">중고재화 판매와 GDP — 부가가치 관점</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">교재에서 설명하듯이, GDP는 재판매되는 중고재화의 가치를 포함하지 않는다. GDP가 경제 후생의 덜 정확한 지표가 되는 이유를 설명하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          As the chapter states, GDP does not include the value of used goods that are resold. Why would including such transactions make GDP a less informative measure of economic well-being?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          교재에서 설명하듯이, GDP는 재판매되는 중고재화의 가치를 포함하지 않는다. 이를 포함한다면 GDP가 경제 후생의 지표로서 덜 유용해지는 이유를 설명하시오.
+        </div>
+      </div>
       <div class="answer">
         <div class="answer-label">✔ 정답</div>
-        <p>중고재화 거래는 <span class="key">새로운 생산</span>이 없으므로 당해 연도 GDP에 포함하지 않는다. 중고차, 중고가구 등의 재판매를 GDP에 넣으면 이중계산(double counting) 오류가 발생한다. 단, 이로 인해 중고재화 시장의 거래 활동과 관련 서비스(중개 수수료 등)는 일부만 포착되어 후생 측정이 불완전해질 수 있다.</p>
+        <p>중고재화 거래는 <span class="key">새로운 생산</span>이 없으므로 당해 연도 GDP에 포함하지 않는다. 중고차·중고가구 등의 재판매를 GDP에 넣으면 <span class="key">이중계산(double counting)</span> 오류가 발생한다. 이미 생산된 연도의 GDP에 포함된 것을 또다시 계산하게 되어 현재 경제 생산력을 과대 평가하게 된다.</p>
       </div>
     </div>
   </div>
@@ -533,7 +610,16 @@
       <span class="problem-title">우유·꿀 데이터로 명목 GDP, 실질 GDP, GDP 디플레이터 계산</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">아래 데이터를 이용하여 각 연도의 명목 GDP, 실질 GDP(2016 기준), GDP 디플레이터를 계산하고, 2016~2018 변화를 분석하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          Below are some data from the land of milk and honey. Using 2016 as the base year, compute nominal GDP, real GDP, and the GDP deflator for each year. By how much did prices change between 2016 and 2017? Between 2017 and 2018?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          아래는 우유와 꿀의 나라(land of milk and honey)의 데이터이다. 2016년을 기준연도로 각 연도의 명목 GDP, 실질 GDP, GDP 디플레이터를 계산하시오. 2016→2017, 2017→2018 가격 변화율은 얼마인가?
+        </div>
+      </div>
 
       <table>
         <thead>
@@ -546,52 +632,40 @@
         </tbody>
       </table>
 
-      <hr class="section">
-
-      <div class="sub">
-        <div class="sub-q">a. 각 연도 명목 GDP 계산 (2016을 기준연도로)</div>
-        <div class="sub-body">
-          <code class="formula">명목 GDP = (P_milk × Q_milk) + (P_honey × Q_honey)</code>
-          <div class="answer">
-            <div class="answer-label">✔ 계산 결과</div>
-            <ul>
-              <li>2016: ($1×100)+($2×50) = $100+$100 = <strong>$200</strong></li>
-              <li>2017: ($1×200)+($2×100) = $200+$200 = <strong>$400</strong></li>
-              <li>2018: ($2×200)+($4×100) = $400+$400 = <strong>$800</strong></li>
-            </ul>
-          </div>
+      <div class="sub" style="margin-top:14px;">
+        <div class="sub-q">
+          <div class="sub-q-en">a. Compute nominal GDP, real GDP, and GDP deflator for each year.</div>
+          <div class="sub-q-ko">a. 각 연도의 명목 GDP, 실질 GDP, GDP 디플레이터를 계산하시오.</div>
         </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">b. 실질 GDP 계산 (기준연도 2016 가격 사용)</div>
         <div class="sub-body">
-          <code class="formula">실질 GDP = (P_2016_milk × Q_t) + (P_2016_honey × Q_t)</code>
-          <div class="answer">
-            <div class="answer-label">✔ 계산 결과</div>
-            <ul>
-              <li>2016: ($1×100)+($2×50) = <strong>$200</strong></li>
-              <li>2017: ($1×200)+($2×100) = <strong>$400</strong></li>
-              <li>2018: ($1×200)+($2×100) = <strong>$400</strong></li>
-            </ul>
-            <p style="margin-top:8px;">⚠ 2017→2018 실질 GDP는 변화 없음. 수량은 동일하고 가격만 올랐기 때문.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">c. GDP 디플레이터 계산 및 2016→2017, 2017→2018 물가 변화율</div>
-        <div class="sub-body">
-          <code class="formula">GDP 디플레이터 = (명목 GDP / 실질 GDP) × 100</code>
-          <div class="answer">
+          <code class="formula">Nominal GDP = (P_milk × Q_milk) + (P_honey × Q_honey)</code>
+          <code class="formula">Real GDP    = (P_2016_milk × Q_t) + (P_2016_honey × Q_t)</code>
+          <code class="formula">GDP Deflator = (Nominal GDP / Real GDP) × 100</code>
+          <div class="answer" style="margin-top:8px;">
             <div class="answer-label">✔ 결과</div>
-            <ul>
-              <li>2016: (200/200)×100 = <strong>100</strong></li>
-              <li>2017: (400/400)×100 = <strong>100</strong></li>
-              <li>2018: (800/400)×100 = <strong>200</strong></li>
-            </ul>
-            <p style="margin-top:6px;">2016→2017 물가 변화: 0% (물가 불변)</p>
-            <p>2017→2018 물가 변화: <span class="key">(200−100)/100×100 = 100% 상승</span></p>
+            <table>
+              <thead><tr><th>연도</th><th>명목 GDP</th><th>실질 GDP</th><th>디플레이터</th></tr></thead>
+              <tbody>
+                <tr><td>2016</td><td>$200</td><td>$200</td><td>100</td></tr>
+                <tr><td>2017</td><td>$400</td><td>$400</td><td>100</td></tr>
+                <tr><td>2018</td><td>$800</td><td>$400</td><td>200</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-q">
+          <div class="sub-q-en">b. By how much did prices change between 2016–2017 and 2017–2018?</div>
+          <div class="sub-q-ko">b. 2016→2017, 2017→2018 기간의 물가 변화율은?</div>
+        </div>
+        <div class="sub-body">
+          <div class="answer">
+            <div class="answer-label">✔ 정답</div>
+            <p>2016→2017: (100−100)/100×100 = <span class="key">0% (물가 불변)</span></p>
+            <p>2017→2018: (200−100)/100×100 = <span class="key">100% 상승</span></p>
+            <p style="margin-top:6px;">⚠ 2018년 실질 GDP는 2017년과 동일($400). 수량 변화 없이 가격만 2배 상승.</p>
           </div>
         </div>
       </div>
@@ -602,10 +676,19 @@
   <div class="problem" id="q6">
     <div class="problem-header">
       <span class="problem-number">Q 06</span>
-      <span class="problem-title">초콜릿·바 경제 — 실질 GDP 성장률, 인플레이션율</span>
+      <span class="problem-title">초콜릿 바 경제 — 실질 GDP 성장률, 인플레이션율</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">초콜릿 바만 생산하는 경제. 기준연도 Year 1. 각 연도 실질 GDP 성장률과 GDP 디플레이터 기반 인플레이션율을 구하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          Consider an economy that produces only chocolate bars. The GDP deflator for each three-year period is as follows. What is the real GDP for each of these years? What is the real GDP growth rate from year 2 to year 3? What is the inflation rate as measured by the GDP deflator?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          초콜릿 바만 생산하는 경제. 기준연도 Year 1. 각 연도의 실질 GDP, 성장률, GDP 디플레이터 기반 인플레이션율을 구하시오.
+        </div>
+      </div>
 
       <table>
         <thead>
@@ -618,52 +701,66 @@
         </tbody>
       </table>
 
-      <div class="sub">
-        <div class="sub-q">a. Y1→Y2 실질 GDP 성장률</div>
+      <div class="sub" style="margin-top:14px;">
+        <div class="sub-q">
+          <div class="sub-q-en">a. What is the real GDP growth rate from Year 1 to Year 2?</div>
+          <div class="sub-q-ko">a. Year 1 → Year 2 실질 GDP 성장률</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>($16 − $12) / $12 × 100 = <span class="key">33.3%</span></p>
           </div>
         </div>
       </div>
+
       <div class="sub">
-        <div class="sub-q">b. Y2→Y3 실질 GDP 성장률</div>
+        <div class="sub-q">
+          <div class="sub-q-en">b. What is the real GDP growth rate from Year 2 to Year 3?</div>
+          <div class="sub-q-ko">b. Year 2 → Year 3 실질 GDP 성장률</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>($20 − $16) / $16 × 100 = <span class="key">25%</span></p>
           </div>
         </div>
       </div>
+
       <div class="sub">
-        <div class="sub-q">c. Y1→Y2 인플레이션율 (GDP 디플레이터 기준)</div>
+        <div class="sub-q">
+          <div class="sub-q-en">c. What is the inflation rate from Year 1 to Year 2 as measured by the GDP deflator?</div>
+          <div class="sub-q-ko">c. Year 1 → Year 2 인플레이션율 (GDP 디플레이터 기준)</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>디플레이터: Y1=100, Y2=125 → 인플레이션율 = (125−100)/100×100 = <span class="key">25%</span></p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>(125 − 100) / 100 × 100 = <span class="key">25%</span></p>
           </div>
         </div>
       </div>
+
       <div class="sub">
-        <div class="sub-q">d. Y2→Y3 인플레이션율</div>
+        <div class="sub-q">
+          <div class="sub-q-en">d. What is the inflation rate from Year 2 to Year 3?</div>
+          <div class="sub-q-ko">d. Year 2 → Year 3 인플레이션율</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>(150−125)/125×100 = <span class="key">20%</span></p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>(150 − 125) / 125 × 100 = <span class="key">20%</span></p>
           </div>
         </div>
       </div>
+
       <div class="sub">
-        <div class="sub-q">e. Y1→Y3 각 연도 명목 GDP 성장률</div>
+        <div class="sub-q">
+          <div class="sub-q-en">e. What is the nominal GDP growth rate for each of these three years?</div>
+          <div class="sub-q-ko">e. 각 연도 명목 GDP 성장률</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <ul>
               <li>Y1→Y2: (20−12)/12×100 = <span class="key">66.7%</span></li>
               <li>Y2→Y3: (30−20)/20×100 = <span class="key">50%</span></li>
             </ul>
-            <p style="margin-top:6px;">명목 GDP 성장률 > 실질 GDP 성장률 → 차이 = 물가 상승분</p>
+            <p style="margin-top:6px;">명목 성장률 > 실질 성장률 → 차이 = 물가 상승분</p>
           </div>
         </div>
       </div>
@@ -677,11 +774,20 @@
       <span class="problem-title">미국 명목 GDP · GDP 디플레이터 데이터 분석 (1994, 2014)</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">다음 미국 GDP 데이터를 이용하여 물음에 답하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          Consider the following data on U.S. GDP. Calculate real GDP for 1994 and 2014 measured in 2009 dollars. By what percentage did real GDP grow between 1994 and 2014? Find the growth rate of nominal GDP. Was the growth rate of nominal GDP higher or lower than the growth rate of real GDP? Explain.
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          다음 미국 GDP 데이터를 이용하시오. 2009년 기준 달러로 1994년과 2014년 실질 GDP를 계산하고, 실질 GDP 성장률과 명목 GDP 성장률을 비교하시오.
+        </div>
+      </div>
 
       <table>
         <thead>
-          <tr><th>연도</th><th>명목 GDP (십억$)</th><th>GDP 디플레이터 (기준 2009)</th></tr>
+          <tr><th>연도</th><th>명목 GDP (십억$)</th><th>GDP 디플레이터 (기준 2009=100)</th></tr>
         </thead>
         <tbody>
           <tr><td>1994</td><td>$7,309</td><td>78.3</td></tr>
@@ -689,22 +795,26 @@
         </tbody>
       </table>
 
-      <div class="sub">
-        <div class="sub-q">a. 1994→2014 명목 GDP 성장률</div>
+      <div class="sub" style="margin-top:14px;">
+        <div class="sub-q">
+          <div class="sub-q-en">a. What was the growth rate of nominal GDP between 1994 and 2014?</div>
+          <div class="sub-q-ko">a. 1994→2014 명목 GDP 성장률</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>(17,419 − 7,309) / 7,309 × 100 ≈ <span class="key">138.3%</span></p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">b. 1994, 2014 실질 GDP 계산 (2009년 기준)</div>
+        <div class="sub-q">
+          <div class="sub-q-en">b. What was real GDP in 1994 measured in 2009 dollars? What was real GDP in 2014?</div>
+          <div class="sub-q-ko">b. 2009년 기준 달러로 1994년, 2014년 실질 GDP 계산</div>
+        </div>
         <div class="sub-body">
-          <code class="formula">실질 GDP = 명목 GDP / (GDP 디플레이터 / 100)</code>
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <code class="formula">Real GDP = Nominal GDP / (GDP Deflator / 100)</code>
+          <div class="answer"><div class="answer-label">✔</div>
             <ul>
               <li>1994: 7,309 / 0.783 ≈ <strong>$9,334 십억</strong></li>
               <li>2014: 17,419 / 1.083 ≈ <strong>$16,084 십억</strong></li>
@@ -714,53 +824,52 @@
       </div>
 
       <div class="sub">
-        <div class="sub-q">c. 1994 실질 GDP in 2009$, 2009 측정값</div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>위와 동일: 1994년 실질 GDP ≈ <span class="key">$9,334 십억 (2009달러 기준)</span></p>
-          </div>
+        <div class="sub-q">
+          <div class="sub-q-en">c. What was the growth rate of real GDP between 1994 and 2014?</div>
+          <div class="sub-q-ko">c. 1994→2014 실질 GDP 성장률</div>
         </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">d. 1994→2014 실질 GDP 성장률</div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>(16,084 − 9,334) / 9,334 × 100 ≈ <span class="key">72.3%</span></p>
-            <p style="margin-top:6px;">명목 성장률(138.3%) > 실질 성장률(72.3%) → 차이는 물가 상승(인플레이션)에 의한 것.</p>
+            <p style="margin-top:6px;">명목 성장률(138.3%) > 실질 성장률(72.3%) → 차이는 인플레이션(물가 상승)에 의한 것.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">e. 정부가 발표하는 GDP 디플레이터 활용법 안내</div>
+        <div class="sub-q">
+          <div class="sub-q-en">d. Revised estimates of U.S. GDP are usually released by the government near the end of each month. Find a newspaper article that reports on the most recent release, or read the report yourself at www.bea.gov.</div>
+          <div class="sub-q-ko">d. 미국 GDP 최신 발표 자료 찾기 (BEA)</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>미국 BEA(Bureau of Economic Analysis) 웹사이트(<code>www.bea.gov</code>)에서 최신 GDP 추계와 디플레이터를 매월 말 발표한다. 신문은 이를 기반으로 경제 기사를 보도한다.</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>미국 BEA(Bureau of Economic Analysis) — <code>www.bea.gov</code>에서 매월 말 최신 GDP 추계를 발표한다.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">f. 명목 GDP 성장률 vs. 실질 GDP 성장률 비교 및 설명</div>
+        <div class="sub-q">
+          <div class="sub-q-en">e. Was the growth rate of nominal GDP higher or lower than the growth rate of real GDP? Explain.</div>
+          <div class="sub-q-ko">e. 명목 GDP 성장률 vs. 실질 GDP 성장률 비교 및 설명</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">명목 GDP 성장률이 항상 실질 GDP 성장률보다 높다</span>(인플레이션이 양수인 경우). 명목 GDP는 가격 상승분도 포함하기 때문에 실제 생산량 증가를 과대 추정한다.</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p><span class="key">명목 GDP 성장률이 더 높다</span> — 명목 GDP는 가격 상승분도 포함하기 때문. 실질 GDP는 가격 변동을 제거하여 실제 생산량 증가만 반영한다.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">g. GDP 디플레이터 변수 X를 이용한 성장률 계산 (힌트: 100×[(X_new/X_old)−1])</div>
+        <div class="sub-q">
+          <div class="sub-q-en">f. What was the growth rate of real GDP between 1994 and 2014? (Hint: the growth rate of a variable X over an N-year period is calculated as 100 × [(X<sub>new</sub>/X<sub>old</sub>)<sup>1/N</sup> − 1].)</div>
+          <div class="sub-q-ko">f. GDP 디플레이터 기준 연평균 성장률 계산 (힌트 공식 포함)</div>
+        </div>
         <div class="sub-body">
-          <code class="formula">성장률 = 100 × (X_new / X_old − 1)</code>
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>디플레이터 기준 물가 상승률 = 100 × (108.3/78.3 − 1) ≈ <span class="key">38.3%</span> (1994→2014 누적)</p>
+          <code class="formula">연평균 성장률 = 100 × [(X_new / X_old)^(1/N) − 1]</code>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>실질 GDP 연평균 성장률 (N=20): 100 × [(16,084/9,334)^(1/20) − 1] ≈ <span class="key">2.76% / 년</span></p>
+            <p>누적 물가 상승률: 100 × (108.3/78.3 − 1) ≈ <span class="key">38.3%</span></p>
           </div>
         </div>
       </div>
@@ -771,19 +880,31 @@
   <div class="problem" id="q8">
     <div class="problem-header">
       <span class="problem-number">Q 08</span>
-      <span class="problem-title">GDP 구성 요소 — 국제 비교 (GDP에 포함 안 되는 항목)</span>
+      <span class="problem-title">GDP 미포함 항목과 국제 비교 왜곡</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">GDP에 포함되지 않아 국제 비교를 어렵게 만드는 요소들에 대해 설명하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          A farmer grows wheat, which she sells to a miller for $1.00. The miller turns the wheat into flour, which she sells to a baker for $3.00. The baker turns the flour into bread, which she sells to consumers for $6.00. What is the value added by each person? What is GDP?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          농부가 밀을 제분업자에게 $1에 판매. 제분업자는 밀가루를 제빵사에게 $3에 판매. 제빵사는 빵을 소비자에게 $6에 판매. 각 생산자의 부가가치와 GDP는 얼마인가?
+        </div>
+      </div>
       <div class="answer">
         <div class="answer-label">✔ 정답</div>
-        <ul>
-          <li><span class="key">지하경제(underground economy):</span> 현금 거래, 탈세, 불법 활동은 GDP에 미포함.</li>
-          <li><span class="key">가사 노동(home production):</span> 가정에서 직접 요리, 육아, 청소 등을 하면 시장 거래가 없으므로 GDP에 불포함. 국가마다 가사 노동 비율이 다름.</li>
-          <li><span class="key">여가(leisure):</span> 여가의 가치는 GDP에 포함 안 됨.</li>
-          <li><span class="key">소득 분배:</span> GDP는 총량이므로 불평등 반영 불가.</li>
-          <li>따라서 GDP가 낮더라도 실제 후생 수준이 높을 수 있고, 그 역도 성립함.</li>
-        </ul>
+        <table>
+          <thead><tr><th>생산자</th><th>판매액</th><th>중간재 비용</th><th>부가가치 (Value Added)</th></tr></thead>
+          <tbody>
+            <tr><td>농부 (Farmer)</td><td>$1</td><td>$0</td><td>$1</td></tr>
+            <tr><td>제분업자 (Miller)</td><td>$3</td><td>$1</td><td>$2</td></tr>
+            <tr><td>제빵사 (Baker)</td><td>$6</td><td>$3</td><td>$3</td></tr>
+            <tr><td><strong>합계</strong></td><td></td><td></td><td><strong>$6</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;">GDP = 최종재 가격 = 부가가치 합계 = <span class="key">$6</span>. 중간재를 모두 더하면 이중계산 발생.</p>
       </div>
     </div>
   </div>
@@ -795,31 +916,22 @@
       <span class="problem-title">농부–제분업자–제빵사 부가가치 사슬 (Value Added)</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">농부가 밀을 밀 재배, 제분업자(miller)가 밀을 밀가루로, 제빵사(baker)가 밀가루로 빵을 만들어 $180에 소비자에게 판매한다. 제분업자는 밀가루를 제빵사에게 $100에, 제빵사는 빵을 $180에 소비자에게 판매한다. 농부는 밀가루를 제분업자에게 $50에 판매한다고 가정한다.</div>
-
-      <div class="sub">
-        <div class="sub-q">a. GDP에서 이 빵의 기여분은 얼마인가?</div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>GDP는 <span class="key">최종재 가치만 계산</span>하므로: <strong>$180</strong> (소비자에게 판매되는 빵의 최종가격)</p>
-            <p style="margin-top:6px;">또는 부가가치 합산 = $50(농부) + $50(제분업자: 100−50) + $80(제빵사: 180−100) = <strong>$180</strong></p>
-          </div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          A farmer grows wheat, which she sells to a miller for $50. The miller turns the wheat into flour, which she sells to a baker for $100. The baker turns the flour into bread, which she sells to consumers for $180. Consider the following data on U.S. GDP. Using this one-good economy, how might you answer parts (a) and (g) without first answering parts (b) and (e)?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          농부→제분업자(밀$50→밀가루$100)→제빵사(빵$180 소비자 판매)로 이어지는 생산 사슬을 고려하시오.
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">b. GDP의 구성 요소는 무엇인가?</div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>빵은 최종 소비재이므로 <span class="key">소비(C)</span>에 해당.</p>
-          </div>
+        <div class="sub-q">
+          <div class="sub-q-en">a. What is the value added by each person? What is GDP?</div>
+          <div class="sub-q-ko">a. 각 생산자의 부가가치와 GDP는 얼마인가?</div>
         </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">c. GDP의 구성 요소들을 계산하시오. 세 생산자의 부가가치 합이 GDP에 기여하는 방식을 설명하시오.</div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
@@ -832,23 +944,26 @@
                 <tr><td><strong>합계</strong></td><td></td><td></td><td><strong>$180</strong></td></tr>
               </tbody>
             </table>
-            <p style="margin-top:8px;">각 단계의 부가가치 합 = 최종재 가격 = GDP 기여분. 중간재를 포함하면 이중계산(double-counting) 발생.</p>
+            <p style="margin-top:6px;">GDP = 최종재(빵) 가격 = 부가가치 합 = <span class="key">$180</span></p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">d. 개인 소득 유형: GDP, GNP, NNP, 국민소득, 개인소득, 가처분 개인소득</div>
+        <div class="sub-q">
+          <div class="sub-q-en">b–e. National income accounts: GDP, gross national product, net national product, national income, personal income, disposable personal income.</div>
+          <div class="sub-q-ko">b–e. 국민소득 계정 체계 정의</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
             <div class="answer-label">✔ 정답</div>
             <ul>
-              <li><span class="key">GDP (국내총생산):</span> 한 나라 안에서 1년간 생산된 최종재·서비스의 시장가치 합</li>
-              <li><span class="key">GNP (국민총생산):</span> 자국 국민이 생산한 것의 총가치 (GDP + 해외 자국민 소득 − 국내 외국인 소득)</li>
-              <li><span class="key">NNP (국민순생산):</span> GNP − 감가상각</li>
+              <li><span class="key">GDP:</span> 한 나라 안에서 1년간 생산된 최종재·서비스의 시장가치 합</li>
+              <li><span class="key">GNP (국민총생산):</span> GDP + 해외 자국민 소득 − 국내 외국인 소득</li>
+              <li><span class="key">NNP (국민순생산):</span> GNP − 감가상각(depreciation)</li>
               <li><span class="key">국민소득(NI):</span> NNP − 간접세 + 보조금</li>
-              <li><span class="key">개인소득(PI):</span> NI에서 기업이윤, 사회보험 기여금을 빼고, 이전지출을 더한 것</li>
-              <li><span class="key">가처분 개인소득(DPI):</span> PI − 개인세금 → 실제 소비·저축 가능한 소득</li>
+              <li><span class="key">개인소득(PI):</span> NI − 기업이윤 − 사회보험료 + 이전지출</li>
+              <li><span class="key">가처분 개인소득(DPI):</span> PI − 개인세금</li>
             </ul>
           </div>
         </div>
@@ -863,14 +978,23 @@
       <span class="problem-title">GDP에 포함되지 않는 재화·서비스 — 국제 비교 문제</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">시장에서 판매되지 않아 GDP에 포함되지 않는 재화·서비스(예: 가정에서 생산·소비되는 것)는 국가 간 GDP 비교를 어떻게 왜곡하는가?</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          Goods and services that are not sold in markets, such as food produced and consumed at home, are generally not included in GDP. Can you think of how this might be misleading in a comparison of the economic output of Table 3 to be included in GDP? Can you think of another way this example suggest measuring the economy's well-being?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          시장에서 판매되지 않아 GDP에 포함되지 않는 재화·서비스(예: 가정 내 생산·소비)는 국가 간 경제 산출 비교에서 어떻게 오해를 불러일으킬 수 있는가?
+        </div>
+      </div>
       <div class="answer">
         <div class="answer-label">✔ 정답</div>
         <ul>
           <li>개발도상국은 <span class="key">자급자족 비율이 높아</span> 가정 내 생산이 많지만 이는 GDP에 잡히지 않음 → GDP가 실제 생산 수준보다 <strong>과소 계산</strong></li>
           <li>선진국은 시장 거래 비율이 높으므로 GDP가 상대적으로 정확하게 측정됨</li>
           <li>따라서 GDP만으로 국가 간 생활수준을 비교하면 개도국의 후생이 실제보다 낮게 보이는 <span class="key">비교 왜곡</span> 발생</li>
-          <li>보정 방법: <strong>구매력평가(PPP)</strong> 기준 GDP 사용</li>
+          <li>대안: <strong>구매력평가(PPP)</strong> 기준 GDP, HDI(인간개발지수) 등 활용</li>
         </ul>
       </div>
     </div>
@@ -883,24 +1007,41 @@
       <span class="problem-title">여성의 노동시장 참여와 GDP — 후생 측정</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">1970년 이후 미국에서 여성의 노동 참여율이 급격히 증가했다. 이것이 GDP에 어떤 영향을 미치는가? 또 이것이 미국의 경제적 후생의 진정한 척도인가?</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          The participation of women in the U.S. labor force has risen dramatically since 1970.
+          a. How do you think this rise affected GDP?
+          b. Now imagine a measure of well-being that includes time spent working in the home and taking leisure. How do you think the rise in women's labor-force participation affected this measure of the economic well-being of U.S. families?
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          1970년 이후 미국 여성의 노동 참여율이 급격히 증가했다.<br>
+          a. 이것이 GDP에 어떤 영향을 미쳤는가?<br>
+          b. 가사 노동과 여가 시간을 포함하는 후생 지표에서는 어떤 영향을 미쳤는가?
+        </div>
+      </div>
 
       <div class="sub">
-        <div class="sub-q">a. 노동 참여율 증가가 GDP에 미친 영향</div>
+        <div class="sub-q">
+          <div class="sub-q-en">a. Effect on GDP</div>
+          <div class="sub-q-ko">a. GDP에 미친 영향</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>여성의 시장 노동 참여 증가 → <span class="key">GDP 상승</span>. 가정 내에서 하던 가사·육아가 시장 서비스(보육, 청소 등)로 전환되면서 시장 거래가 늘어 GDP에 추가 반영.</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>여성의 시장 노동 참여 증가 → <span class="key">GDP 상승</span>. 가정 내에서 하던 가사·육아가 시장 서비스(보육, 청소 등)로 전환되면서 시장 거래 증가 → GDP 추가 반영.</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">b. GDP가 후생의 진정한 척도인가?</div>
+        <div class="sub-q">
+          <div class="sub-q-en">b. Effect on a broader well-being measure (including home production and leisure)</div>
+          <div class="sub-q-ko">b. 가사 노동·여가 포함 후생 지표에서의 영향</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>반드시 그렇지는 않다. 여성이 가정에서 하던 가사 노동은 GDP에 포함되지 않았지만 분명히 가치가 있었다. 시장에 참여하면서 가사 노동의 일부가 <span class="key">시장 서비스로 대체</span>되었을 뿐이므로, GDP 증가가 반드시 후생 향상을 의미하지는 않는다. 여가 감소, 스트레스 증가 등 GDP에 잡히지 않는 후생 손실도 함께 고려해야 함.</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>반드시 향상되었다고 볼 수 없다. 가정 내 가사 노동의 가치는 GDP에 잡히지 않았지만 실질적인 가치가 있었으며, 이것이 <span class="key">시장 서비스로 대체</span>된 것뿐이다. 여가 시간 감소, 스트레스 증가 등 GDP에 반영되지 않는 후생 손실도 함께 고려해야 한다.</p>
           </div>
         </div>
       </div>
@@ -914,66 +1055,90 @@
       <span class="problem-title">Barry the Barber — GDP, 국민소득 계정 체계</span>
     </div>
     <div class="problem-body">
-      <div class="q-ko">Barry the Barber, Inc.가 하루에 이발비 $400을 받는다. 장비 감가상각 $50, Barry가 $350을 가져가고, $220을 소득세로 납부, $100을 사업에 재투자, 미래에 $70 수입 예정. 이를 바탕으로 다음을 계산하시오.</div>
+      <div class="q-wrap">
+        <div class="q-en">
+          <span class="q-en-label">EN</span><br>
+          One day, Barry the Barber, Inc. collects $400 for haircuts. Over this day, his equipment depreciates in value by $50. Of the remaining $350, Barry sends $220 in income taxes to the government, uses $100 to buy a new chair (investment), and retains $30 to add to his bank account. For purposes of the national income accounts, compute Barry's contribution to the following measures of income.
+        </div>
+        <div class="q-ko">
+          <span class="q-ko-label">KO</span><br>
+          Barry the Barber, Inc.가 하루에 이발비 $400을 받는다. 당일 장비 감가상각 $50, 나머지 $350 중 소득세 $220 납부, 새 의자 구매(투자) $100, 잔여 $30을 은행 계좌에 추가한다. 다음 국민소득 지표에 대한 Barry의 기여분을 계산하시오.
+        </div>
+      </div>
 
       <div class="sub">
-        <div class="sub-q">a. GDP에 대한 Barry의 기여분</div>
+        <div class="sub-q">
+          <div class="sub-q-en">a. Gross domestic product</div>
+          <div class="sub-q-ko">a. 국내총생산 (GDP)</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>GDP = 최종 서비스의 시장가치 = <span class="key">$400</span> (이발 서비스 총수입)</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>GDP = 최종 서비스의 시장가치 = <span class="key">$400</span></p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">b. 국내총생산(GDP)</div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div><p><strong>$400</strong></p></div>
+        <div class="sub-q">
+          <div class="sub-q-en">b. Net national product</div>
+          <div class="sub-q-ko">b. 국민순생산 (NNP)</div>
         </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">c. 국민순생산(NNP)</div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>NNP = GDP − 감가상각 = $400 − $50 = <span class="key">$350</span></p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">d. 국민소득(NI) / 개인소득(PI)</div>
+        <div class="sub-q">
+          <div class="sub-q-en">c. National income</div>
+          <div class="sub-q-ko">c. 국민소득 (NI)</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔</div>
+          <div class="answer"><div class="answer-label">✔</div>
             <p>단순화된 예시에서 NI ≈ NNP = <span class="key">$350</span></p>
-            <p>개인소득(PI) = Barry가 실제 받는 금액 = $350 (세전)</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">e. 가처분 개인소득(DPI)</div>
+        <div class="sub-q">
+          <div class="sub-q-en">d. Personal income</div>
+          <div class="sub-q-ko">d. 개인소득 (PI)</div>
+        </div>
         <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔</div>
-            <p>DPI = PI − 세금 = $350 − $220 = <span class="key">$130</span> (소비·저축 가능한 소득)</p>
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>PI = Barry가 실제 수령하는 소득 = <span class="key">$350</span> (세전 기준; 투자분 $100 포함)</p>
           </div>
         </div>
       </div>
 
       <div class="sub">
-        <div class="sub-q">GDP 변화 측정 지표와 후생 비교</div>
+        <div class="sub-q">
+          <div class="sub-q-en">e. Disposable personal income</div>
+          <div class="sub-q-ko">e. 가처분 개인소득 (DPI)</div>
+        </div>
+        <div class="sub-body">
+          <div class="answer"><div class="answer-label">✔</div>
+            <p>DPI = PI − 세금 = $350 − $220 = <span class="key">$130</span> (실제 소비·저축 가능한 소득)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-q">
+          <div class="sub-q-en">How would the change in this measure compare to the change in GDP? Can you construct a measure of well-being that includes labor-force participation and other aspects associated with the rise in women's labor-force participation?</div>
+          <div class="sub-q-ko">GDP 변화와의 비교 / 여성 노동 참여 관련 후생 지표 구성</div>
+        </div>
         <div class="sub-body">
           <div class="answer">
-            <div class="answer-label">✔ 정답 (추가 설명)</div>
+            <div class="answer-label">✔ 추가 설명</div>
             <ul>
               <li>GDP 변화: 실질 GDP 성장률로 측정</li>
-              <li>후생 지표로서 GDP의 한계: <span class="key">소득 불평등, 환경 오염, 여가, 가사 노동, 범죄율</span> 등을 반영하지 못함</li>
-              <li>대안 지표: HDI(인간개발지수), 행복지수, GNH 등</li>
-              <li>여성 노동 참여, 노동 시간 증가로 인한 GDP 증가가 반드시 후생 향상 ≠</li>
+              <li>GDP의 한계: <span class="key">소득 불평등, 환경 오염, 여가, 가사 노동, 범죄율</span> 등을 반영하지 못함</li>
+              <li>대안 지표: HDI(인간개발지수), GNH(국민총행복), OECD Better Life Index 등</li>
+              <li>여성 노동 참여 증가로 인한 GDP 상승 ≠ 반드시 후생 향상</li>
             </ul>
           </div>
         </div>
