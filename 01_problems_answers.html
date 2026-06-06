@@ -3,1155 +3,1161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GDP 연습문제 정답 해설 | Problems and Applications</title>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>33-5 Two Causes of Economic Fluctuations</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f4ef;
-    --bg-card: #ffffff;
-    --accent: #1a4a7a;
-    --accent-light: #2d6bb0;
-    --accent-pale: #e8f0f9;
-    --gold: #b8860b;
-    --gold-light: #fdf6e3;
-    --green: #1d6a3a;
-    --green-light: #e8f5ed;
-    --red: #8b1a1a;
-    --red-light: #fdf0f0;
-    --text: #1c1c1c;
-    --text-muted: #5a5a6a;
-    --border: #ddd8ce;
-    --shadow: 0 2px 12px rgba(26,74,122,0.08);
+    --bg:#f0eee8; --paper:#f8f6f1; --dark:#151210;
+    --accent:#c22828; --accent2:#1f52a0; --accent3:#c97d10;
+    --green:#1e7a44; --purple:#6040b0;
+    --muted:#5a4e3c; --border:#ccc0a4;
+    --hl:#fff0b8; --hl2:#cce6ff;
+    --term-bg:#1a1008; --term-text:#f5e6c8;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    font-size: 15px;
-  }
-
-  /* HEADER */
-  header {
-    background: var(--accent);
-    color: white;
-    padding: 36px 40px 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
-  }
-  header h1 {
-    font-family: 'Crimson Pro', serif;
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    position: relative;
-  }
-  header p {
-    font-size: 0.85rem;
-    opacity: 0.75;
-    margin-top: 4px;
-    position: relative;
-  }
-  .chapter-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    position: relative;
-  }
-
-  /* LAYOUT */
-  .container {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 32px 20px 60px;
-  }
-
-  /* PROBLEM CARD */
-  .problem {
-    background: var(--bg-card);
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    margin-bottom: 28px;
-    overflow: hidden;
-  }
-  .problem-header {
-    background: var(--accent);
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .problem-number {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    background: rgba(255,255,255,0.2);
-    border-radius: 4px;
-    padding: 2px 8px;
-    letter-spacing: 0.05em;
-  }
-  .problem-title {
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .problem-body {
-    padding: 20px 24px;
-  }
-
-  /* Question text blocks */
-  .q-wrap {
-    margin-bottom: 18px;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid #c9d8ee;
-  }
-  .q-en {
-    background: #f0f5fc;
-    border-left: 4px solid var(--accent-light);
-    padding: 10px 14px;
-    font-family: 'Crimson Pro', serif;
-    font-size: 1rem;
-    color: #1a3560;
-    line-height: 1.6;
-  }
-  .q-ko {
-    background: var(--accent-pale);
-    border-left: 4px solid var(--accent);
-    padding: 9px 14px;
-    font-size: 0.88rem;
-    color: #253d6b;
-    border-top: 1px dashed #c9d8ee;
-  }
-  .q-en-label, .q-ko-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 3px;
-    padding: 1px 6px;
-    border-radius: 3px;
-  }
-  .q-en-label { background: var(--accent); color: white; }
-  .q-ko-label { background: #5a80b0; color: white; }
-
-  /* Sub-question */
-  .sub {
-    margin-bottom: 18px;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .sub-q {
-    padding: 0;
-  }
-  .sub-q-en {
-    background: #f5f8ff;
-    padding: 8px 14px;
-    font-family: 'Crimson Pro', serif;
-    font-size: 0.97rem;
-    color: #1a3560;
-    border-bottom: 1px dashed #dde6f5;
-    line-height: 1.5;
-  }
-  .sub-q-ko {
-    background: #eef3fb;
-    padding: 7px 14px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: var(--accent);
-    border-bottom: 1px solid var(--border);
-  }
-  .sub-body {
-    padding: 12px 14px;
-  }
-
-  /* Answer box */
-  .answer {
-    background: var(--green-light);
-    border: 1px solid #b2d9bf;
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-top: 6px;
-  }
-  .answer-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .answer p, .answer li {
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-  .answer ul, .answer ol {
-    padding-left: 18px;
-    margin-top: 4px;
-  }
-
-  /* Key concept highlight */
-  .key {
-    display: inline;
-    background: #fff3c4;
-    border-radius: 3px;
-    padding: 0 3px;
-    font-weight: 600;
-    color: #7a5800;
-  }
-
-  /* Data table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85rem;
-    margin: 10px 0;
-  }
-  th {
-    background: var(--accent);
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }
-  td {
-    padding: 6px 10px;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-  tr:nth-child(even) td { background: #f9f8f5; }
-  tr:last-child td { border-bottom: none; }
-
-  /* Formula */
-  .formula {
-    font-family: 'JetBrains Mono', monospace;
-    background: #1c2233;
-    color: #a8d8ea;
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-size: 0.82rem;
-    margin: 8px 0;
-    display: block;
-  }
-
-  /* Note */
-  .note {
-    background: var(--gold-light);
-    border-left: 3px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    color: #5a3e00;
-    margin-top: 8px;
-  }
-
-  /* TOC */
-  .toc {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 22px;
-    margin-bottom: 28px;
-    box-shadow: var(--shadow);
-  }
-  .toc h3 {
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
-  .toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 6px;
-  }
-  .toc-grid a {
-    text-align: center;
-    padding: 5px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--accent);
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .toc-grid a:hover { background: var(--accent-pale); }
-
-  hr.section {
-    border: none;
-    border-top: 2px dashed var(--border);
-    margin: 20px 0;
-  }
-
-  @media (max-width: 600px) {
-    header { padding: 24px 18px; }
-    .container { padding: 18px 12px 40px; }
-    .problem-body { padding: 14px 14px; }
-  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'Noto Sans KR','Inter',sans-serif;color:var(--dark);line-height:1.8;}
+  .top-nav{background:var(--paper);border-bottom:1px solid var(--border);padding:12px 24px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .top-nav a{color:var(--accent2);text-decoration:none;font-weight:500;}
+  .top-nav a:hover{text-decoration:underline;}
+  .top-nav .sep{color:var(--border);}
+  .hero{background:var(--dark);color:#f5e6c8;padding:56px 40px 48px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px);}
+  .hero::after{content:'33-5';position:absolute;right:36px;top:10px;font-family:'Inter',sans-serif;font-size:120px;font-weight:900;opacity:.06;line-height:1;color:white;}
+  .chapter-tag{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:4px 14px;margin-bottom:16px;border-radius:2px;}
+  .hero h1{font-family:'Inter',sans-serif;font-size:clamp(26px,4.5vw,44px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:8px;}
+  .hero h1 span{color:#4ade80;}
+  .hero .subtitle{font-size:15px;opacity:.6;}
+  .container{max-width:900px;margin:0 auto;padding:0 24px;}
+  .section-header{display:flex;align-items:center;gap:14px;margin:48px 0 24px;padding:18px 24px;background:linear-gradient(90deg,var(--green) 0%,#0e4a28 100%);color:white;border-radius:2px;}
+  .section-header .num{font-family:'Inter',sans-serif;font-size:32px;font-weight:900;opacity:.45;flex-shrink:0;}
+  .section-header .text h2{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;}
+  .section-header .text .ko{font-size:13px;opacity:.68;margin-top:3px;}
+  .sub-header{display:flex;align-items:flex-start;gap:12px;margin:36px 0 16px;}
+  .sub-badge{flex-shrink:0;background:var(--green);color:white;font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 9px;border-radius:2px;margin-top:3px;white-space:nowrap;}
+  .sub-title-text h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:var(--dark);line-height:1.3;}
+  .sub-title-text .ko{font-size:13px;color:var(--muted);margin-top:2px;}
+  .para-block{margin-bottom:20px;}
+  .para-en{font-size:14.5px;color:#2a1f10;line-height:1.88;margin-bottom:6px;padding:14px 18px;background:rgba(255,255,255,.58);border-radius:4px;border:1px solid var(--border);}
+  .para-ko{font-size:14px;color:#3a2e1a;line-height:1.92;padding:12px 18px;background:#fffef5;border-left:3px solid var(--accent3);border-radius:0 4px 4px 0;}
+  .figure-wrap{background:var(--paper);border:1px solid var(--border);padding:24px 20px;margin:30px 0;}
+  .figure-title{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--green);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+  .figure-caption{font-size:12.5px;color:var(--muted);margin-bottom:16px;line-height:1.65;}
+  .table-wrap{background:#fffdf0;border:1px solid #e0c860;padding:24px 26px;margin:32px 0;}
+  .table-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent3);text-transform:uppercase;margin-bottom:3px;}
+  .table-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e0c860;}
+  .table-ol{padding-left:18px;font-size:13.5px;line-height:1.88;color:#2a2010;}
+  .table-ol li{margin-bottom:10px;}
+  .lessons-box{background:#eef6ff;border:1px solid var(--accent2);border-left:4px solid var(--accent2);padding:18px 22px;margin:24px 0;border-radius:0 4px 4px 0;}
+  .lessons-box h4{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .lessons-box ul{padding-left:20px;font-size:14px;line-height:1.9;color:#1a2e50;}
+  .lessons-box ul li{margin-bottom:8px;}
+  .fyi-box{background:#fdf0e8;border:1px solid #e0a880;border-top:5px solid #c05010;padding:22px 26px;margin:32px 0;border-radius:0 0 4px 4px;}
+  .fyi-tag{display:inline-block;background:#c05010;color:white;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;margin-bottom:8px;border-radius:2px;}
+  .fyi-box h4{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#7a2e00;margin-bottom:14px;}
+  .fyi-box .en{font-size:14px;line-height:1.88;color:#3a2010;margin-bottom:10px;}
+  .fyi-box .ko{font-size:13.5px;line-height:1.9;color:#5a3010;border-top:1px solid #e0a880;padding-top:10px;}
+  .case-box{background:var(--paper);border:1px solid var(--border);border-left:5px solid #8b1a1a;padding:22px 26px;margin:32px 0;}
+  .case-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .case-tag .badge{background:#8b1a1a;color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:14px;}
+  .case-box h4{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:#8b1a1a;margin-bottom:14px;line-height:1.35;}
+  .case-box h4 .ko-sub{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:3px;}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0;}
+  .stat-card{flex:1;min-width:140px;background:white;border:1px solid var(--border);border-top:3px solid #8b1a1a;padding:12px 14px;border-radius:4px;text-align:center;}
+  .stat-card .num{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#8b1a1a;}
+  .stat-card .lbl{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+  .term{position:relative;cursor:pointer;background:var(--hl);border-bottom:2px solid var(--accent3);padding:0 3px;font-weight:600;border-radius:2px;}
+  .term .tooltip-box{display:none;position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:260px;background:#1a1208;color:#f5e6c8;border-radius:6px;padding:12px 14px;box-shadow:0 8px 28px rgba(0,0,0,.35);z-index:9999;pointer-events:none;font-size:12.5px;line-height:1.65;white-space:normal;text-align:left;font-weight:400;}
+  .term:hover .tooltip-box{display:block;animation:tipIn .18s ease;}
+  .term .tooltip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#1a1208;}
+  .term .tip-en{font-weight:700;color:#f5d98a;font-size:13px;display:block;margin-bottom:4px;}
+  .term .tip-ko{font-size:12px;color:#e0cfb0;display:block;margin-bottom:5px;}
+  .term .tip-def{font-size:11.5px;color:rgba(245,230,200,.75);display:block;border-top:1px solid rgba(255,255,255,.12);padding-top:6px;}
+  @keyframes tipIn{from{opacity:0;transform:translateX(-50%) translateY(4px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+  .glossary-rail{background:var(--term-bg);color:var(--term-text);padding:26px 30px;margin:32px 0;border-radius:2px;}
+  .glossary-rail::before{content:'용어 정리 / KEY TERMS';display:block;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--accent3);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .glossary-item{border-left:3px solid var(--accent);padding-left:13px;}
+  .glossary-item .term-name{font-size:14px;font-weight:700;color:#f5d98a;margin-bottom:2px;}
+  .glossary-item .term-name span{font-size:12px;font-weight:400;color:var(--accent3);margin-left:6px;}
+  .glossary-item .term-def-en{font-size:11.5px;opacity:.68;margin-bottom:3px;}
+  .glossary-item .term-def-ko{font-size:12.5px;color:#f0e0c0;}
+  .quick-quiz{background:var(--dark);color:#f5e6c8;padding:20px 26px;margin:36px 0 0;border-radius:2px;display:flex;align-items:flex-start;gap:14px;}
+  .quiz-badge{flex-shrink:0;background:var(--accent);color:white;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border-radius:2px;margin-top:2px;}
+  .quiz-text{font-size:14px;line-height:1.7;}
+  .quiz-text .ko{font-size:13px;opacity:.72;margin-top:5px;display:block;}
+  .answer-toggle-wrap{margin-top:14px;text-align:center;}
+  .answer-toggle-btn{display:inline-flex;align-items:center;gap:10px;background:none;border:2px solid var(--green);color:var(--green);padding:10px 26px;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:3px;transition:all .2s;}
+  .answer-toggle-btn:hover{background:var(--green);color:white;}
+  .answer-toggle-btn .btn-icon{font-size:11px;transition:transform .25s;}
+  .answer-toggle-btn.open .btn-icon{transform:rotate(90deg);}
+  .answer-toggle-btn .btn-label-en{font-size:12px;opacity:.7;}
+  .model-answer{display:none;margin-top:18px;background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--green);padding:28px 32px;animation:aSlide .3s ease;}
+  .model-answer.open{display:block;}
+  @keyframes aSlide{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  .answer-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+  .answer-badge{background:var(--green);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;border-radius:2px;flex-shrink:0;}
+  .answer-title strong{display:block;font-size:15px;margin-bottom:2px;}
+  .answer-title span{font-size:12px;color:var(--muted);}
+  .answer-fact{display:flex;gap:18px;margin-bottom:26px;padding-bottom:22px;border-bottom:1px dashed var(--border);}
+  .answer-fact:last-of-type{border-bottom:none;}
+  .answer-fact-num{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:15px;font-weight:800;border-radius:50%;color:white;background:var(--green);}
+  .answer-fact-body h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.35;}
+  .answer-fact-body h4 .ko-h4{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:2px;}
+  .answer-en{font-size:14px;line-height:1.88;padding:12px 15px;background:rgba(255,255,255,.6);border:1px solid var(--border);border-radius:4px;margin-bottom:9px;}
+  .answer-ko{font-size:13.5px;line-height:1.9;padding:11px 15px;background:#fffdf0;border-left:3px solid var(--accent3);border-radius:0 4px 4px 0;}
+  .answer-summary{display:flex;gap:14px;align-items:flex-start;background:var(--hl2);border:1px solid var(--accent2);padding:15px 18px;border-radius:4px;margin-top:8px;font-size:14px;line-height:1.75;}
+  .answer-summary .hl{background:#cce6ff;padding:0 4px;border-radius:2px;font-weight:600;}
+  @media(max-width:600px){.hero{padding:36px 18px 30px;}.container{padding:0 16px;}.stat-row{flex-direction:column;}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="chapter-badge">Macroeconomics · GDP</div>
-  <h1>Problems &amp; Applications — 정답 해설</h1>
-  <p>GDP의 측정 · 명목 GDP vs. 실질 GDP · GDP 디플레이터 · 후생 지표</p>
-</header>
+<div class="top-nav">
+  <a href="chapter10_aggregate_demand_supply.html">← Chapter 10 메인</a>
+  <span class="sep">|</span>
+  <a href="chapter10_33-3_aggregate_demand_curve.html">33-3 AD</a>
+  <span class="sep">|</span>
+  <a href="chapter10_33-4_aggregate_supply_curve.html">33-4 AS</a>
+  <span class="sep">|</span>
+  <strong>33-5 Two Causes of Fluctuations</strong>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <div class="chapter-tag">33-5 · Chapter 10</div>
+    <h1>Two Causes of <span>Economic Fluctuations</span></h1>
+    <p class="subtitle">경제 변동의 두 가지 원인 — 총수요 이동의 효과와 역사적 사례 (33-5 ~ 33-6 전체 + 챕터 정리)</p>
+  </div>
+</div>
 
 <div class="container">
 
-  <div class="toc">
-    <h3>문제 목차</h3>
-    <div class="toc-grid">
-      <a href="#q1">Q1</a><a href="#q2">Q2</a><a href="#q3">Q3</a>
-      <a href="#q4">Q4</a><a href="#q5">Q5</a><a href="#q6">Q6</a>
-      <a href="#q7">Q7</a><a href="#q8">Q8</a><a href="#q9">Q9</a>
-      <a href="#q10">Q10</a><a href="#q11">Q11</a><a href="#q12">Q12</a>
+  <div class="section-header">
+    <div class="num">33-5</div>
+    <div class="text">
+      <h2>Two Causes of Economic Fluctuations</h2>
+      <div class="ko">경제 변동의 두 가지 원인</div>
     </div>
   </div>
 
-  <!-- ===== Q1 ===== -->
-  <div class="problem" id="q1">
-    <div class="problem-header">
-      <span class="problem-number">Q 01</span>
-      <span class="problem-title">GDP 구성 요소 판별 (C / I / G / NX 또는 미포함)</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          What components of GDP (if any) would each of the following affect? Explain.
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          다음 각 거래가 GDP에 어떤 구성 요소로 포함되는지 설명하시오.
-        </div>
-      </div>
+  <div class="para-block">
+    <div class="para-en">Now that we have introduced the model of aggregate demand and aggregate supply, we have the basic tools we need to analyze fluctuations in economic activity. In particular, we can use what we have learned about aggregate demand and aggregate supply to examine the two basic causes of short-run fluctuations: shifts in aggregate demand and shifts in aggregate supply.</div>
+    <div class="para-ko">총수요·총공급 모형을 도입했으므로, 이제 경제 활동의 변동을 분석하는 데 필요한 기본 도구를 갖추게 되었다. 특히, 총수요와 총공급에 대해 배운 것을 활용하여 단기 변동의 두 가지 기본 원인 — 총수요의 이동(shifts in aggregate demand)과 총공급의 이동(shifts in aggregate supply) — 을 검토할 수 있다.</div>
+  </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">a. Uncle Henry buys a new refrigerator from a domestic manufacturer.</div>
-          <div class="sub-q-ko">a. 삼촌 Henry가 국내 제조업체로부터 새 냉장고를 구입한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">소비(C) 증가</span> — 가계의 내구재(durable goods) 구매로 GDP가 증가한다.</p>
-          </div>
-        </div>
-      </div>
+  <div class="para-block">
+    <div class="para-en">To keep things simple, we assume the economy begins in long-run equilibrium, as shown in Figure 7. Output and the price level are determined in the long run by the intersection of the aggregate-demand curve and the long-run aggregate-supply curve, shown as point A in the figure. At this point, output is at its natural level. Because the economy is always in a short-run equilibrium, the short-run aggregate-supply curve passes through this point as well, indicating that the expected price level has adjusted to this long-run equilibrium. That is, when an economy is in its long-run equilibrium, the expected price level must equal the actual price level so that the intersection of aggregate demand with short-run aggregate supply is the same as the intersection of aggregate demand with long-run aggregate supply.</div>
+    <div class="para-ko">단순화를 위해, 그림 7에 나타난 것처럼 경제가 장기 균형(long-run equilibrium)에서 시작한다고 가정한다. 산출량과 물가 수준은 장기에서 총수요 곡선과 장기 총공급 곡선의 교차점(그림의 점 A)에 의해 결정된다. 이 점에서 산출량은 자연 수준에 있다. 경제는 항상 단기 균형에도 있으므로, 단기 총공급 곡선도 이 점을 통과하며, 이는 예상 물가 수준이 이 장기 균형에 맞게 조정되었음을 나타낸다. 즉, 경제가 장기 균형에 있을 때, 예상 물가 수준은 실제 물가 수준과 같아야 하며, 그래야 총수요와 단기 총공급의 교차점이 총수요와 장기 총공급의 교차점과 일치한다.</div>
+  </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. Aunt Jane buys a new house from a local builder.</div>
-          <div class="sub-q-ko">b. 이모 Jane이 지역 건설업체로부터 새 집을 구입한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">투자(I) 증가</span> — 신규 주택 건설은 민간 투자(주거용 투자)로 분류된다. 소비(C)가 아님에 주의.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">c. The Jackson family buys an old Victorian house from the Walker family.</div>
-          <div class="sub-q-ko">c. Jackson 가족이 Walker 가족으로부터 중고 Victorian 주택을 구입한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">GDP에 영향 없음</span> — 중고 재화의 재판매는 현재 연도에 새로 생산된 것이 아니므로 GDP에 포함되지 않는다. (부동산 중개 수수료는 서비스로 C에 포함.)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">d. You pay a hairdresser for a haircut.</div>
-          <div class="sub-q-ko">d. 이발소에 이발비를 지불한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">소비(C) 증가</span> — 이발 서비스 구매는 소비재 서비스로 GDP에 포함된다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">e. Ford sells a Mustang from its inventory to the Martinez family.</div>
-          <div class="sub-q-ko">e. Ford가 재고에 있던 Mustang을 Martinez 가족에게 판매한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">소비(C) 증가, 투자(I) 감소</span> — 가계 구매로 C 증가. 단 재고에서 팔리므로 재고투자(I)는 동일 금액 감소. 순 GDP 변화 = 0. (재고로 쌓인 시점에 이미 GDP에 계산됨.)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">f. The federal government sends your grandmother a Social Security check.</div>
-          <div class="sub-q-ko">f. 연방 정부가 할머니에게 사회보장(Social Security) 수표를 보낸다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">GDP에 영향 없음</span> — 정부 이전지출(transfer payment)은 G가 아님. 할머니가 그 돈으로 재화·서비스를 구입하면 그때 C 증가.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">g. California hires workers to repave Highway 101.</div>
-          <div class="sub-q-ko">g. California주가 Highway 101 보수를 위해 공사업체를 고용한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">정부지출(G) 증가</span> — 주(州) 정부의 도로 보수는 정부구매에 해당한다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">h. Honda expands its factory in Ohio.</div>
-          <div class="sub-q-ko">h. Honda가 Ohio 공장을 확장한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">투자(I) 증가</span> — 국내에서 이루어진 외국 기업의 신규 공장 건설은 미국 GDP(투자)에 포함된다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">i. Your parents buy a bottle of French wine.</div>
-          <div class="sub-q-ko">i. 부모님이 프랑스 와인 한 병을 구입한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">소비(C) 증가, 순수출(NX) 감소</span> — 수입품 구매로 C는 올라가지만 수입(M)도 같은 금액만큼 올라 NX가 감소해 순효과는 0이다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">j. The U.S. government buys a new aircraft carrier.</div>
-          <div class="sub-q-ko">j. 미국 정부가 항공모함을 구입한다.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p><span class="key">정부지출(G) 증가</span> — 연방 정부의 국방 장비 구매는 정부구매에 해당한다.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Figure 7 -->
+  <div class="figure-wrap">
+    <div class="figure-title">Figure 7 — The Long-Run Equilibrium</div>
+    <div class="figure-caption">장기 균형: AD 곡선과 LRAS 곡선이 교차하는 점 A. 예상 물가 = 실제 물가이므로 SRAS 곡선도 같은 점을 통과한다.</div>
+    <div style="display:flex;justify-content:center;padding:8px 0;">
+      <svg viewBox="0 0 480 300" width="100%" style="max-width:460px;font-family:'Noto Sans KR','Inter',sans-serif;">
+        <line x1="60" y1="258" x2="430" y2="258" stroke="#555" stroke-width="2"/>
+        <line x1="60" y1="258" x2="60" y2="24" stroke="#555" stroke-width="2"/>
+        <polygon points="430,253 430,263 442,258" fill="#555"/>
+        <polygon points="55,24 65,24 60,12" fill="#555"/>
+        <text x="446" y="262" font-size="11" fill="#444">Q</text>
+        <text x="14" y="26" font-size="10" fill="#555">물가</text>
+        <text x="304" y="276" font-size="11" fill="#555">Quantity of Output</text>
+        <line x1="245" y1="252" x2="245" y2="34" stroke="#1e7a44" stroke-width="3"/>
+        <text x="180" y="32" font-size="10" font-weight="700" fill="#1e7a44">Long-run aggregate supply</text>
+        <path d="M 110 220 Q 220 158 370 70" stroke="#1f52a0" stroke-width="2.5" fill="none"/>
+        <text x="332" y="62" font-size="10" font-weight="700" fill="#1f52a0">Short-run</text>
+        <text x="332" y="74" font-size="10" font-weight="700" fill="#1f52a0">aggregate supply</text>
+        <path d="M 105 70 Q 230 160 385 235" stroke="#c22828" stroke-width="2.5" fill="none"/>
+        <text x="352" y="248" font-size="10" font-weight="700" fill="#c22828">Aggregate demand</text>
+        <circle cx="245" cy="143" r="6" fill="#151210" stroke="white" stroke-width="2"/>
+        <text x="256" y="139" font-size="13" font-weight="800" fill="#151210">A</text>
+        <line x1="60" y1="143" x2="245" y2="143" stroke="#888" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="14" y="140" font-size="10" fill="#555">균형</text>
+        <text x="14" y="152" font-size="10" fill="#555">물가</text>
+        <text x="196" y="276" font-size="10" fill="#555" font-weight="600">Natural level</text>
+        <text x="204" y="288" font-size="10" fill="#555" font-weight="600">of output</text>
+      </svg>
     </div>
   </div>
 
-  <!-- ===== Q2 ===== -->
-  <div class="problem" id="q2">
-    <div class="problem-header">
-      <span class="problem-number">Q 02</span>
-      <span class="problem-title">명목 GDP vs. 실질 GDP 계산 (초콜릿 단일재 경제)</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          Consider an economy that produces only chocolate. Fill in the table below and explain to a banker why nominal GDP might be a misleading indicator of economic well-being.
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          초콜릿만 생산하는 경제를 고려하시오. 아래 표를 완성하고, 명목 GDP가 경제 후생의 오해를 불러일으킬 수 있는 이유를 은행원에게 설명하시오.
-        </div>
-      </div>
+  <!-- Table 3 -->
+  <div class="table-wrap">
+    <div class="table-tag">Table 3</div>
+    <div class="table-title">Four Steps for Analyzing Macroeconomic Fluctuations &nbsp;/&nbsp; 거시경제 변동 분석의 4단계</div>
+    <ol class="table-ol">
+      <li>Decide whether the event shifts the aggregate-demand curve or the aggregate-supply curve (or perhaps both).<br><span style="font-size:13px;color:var(--muted);">사건이 총수요 곡선을 이동시키는지, 총공급 곡선을 이동시키는지 (혹은 둘 다인지) 판단한다.</span></li>
+      <li>Decide the direction in which the curve shifts.<br><span style="font-size:13px;color:var(--muted);">곡선이 이동하는 방향을 판단한다.</span></li>
+      <li>Use the diagram of aggregate demand and aggregate supply to determine the impact on output and the price level in the short run.<br><span style="font-size:13px;color:var(--muted);">AD-AS 다이어그램을 사용하여 단기에서 산출량과 물가 수준에 미치는 영향을 결정한다.</span></li>
+      <li>Use the diagram of aggregate demand and aggregate supply to analyze how the economy moves from its new short-run equilibrium to its new long-run equilibrium.<br><span style="font-size:13px;color:var(--muted);">AD-AS 다이어그램을 사용하여 경제가 새로운 단기 균형에서 새로운 장기 균형으로 어떻게 이동하는지 분석한다.</span></li>
+    </ol>
+  </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>연도 / Year</th>
-            <th>가격 / Price</th>
-            <th>수량 / Qty</th>
-            <th>명목 GDP</th>
-            <th>실질 GDP (기준=2000)</th>
-            <th>GDP 디플레이터</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>2000</td><td>$3</td><td>100</td><td>$300</td><td>$300</td><td>100</td></tr>
-          <tr><td>2001</td><td>$4</td><td>150</td><td>$600</td><td>$450</td><td>133.3</td></tr>
-          <tr><td>2002</td><td>$5</td><td>200</td><td>$1,000</td><td>$600</td><td>166.7</td></tr>
-        </tbody>
-      </table>
-
-      <div class="note">💡 기준연도(2000) 가격 $3 적용하여 실질 GDP 산출</div>
-
-      <div class="sub" style="margin-top:16px;">
-        <div class="sub-q">
-          <div class="sub-q-en">Calculation formulas</div>
-          <div class="sub-q-ko">계산 공식</div>
-        </div>
-        <div class="sub-body">
-          <code class="formula">Nominal GDP = Current Price × Current Quantity</code>
-          <code class="formula">Real GDP = Base Year Price × Current Quantity</code>
-          <code class="formula">GDP Deflator = (Nominal GDP ÷ Real GDP) × 100</code>
-          <div class="answer" style="margin-top:10px;">
-            <div class="answer-label">✔ 상세 계산</div>
-            <ul>
-              <li>2000: 명목=$3×100=$300, 실질=$3×100=$300, 디플레이터=100</li>
-              <li>2001: 명목=$4×150=$600, 실질=$3×150=$450, 디플레이터=600/450×100=<strong>133.3</strong></li>
-              <li>2002: 명목=$5×200=$1,000, 실질=$3×200=$600, 디플레이터=1,000/600×100=<strong>166.7</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">Did economic well-being increase more in 2001 or 2002? Explain why the variable that does not change might be a better measure.</div>
-          <div class="sub-q-ko">경제 후생이 2001년에 더 증가했나, 2002년에 더 증가했나? 변화하지 않는 변수가 더 나은 지표인 이유를 설명하시오.</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>실질 GDP 성장률로 비교: 2001년 +50% ($300→$450), 2002년 +33.3% ($450→$600). 따라서 <span class="key">2001년 성장률이 더 높다</span>. 실질 GDP는 가격 변화를 제거하므로 순수한 생산량 증가를 반영해 더 좋은 후생 지표가 된다.</p>
-          </div>
-        </div>
-      </div>
+  <!-- ══════════ 33-5a ══════════ -->
+  <div class="sub-header" style="margin-top:52px;">
+    <div class="sub-badge">33-5a</div>
+    <div class="sub-title-text">
+      <h3>The Effects of a Shift in Aggregate Demand</h3>
+      <div class="ko">총수요 이동의 효과</div>
     </div>
   </div>
 
-  <!-- ===== Q3 ===== -->
-  <div class="problem" id="q3">
-    <div class="problem-header">
-      <span class="problem-number">Q 03</span>
-      <span class="problem-title">이전지출과 중고재화 — GDP에서 제외되는 항목</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          The government purchases component of GDP does not include transfer payments such as Social Security. Thinking about the definition of GDP, explain why transfer payments are excluded. Why would including transfer payments make GDP a less informative measure of economic well-being?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          GDP의 정부지출 항목은 사회보장과 같은 이전지출을 포함하지 않는다. GDP의 정의를 생각하며, 이전지출이 제외되는 이유를 설명하시오. 이전지출을 포함한다면 GDP가 경제 후생의 지표로서 덜 유용해지는 이유는 무엇인가?
-        </div>
-      </div>
-      <div class="answer">
-        <div class="answer-label">✔ 정답</div>
-        <ul>
-          <li><span class="key">이전지출 제외 이유:</span> 사회보장, 실업급여 등은 정부가 재화·서비스를 구매한 것이 아니라 소득을 재분배하는 것. 새로운 생산(production) 없이 돈이 이동하므로 GDP 정의("생산된 최종재·서비스의 시장가치")에 해당하지 않음.</li>
-          <li><span class="key">포함 시 문제점:</span> 이전지출을 넣으면 실제 생산 증가 없이 GDP 수치만 커져, 생산 수준을 나타내는 지표로서의 신뢰성이 떨어진다.</li>
-        </ul>
-      </div>
+  <div class="para-block">
+    <div class="para-en">Suppose that a wave of pessimism suddenly overtakes the economy. The cause might be a scandal in the White House, a crash in the stock market, or the outbreak of war overseas. Because of this event, many people lose confidence in the future and alter their plans. Households cut back on their spending and delay major purchases, and firms put off buying new equipment.</div>
+    <div class="para-ko">비관주의(pessimism)의 물결이 갑자기 경제를 덮친다고 가정하자. 그 원인은 백악관의 스캔들, 주식 시장의 폭락, 또는 해외 전쟁의 발발일 수 있다. 이 사건 때문에 많은 사람들이 미래에 대한 신뢰를 잃고 계획을 변경한다. 가계는 지출을 줄이고 주요 구매를 미루며, 기업은 새 장비 구입을 연기한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">What is the macroeconomic impact of such a wave of pessimism? In answering this question, we can follow the three steps we used in Chapter 4 when analyzing supply and demand in specific markets. First, we determine whether the event affects aggregate demand or aggregate supply. Second, we determine the direction that the curve shifts. Third, we use the diagram of aggregate demand and aggregate supply to compare the initial and the new equilibrium. The new wrinkle is that we need to add a fourth step: We have to keep track of a new short-run equilibrium, a new long-run equilibrium, and the transition between them. Table 3 summarizes the four steps to analyzing economic fluctuations.</div>
+    <div class="para-ko">이러한 비관주의의 물결이 가져오는 거시경제적 영향은 무엇인가? 이 질문에 답하기 위해, 4장에서 특정 시장의 수요와 공급을 분석할 때 사용했던 세 단계를 따를 수 있다. 첫째, 사건이 총수요에 영향을 미치는지 총공급에 영향을 미치는지 판단한다. 둘째, 곡선이 이동하는 방향을 판단한다. 셋째, AD-AS 다이어그램을 사용하여 처음 균형과 새 균형을 비교한다. 새로운 점은 네 번째 단계를 추가해야 한다는 것이다. 즉, 새로운 단기 균형, 새로운 장기 균형, 그리고 그 사이의 전환 과정을 추적해야 한다. 표 3이 경제 변동 분석의 네 단계를 요약한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The first two steps are straightforward. First, because the wave of pessimism affects spending plans, it affects the aggregate-demand curve. Second, because households and firms now want to buy a smaller quantity of goods and services for any given price level, the event reduces aggregate demand. As Figure 8 shows, the aggregate-demand curve shifts to the left from AD₁ to AD₂.</div>
+    <div class="para-ko">처음 두 단계는 간단하다. 첫째, 비관주의의 물결은 지출 계획에 영향을 미치므로 총수요 곡선에 영향을 준다. 둘째, 가계와 기업이 이제 주어진 물가 수준에서 더 적은 양의 재화와 서비스를 구매하려 하므로, 이 사건은 총수요를 감소시킨다. 그림 8에서 보듯이, 총수요 곡선은 AD₁에서 AD₂로 왼쪽으로 이동한다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">With this figure, we can perform step three: By comparing the initial and the new equilibrium, we can see the effects of the fall in aggregate demand. In the short run, the economy moves along the initial short-run aggregate-supply curve, AS₁, going from point A to point B. As the economy moves between these two points, output falls from Y₁ to Y₂ and the price level falls from P₁ to P₂. The falling level of output indicates that the economy is in a recession. Although not shown in the figure, firms respond to lower sales and production by reducing employment. Thus, the pessimism that caused the shift in aggregate demand is, to some extent, self-fulfilling: Pessimism about the future leads to falling incomes and rising unemployment.</div>
+    <div class="para-ko">이 그림으로 세 번째 단계를 수행할 수 있다. 처음 균형과 새 균형을 비교함으로써 총수요 감소의 효과를 볼 수 있다. 단기에서 경제는 최초의 단기 총공급 곡선 AS₁을 따라 점 A에서 점 B로 이동한다. 경제가 이 두 점 사이를 이동하면서 산출량은 Y₁에서 Y₂로 하락하고 물가 수준은 P₁에서 P₂로 하락한다. 산출량 하락은 경제가 경기침체(recession)에 있음을 나타낸다. 그림에는 나타나지 않지만, 기업들은 판매와 생산 감소에 대응하여 고용을 줄인다. 따라서 총수요 이동을 일으킨 비관주의는 어느 정도 자기실현적(self-fulfilling)이다. 미래에 대한 비관주의가 소득 하락과 실업 증가로 이어진다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Now comes step four—the transition from the short-run equilibrium to the new long-run equilibrium. Because of the reduction in aggregate demand, the price level initially falls from P₁ to P₂. The price level is thus below the level that people were expecting (P₁) before the sudden fall in aggregate demand. People can be surprised in the short run, but they will not remain surprised. Over time, their expectations catch up with this new reality, and the expected price level falls as well. The fall in the expected price level alters wages, prices, and perceptions, which in turn influences the position of the short-run aggregate-supply curve. For example, according to the sticky-wage theory, once workers and firms come to expect a lower level of prices, they start to strike bargains for lower nominal wages; the reduction in labor costs encourages firms to hire more workers and expand production at any given level of prices. Thus, the fall in the expected price level shifts the short-run aggregate-supply curve to the right from AS₁ to AS₂ in Figure 8. This shift allows the economy to approach point C, where the new aggregate-demand curve (AD₂) crosses the long-run aggregate-supply curve.</div>
+    <div class="para-ko">이제 네 번째 단계 — 단기 균형에서 새로운 장기 균형으로의 전환 — 이다. 총수요 감소로 물가 수준은 처음에 P₁에서 P₂로 하락한다. 따라서 물가 수준은 갑작스러운 총수요 감소 이전에 사람들이 예상했던 수준(P₁)보다 낮아진다. 사람들은 단기적으로 놀랄 수 있지만 계속 놀란 상태로 있지는 않는다. 시간이 지나면서 기대가 이 새로운 현실을 따라잡고, 예상 물가 수준도 하락한다. 예상 물가 수준의 하락은 임금, 가격, 인식을 변화시키고, 이는 다시 단기 총공급 곡선의 위치에 영향을 미친다. 예를 들어, 경직적 임금 이론에 따르면, 노동자와 기업이 더 낮은 물가 수준을 예상하게 되면 더 낮은 명목 임금으로 협상하기 시작한다. 노동 비용의 감소는 기업이 주어진 물가 수준에서 더 많은 노동자를 고용하고 생산을 확대하도록 장려한다. 따라서 예상 물가 수준의 하락은 그림 8에서 단기 총공급 곡선을 AS₁에서 AS₂로 오른쪽으로 이동시킨다. 이 이동은 경제가 점 C — 새 총수요 곡선(AD₂)이 장기 총공급 곡선과 교차하는 곳 — 에 접근할 수 있게 한다.</div>
+  </div>
+
+  <!-- Figure 8 -->
+  <div class="figure-wrap">
+    <div class="figure-title">Figure 8 — A Contraction in Aggregate Demand</div>
+    <div class="figure-caption">총수요 수축: AD₁→AD₂ 좌측 이동 → 단기에 A→B (산출량 Y₁→Y₂↓, 물가 P₁→P₂↓, 경기침체) → 예상 물가 조정 → SRAS가 AS₁→AS₂ 우측 이동 → 장기에 점 C 도달 (물가 P₃, 산출량은 자연 수준 Y₁ 복귀)</div>
+    <div style="display:flex;justify-content:center;padding:8px 0;">
+      <svg viewBox="0 0 520 340" width="100%" style="max-width:520px;font-family:'Noto Sans KR','Inter',sans-serif;">
+        <line x1="60" y1="295" x2="480" y2="295" stroke="#555" stroke-width="2"/>
+        <line x1="60" y1="295" x2="60" y2="24" stroke="#555" stroke-width="2"/>
+        <polygon points="480,290 480,300 492,295" fill="#555"/>
+        <polygon points="55,24 65,24 60,12" fill="#555"/>
+        <text x="496" y="299" font-size="11" fill="#444">Q</text>
+        <text x="14" y="26" font-size="10" fill="#555">물가</text>
+        <text x="358" y="313" font-size="11" fill="#555">Quantity of Output</text>
+        <!-- LRAS -->
+        <line x1="262" y1="290" x2="262" y2="34" stroke="#1e7a44" stroke-width="3"/>
+        <text x="170" y="32" font-size="9.5" font-weight="700" fill="#1e7a44">Long-run aggregate supply</text>
+        <!-- AS1 -->
+        <path d="M 120 252 Q 235 178 392 84" stroke="#1f52a0" stroke-width="2.5" fill="none"/>
+        <text x="372" y="70" font-size="10" font-weight="700" fill="#1f52a0">AS₁</text>
+        <!-- AS2 shifted right (dashed lighter) -->
+        <path d="M 168 268 Q 285 196 438 102" stroke="#6090d8" stroke-width="2.5" fill="none" stroke-dasharray="7,4"/>
+        <text x="442" y="102" font-size="11" font-weight="700" fill="#6090d8">AS₂</text>
+        <!-- AS shift arrow -->
+        <line x1="332" y1="118" x2="366" y2="136" stroke="#6090d8" stroke-width="1.5"/>
+        <polygon points="362,139 369,130 372,141" fill="#6090d8"/>
+        <!-- AD1 -->
+        <path d="M 120 76 Q 250 178 420 262" stroke="#c22828" stroke-width="2.5" fill="none"/>
+        <text x="386" y="276" font-size="10" font-weight="700" fill="#c22828">AD₁</text>
+        <!-- AD2 shifted left (dashed lighter) -->
+        <path d="M 88 96 Q 200 192 352 272" stroke="#e88080" stroke-width="2.5" fill="none" stroke-dasharray="7,4"/>
+        <text x="322" y="288" font-size="11" font-weight="700" fill="#e88080">AD₂</text>
+        <!-- AD shift arrow -->
+        <line x1="242" y1="148" x2="206" y2="164" stroke="#e88080" stroke-width="1.5"/>
+        <polygon points="210,166 203,158 199,169" fill="#e88080"/>
+        <!-- Points A, B, C -->
+        <circle cx="262" cy="146" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="272" y="141" font-size="13" font-weight="800" fill="#151210">A</text>
+        <circle cx="213" cy="174" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="195" y="169" font-size="13" font-weight="800" fill="#151210">B</text>
+        <circle cx="262" cy="206" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="272" y="221" font-size="13" font-weight="800" fill="#151210">C</text>
+        <!-- P dashed -->
+        <line x1="60" y1="146" x2="262" y2="146" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="150" font-size="11" font-weight="700" fill="#555">P₁</text>
+        <line x1="60" y1="174" x2="213" y2="174" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="178" font-size="11" font-weight="700" fill="#555">P₂</text>
+        <line x1="60" y1="206" x2="262" y2="206" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="210" font-size="11" font-weight="700" fill="#555">P₃</text>
+        <!-- Y dashed -->
+        <line x1="213" y1="174" x2="213" y2="295" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="202" y="310" font-size="11" font-weight="700" fill="#c97d10">Y₂</text>
+        <text x="253" y="310" font-size="11" font-weight="700" fill="#c97d10">Y₁</text>
+        <!-- annotations -->
+        <rect x="66" y="38" width="158" height="32" rx="3" fill="#fdeaea" stroke="#c22828" stroke-width="1"/>
+        <text x="74" y="51" font-size="9.5" fill="#7a1a1a">1. A decrease in aggregate demand...</text>
+        <text x="74" y="63" font-size="9.5" fill="#7a1a1a">2. ...causes output to fall (short run)</text>
+        <rect x="322" y="146" width="152" height="44" rx="3" fill="#eef4ff" stroke="#6090d8" stroke-width="1"/>
+        <text x="330" y="160" font-size="9.5" fill="#1a2e5a">3. ...but over time, the short-run</text>
+        <text x="330" y="172" font-size="9.5" fill="#1a2e5a">AS curve shifts right...</text>
+        <text x="330" y="184" font-size="9.5" fill="#1a2e5a">4. 산출량이 자연 수준으로 복귀</text>
+      </svg>
     </div>
   </div>
 
-  <!-- ===== Q4 ===== -->
-  <div class="problem" id="q4">
-    <div class="problem-header">
-      <span class="problem-number">Q 04</span>
-      <span class="problem-title">중고재화 판매와 GDP — 부가가치 관점</span>
+  <div class="para-block">
+    <div class="para-en">In the new long-run equilibrium, point C, output is back to its natural level. The economy has corrected itself: The decline in output is reversed in the long run, even without action by policymakers. Although the wave of pessimism has reduced aggregate demand, the price level has fallen sufficiently (to P₃) to offset the shift in the aggregate-demand curve, and people have come to expect this new lower price level as well. Thus, in the long run, the shift in aggregate demand is reflected fully in the price level and not at all in the level of output. In other words, the long-run effect of a shift in aggregate demand is a nominal change (the price level is lower) but not a real change (output is the same).</div>
+    <div class="para-ko">새로운 장기 균형인 점 C에서 산출량은 자연 수준으로 돌아온다. 경제는 스스로를 교정했다. 정책 입안자의 조치 없이도 장기에서 산출량 감소가 역전된 것이다. 비관주의의 물결이 총수요를 줄였지만, 물가 수준이 충분히 하락하여(P₃까지) 총수요 곡선의 이동을 상쇄했고, 사람들도 이 새로운 더 낮은 물가 수준을 예상하게 되었다. 따라서 장기에서 총수요의 이동은 물가 수준에 완전히 반영되고 산출량 수준에는 전혀 반영되지 않는다. 즉, 총수요 이동의 장기 효과는 명목적 변화(물가 하락)이지 실질적 변화(산출량 불변)가 아니다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">What should policymakers do when faced with a sudden fall in aggregate demand? In this analysis, we assumed they did nothing. Another possibility is that, as soon as the economy heads into recession (moving from point A to point B), policymakers could take action to increase aggregate demand. As we noted earlier, an increase in government spending or an increase in the money supply would increase the quantity of goods and services demanded at any price and, therefore, would shift the aggregate-demand curve to the right. If policymakers act with sufficient speed and precision, they can offset the initial shift in aggregate demand, return the aggregate-demand curve to AD₁, and bring the economy back to point A. If the policy is successful, the painful period of depressed output and employment can be reduced in length and severity. The next chapter discusses in more detail the ways in which monetary and fiscal policy influence aggregate demand, as well as some of the practical difficulties in using these policy instruments.</div>
+    <div class="para-ko">갑작스러운 총수요 감소에 직면했을 때 정책 입안자들은 무엇을 해야 하는가? 이 분석에서 우리는 그들이 아무것도 하지 않는다고 가정했다. 또 다른 가능성은, 경제가 경기침체로 향하자마자(점 A에서 점 B로 이동) 정책 입안자들이 총수요를 늘리는 조치를 취하는 것이다. 앞서 언급했듯이, 정부 지출 증가나 통화량 증가는 어떤 물가에서든 수요되는 재화와 서비스의 양을 늘리고, 따라서 총수요 곡선을 오른쪽으로 이동시킬 것이다. 정책 입안자들이 충분한 속도와 정밀성으로 행동한다면, 최초의 총수요 이동을 상쇄하여 총수요 곡선을 AD₁로 되돌리고 경제를 점 A로 복귀시킬 수 있다. 정책이 성공한다면, 산출량과 고용이 침체되는 고통스러운 기간의 길이와 심각성을 줄일 수 있다. 다음 장에서는 통화 정책과 재정 정책이 총수요에 영향을 미치는 방식과 이러한 정책 수단 사용의 실질적 어려움을 더 자세히 논의한다.</div>
+  </div>
+
+  <!-- Three Lessons -->
+  <div class="lessons-box">
+    <h4>📌 세 가지 중요한 교훈 (Three Important Lessons about Shifts in Aggregate Demand)</h4>
+    <ul>
+      <li><strong>In the short run, shifts in aggregate demand cause fluctuations in the economy's output of goods and services.</strong><br><span style="font-size:13px;color:#3a5070;">단기에서, 총수요의 이동은 경제의 재화와 서비스 산출량에 변동을 일으킨다.</span></li>
+      <li><strong>In the long run, shifts in aggregate demand affect the overall price level but do not affect output.</strong><br><span style="font-size:13px;color:#3a5070;">장기에서, 총수요의 이동은 전반적인 물가 수준에 영향을 미치지만 산출량에는 영향을 미치지 않는다.</span></li>
+      <li><strong>Because policymakers influence aggregate demand, they can potentially mitigate the severity of economic fluctuations.</strong><br><span style="font-size:13px;color:#3a5070;">정책 입안자들은 총수요에 영향을 미치므로, 경제 변동의 심각성을 잠재적으로 완화할 수 있다.</span></li>
+    </ul>
+  </div>
+
+  <!-- FYI: Monetary Neutrality Revisited -->
+  <div class="fyi-box">
+    <div class="fyi-tag">FYI</div>
+    <h4>Monetary Neutrality Revisited &nbsp;·&nbsp; 화폐의 중립성 재검토</h4>
+    <div class="en">According to classical economic theory, money is neutral. That is, changes in the quantity of money affect nominal variables such as the price level but not real variables such as output. Earlier in this chapter, we noted that most economists accept this conclusion as a description of how the economy works in the long run but not in the short run. With the model of aggregate demand and aggregate supply, we can illustrate this conclusion and explain it more fully.<br><br>
+    Suppose that the Federal Reserve reduces the quantity of money in the economy. What effect does this change have? As we discussed, the money supply is one determinant of aggregate demand. The reduction in the money supply shifts the aggregate-demand curve to the left. The analysis looks just like Figure 8. Even though the cause of the shift in aggregate demand is different, we would observe the same effects on output and the price level. In the short run, both output and the price level fall. The economy experiences a recession. But over time, the expected price level falls as well. Firms and workers respond to their new expectations by, for instance, agreeing to lower nominal wages. As they do so, the short-run aggregate-supply curve shifts to the right. Eventually, the economy finds itself back on the long-run aggregate-supply curve.<br><br>
+    Figure 8 shows when money matters for real variables and when it does not. In the long run, money is neutral, as represented by the movement of the economy from point A to point C. But in the short run, a change in the money supply has real effects, as represented by the movement of the economy from point A to point B. An old saying summarizes the analysis: "Money is a veil, but when the veil flutters, real output sputters."</div>
+    <div class="ko">고전 경제 이론에 따르면 화폐는 중립적(neutral)이다. 즉, 통화량의 변화는 물가 수준 같은 명목 변수에는 영향을 미치지만 산출량 같은 실질 변수에는 영향을 미치지 않는다. 이 장 앞부분에서, 대부분의 경제학자들이 이 결론을 장기에서 경제가 작동하는 방식에 대한 묘사로는 받아들이지만 단기에 대해서는 그렇지 않다고 언급했다. 총수요·총공급 모형을 사용하면 이 결론을 그림으로 보여주고 더 충분히 설명할 수 있다.<br><br>
+    연준(Federal Reserve)이 경제의 통화량을 줄인다고 가정하자. 이 변화는 어떤 효과를 가지는가? 논의했듯이, 통화 공급은 총수요의 결정 요인 중 하나이다. 통화 공급의 감소는 총수요 곡선을 왼쪽으로 이동시킨다. 분석은 그림 8과 똑같다. 총수요 이동의 원인이 다르더라도, 산출량과 물가 수준에 미치는 효과는 동일하게 관찰될 것이다. 단기에서는 산출량과 물가 수준이 모두 하락한다. 경제는 경기침체를 겪는다. 그러나 시간이 지나면서 예상 물가 수준도 하락한다. 기업과 노동자들은 예컨대 더 낮은 명목 임금에 합의함으로써 새로운 기대에 반응한다. 그렇게 하면서 단기 총공급 곡선이 오른쪽으로 이동한다. 결국 경제는 장기 총공급 곡선 위로 되돌아온다.<br><br>
+    그림 8은 화폐가 실질 변수에 중요한 때와 그렇지 않은 때를 보여준다. 장기에서 화폐는 중립적이며, 이는 경제가 점 A에서 점 C로 이동하는 것으로 표현된다. 그러나 단기에서 통화량의 변화는 실질 효과를 가지며, 이는 경제가 점 A에서 점 B로 이동하는 것으로 표현된다. 옛 격언이 이 분석을 요약한다: "화폐는 베일이다. 그러나 베일이 펄럭이면 실질 산출이 흔들린다(Money is a veil, but when the veil flutters, real output sputters)."</div>
+  </div>
+
+  <!-- ══════════ CASE STUDY 1 ══════════ -->
+  <div class="case-box">
+    <div class="case-tag"><span class="badge">Case Study</span></div>
+    <h4>Two Big Shifts in Aggregate Demand: The Great Depression and World War II
+      <span class="ko-sub">총수요의 두 차례 대이동: 대공황과 제2차 세계대전</span>
+    </h4>
+
+    <div class="para-block">
+      <div class="para-en">At the beginning of this chapter, we established three key facts about economic fluctuations by looking at data since 1972. Let's now take a longer look at U.S. economic history. Figure 9 shows data since 1900 on the percentage change in real GDP over the previous 3 years. In an average 3-year period, real GDP grows about 10 percent—a bit more than 3 percent per year. The business cycle, however, causes fluctuations around this average. Two episodes jump out as being particularly significant: the large drop in real GDP in the early 1930s and the large increase in real GDP in the early 1940s. Both of these events are attributable to shifts in aggregate demand.</div>
+      <div class="para-ko">이 장의 시작에서 우리는 1972년 이후의 데이터를 보며 경제 변동에 관한 세 가지 핵심 사실을 확립했다. 이제 미국 경제사를 더 길게 살펴보자. 그림 9는 1900년 이후 직전 3년 대비 실질 GDP 변화율 데이터를 보여준다. 평균적인 3년 기간 동안 실질 GDP는 약 10% 성장한다 — 연간 3%를 약간 넘는 수준이다. 그러나 경기 순환(business cycle)은 이 평균 주위에 변동을 일으킨다. 특히 두드러진 두 사건이 있다: 1930년대 초의 실질 GDP 대폭락과 1940년대 초의 실질 GDP 대폭 증가이다. 두 사건 모두 총수요의 이동에 기인한다.</div>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          As the chapter states, GDP does not include the value of used goods that are resold. Why would including such transactions make GDP a less informative measure of economic well-being?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          교재에서 설명하듯이, GDP는 재판매되는 중고재화의 가치를 포함하지 않는다. 이를 포함한다면 GDP가 경제 후생의 지표로서 덜 유용해지는 이유를 설명하시오.
-        </div>
-      </div>
-      <div class="answer">
-        <div class="answer-label">✔ 정답</div>
-        <p>중고재화 거래는 <span class="key">새로운 생산</span>이 없으므로 당해 연도 GDP에 포함하지 않는다. 중고차·중고가구 등의 재판매를 GDP에 넣으면 <span class="key">이중계산(double counting)</span> 오류가 발생한다. 이미 생산된 연도의 GDP에 포함된 것을 또다시 계산하게 되어 현재 경제 생산력을 과대 평가하게 된다.</p>
+
+    <div class="para-block">
+      <div class="para-en">The economic calamity of the early 1930s is called the <em>Great Depression</em>, and it is by far the largest economic downturn in U.S. history. Real GDP fell by 27 percent from 1929 to 1933, and unemployment rose from 3 percent to 25 percent. At the same time, the price level fell by 22 percent over these 4 years. Many other countries experienced similar declines in output and prices during this period.</div>
+      <div class="para-ko">1930년대 초의 경제적 재앙은 대공황(Great Depression)이라 불리며, 단연코 미국 역사상 가장 큰 경기 침체이다. 실질 GDP는 1929년부터 1933년까지 27% 하락했고, 실업률은 3%에서 25%로 상승했다. 동시에 물가 수준은 이 4년 동안 22% 하락했다. 같은 시기에 다른 많은 나라들도 산출량과 물가의 유사한 하락을 경험했다.</div>
+    </div>
+
+    <!-- Great Depression stat cards -->
+    <div style="font-size:12px;font-weight:700;color:#8b1a1a;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px;">대공황 핵심 수치 (1929 → 1933)</div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">−27%</div><div class="lbl">실질 GDP<br>Real GDP fell</div></div>
+      <div class="stat-card"><div class="num">3%→25%</div><div class="lbl">실업률<br>Unemployment rose</div></div>
+      <div class="stat-card"><div class="num">−22%</div><div class="lbl">물가 수준 (4년간)<br>Price level fell</div></div>
+      <div class="stat-card"><div class="num">−28%</div><div class="lbl">통화 공급<br>Money supply fell</div></div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">Economic historians continue to debate the causes of the Great Depression, but most explanations center on a large decline in aggregate demand. What caused aggregate demand to contract? Here is where the disagreement arises.<br><br>
+      Many economists place primary blame on the decline in the money supply: From 1929 to 1933, the money supply fell by 28 percent. As you may recall from our discussion of the monetary system, this decline in the money supply was due to problems in the banking system. As households withdrew their money from financially shaky banks and bankers became more cautious and started holding greater reserves, the process of money creation under fractional-reserve banking went into reverse. The Fed, meanwhile, failed to offset this fall in the money multiplier with expansionary open-market operations. As a result, the money supply declined. Many economists blame the Fed's failure to act for the Great Depression's severity.</div>
+      <div class="para-ko">경제사학자들은 대공황의 원인에 대해 계속 논쟁하지만, 대부분의 설명은 총수요의 대폭 감소에 초점을 맞춘다. 무엇이 총수요를 수축시켰는가? 여기서 의견 차이가 발생한다.<br><br>
+      많은 경제학자들은 통화 공급 감소에 일차적 책임을 돌린다. 1929년부터 1933년까지 통화 공급은 28% 감소했다. 화폐 제도에 대한 논의에서 기억하듯이, 이 통화 공급 감소는 은행 시스템의 문제 때문이었다. 가계가 재정적으로 불안한 은행에서 돈을 인출하고 은행가들이 더 신중해져 더 많은 지급준비금을 보유하기 시작하면서, 부분지급준비 은행제도(fractional-reserve banking) 하의 화폐 창출 과정이 역전되었다. 한편 연준은 확장적 공개시장 운영으로 화폐 승수의 하락을 상쇄하는 데 실패했다. 그 결과 통화 공급이 감소했다. 많은 경제학자들은 대공황의 심각성에 대해 연준의 행동 실패를 비난한다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">Other economists have suggested alternative reasons for the collapse in aggregate demand. For example, stock prices fell about 90 percent during this period, depressing household wealth and thereby consumer spending. In addition, the banking problems may have prevented some firms from obtaining the financing they wanted for new projects and business expansions, reducing investment spending. It is possible that all these forces may have acted together to contract aggregate demand during the Great Depression.</div>
+      <div class="para-ko">다른 경제학자들은 총수요 붕괴에 대한 대안적 이유들을 제시했다. 예를 들어, 이 기간 동안 주가가 약 90% 하락하여 가계의 부(wealth)를 위축시키고 그로 인해 소비 지출을 억눌렀다. 또한 은행 문제로 인해 일부 기업들이 새 프로젝트와 사업 확장에 필요한 자금 조달을 받지 못해 투자 지출이 감소했을 수 있다. 이 모든 힘들이 함께 작용하여 대공황 기간의 총수요를 수축시켰을 가능성이 있다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">The second significant episode in Figure 9—the economic boom of the early 1940s—is easier to explain. The cause of this event was World War II. As the United States entered the war overseas, the federal government had to devote more resources to the military. Government purchases of goods and services increased almost fivefold from 1939 to 1944. This huge expansion in aggregate demand almost doubled the economy's production of goods and services and led to a 20 percent increase in the price level (although widespread government price controls limited the rise in prices). Unemployment fell from 17 percent in 1939 to about 1 percent in 1944—the lowest level in U.S. history.</div>
+      <div class="para-ko">그림 9의 두 번째 중요한 사건 — 1940년대 초의 경제 호황 — 은 설명하기 더 쉽다. 이 사건의 원인은 제2차 세계대전이었다. 미국이 해외 전쟁에 참전하면서 연방 정부는 더 많은 자원을 군대에 투입해야 했다. 정부의 재화와 서비스 구매는 1939년부터 1944년까지 거의 5배 증가했다. 이 거대한 총수요 확장은 경제의 재화와 서비스 생산을 거의 두 배로 늘렸고 물가 수준을 20% 상승시켰다(광범위한 정부 가격 통제가 물가 상승을 제한했지만). 실업률은 1939년 17%에서 1944년 약 1%로 떨어졌다 — 미국 역사상 최저 수준이다.</div>
+    </div>
+
+    <!-- WWII stat cards -->
+    <div style="font-size:12px;font-weight:700;color:#8b1a1a;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px;">제2차 세계대전 호황 핵심 수치 (1939 → 1944)</div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">×5</div><div class="lbl">정부 구매<br>Government purchases</div></div>
+      <div class="stat-card"><div class="num">×2</div><div class="lbl">재화·서비스 생산<br>Production nearly doubled</div></div>
+      <div class="stat-card"><div class="num">+20%</div><div class="lbl">물가 수준<br>Price level rose</div></div>
+      <div class="stat-card"><div class="num">17%→1%</div><div class="lbl">실업률 (미국 역사상 최저)<br>Unemployment</div></div>
+    </div>
+
+    <!-- Figure 9 simplified -->
+    <div class="figure-wrap" style="margin:24px 0 8px;">
+      <div class="figure-title">Figure 9 — U.S. Real GDP Growth since 1900</div>
+      <div class="figure-caption">1900년 이후 직전 3년 대비 실질 GDP 변화율. 평균 3년 성장률 약 10% 주위로 변동하며, 1930년대 초 대공황의 급락과 1940년대 초 2차 대전 호황의 급증이 가장 두드러진다. 두 사건 모두 총수요의 대이동으로 설명된다.</div>
+      <div style="display:flex;justify-content:center;padding:8px 0;">
+        <svg viewBox="0 0 540 240" width="100%" style="max-width:540px;font-family:'Noto Sans KR','Inter',sans-serif;">
+          <line x1="55" y1="200" x2="520" y2="200" stroke="#999" stroke-width="1"/>
+          <line x1="55" y1="30" x2="55" y2="215" stroke="#555" stroke-width="2"/>
+          <text x="6" y="38" font-size="9" fill="#555">3년 변화율</text>
+          <text x="30" y="68" font-size="9" fill="#777">+40%</text>
+          <text x="30" y="136" font-size="9" fill="#777">+10%</text>
+          <text x="30" y="204" font-size="9" fill="#777">0%</text>
+          <text x="26" y="232" font-size="9" fill="#777">−20%</text>
+          <!-- average growth line ~10% -->
+          <line x1="55" y1="132" x2="520" y2="132" stroke="#555" stroke-width="1.2" stroke-dasharray="6,4"/>
+          <text x="448" y="126" font-size="9" fill="#555">Average growth (~10%)</text>
+          <!-- Depression band -->
+          <rect x="170" y="30" width="28" height="185" fill="#f4b8b8" opacity="0.5"/>
+          <text x="118" y="46" font-size="9" font-weight="700" fill="#8b1a1a">The Great</text>
+          <text x="118" y="57" font-size="9" font-weight="700" fill="#8b1a1a">Depression</text>
+          <!-- WWII band -->
+          <rect x="218" y="30" width="26" height="185" fill="#f4b8b8" opacity="0.5"/>
+          <text x="248" y="46" font-size="9" font-weight="700" fill="#8b1a1a">WWII Boom</text>
+          <!-- stylized GDP line -->
+          <path d="M 55 138 L 70 120 L 82 150 L 95 125 L 108 145 L 120 118 L 133 140 L 146 122 L 158 148 L 170 165 L 180 228 L 192 200 L 200 150 L 210 105 L 222 130 L 232 62 L 244 95 L 256 185 L 268 140 L 282 122 L 296 135 L 310 125 L 324 140 L 338 128 L 352 138 L 366 126 L 380 142 L 394 130 L 408 138 L 422 132 L 436 144 L 450 134 L 464 148 L 478 158 L 492 138 L 506 142 L 518 136"
+                stroke="#1f52a0" stroke-width="2" fill="none"/>
+          <!-- x labels -->
+          <text x="50" y="228" font-size="8.5" fill="#777">1900</text>
+          <text x="130" y="228" font-size="8.5" fill="#777">1920</text>
+          <text x="212" y="228" font-size="8.5" fill="#777">1940</text>
+          <text x="296" y="228" font-size="8.5" fill="#777">1960</text>
+          <text x="380" y="228" font-size="8.5" fill="#777">1980</text>
+          <text x="462" y="228" font-size="8.5" fill="#777">2000</text>
+        </svg>
       </div>
     </div>
   </div>
 
-  <!-- ===== Q5 ===== -->
-  <div class="problem" id="q5">
-    <div class="problem-header">
-      <span class="problem-number">Q 05</span>
-      <span class="problem-title">우유·꿀 데이터로 명목 GDP, 실질 GDP, GDP 디플레이터 계산</span>
+  <!-- ══════════ CASE STUDY 2 ══════════ -->
+  <div class="case-box">
+    <div class="case-tag"><span class="badge">Case Study</span></div>
+    <h4>The Great Recession of 2008–2009
+      <span class="ko-sub">2008–2009년 대침체</span>
+    </h4>
+
+    <div class="para-block">
+      <div class="para-en">In 2008 and 2009, the U.S. economy experienced a financial crisis and a severe downturn in economic activity. In many ways, it was the worst macroeconomic event in more than half a century.<br><br>
+      The story of this downturn begins a few years earlier with a substantial boom in the housing market. The boom was, in part, fueled by low interest rates. In the aftermath of the recession of 2001, the Federal Reserve lowered interest rates to historically low levels. Low interest rates helped the economy recover, but by making it less expensive to get a mortgage and buy a home, they also contributed to a rise in housing prices.</div>
+      <div class="para-ko">2008년과 2009년, 미국 경제는 금융 위기와 심각한 경기 침체를 경험했다. 여러 면에서 반세기 만의 최악의 거시경제적 사건이었다.<br><br>
+      이 침체의 이야기는 몇 년 전 주택 시장의 상당한 호황에서 시작된다. 이 호황은 부분적으로 낮은 금리에 의해 촉진되었다. 2001년 경기침체의 여파로 연준은 금리를 역사적으로 낮은 수준까지 인하했다. 낮은 금리는 경제 회복에 도움이 되었지만, 주택담보대출을 받아 집을 사는 비용을 낮춤으로써 주택 가격 상승에도 기여했다.</div>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          Below are some data from the land of milk and honey. Using 2016 as the base year, compute nominal GDP, real GDP, and the GDP deflator for each year. By how much did prices change between 2016 and 2017? Between 2017 and 2018?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          아래는 우유와 꿀의 나라(land of milk and honey)의 데이터이다. 2016년을 기준연도로 각 연도의 명목 GDP, 실질 GDP, GDP 디플레이터를 계산하시오. 2016→2017, 2017→2018 가격 변화율은 얼마인가?
-        </div>
+
+    <div class="para-block">
+      <div class="para-en">In addition to low interest rates, various developments in the mortgage market made it easier for <span class="term">subprime borrowers<span class="tooltip-box"><span class="tip-en">Subprime Borrowers 서브프라임 차입자</span><span class="tip-ko">소득과 신용 이력상 채무불이행 위험이 높은 차입자</span><span class="tip-def">Borrowers with a higher risk of default based on their income and credit history</span></span></span>—those borrowers with a higher risk of default based on their income and credit history—to get loans to buy homes. One development was <span class="term">securitization<span class="tooltip-box"><span class="tip-en">Securitization 증권화</span><span class="tip-ko">금융기관이 대출을 만든 뒤 투자은행과 함께 금융상품으로 묶는 과정</span><span class="tip-def">The process by which a financial institution makes loans and bundles them into financial instruments</span></span></span>, the process by which a financial institution (specifically, a mortgage originator) makes loans and then (with the help of an investment bank) bundles them together into financial instruments called <span class="term">mortgage-backed securities<span class="tooltip-box"><span class="tip-en">Mortgage-Backed Securities 주택저당증권(MBS)</span><span class="tip-ko">주택담보대출을 묶어 만든 금융상품</span><span class="tip-def">Financial instruments created by bundling mortgages together</span></span></span>. These mortgage-backed securities were then sold to other institutions (such as banks and insurance companies), which may not have fully appreciated the risks in these securities. Some economists blame inadequate regulation for these high-risk loans. Others blame misguided government policy: Certain policies encouraged this high-risk lending to make the goal of homeownership more attainable for low-income families. Together, these many forces drove up housing demand and housing prices. From 1995 to 2006, average housing prices in the United States more than doubled.</div>
+      <div class="para-ko">낮은 금리에 더해, 모기지 시장의 여러 발전은 서브프라임 차입자(subprime borrowers) — 소득과 신용 이력상 채무불이행 위험이 더 높은 차입자 — 가 주택 구입 대출을 받기 더 쉽게 만들었다. 그 발전 중 하나가 증권화(securitization)인데, 이는 금융기관(구체적으로 모기지 대출 기관)이 대출을 만든 다음 (투자은행의 도움으로) 그것들을 묶어 주택저당증권(mortgage-backed securities)이라는 금융상품으로 만드는 과정이다. 이 주택저당증권들은 그 후 다른 기관들(은행, 보험회사 등)에 판매되었는데, 이들은 이 증권의 위험을 충분히 인식하지 못했을 수 있다. 일부 경제학자들은 이 고위험 대출에 대해 불충분한 규제를 비난한다. 다른 이들은 잘못된 정부 정책을 비난한다. 특정 정책들이 저소득 가정의 주택 소유 목표를 더 달성 가능하게 만들기 위해 이 고위험 대출을 장려했다는 것이다. 이 많은 힘들이 함께 주택 수요와 주택 가격을 끌어올렸다. 1995년부터 2006년까지 미국의 평균 주택 가격은 두 배 이상 상승했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">The high price of housing, however, proved unsustainable. From 2006 to 2009, housing prices nationwide fell about 30 percent. Such price fluctuations should not necessarily be a problem in a market economy. After all, price movements are how markets equilibrate supply and demand. In this case, however, the price decline had two related repercussions that caused a sizable fall in aggregate demand.<br><br>
+      The first repercussion was a substantial rise in mortgage defaults and home foreclosures. During the housing boom, many homeowners had bought their homes with mostly borrowed money and minimal down payments. When housing prices declined, these homeowners were <span class="term">underwater<span class="tooltip-box"><span class="tip-en">Underwater 깡통주택 상태</span><span class="tip-ko">주택 가치보다 모기지 부채가 더 큰 상태</span><span class="tip-def">Owing more on a mortgage than the home is worth</span></span></span> (they owed more on their mortgages than their homes were worth). Many of these homeowners stopped repaying their loans. The banks servicing the mortgages responded to these defaults by taking the houses away in foreclosure procedures and then selling them off. The banks' goal was to recoup whatever they could from the bad loans. As you might have expected from your study of supply and demand, the increase in the number of homes for sale exacerbated the downward spiral of house prices. As house prices fell, spending on the construction of housing also collapsed.</div>
+      <div class="para-ko">그러나 높은 주택 가격은 지속 불가능한 것으로 판명되었다. 2006년부터 2009년까지 전국 주택 가격은 약 30% 하락했다. 이러한 가격 변동이 시장 경제에서 반드시 문제가 되는 것은 아니다. 결국 가격 움직임은 시장이 수요와 공급의 균형을 맞추는 방식이다. 그러나 이 경우, 가격 하락은 총수요의 상당한 감소를 일으킨 두 가지 연관된 파급 효과를 가져왔다.<br><br>
+      첫 번째 파급 효과는 모기지 채무불이행과 주택 압류(foreclosure)의 대폭 증가였다. 주택 호황기에 많은 주택 소유자들이 대부분 빌린 돈과 최소한의 계약금으로 집을 샀다. 주택 가격이 하락하자 이 소유자들은 깡통주택 상태(underwater) — 주택 가치보다 모기지 부채가 더 큰 상태 — 가 되었다. 이들 중 다수가 대출 상환을 중단했다. 모기지를 관리하던 은행들은 압류 절차로 주택을 가져가 매각하는 것으로 채무불이행에 대응했다. 은행의 목표는 부실 대출에서 가능한 한 회수하는 것이었다. 수요와 공급 공부에서 예상할 수 있듯이, 매물 주택 수의 증가는 주택 가격의 하락 소용돌이를 악화시켰다. 주택 가격이 하락하면서 주택 건설 지출도 붕괴했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">A second repercussion was that the various financial institutions that owned mortgage-backed securities suffered huge losses. In essence, by borrowing large sums to buy high-risk mortgages, these companies had bet that house prices would keep rising; when this bet turned bad, they found themselves at or near the point of bankruptcy. Because of these large losses, many financial institutions did not have funds to loan out and the ability of the financial system to channel resources to those who could best use them was impaired. Even creditworthy customers found themselves unable to borrow to finance investment spending.<br><br>
+      As a result of all these events, the economy experienced a large contractionary shift in aggregate demand. Real GDP and employment both fell sharply. Real GDP declined by 4.2 percent between the fourth quarter of 2007 and the second quarter of 2009, and the rate of unemployment rose from 4.4 percent in May 2007 to 10.0 percent in October 2009. This experience served as a vivid reminder that deep economic downturns and personal hardship they cause are not a relic of history but a constant risk in the modern economy.</div>
+      <div class="para-ko">두 번째 파급 효과는 주택저당증권을 보유한 여러 금융기관들이 막대한 손실을 입었다는 것이다. 본질적으로, 거액을 빌려 고위험 모기지를 매입함으로써 이 회사들은 주택 가격이 계속 오를 것이라는 데 베팅한 것이었다. 이 베팅이 잘못되자 그들은 파산 직전 또는 그 근처에 놓이게 되었다. 이 큰 손실 때문에 많은 금융기관들이 대출해줄 자금이 없었고, 자원을 가장 잘 활용할 수 있는 사람들에게 전달하는 금융 시스템의 능력이 손상되었다. 신용도가 좋은 고객들조차 투자 지출 자금을 빌릴 수 없게 되었다.<br><br>
+      이 모든 사건들의 결과로, 경제는 총수요의 대규모 수축 이동을 경험했다. 실질 GDP와 고용이 모두 급격히 하락했다. 실질 GDP는 2007년 4분기부터 2009년 2분기 사이에 4.2% 감소했고, 실업률은 2007년 5월 4.4%에서 2009년 10월 10.0%로 상승했다. 이 경험은 깊은 경기 침체와 그것이 야기하는 개인적 고통이 역사의 유물이 아니라 현대 경제의 상시적 위험임을 생생히 일깨워주었다.</div>
+    </div>
+
+    <!-- Great Recession stat cards -->
+    <div style="font-size:12px;font-weight:700;color:#8b1a1a;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px;">대침체 핵심 수치</div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">×2+</div><div class="lbl">주택 가격 (1995–2006)<br>Housing prices doubled</div></div>
+      <div class="stat-card"><div class="num">−30%</div><div class="lbl">주택 가격 (2006–2009)<br>Housing prices fell</div></div>
+      <div class="stat-card"><div class="num">−4.2%</div><div class="lbl">실질 GDP (2007Q4–2009Q2)<br>Real GDP declined</div></div>
+      <div class="stat-card"><div class="num">4.4%→10%</div><div class="lbl">실업률 (2007.5–2009.10)<br>Unemployment</div></div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">As the crisis unfolded, the U.S. government responded in a variety of ways. Three policy actions—all aimed in part at returning aggregate demand to its previous level—are most noteworthy.<br><br>
+      First, the Fed cut its target for the federal funds rate from 5.25 percent in September 2007 to about zero in December 2008. The Federal Reserve also started buying mortgage-backed securities and other private loans in open-market operations. By purchasing these instruments from the banking system, the Fed provided banks with additional funds in the hope that the banks would make loans more readily available.<br><br>
+      Second, in an even more unusual move in October 2008, Congress appropriated $700 billion for the Treasury to use to rescue the financial system. Much of this money was used for equity injections into banks. That is, the Treasury put funds into the banking system, which the banks could use to make loans and otherwise continue their normal operations; in exchange for these funds, the U.S. government became a part owner of these banks, at least temporarily. The goal of this policy was to stem the crisis on Wall Street and make it easier for businesses and individuals to obtain loans.<br><br>
+      Finally, when Barack Obama became president in January 2009, his first major initiative was a large increase in government spending. After a relatively brief congressional debate over the form of the legislation, the new president signed a $787 billion stimulus bill on February 17, 2009.</div>
+      <div class="para-ko">위기가 전개되면서 미국 정부는 다양한 방식으로 대응했다. 세 가지 정책 행동 — 모두 부분적으로 총수요를 이전 수준으로 되돌리는 것을 목표로 한 — 이 가장 주목할 만하다.<br><br>
+      첫째, 연준은 연방기금금리(federal funds rate) 목표를 2007년 9월 5.25%에서 2008년 12월 약 0%로 인하했다. 연준은 또한 공개시장 운영에서 주택저당증권과 기타 민간 대출을 매입하기 시작했다. 은행 시스템에서 이 상품들을 매입함으로써, 연준은 은행들이 대출을 더 쉽게 제공하기를 바라며 은행에 추가 자금을 공급했다.<br><br>
+      둘째, 2008년 10월의 훨씬 더 이례적인 조치로, 의회는 재무부가 금융 시스템 구제에 사용할 7,000억 달러를 책정했다. 이 돈의 상당 부분이 은행에 대한 자본 투입(equity injections)에 사용되었다. 즉, 재무부가 은행 시스템에 자금을 투입했고, 은행들은 이를 대출과 정상 영업 지속에 사용할 수 있었다. 이 자금의 대가로 미국 정부는 적어도 일시적으로 이 은행들의 부분 소유주가 되었다. 이 정책의 목표는 월스트리트의 위기를 막고 기업과 개인이 대출을 받기 쉽게 만드는 것이었다.<br><br>
+      마지막으로, 버락 오바마(Barack Obama)가 2009년 1월 대통령이 되었을 때, 그의 첫 주요 정책은 정부 지출의 대폭 증가였다. 법안 형태에 대한 비교적 짧은 의회 논쟁 후, 새 대통령은 2009년 2월 17일 7,870억 달러 규모의 경기부양법(stimulus bill)에 서명했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">The recovery from this recession officially began in June 2009. But it was, by historical standards, only a meager recovery. From the second quarter of 2009 to the fourth quarter of 2015, real GDP growth averaged only 2.1 percent per year, well below the average rate of growth over the past half century of about 3 percent. Although unemployment fell to 5.0 percent by the end of 2015, much of the decline was attributable to individuals leaving the labor force rather than finding jobs. In December 2015, the employment-to-population ratio was only 1.3 percentage points higher than at its trough during the Great Recession and was more than 3 percentage points lower than before the downturn began.<br><br>
+      Which, if any, of the many policy moves were most important for ending the recession? And what other policies might have promoted a more robust recovery? These are surely questions that macroeconomic historians will debate in the years to come.</div>
+      <div class="para-ko">이 경기침체로부터의 회복은 공식적으로 2009년 6월에 시작되었다. 그러나 역사적 기준으로 볼 때 미약한 회복에 불과했다. 2009년 2분기부터 2015년 4분기까지 실질 GDP 성장률은 연평균 2.1%에 그쳤는데, 이는 지난 반세기 평균 성장률인 약 3%를 크게 밑도는 수준이다. 실업률은 2015년 말까지 5.0%로 떨어졌지만, 하락의 상당 부분은 일자리를 찾아서가 아니라 노동인구에서 이탈한 사람들 때문이었다. 2015년 12월, 고용-인구 비율은 대침체 저점보다 겨우 1.3%포인트 높았고, 침체 시작 전보다는 3%포인트 이상 낮았다.<br><br>
+      많은 정책 조치들 중 어느 것이 경기침체 종식에 가장 중요했는가? 그리고 어떤 다른 정책들이 더 견고한 회복을 촉진할 수 있었을까? 이는 분명 거시경제사학자들이 앞으로 수년간 논쟁할 질문들이다.</div>
+    </div>
+
+    <!-- Policy response cards -->
+    <div style="font-size:12px;font-weight:700;color:#8b1a1a;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px;">3대 정책 대응 (Three Policy Actions)</div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">5.25%→0</div><div class="lbl">① 연방기금금리 인하 + MBS 매입<br>(Fed, 2007.9–2008.12)</div></div>
+      <div class="stat-card"><div class="num">$700B</div><div class="lbl">② 금융시스템 구제·은행 자본 투입<br>(의회→재무부, 2008.10)</div></div>
+      <div class="stat-card"><div class="num">$787B</div><div class="lbl">③ 경기부양법 — 정부 지출 확대<br>(오바마, 2009.2.17)</div></div>
+    </div>
+  </div>
+
+  <!-- ── Glossary ── -->
+  <div class="glossary-rail">
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <div class="term-name">Long-Run Equilibrium <span>장기 균형</span></div>
+        <div class="term-def-en">AD crosses LRAS; expected price = actual price, so SRAS passes through too</div>
+        <div class="term-def-ko">AD와 LRAS의 교차점(점 A); 예상 물가 = 실제 물가여서 SRAS도 통과</div>
       </div>
-
-      <table>
-        <thead>
-          <tr><th>연도</th><th>우유 가격</th><th>우유 수량</th><th>꿀 가격</th><th>꿀 수량</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>2016</td><td>$1</td><td>100 quarts</td><td>$2</td><td>50 quarts</td></tr>
-          <tr><td>2017</td><td>$1</td><td>200</td><td>$2</td><td>100</td></tr>
-          <tr><td>2018</td><td>$2</td><td>200</td><td>$4</td><td>100</td></tr>
-        </tbody>
-      </table>
-
-      <div class="sub" style="margin-top:14px;">
-        <div class="sub-q">
-          <div class="sub-q-en">a. Compute nominal GDP, real GDP, and GDP deflator for each year.</div>
-          <div class="sub-q-ko">a. 각 연도의 명목 GDP, 실질 GDP, GDP 디플레이터를 계산하시오.</div>
-        </div>
-        <div class="sub-body">
-          <code class="formula">Nominal GDP = (P_milk × Q_milk) + (P_honey × Q_honey)</code>
-          <code class="formula">Real GDP    = (P_2016_milk × Q_t) + (P_2016_honey × Q_t)</code>
-          <code class="formula">GDP Deflator = (Nominal GDP / Real GDP) × 100</code>
-          <div class="answer" style="margin-top:8px;">
-            <div class="answer-label">✔ 결과</div>
-            <table>
-              <thead><tr><th>연도</th><th>명목 GDP</th><th>실질 GDP</th><th>디플레이터</th></tr></thead>
-              <tbody>
-                <tr><td>2016</td><td>$200</td><td>$200</td><td>100</td></tr>
-                <tr><td>2017</td><td>$400</td><td>$400</td><td>100</td></tr>
-                <tr><td>2018</td><td>$800</td><td>$400</td><td>200</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="glossary-item">
+        <div class="term-name">Self-Fulfilling Pessimism <span>자기실현적 비관주의</span></div>
+        <div class="term-def-en">pessimism reduces AD → falling incomes and rising unemployment</div>
+        <div class="term-def-ko">미래에 대한 비관이 총수요를 줄여 실제로 소득 하락·실업 증가를 낳음</div>
       </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. By how much did prices change between 2016–2017 and 2017–2018?</div>
-          <div class="sub-q-ko">b. 2016→2017, 2017→2018 기간의 물가 변화율은?</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <p>2016→2017: (100−100)/100×100 = <span class="key">0% (물가 불변)</span></p>
-            <p>2017→2018: (200−100)/100×100 = <span class="key">100% 상승</span></p>
-            <p style="margin-top:6px;">⚠ 2018년 실질 GDP는 2017년과 동일($400). 수량 변화 없이 가격만 2배 상승.</p>
-          </div>
-        </div>
+      <div class="glossary-item">
+        <div class="term-name">Monetary Neutrality <span>화폐의 중립성</span></div>
+        <div class="term-def-en">long run: A→C (nominal only); short run: A→B (real effects)</div>
+        <div class="term-def-ko">장기에는 물가만 변화(A→C), 단기에는 실질 효과 존재(A→B)</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Stabilization Policy <span>안정화 정책</span></div>
+        <div class="term-def-en">government spending or money supply increases shift AD right to offset recessions</div>
+        <div class="term-def-ko">정부 지출·통화량 확대로 AD를 우측 이동시켜 침체의 길이·심각성 완화</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Securitization <span>증권화</span></div>
+        <div class="term-def-en">bundling loans into financial instruments (e.g., mortgage-backed securities)</div>
+        <div class="term-def-ko">대출을 묶어 금융상품(주택저당증권 등)으로 만드는 과정</div>
+      </div>
+      <div class="glossary-item">
+        <div class="term-name">Underwater <span>깡통주택 상태</span></div>
+        <div class="term-def-en">owing more on a mortgage than the home is worth</div>
+        <div class="term-def-ko">주택 가치보다 모기지 부채가 더 큰 상태 → 채무불이행·압류 급증</div>
       </div>
     </div>
   </div>
 
-  <!-- ===== Q6 ===== -->
-  <div class="problem" id="q6">
-    <div class="problem-header">
-      <span class="problem-number">Q 06</span>
-      <span class="problem-title">초콜릿 바 경제 — 실질 GDP 성장률, 인플레이션율</span>
+  <!-- Quick Quiz (teacher-made comprehension for 33-5a) -->
+  <div class="quick-quiz">
+    <div class="quiz-badge">Check-Up</div>
+    <div class="quiz-text">
+      Suppose a wave of pessimism overtakes the economy. Using the four-step framework, trace the economy's path in the short run and in the long run. What happens to output and the price level at each stage, and why does the economy correct itself even without policy action?
+      <span class="ko">비관주의의 물결이 경제를 덮쳤다고 가정하자. 4단계 분석틀을 사용하여 단기와 장기에서 경제의 경로를 추적하라. 각 단계에서 산출량과 물가 수준은 어떻게 되며, 정책 조치 없이도 경제가 스스로 교정되는 이유는 무엇인가?</span>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          Consider an economy that produces only chocolate bars. The GDP deflator for each three-year period is as follows. What is the real GDP for each of these years? What is the real GDP growth rate from year 2 to year 3? What is the inflation rate as measured by the GDP deflator?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          초콜릿 바만 생산하는 경제. 기준연도 Year 1. 각 연도의 실질 GDP, 성장률, GDP 디플레이터 기반 인플레이션율을 구하시오.
-        </div>
+  </div>
+
+  <div class="answer-toggle-wrap">
+    <button class="answer-toggle-btn" onclick="toggleAnswer()" id="answerBtn">
+      <span class="btn-icon">▶</span>
+      <span class="btn-label">예시 답안 보기</span>
+      <span class="btn-label-en">Show Model Answer</span>
+    </button>
+  </div>
+
+  <div class="model-answer" id="modelAnswer">
+    <div class="answer-header">
+      <div class="answer-badge">Model Answer</div>
+      <div class="answer-title">
+        <strong>예시 답안</strong>
+        <span>33-5a — A Contraction in Aggregate Demand (Four-Step Analysis)</span>
       </div>
+    </div>
 
-      <table>
-        <thead>
-          <tr><th>연도</th><th>수량</th><th>가격</th><th>명목 GDP</th><th>실질 GDP (Y1 기준)</th><th>디플레이터</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Year 1</td><td>3 bars</td><td>$4</td><td>$12</td><td>$12</td><td>100</td></tr>
-          <tr><td>Year 2</td><td>4 bars</td><td>$5</td><td>$20</td><td>$16</td><td>125</td></tr>
-          <tr><td>Year 3</td><td>5 bars</td><td>$6</td><td>$30</td><td>$20</td><td>150</td></tr>
-        </tbody>
-      </table>
-
-      <div class="sub" style="margin-top:14px;">
-        <div class="sub-q">
-          <div class="sub-q-en">a. What is the real GDP growth rate from Year 1 to Year 2?</div>
-          <div class="sub-q-ko">a. Year 1 → Year 2 실질 GDP 성장률</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>($16 − $12) / $12 × 100 = <span class="key">33.3%</span></p>
-          </div>
-        </div>
+    <div class="answer-fact">
+      <div class="answer-fact-num">1·2</div>
+      <div class="answer-fact-body">
+        <h4>Steps 1 &amp; 2: Which Curve, Which Direction?<span class="ko-h4">1·2단계: 어느 곡선이, 어느 방향으로?</span></h4>
+        <div class="answer-en">Pessimism affects households' and firms' spending plans, so it affects the <strong>aggregate-demand curve</strong>. Because they now buy less at any given price level, AD shifts <strong>left</strong>, from AD₁ to AD₂.</div>
+        <div class="answer-ko">비관주의는 가계와 기업의 지출 계획에 영향을 미치므로 <strong>총수요 곡선</strong>에 영향을 준다. 주어진 물가 수준에서 구매가 줄어들기 때문에 AD는 AD₁에서 AD₂로 <strong>왼쪽</strong>으로 이동한다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. What is the real GDP growth rate from Year 2 to Year 3?</div>
-          <div class="sub-q-ko">b. Year 2 → Year 3 실질 GDP 성장률</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>($20 − $16) / $16 × 100 = <span class="key">25%</span></p>
-          </div>
-        </div>
+    <div class="answer-fact">
+      <div class="answer-fact-num">3</div>
+      <div class="answer-fact-body">
+        <h4>Step 3: Short-Run Effect (A → B)<span class="ko-h4">3단계: 단기 효과 (A → B)</span></h4>
+        <div class="answer-en">The economy moves along the initial short-run aggregate-supply curve AS₁ from point A to point B. <strong>Output falls (Y₁→Y₂)</strong> and <strong>the price level falls (P₁→P₂)</strong> — a recession. Firms cut employment, so the pessimism becomes self-fulfilling: fear of bad times produces falling incomes and rising unemployment.</div>
+        <div class="answer-ko">경제는 최초의 단기 총공급 곡선 AS₁을 따라 점 A에서 점 B로 이동한다. <strong>산출량이 하락하고(Y₁→Y₂)</strong> <strong>물가 수준도 하락한다(P₁→P₂)</strong> — 경기침체이다. 기업들이 고용을 줄이므로 비관주의는 자기실현적이 된다. 나쁜 시기에 대한 두려움이 소득 하락과 실업 증가를 낳는다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">c. What is the inflation rate from Year 1 to Year 2 as measured by the GDP deflator?</div>
-          <div class="sub-q-ko">c. Year 1 → Year 2 인플레이션율 (GDP 디플레이터 기준)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>(125 − 100) / 100 × 100 = <span class="key">25%</span></p>
-          </div>
-        </div>
+    <div class="answer-fact" style="border-bottom:none;">
+      <div class="answer-fact-num">4</div>
+      <div class="answer-fact-body">
+        <h4>Step 4: Transition to the Long Run (B → C)<span class="ko-h4">4단계: 장기로의 전환 (B → C)</span></h4>
+        <div class="answer-en">The actual price level (P₂) is now below what people expected (P₁). Over time, expectations catch up: the <strong>expected price level falls</strong>, workers accept lower nominal wages, costs decline, and the <strong>SRAS shifts right (AS₁→AS₂)</strong>. The economy reaches point C, where AD₂ crosses the LRAS: <strong>output returns to its natural level Y₁</strong> while the price level settles lower at P₃. The economy corrects itself because the expectations adjustment — not any policy — moves SRAS. In the long run the AD shift is purely nominal (lower P), not real (same Y). Policymakers <em>could</em> instead shift AD back right (more government spending or money supply) to shorten the painful recession.</div>
+        <div class="answer-ko">실제 물가 수준(P₂)이 이제 사람들의 예상(P₁)보다 낮다. 시간이 지나면서 기대가 따라잡는다. <strong>예상 물가 수준이 하락</strong>하고, 노동자들이 더 낮은 명목 임금을 수용하며, 비용이 감소하여 <strong>SRAS가 우측 이동한다(AS₁→AS₂)</strong>. 경제는 AD₂가 LRAS와 교차하는 점 C에 도달한다. <strong>산출량은 자연 수준 Y₁로 복귀</strong>하고 물가 수준은 더 낮은 P₃에 안착한다. 경제가 스스로 교정되는 것은 정책이 아니라 기대 조정이 SRAS를 이동시키기 때문이다. 장기에서 총수요 이동은 순수하게 명목적(물가 하락)이고 실질적(산출량 동일)이지 않다. 정책 입안자들은 대신 정부 지출이나 통화량을 늘려 AD를 우측으로 되돌림으로써 고통스러운 침체를 단축할 <em>수도</em> 있다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">d. What is the inflation rate from Year 2 to Year 3?</div>
-          <div class="sub-q-ko">d. Year 2 → Year 3 인플레이션율</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>(150 − 125) / 125 × 100 = <span class="key">20%</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">e. What is the nominal GDP growth rate for each of these three years?</div>
-          <div class="sub-q-ko">e. 각 연도 명목 GDP 성장률</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <ul>
-              <li>Y1→Y2: (20−12)/12×100 = <span class="key">66.7%</span></li>
-              <li>Y2→Y3: (30−20)/20×100 = <span class="key">50%</span></li>
-            </ul>
-            <p style="margin-top:6px;">명목 성장률 > 실질 성장률 → 차이 = 물가 상승분</p>
-          </div>
-        </div>
+    <div class="answer-summary">
+      <div style="font-size:20px;flex-shrink:0;">💡</div>
+      <div>
+        <strong>핵심 요약 / Summary</strong><br>
+        AD 좌측 이동 → 단기: <span class="hl">A→B, 산출량↓·물가↓ (경기침체)</span> → 예상 물가 하락 → SRAS 우측 이동 → 장기: <span class="hl">C에서 산출량 자연 수준 복귀, 물가만 하락</span>. 단기는 실질 효과, 장기는 명목 효과만 — 이것이 화폐의 중립성이다.
       </div>
     </div>
   </div>
 
-  <!-- ===== Q7 ===== -->
-  <div class="problem" id="q7">
-    <div class="problem-header">
-      <span class="problem-number">Q 07</span>
-      <span class="problem-title">미국 명목 GDP · GDP 디플레이터 데이터 분석 (1994, 2014)</span>
+
+  <!-- ══════════ 33-5b ══════════ -->
+  <div class="sub-header" style="margin-top:56px;">
+    <div class="sub-badge">33-5b</div>
+    <div class="sub-title-text">
+      <h3>The Effects of a Shift in Aggregate Supply</h3>
+      <div class="ko">총공급 이동의 효과</div>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          Consider the following data on U.S. GDP. Calculate real GDP for 1994 and 2014 measured in 2009 dollars. By what percentage did real GDP grow between 1994 and 2014? Find the growth rate of nominal GDP. Was the growth rate of nominal GDP higher or lower than the growth rate of real GDP? Explain.
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          다음 미국 GDP 데이터를 이용하시오. 2009년 기준 달러로 1994년과 2014년 실질 GDP를 계산하고, 실질 GDP 성장률과 명목 GDP 성장률을 비교하시오.
-        </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Imagine once again an economy in its long-run equilibrium. Now suppose that suddenly some firms experience an increase in their costs of production. For example, bad weather in farm states might destroy some crops, driving up the cost of producing food products. Or a war in the Middle East might interrupt the shipping of crude oil, driving up the cost of producing oil products.</div>
+    <div class="para-ko">다시 한번 장기 균형에 있는 경제를 상상해 보자. 이제 갑자기 일부 기업들이 생산 비용의 증가를 경험한다고 가정하자. 예를 들어, 농업 주(州)의 악천후가 일부 농작물을 파괴하여 식품 생산 비용을 끌어올릴 수 있다. 또는 중동에서의 전쟁이 원유 수송을 중단시켜 석유 제품 생산 비용을 끌어올릴 수 있다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">To analyze the macroeconomic impact of such an increase in production costs, we follow the same four steps as always. First, which curve is affected? Because production costs affect the firms that supply goods and services, changes in production costs alter the position of the aggregate-supply curve. Second, in which direction does the curve shift? Because higher production costs make selling goods and services less profitable, firms now supply a smaller quantity of output for any given price level. Thus, as Figure 10 shows, the short-run aggregate-supply curve shifts to the left, from AS₁ to AS₂. (Depending on the event, the long-run aggregate-supply curve might also shift. To keep things simple, however, we will assume that it does not.)</div>
+    <div class="para-ko">이러한 생산 비용 증가의 거시경제적 영향을 분석하기 위해, 우리는 언제나처럼 동일한 4단계를 따른다. 첫째, 어느 곡선이 영향을 받는가? 생산 비용은 재화와 서비스를 공급하는 기업에 영향을 미치므로, 생산 비용의 변화는 총공급 곡선의 위치를 변경한다. 둘째, 곡선은 어느 방향으로 이동하는가? 더 높은 생산 비용은 재화와 서비스 판매의 수익성을 낮추므로, 기업들은 이제 주어진 물가 수준에서 더 적은 양의 산출물을 공급한다. 따라서 그림 10에서 보듯이, 단기 총공급 곡선은 AS₁에서 AS₂로 왼쪽으로 이동한다. (사건에 따라 장기 총공급 곡선도 이동할 수 있다. 그러나 단순화를 위해 이동하지 않는다고 가정한다.)</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The figure allows us to perform step three of comparing the initial and the new equilibrium. In the short run, the economy goes from point A to point B, moving along the existing aggregate-demand curve. The output of the economy falls from Y₁ to Y₂, and the price level rises from P₁ to P₂. Because the economy is experiencing both <em>stagnation</em> (falling output) and <em>inflation</em> (rising prices), such an event is sometimes called <strong>stagflation</strong>.</div>
+    <div class="para-ko">이 그림으로 처음 균형과 새 균형을 비교하는 세 번째 단계를 수행할 수 있다. 단기에서 경제는 기존의 총수요 곡선을 따라 점 A에서 점 B로 이동한다. 경제의 산출량은 Y₁에서 Y₂로 하락하고, 물가 수준은 P₁에서 P₂로 상승한다. 경제가 <em>스태그네이션(stagnation, 산출량 하락)</em>과 <em>인플레이션(inflation, 물가 상승)</em>을 동시에 겪고 있기 때문에, 이러한 사건은 때때로 <strong>스태그플레이션(stagflation)</strong>이라고 불린다.</div>
+  </div>
+
+  <!-- stagflation key term -->
+  <div class="term-sidebar" style="display:flex;gap:14px;background:var(--term-bg);color:var(--term-text);padding:16px 20px;margin:20px 0;border-radius:2px;align-items:flex-start;">
+    <div style="flex-shrink:0;background:var(--accent);color:white;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 7px;border-radius:2px;margin-top:2px;">KEY TERM</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#f5d98a;margin-bottom:4px;">stagflation <em>(스태그플레이션)</em></div>
+      <div style="font-size:13px;color:#f0e0c0;line-height:1.7;">a period of falling output and rising prices<br>— 산출량이 하락하면서 물가가 상승하는 시기</div>
+    </div>
+  </div>
+
+  <!-- Figure 10 -->
+  <div class="figure-wrap">
+    <div class="figure-title">Figure 10 — An Adverse Shift in Aggregate Supply</div>
+    <div class="figure-caption">생산 비용 상승 → SRAS가 AS₁에서 AS₂로 좌측 이동 → 경제는 A에서 B로 이동 → 스태그플레이션: 산출량은 Y₁→Y₂ 하락, 물가는 P₁→P₂ 상승</div>
+    <div style="display:flex;justify-content:center;padding:8px 0;">
+      <svg viewBox="0 0 520 330" width="100%" style="max-width:520px;font-family:'Noto Sans KR','Inter',sans-serif;">
+        <line x1="60" y1="285" x2="480" y2="285" stroke="#555" stroke-width="2"/>
+        <line x1="60" y1="285" x2="60" y2="24" stroke="#555" stroke-width="2"/>
+        <polygon points="480,280 480,290 492,285" fill="#555"/>
+        <polygon points="55,24 65,24 60,12" fill="#555"/>
+        <text x="496" y="289" font-size="11" fill="#444">Q</text>
+        <text x="14" y="26" font-size="10" fill="#555">물가</text>
+        <text x="358" y="303" font-size="11" fill="#555">Quantity of Output</text>
+        <!-- LRAS -->
+        <line x1="268" y1="280" x2="268" y2="34" stroke="#1e7a44" stroke-width="3"/>
+        <text x="180" y="32" font-size="9.5" font-weight="700" fill="#1e7a44">Long-run aggregate supply</text>
+        <!-- AS1 -->
+        <path d="M 150 262 Q 265 185 415 92" stroke="#1f52a0" stroke-width="2.5" fill="none"/>
+        <text x="388" y="78" font-size="10" font-weight="700" fill="#1f52a0">Short-run aggregate</text>
+        <text x="388" y="90" font-size="10" font-weight="700" fill="#1f52a0">supply, AS₁</text>
+        <!-- AS2 (shifted LEFT) -->
+        <path d="M 102 252 Q 215 172 362 80" stroke="#6090d8" stroke-width="2.5" fill="none" stroke-dasharray="7,4"/>
+        <text x="340" y="66" font-size="11" font-weight="700" fill="#6090d8">AS₂</text>
+        <!-- AS shift arrow (leftward) -->
+        <line x1="352" y1="118" x2="314" y2="104" stroke="#6090d8" stroke-width="1.5"/>
+        <polygon points="318,102 312,112 308,100" fill="#6090d8"/>
+        <!-- AD -->
+        <path d="M 118 70 Q 250 180 432 262" stroke="#c22828" stroke-width="2.5" fill="none"/>
+        <text x="380" y="276" font-size="10" font-weight="700" fill="#c22828">Aggregate demand</text>
+        <!-- Points A, B -->
+        <circle cx="268" cy="158" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="277" y="172" font-size="13" font-weight="800" fill="#151210">A</text>
+        <circle cx="228" cy="128" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="212" y="122" font-size="13" font-weight="800" fill="#151210">B</text>
+        <!-- P dashed -->
+        <line x1="60" y1="158" x2="268" y2="158" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="162" font-size="11" font-weight="700" fill="#555">P₁</text>
+        <line x1="60" y1="128" x2="228" y2="128" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="132" font-size="11" font-weight="700" fill="#555">P₂</text>
+        <!-- P rise arrow -->
+        <line x1="44" y1="152" x2="44" y2="136" stroke="#c97d10" stroke-width="1.5"/>
+        <polygon points="40,138 48,138 44,129" fill="#c97d10"/>
+        <!-- Y dashed -->
+        <line x1="228" y1="128" x2="228" y2="285" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="268" y1="158" x2="268" y2="285" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="217" y="300" font-size="11" font-weight="700" fill="#c97d10">Y₂</text>
+        <text x="259" y="300" font-size="11" font-weight="700" fill="#c97d10">Y₁</text>
+        <!-- Y fall arrow -->
+        <line x1="256" y1="293" x2="240" y2="293" stroke="#1f52a0" stroke-width="1.5"/>
+        <polygon points="242,289 242,297 234,293" fill="#1f52a0"/>
+        <!-- annotations -->
+        <rect x="300" y="28" width="172" height="30" rx="3" fill="#eef4ff" stroke="#6090d8" stroke-width="1"/>
+        <text x="308" y="41" font-size="9.5" fill="#1a2e5a">1. An adverse shift in the short-run</text>
+        <text x="308" y="53" font-size="9.5" fill="#1a2e5a">aggregate-supply curve...</text>
+        <rect x="66" y="190" width="120" height="42" rx="3" fill="#fff8e6" stroke="#c97d10" stroke-width="1"/>
+        <text x="74" y="204" font-size="9.5" fill="#5a3e00">3. ...and the price</text>
+        <text x="74" y="216" font-size="9.5" fill="#5a3e00">level to rise</text>
+        <text x="74" y="228" font-size="9.5" fill="#5a3e00">(물가 상승)</text>
+        <rect x="300" y="238" width="150" height="30" rx="3" fill="#fdeaea" stroke="#c22828" stroke-width="1"/>
+        <text x="308" y="251" font-size="9.5" fill="#7a1a1a">2. ...causes output to fall</text>
+        <text x="308" y="263" font-size="9.5" fill="#7a1a1a">(산출량 하락) → 스태그플레이션</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">Now consider step four—the transition from the short-run equilibrium to the long-run equilibrium. According to the sticky-wage theory, the key issue is how stagflation affects nominal wages. Firms and workers may at first respond to the higher level of prices by raising their expectations of the price level and setting higher nominal wages. In this case, firms' costs will rise yet again, and the short-run aggregate-supply curve will shift farther to the left, making the problem of stagflation even worse. This phenomenon of higher prices leading to higher wages, in turn leading to even higher prices, is sometimes called a <em>wage-price spiral</em>.</div>
+    <div class="para-ko">이제 네 번째 단계 — 단기 균형에서 장기 균형으로의 전환 — 를 고려하자. 경직적 임금 이론에 따르면, 핵심 쟁점은 스태그플레이션이 명목 임금에 어떻게 영향을 미치는가이다. 기업과 노동자들은 처음에는 더 높은 물가 수준에 대해 물가 기대를 높이고 더 높은 명목 임금을 설정하는 것으로 반응할 수 있다. 이 경우 기업의 비용은 다시 상승하고, 단기 총공급 곡선은 더 왼쪽으로 이동하여 스태그플레이션 문제를 더욱 악화시킨다. 높은 물가가 높은 임금으로 이어지고, 이것이 다시 더 높은 물가로 이어지는 이 현상을 때때로 <em>임금-물가 악순환(wage-price spiral)</em>이라고 부른다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">At some point, this spiral of ever-rising wages and prices will slow. The low level of output and employment will put downward pressure on workers' wages because workers have less bargaining power when unemployment is high. As nominal wages fall, producing goods and services becomes more profitable and the short-run aggregate-supply curve shifts to the right. As it shifts back toward AS₁, the price level falls and the quantity of output approaches its natural level. In the long run, the economy returns to point A, where the aggregate-demand curve crosses the long-run aggregate-supply curve.</div>
+    <div class="para-ko">어느 시점에서 이 임금과 물가의 끊임없는 상승 악순환은 둔화될 것이다. 낮은 산출량과 고용 수준은 노동자들의 임금에 하방 압력을 가할 것이다. 실업률이 높을 때 노동자들의 협상력이 약해지기 때문이다. 명목 임금이 하락하면 재화와 서비스 생산의 수익성이 높아지고 단기 총공급 곡선이 오른쪽으로 이동한다. AS₁로 되돌아가면서 물가 수준은 하락하고 산출량은 자연 수준에 접근한다. 장기에서 경제는 총수요 곡선이 장기 총공급 곡선과 교차하는 점 A로 돌아온다.</div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">This transition back to the initial equilibrium assumes, however, that aggregate demand is held constant throughout the process. In the real world, that may not be the case. Policymakers who control monetary and fiscal policy might attempt to offset some of the effects of the shift in the short-run aggregate-supply curve by shifting the aggregate-demand curve. This possibility is shown in Figure 11. In this case, changes in policy shift the aggregate-demand curve to the right, from AD₁ to AD₂—exactly enough to prevent the shift in aggregate supply from affecting output. The economy moves directly from point A to point C. Output remains at its natural level, and the price level rises from P₁ to P₃. In this case, policymakers are said to <em>accommodate</em> the shift in aggregate supply. An accommodative policy accepts a permanently higher level of prices to maintain a higher level of output and employment.</div>
+    <div class="para-ko">그러나 이러한 최초 균형으로의 복귀는 그 과정 내내 총수요가 일정하게 유지된다고 가정한다. 현실 세계에서는 그렇지 않을 수 있다. 통화 정책과 재정 정책을 통제하는 정책 입안자들은 총수요 곡선을 이동시킴으로써 단기 총공급 곡선 이동의 효과 일부를 상쇄하려 시도할 수 있다. 이 가능성이 그림 11에 나타나 있다. 이 경우, 정책 변화가 총수요 곡선을 AD₁에서 AD₂로 오른쪽으로 이동시킨다 — 정확히 총공급 이동이 산출량에 영향을 미치지 못하게 막을 만큼이다. 경제는 점 A에서 점 C로 곧바로 이동한다. 산출량은 자연 수준에 머물고, 물가 수준은 P₁에서 P₃로 상승한다. 이 경우 정책 입안자들이 총공급의 이동을 <em>수용(accommodate)</em>한다고 말한다. 수용적 정책은 더 높은 산출량과 고용 수준을 유지하기 위해 영구적으로 더 높은 물가 수준을 받아들인다.</div>
+  </div>
+
+  <!-- Figure 11 -->
+  <div class="figure-wrap">
+    <div class="figure-title">Figure 11 — Accommodating an Adverse Shift in Aggregate Supply</div>
+    <div class="figure-caption">AS₁→AS₂ 좌측 이동에 직면한 정책 입안자가 AD₁→AD₂ 우측 이동으로 수용 → 경제는 A에서 C로 이동 → 산출량은 자연 수준 유지, 물가는 P₁→P₃로 영구 상승</div>
+    <div style="display:flex;justify-content:center;padding:8px 0;">
+      <svg viewBox="0 0 520 330" width="100%" style="max-width:520px;font-family:'Noto Sans KR','Inter',sans-serif;">
+        <line x1="60" y1="285" x2="480" y2="285" stroke="#555" stroke-width="2"/>
+        <line x1="60" y1="285" x2="60" y2="24" stroke="#555" stroke-width="2"/>
+        <polygon points="480,280 480,290 492,285" fill="#555"/>
+        <polygon points="55,24 65,24 60,12" fill="#555"/>
+        <text x="496" y="289" font-size="11" fill="#444">Q</text>
+        <text x="14" y="26" font-size="10" fill="#555">물가</text>
+        <text x="358" y="303" font-size="11" fill="#555">Quantity of Output</text>
+        <!-- LRAS -->
+        <line x1="262" y1="280" x2="262" y2="34" stroke="#1e7a44" stroke-width="3"/>
+        <text x="176" y="32" font-size="9.5" font-weight="700" fill="#1e7a44">Long-run aggregate supply</text>
+        <!-- AS1 -->
+        <path d="M 150 262 Q 268 182 418 90" stroke="#1f52a0" stroke-width="2.5" fill="none"/>
+        <text x="392" y="76" font-size="10" font-weight="700" fill="#1f52a0">Short-run aggregate</text>
+        <text x="392" y="88" font-size="10" font-weight="700" fill="#1f52a0">supply, AS₁</text>
+        <!-- AS2 shifted left -->
+        <path d="M 104 252 Q 218 170 364 78" stroke="#6090d8" stroke-width="2.5" fill="none" stroke-dasharray="7,4"/>
+        <text x="342" y="64" font-size="11" font-weight="700" fill="#6090d8">AS₂</text>
+        <line x1="354" y1="116" x2="316" y2="102" stroke="#6090d8" stroke-width="1.5"/>
+        <polygon points="320,100 314,110 310,98" fill="#6090d8"/>
+        <!-- AD1 -->
+        <path d="M 110 76 Q 240 180 408 258" stroke="#c22828" stroke-width="2.5" fill="none"/>
+        <text x="352" y="272" font-size="10" font-weight="700" fill="#c22828">Aggregate demand, AD₁</text>
+        <!-- AD2 shifted right -->
+        <path d="M 162 62 Q 300 168 462 244" stroke="#e88080" stroke-width="2.5" fill="none" stroke-dasharray="7,4"/>
+        <text x="446" y="232" font-size="11" font-weight="700" fill="#e88080">AD₂</text>
+        <line x1="282" y1="208" x2="320" y2="224" stroke="#e88080" stroke-width="1.5"/>
+        <polygon points="316,226 322,216 326,228" fill="#e88080"/>
+        <!-- Points A, C -->
+        <circle cx="262" cy="162" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="270" y="178" font-size="13" font-weight="800" fill="#151210">A</text>
+        <circle cx="262" cy="114" r="5.5" fill="#151210" stroke="white" stroke-width="1.8"/>
+        <text x="271" y="110" font-size="13" font-weight="800" fill="#151210">C</text>
+        <!-- P dashed -->
+        <line x1="60" y1="162" x2="262" y2="162" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="166" font-size="11" font-weight="700" fill="#555">P₁</text>
+        <line x1="60" y1="114" x2="262" y2="114" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="34" y="118" font-size="11" font-weight="700" fill="#555">P₃</text>
+        <!-- P rise arrow -->
+        <line x1="44" y1="156" x2="44" y2="124" stroke="#c97d10" stroke-width="1.5"/>
+        <polygon points="40,126 48,126 44,117" fill="#c97d10"/>
+        <!-- Y -->
+        <line x1="262" y1="285" x2="262" y2="280" stroke="#555" stroke-width="2"/>
+        <text x="216" y="300" font-size="10" fill="#555" font-weight="600">Natural level of output</text>
+        <!-- annotations -->
+        <rect x="306" y="28" width="166" height="30" rx="3" fill="#eef4ff" stroke="#6090d8" stroke-width="1"/>
+        <text x="314" y="41" font-size="9.5" fill="#1a2e5a">1. When short-run aggregate</text>
+        <text x="314" y="53" font-size="9.5" fill="#1a2e5a">supply falls...</text>
+        <rect x="320" y="140" width="152" height="42" rx="3" fill="#fdeaea" stroke="#e88080" stroke-width="1"/>
+        <text x="328" y="154" font-size="9.5" fill="#7a1a1a">2. ...policymakers can</text>
+        <text x="328" y="166" font-size="9.5" fill="#7a1a1a">accommodate the shift by</text>
+        <text x="328" y="178" font-size="9.5" fill="#7a1a1a">expanding aggregate demand...</text>
+        <rect x="66" y="56" width="118" height="42" rx="3" fill="#fff8e6" stroke="#c97d10" stroke-width="1"/>
+        <text x="74" y="70" font-size="9.5" fill="#5a3e00">3. ...which causes the</text>
+        <text x="74" y="82" font-size="9.5" fill="#5a3e00">price level to rise</text>
+        <text x="74" y="94" font-size="9.5" fill="#5a3e00">further...</text>
+        <rect x="92" y="226" width="146" height="30" rx="3" fill="#e8f4ea" stroke="#1e7a44" stroke-width="1"/>
+        <text x="100" y="239" font-size="9.5" fill="#1a4a2a">4. ...but keeps output at</text>
+        <text x="100" y="251" font-size="9.5" fill="#1a4a2a">its natural level.</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Two Lessons -->
+  <div class="lessons-box">
+    <h4>📌 두 가지 중요한 교훈 (Two Important Lessons about Shifts in Aggregate Supply)</h4>
+    <ul>
+      <li><strong>Shifts in aggregate supply can cause stagflation—a combination of recession (falling output) and inflation (rising prices).</strong><br><span style="font-size:13px;color:#3a5070;">총공급의 이동은 스태그플레이션 — 경기침체(산출량 하락)와 인플레이션(물가 상승)의 결합 — 을 일으킬 수 있다.</span></li>
+      <li><strong>Policymakers who can influence aggregate demand can potentially mitigate the adverse impact on output but only at the cost of exacerbating the problem of inflation.</strong><br><span style="font-size:13px;color:#3a5070;">총수요에 영향을 미칠 수 있는 정책 입안자들은 산출량에 대한 악영향을 잠재적으로 완화할 수 있지만, 인플레이션 문제를 악화시키는 대가를 치러야만 한다.</span></li>
+    </ul>
+  </div>
+
+  <!-- In the News brief note -->
+  <div style="background:#f4f8ee;border:1px solid #a8c878;border-left:4px solid #6a9a30;padding:14px 20px;margin:24px 0;border-radius:0 4px 4px 0;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#4a7a18;text-transform:uppercase;margin-bottom:6px;">In the News (교재 수록 기사 안내)</div>
+    <div style="font-size:13.5px;line-height:1.8;color:#2a3a18;">교재 239~240쪽에는 <em>월스트리트저널</em> 기사 "What Have We Learned?"가 실려 있다. IMF 수석 이코노미스트였던 올리비에 블랑샤르(Olivier Blanchard)가 2008-09 금융위기에서 경제학자들이 배운 다섯 가지 교훈 — ① 겸손이 필요하다, ② 금융 시스템이 매우 중요하다, ③ 상호연결성이 중요하다, ④ 거시건전성 도구의 효과는 불확실하다, ⑤ 중앙은행 독립성은 새 역할에 맞게 설계되지 않았다 — 을 정리한 내용이다. 원문은 교재에서 직접 확인하자.</div>
+  </div>
+
+  <!-- ══════════ CASE STUDY: OIL ══════════ -->
+  <div class="case-box">
+    <div class="case-tag"><span class="badge">Case Study</span></div>
+    <h4>Oil and the Economy
+      <span class="ko-sub">석유와 경제 — 1970년대 오일 쇼크와 스태그플레이션</span>
+    </h4>
+
+    <div class="para-block">
+      <div class="para-en">Some of the largest economic fluctuations in the U.S. economy since 1970 have originated in the oil fields of the Middle East. Crude oil is a key input into the production of many goods and services, and much of the world's oil comes from Saudi Arabia, Kuwait, and other Middle Eastern countries. When some event (usually political in origin) reduces the supply of crude oil flowing from this region, the price of oil rises around the world. Firms in the United States that produce gasoline, tires, and many other products experience rising costs, and they find it less profitable to supply their output of goods and services at any given price level. The result is a leftward shift in the aggregate-supply curve, which in turn leads to stagflation.</div>
+      <div class="para-ko">1970년 이후 미국 경제의 가장 큰 경제 변동 중 일부는 중동의 유전에서 비롯되었다. 원유는 많은 재화와 서비스 생산의 핵심 투입물이며, 세계 석유의 상당 부분이 사우디아라비아, 쿠웨이트 및 기타 중동 국가에서 나온다. (보통 정치적 기원의) 어떤 사건이 이 지역에서 흘러나오는 원유 공급을 줄이면, 전 세계적으로 유가가 상승한다. 휘발유, 타이어 및 기타 많은 제품을 생산하는 미국 기업들은 비용 상승을 경험하고, 주어진 물가 수준에서 재화와 서비스를 공급하는 것이 덜 수익성 있게 된다. 그 결과는 총공급 곡선의 좌측 이동이며, 이는 다시 스태그플레이션으로 이어진다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">The first episode of this sort occurred in the mid-1970s. The countries with large oil reserves got together as members of OPEC, the Organization of the Petroleum Exporting Countries. OPEC is a <span class="term">cartel<span class="tooltip-box"><span class="tip-en">Cartel 카르텔</span><span class="tip-ko">경쟁을 저지하고 생산을 줄여 가격을 올리려는 판매자 집단</span><span class="tip-def">A group of sellers that attempts to thwart competition and reduce production to raise prices</span></span></span>—a group of sellers that attempts to thwart competition and reduce production to raise prices. And indeed, oil prices rose substantially. From 1973 to 1975, oil approximately doubled in price. Oil-importing countries around the world experienced simultaneous inflation and recession. The U.S. inflation rate as measured by the CPI exceeded 10 percent for the first time in decades. Unemployment rose from 4.9 percent in 1973 to 8.5 percent in 1975.</div>
+      <div class="para-ko">이런 종류의 첫 번째 사건은 1970년대 중반에 발생했다. 대규모 석유 매장량을 가진 나라들이 OPEC(석유수출국기구)의 회원국으로 뭉쳤다. OPEC은 카르텔(cartel) — 경쟁을 저지하고 생산을 줄여 가격을 올리려는 판매자 집단 — 이다. 실제로 유가는 크게 상승했다. 1973년부터 1975년까지 유가는 약 두 배가 되었다. 전 세계 석유 수입국들은 인플레이션과 경기침체를 동시에 경험했다. CPI로 측정한 미국 인플레이션율은 수십 년 만에 처음으로 10%를 넘어섰다. 실업률은 1973년 4.9%에서 1975년 8.5%로 상승했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">Almost the same thing happened a few years later. In the late 1970s, the OPEC countries again restricted the supply of oil to raise the price. From 1978 to 1981, the price of oil more than doubled. Once again, the result was stagflation. Inflation, which had subsided somewhat after the first OPEC event, again rose above 10 percent per year. But because the Fed was not willing to accommodate such a large rise in inflation, a recession was soon to follow. Unemployment rose from about 6 percent in 1978 and 1979 to about 10 percent a few years later.</div>
+      <div class="para-ko">몇 년 후 거의 같은 일이 일어났다. 1970년대 후반, OPEC 국가들은 가격을 올리기 위해 다시 석유 공급을 제한했다. 1978년부터 1981년까지 유가는 두 배 이상이 되었다. 다시 한번 결과는 스태그플레이션이었다. 첫 OPEC 사건 이후 다소 가라앉았던 인플레이션이 다시 연 10%를 넘어섰다. 그러나 연준이 그렇게 큰 인플레이션 상승을 수용할 의사가 없었기 때문에 곧 경기침체가 뒤따랐다. 실업률은 1978~79년 약 6%에서 몇 년 후 약 10%로 상승했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">The world market for oil can also be a source of favorable shifts in aggregate supply. In 1986, squabbling broke out among members of OPEC. Member countries reneged on their agreements to restrict oil production. In the world market for crude oil, prices fell by about half. This fall in oil prices reduced costs to U.S. firms, which now found it more profitable to supply goods and services at any given price level. As a result, the aggregate-supply curve shifted to the right. The U.S. economy experienced the opposite of stagflation: Output grew rapidly, unemployment fell, and the inflation rate reached its lowest level in many years.</div>
+      <div class="para-ko">세계 석유 시장은 총공급의 유리한 이동의 원천이 될 수도 있다. 1986년 OPEC 회원국들 사이에 다툼이 일어났다. 회원국들이 석유 생산 제한 합의를 어겼다. 세계 원유 시장에서 가격이 약 절반으로 떨어졌다. 이 유가 하락은 미국 기업들의 비용을 줄였고, 이제 주어진 물가 수준에서 재화와 서비스를 공급하는 것이 더 수익성 있게 되었다. 그 결과 총공급 곡선이 오른쪽으로 이동했다. 미국 경제는 스태그플레이션의 정반대를 경험했다. 산출량이 빠르게 성장하고, 실업률이 하락했으며, 인플레이션율은 수년 만에 최저 수준에 도달했다.</div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-en">In recent years, the world market for oil has not been as important a source of economic fluctuations for the U.S. economy. Part of the reason is that conservation efforts, changes in technology, and the availability of alternative energy sources have reduced the economy's dependence on oil. The amount of oil used to produce a unit of real GDP has declined by more than 50 percent since the OPEC shocks of the 1970s. As a result, the economic impact of any change in oil prices on the U.S. economy is much smaller today than it was in the past. (Of course, some nations rely on oil exports as a major source of their income, and this makes oil prices crucial for them, but that is another story.)</div>
+      <div class="para-ko">최근에는 세계 석유 시장이 미국 경제의 경제 변동에 그렇게 중요한 원천이 아니다. 부분적인 이유는 절약 노력, 기술 변화, 대체 에너지원의 이용 가능성이 석유에 대한 경제의 의존도를 낮췄기 때문이다. 실질 GDP 한 단위를 생산하는 데 사용되는 석유의 양은 1970년대 OPEC 쇼크 이후 50% 이상 감소했다. 그 결과, 유가 변화가 미국 경제에 미치는 경제적 영향은 오늘날 과거보다 훨씬 작다. (물론 일부 국가들은 석유 수출을 주요 소득원으로 의존하며, 이는 그들에게 유가를 매우 중요하게 만들지만, 그것은 또 다른 이야기이다.)</div>
+    </div>
+
+    <!-- Oil shock stat cards -->
+    <div style="font-size:12px;font-weight:700;color:#8b1a1a;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px;">오일 쇼크 핵심 수치 (Oil Shocks Key Figures)</div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">×2</div><div class="lbl">유가 (1973–75)<br>인플레이션 10%↑ · 실업 4.9→8.5%</div></div>
+      <div class="stat-card"><div class="num">×2+</div><div class="lbl">유가 (1978–81)<br>인플레이션 10%↑ · 실업 ~6→~10%</div></div>
+      <div class="stat-card"><div class="num">−50%</div><div class="lbl">유가 (1986, OPEC 분열)<br>→ 역(逆)스태그플레이션 호황</div></div>
+      <div class="stat-card"><div class="num">−50%+</div><div class="lbl">GDP 단위당 석유 사용량<br>(1970년대 이후) → 의존도 감소</div></div>
+    </div>
+  </div>
+
+  <!-- FYI: Keynes -->
+  <div class="fyi-box">
+    <div class="fyi-tag">FYI</div>
+    <h4>The Origins of the Model of Aggregate Demand and Aggregate Supply &nbsp;·&nbsp; AD-AS 모형의 기원</h4>
+    <div class="en">Now that we have a preliminary understanding of the model of aggregate demand and aggregate supply, it is worthwhile to step back from it and consider its history. How did this model of short-run fluctuations develop? The answer is that this model, to a large extent, is a by-product of the Great Depression of the 1930s. Economists and policymakers at the time were puzzled about what had caused this calamity and were uncertain about how to deal with it.<br><br>
+    In 1936, economist John Maynard Keynes published a book titled <em>The General Theory of Employment, Interest, and Money</em>, which attempted to explain short-run economic fluctuations in general and the Great Depression in particular. Keynes's primary message was that recessions and depressions can occur because of inadequate aggregate demand for goods and services. Keynes had long been a critic of classical economic theory—the theory we examined earlier in the book—because it could explain only the long-run effects of policies. A few years before offering <em>The General Theory</em>, Keynes had written the following about classical economics:<br><br>
+    <em>"The long run is a misleading guide to current affairs. In the long run we are all dead. Economists set themselves too easy, too useless a task if in tempestuous seasons they can only tell us when the storm is long past, the ocean will be flat."</em><br><br>
+    Keynes's message was aimed at policymakers as well as economists. As the world's economies suffered with high unemployment, Keynes advocated policies to increase aggregate demand, including government spending on public works. In the next chapter, we examine in detail how policymakers can use the tools of monetary and fiscal policy to influence aggregate demand. The analysis in the next chapter, as well as in this one, owes much to the legacy of John Maynard Keynes.</div>
+    <div class="ko">이제 총수요·총공급 모형에 대한 기초적인 이해를 갖추었으므로, 한 걸음 물러서서 그 역사를 살펴볼 가치가 있다. 이 단기 변동 모형은 어떻게 발전했는가? 답은 이 모형이 상당 부분 1930년대 대공황의 부산물이라는 것이다. 당시 경제학자들과 정책 입안자들은 무엇이 이 재앙을 일으켰는지 어리둥절했고 어떻게 대처해야 할지 확신하지 못했다.<br><br>
+    1936년, 경제학자 존 메이너드 케인스(John Maynard Keynes)는 <em>고용, 이자 및 화폐의 일반이론(The General Theory of Employment, Interest, and Money)</em>이라는 책을 출판하여 단기 경제 변동 전반과 특히 대공황을 설명하려 했다. 케인스의 핵심 메시지는 재화와 서비스에 대한 불충분한 총수요 때문에 경기침체와 공황이 발생할 수 있다는 것이었다. 케인스는 오랫동안 고전 경제 이론 — 이 책의 앞부분에서 살펴본 이론 — 의 비판자였는데, 고전 이론이 정책의 장기 효과만을 설명할 수 있었기 때문이다. <em>일반이론</em>을 내놓기 몇 년 전, 케인스는 고전 경제학에 대해 다음과 같이 썼다:<br><br>
+    <em>"장기는 현재의 문제에 대한 오도된 안내자이다. 장기에는 우리 모두 죽는다. 폭풍우 치는 계절에 폭풍이 한참 지나면 바다가 잔잔해질 것이라고만 말할 수 있다면, 경제학자들은 스스로에게 너무 쉽고 너무 쓸모없는 과제를 부여하는 것이다."</em><br><br>
+    케인스의 메시지는 경제학자뿐만 아니라 정책 입안자들을 향한 것이었다. 세계 경제가 높은 실업으로 고통받자, 케인스는 공공사업에 대한 정부 지출을 포함하여 총수요를 늘리는 정책을 옹호했다. 다음 장에서는 정책 입안자들이 통화 정책과 재정 정책의 도구를 사용하여 총수요에 어떻게 영향을 미칠 수 있는지 자세히 검토한다. 다음 장의 분석은 이 장의 분석과 마찬가지로 존 메이너드 케인스의 유산에 크게 빚지고 있다.</div>
+  </div>
+
+  <!-- Quick Quiz 33-5 (official) -->
+  <div class="quick-quiz">
+    <div class="quiz-badge">Quick Quiz</div>
+    <div class="quiz-text">
+      Suppose that the election of a popular presidential candidate suddenly increases people's confidence in the future. Use the model of aggregate demand and aggregate supply to analyze the effect on the economy.
+      <span class="ko">인기 있는 대통령 후보의 당선이 갑자기 미래에 대한 사람들의 신뢰를 높인다고 가정하자. 총수요·총공급 모형을 사용하여 경제에 미치는 효과를 분석하라.</span>
+    </div>
+  </div>
+
+  <div class="answer-toggle-wrap">
+    <button class="answer-toggle-btn" onclick="toggleAnswer2()" id="answerBtn2">
+      <span class="btn-icon">▶</span>
+      <span class="btn-label">예시 답안 보기</span>
+      <span class="btn-label-en">Show Model Answer</span>
+    </button>
+  </div>
+
+  <div class="model-answer" id="modelAnswer2">
+    <div class="answer-header">
+      <div class="answer-badge">Model Answer</div>
+      <div class="answer-title">
+        <strong>예시 답안</strong>
+        <span>33-5 Quick Quiz — A Wave of Optimism (낙관주의의 물결)</span>
       </div>
+    </div>
 
-      <table>
-        <thead>
-          <tr><th>연도</th><th>명목 GDP (십억$)</th><th>GDP 디플레이터 (기준 2009=100)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1994</td><td>$7,309</td><td>78.3</td></tr>
-          <tr><td>2014</td><td>$17,419</td><td>108.3</td></tr>
-        </tbody>
-      </table>
-
-      <div class="sub" style="margin-top:14px;">
-        <div class="sub-q">
-          <div class="sub-q-en">a. What was the growth rate of nominal GDP between 1994 and 2014?</div>
-          <div class="sub-q-ko">a. 1994→2014 명목 GDP 성장률</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>(17,419 − 7,309) / 7,309 × 100 ≈ <span class="key">138.3%</span></p>
-          </div>
-        </div>
+    <div class="answer-fact">
+      <div class="answer-fact-num">1·2</div>
+      <div class="answer-fact-body">
+        <h4>Which Curve, Which Direction?<span class="ko-h4">어느 곡선이, 어느 방향으로?</span></h4>
+        <div class="answer-en">Increased confidence affects households' and firms' spending plans: households spend more and firms invest more. This affects the <strong>aggregate-demand curve</strong>, shifting it to the <strong>right</strong> (AD₁→AD₂) — the mirror image of the pessimism case in Figure 8.</div>
+        <div class="answer-ko">신뢰 상승은 가계와 기업의 지출 계획에 영향을 준다. 가계는 더 소비하고 기업은 더 투자한다. 이는 <strong>총수요 곡선</strong>에 영향을 미쳐 <strong>오른쪽</strong>으로 이동시킨다(AD₁→AD₂) — 그림 8의 비관주의 사례의 거울상이다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. What was real GDP in 1994 measured in 2009 dollars? What was real GDP in 2014?</div>
-          <div class="sub-q-ko">b. 2009년 기준 달러로 1994년, 2014년 실질 GDP 계산</div>
-        </div>
-        <div class="sub-body">
-          <code class="formula">Real GDP = Nominal GDP / (GDP Deflator / 100)</code>
-          <div class="answer"><div class="answer-label">✔</div>
-            <ul>
-              <li>1994: 7,309 / 0.783 ≈ <strong>$9,334 십억</strong></li>
-              <li>2014: 17,419 / 1.083 ≈ <strong>$16,084 십억</strong></li>
-            </ul>
-          </div>
-        </div>
+    <div class="answer-fact">
+      <div class="answer-fact-num">3</div>
+      <div class="answer-fact-body">
+        <h4>Short Run<span class="ko-h4">단기 효과</span></h4>
+        <div class="answer-en">The economy moves along the initial short-run aggregate-supply curve to a new short-run equilibrium: <strong>output rises above its natural level</strong> and <strong>the price level rises</strong>. Unemployment falls as firms expand production — the optimism is partly self-fulfilling, producing an economic boom.</div>
+        <div class="answer-ko">경제는 최초의 단기 총공급 곡선을 따라 새로운 단기 균형으로 이동한다. <strong>산출량은 자연 수준 위로 상승</strong>하고 <strong>물가 수준도 상승</strong>한다. 기업들이 생산을 확대하면서 실업률이 하락한다 — 낙관주의는 부분적으로 자기실현적이며 경기 호황을 낳는다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">c. What was the growth rate of real GDP between 1994 and 2014?</div>
-          <div class="sub-q-ko">c. 1994→2014 실질 GDP 성장률</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>(16,084 − 9,334) / 9,334 × 100 ≈ <span class="key">72.3%</span></p>
-            <p style="margin-top:6px;">명목 성장률(138.3%) > 실질 성장률(72.3%) → 차이는 인플레이션(물가 상승)에 의한 것.</p>
-          </div>
-        </div>
+    <div class="answer-fact" style="border-bottom:none;">
+      <div class="answer-fact-num">4</div>
+      <div class="answer-fact-body">
+        <h4>Long Run<span class="ko-h4">장기 효과</span></h4>
+        <div class="answer-en">With the actual price level now <em>above</em> the expected level, expectations adjust upward over time. Workers demand higher nominal wages, costs rise, and the <strong>short-run AS curve shifts left</strong> until the economy reaches a new long-run equilibrium on the LRAS curve. <strong>Output returns to its natural level; only the price level is permanently higher.</strong> The boom, like the recession, is temporary — confirming monetary neutrality in reverse.</div>
+        <div class="answer-ko">실제 물가 수준이 이제 예상 수준보다 <em>높으므로</em>, 시간이 지나며 기대가 상향 조정된다. 노동자들은 더 높은 명목 임금을 요구하고, 비용이 상승하며, <strong>단기 AS 곡선이 좌측으로 이동</strong>하여 경제는 LRAS 곡선 위의 새로운 장기 균형에 도달한다. <strong>산출량은 자연 수준으로 복귀하고, 물가 수준만 영구적으로 높아진다.</strong> 경기침체와 마찬가지로 호황도 일시적이다 — 역방향에서도 화폐 중립성이 확인된다.</div>
       </div>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">d. Revised estimates of U.S. GDP are usually released by the government near the end of each month. Find a newspaper article that reports on the most recent release, or read the report yourself at www.bea.gov.</div>
-          <div class="sub-q-ko">d. 미국 GDP 최신 발표 자료 찾기 (BEA)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>미국 BEA(Bureau of Economic Analysis) — <code>www.bea.gov</code>에서 매월 말 최신 GDP 추계를 발표한다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">e. Was the growth rate of nominal GDP higher or lower than the growth rate of real GDP? Explain.</div>
-          <div class="sub-q-ko">e. 명목 GDP 성장률 vs. 실질 GDP 성장률 비교 및 설명</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p><span class="key">명목 GDP 성장률이 더 높다</span> — 명목 GDP는 가격 상승분도 포함하기 때문. 실질 GDP는 가격 변동을 제거하여 실제 생산량 증가만 반영한다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">f. What was the growth rate of real GDP between 1994 and 2014? (Hint: the growth rate of a variable X over an N-year period is calculated as 100 × [(X<sub>new</sub>/X<sub>old</sub>)<sup>1/N</sup> − 1].)</div>
-          <div class="sub-q-ko">f. GDP 디플레이터 기준 연평균 성장률 계산 (힌트 공식 포함)</div>
-        </div>
-        <div class="sub-body">
-          <code class="formula">연평균 성장률 = 100 × [(X_new / X_old)^(1/N) − 1]</code>
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>실질 GDP 연평균 성장률 (N=20): 100 × [(16,084/9,334)^(1/20) − 1] ≈ <span class="key">2.76% / 년</span></p>
-            <p>누적 물가 상승률: 100 × (108.3/78.3 − 1) ≈ <span class="key">38.3%</span></p>
-          </div>
-        </div>
+    <div class="answer-summary">
+      <div style="font-size:20px;flex-shrink:0;">💡</div>
+      <div>
+        <strong>핵심 요약 / Summary</strong><br>
+        낙관 → AD 우측 이동 → 단기: <span class="hl">산출량↑·물가↑ (호황)</span> → 기대 조정 → SRAS 좌측 이동 → 장기: <span class="hl">산출량 자연 수준 복귀, 물가만 영구 상승</span>.
       </div>
     </div>
   </div>
 
-  <!-- ===== Q8 ===== -->
-  <div class="problem" id="q8">
-    <div class="problem-header">
-      <span class="problem-number">Q 08</span>
-      <span class="problem-title">GDP 미포함 항목과 국제 비교 왜곡</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          A farmer grows wheat, which she sells to a miller for $1.00. The miller turns the wheat into flour, which she sells to a baker for $3.00. The baker turns the flour into bread, which she sells to consumers for $6.00. What is the value added by each person? What is GDP?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          농부가 밀을 제분업자에게 $1에 판매. 제분업자는 밀가루를 제빵사에게 $3에 판매. 제빵사는 빵을 소비자에게 $6에 판매. 각 생산자의 부가가치와 GDP는 얼마인가?
-        </div>
-      </div>
-      <div class="answer">
-        <div class="answer-label">✔ 정답</div>
-        <table>
-          <thead><tr><th>생산자</th><th>판매액</th><th>중간재 비용</th><th>부가가치 (Value Added)</th></tr></thead>
-          <tbody>
-            <tr><td>농부 (Farmer)</td><td>$1</td><td>$0</td><td>$1</td></tr>
-            <tr><td>제분업자 (Miller)</td><td>$3</td><td>$1</td><td>$2</td></tr>
-            <tr><td>제빵사 (Baker)</td><td>$6</td><td>$3</td><td>$3</td></tr>
-            <tr><td><strong>합계</strong></td><td></td><td></td><td><strong>$6</strong></td></tr>
-          </tbody>
-        </table>
-        <p style="margin-top:8px;">GDP = 최종재 가격 = 부가가치 합계 = <span class="key">$6</span>. 중간재를 모두 더하면 이중계산 발생.</p>
-      </div>
+  <!-- ══════════ 33-6 CONCLUSION ══════════ -->
+  <div class="section-header" style="margin-top:56px;">
+    <div class="num">33-6</div>
+    <div class="text">
+      <h2>Conclusion</h2>
+      <div class="ko">결론</div>
     </div>
   </div>
 
-  <!-- ===== Q9 ===== -->
-  <div class="problem" id="q9">
-    <div class="problem-header">
-      <span class="problem-number">Q 09</span>
-      <span class="problem-title">농부–제분업자–제빵사 부가가치 사슬 (Value Added)</span>
+  <div class="para-block">
+    <div class="para-en">This chapter has achieved two goals. First, we have discussed some of the important facts about short-run fluctuations in economic activity. Second, we have introduced a basic model to explain those fluctuations, called the model of aggregate demand and aggregate supply. We continue our study of this model in the next chapter to understand more fully what causes fluctuations in the economy and how policymakers might respond to these fluctuations.</div>
+    <div class="para-ko">이 장은 두 가지 목표를 달성했다. 첫째, 경제 활동의 단기 변동에 관한 중요한 사실들을 논의했다. 둘째, 그러한 변동을 설명하는 기본 모형인 총수요·총공급 모형을 도입했다. 다음 장에서 이 모형에 대한 연구를 계속하여 경제 변동의 원인이 무엇이며 정책 입안자들이 이러한 변동에 어떻게 대응할 수 있는지를 더 충분히 이해한다.</div>
+  </div>
+
+  <!-- ══════════ CHAPTER QUICKQUIZ ══════════ -->
+  <div style="background:var(--dark);color:#f5e6c8;padding:24px 28px;margin:40px 0 0;border-radius:2px 2px 0 0;">
+    <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#4ade80;text-transform:uppercase;margin-bottom:4px;">Chapter QuickQuiz</div>
+    <div style="font-size:14px;opacity:.75;">챕터 객관식 퀴즈 — 각 문항의 '정답 보기'를 눌러 확인하세요</div>
+  </div>
+  <div style="background:var(--paper);border:1px solid var(--border);border-top:none;padding:26px 28px;margin-bottom:32px;">
+
+    <div style="margin-bottom:22px;padding-bottom:20px;border-bottom:1px dashed var(--border);">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>1.</strong> When the economy goes into a recession, real GDP ______ and unemployment ______.<br><span style="font-size:13px;color:var(--muted);">경제가 경기침체에 들어가면, 실질 GDP는 ___하고 실업률은 ___한다.</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. rises, rises &nbsp;&nbsp; b. rises, falls &nbsp;&nbsp; c. falls, rises &nbsp;&nbsp; d. falls, falls</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: c</strong> — 경기침체의 정의: 실질 GDP 하락 + 실업률 상승.</div></details>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          A farmer grows wheat, which she sells to a miller for $50. The miller turns the wheat into flour, which she sells to a baker for $100. The baker turns the flour into bread, which she sells to consumers for $180. Consider the following data on U.S. GDP. Using this one-good economy, how might you answer parts (a) and (g) without first answering parts (b) and (e)?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          농부→제분업자(밀$50→밀가루$100)→제빵사(빵$180 소비자 판매)로 이어지는 생산 사슬을 고려하시오.
-        </div>
-      </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">a. What is the value added by each person? What is GDP?</div>
-          <div class="sub-q-ko">a. 각 생산자의 부가가치와 GDP는 얼마인가?</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <table>
-              <thead><tr><th>생산자</th><th>판매액</th><th>중간재 비용</th><th>부가가치</th></tr></thead>
-              <tbody>
-                <tr><td>농부</td><td>$50</td><td>$0</td><td>$50</td></tr>
-                <tr><td>제분업자</td><td>$100</td><td>$50</td><td>$50</td></tr>
-                <tr><td>제빵사</td><td>$180</td><td>$100</td><td>$80</td></tr>
-                <tr><td><strong>합계</strong></td><td></td><td></td><td><strong>$180</strong></td></tr>
-              </tbody>
-            </table>
-            <p style="margin-top:6px;">GDP = 최종재(빵) 가격 = 부가가치 합 = <span class="key">$180</span></p>
-          </div>
-        </div>
-      </div>
+    <div style="margin-bottom:22px;padding-bottom:20px;border-bottom:1px dashed var(--border);">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>2.</strong> A sudden crash in the stock market shifts<br><span style="font-size:13px;color:var(--muted);">갑작스러운 주식 시장 폭락은 무엇을 이동시키는가?</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. the aggregate-demand curve.<br>b. the short-run aggregate-supply curve, but not the long-run aggregate-supply curve.<br>c. the long-run aggregate-supply curve, but not the short-run aggregate-supply curve.<br>d. both the short-run and the long-run aggregate-supply curves.</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: a</strong> — 주가 폭락 → 가계 부(wealth) 감소 → 소비 지출 감소 → 총수요 곡선 좌측 이동 (부의 효과).</div></details>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b–e. National income accounts: GDP, gross national product, net national product, national income, personal income, disposable personal income.</div>
-          <div class="sub-q-ko">b–e. 국민소득 계정 체계 정의</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 정답</div>
-            <ul>
-              <li><span class="key">GDP:</span> 한 나라 안에서 1년간 생산된 최종재·서비스의 시장가치 합</li>
-              <li><span class="key">GNP (국민총생산):</span> GDP + 해외 자국민 소득 − 국내 외국인 소득</li>
-              <li><span class="key">NNP (국민순생산):</span> GNP − 감가상각(depreciation)</li>
-              <li><span class="key">국민소득(NI):</span> NNP − 간접세 + 보조금</li>
-              <li><span class="key">개인소득(PI):</span> NI − 기업이윤 − 사회보험료 + 이전지출</li>
-              <li><span class="key">가처분 개인소득(DPI):</span> PI − 개인세금</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div style="margin-bottom:22px;padding-bottom:20px;border-bottom:1px dashed var(--border);">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>3.</strong> A change in the expected price level shifts<br><span style="font-size:13px;color:var(--muted);">예상 물가 수준의 변화는 무엇을 이동시키는가?</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. the aggregate-demand curve.<br>b. the short-run aggregate-supply curve, but not the long-run aggregate-supply curve.<br>c. the long-run aggregate-supply curve, but not the short-run aggregate-supply curve.<br>d. both the short-run and the long-run aggregate-supply curves.</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: b</strong> — 예상 물가 수준은 SRAS만 이동시키는 유일한 변수. 장기에서는 기대가 현실에 조정되므로 LRAS에는 영향 없음 (33-4e).</div></details>
+    </div>
+
+    <div style="margin-bottom:22px;padding-bottom:20px;border-bottom:1px dashed var(--border);">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>4.</strong> An increase in the aggregate demand for goods and services has a larger impact on output ______ and a larger impact on the price level ______.<br><span style="font-size:13px;color:var(--muted);">총수요 증가는 산출량에는 ___에, 물가 수준에는 ___에 더 큰 영향을 미친다.</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. in the short run, in the long run<br>b. in the long run, in the short run<br>c. in the short run, also in the short run<br>d. in the long run, also in the long run</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: a</strong> — 단기: SRAS 우상향이므로 산출량 효과 큼. 장기: LRAS 수직이므로 효과는 전부 물가에 반영 (그림 8의 역방향).</div></details>
+    </div>
+
+    <div style="margin-bottom:22px;padding-bottom:20px;border-bottom:1px dashed var(--border);">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>5.</strong> Stagflation is caused by<br><span style="font-size:13px;color:var(--muted);">스태그플레이션의 원인은?</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. a leftward shift in the aggregate-demand curve.<br>b. a rightward shift in the aggregate-demand curve.<br>c. a leftward shift in the aggregate-supply curve.<br>d. a rightward shift in the aggregate-supply curve.</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: c</strong> — AS 좌측 이동 → 산출량↓ + 물가↑ 동시 발생 = 스태그플레이션 (그림 10). AD 이동은 산출량과 물가를 같은 방향으로 움직임.</div></details>
+    </div>
+
+    <div style="margin-bottom:4px;">
+      <div style="font-size:14.5px;line-height:1.8;"><strong>6.</strong> The idea that economic downturns result from an inadequate aggregate demand for goods and services is derived from the work of which economist?<br><span style="font-size:13px;color:var(--muted);">경기침체가 재화와 서비스에 대한 불충분한 총수요에서 비롯된다는 생각은 어느 경제학자의 연구에서 나왔는가?</span></div>
+      <div style="font-size:13.5px;margin:8px 0 6px;line-height:2;">a. Adam Smith &nbsp;&nbsp; b. David Hume &nbsp;&nbsp; c. David Ricardo &nbsp;&nbsp; d. John Maynard Keynes</div>
+      <details style="margin-top:6px;"><summary style="cursor:pointer;color:var(--green);font-weight:600;font-size:13px;">✓ 정답 보기</summary><div style="padding:10px 14px;background:#f0fdf4;border-left:3px solid var(--green);margin-top:8px;font-size:13.5px;line-height:1.8;"><strong>정답: d</strong> — 케인스, <em>일반이론</em>(1936): 불충분한 총수요가 경기침체·공황의 원인 (FYI 박스 참고).</div></details>
     </div>
   </div>
 
-  <!-- ===== Q10 ===== -->
-  <div class="problem" id="q10">
-    <div class="problem-header">
-      <span class="problem-number">Q 10</span>
-      <span class="problem-title">GDP에 포함되지 않는 재화·서비스 — 국제 비교 문제</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          Goods and services that are not sold in markets, such as food produced and consumed at home, are generally not included in GDP. Can you think of how this might be misleading in a comparison of the economic output of Table 3 to be included in GDP? Can you think of another way this example suggest measuring the economy's well-being?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          시장에서 판매되지 않아 GDP에 포함되지 않는 재화·서비스(예: 가정 내 생산·소비)는 국가 간 경제 산출 비교에서 어떻게 오해를 불러일으킬 수 있는가?
-        </div>
-      </div>
-      <div class="answer">
-        <div class="answer-label">✔ 정답</div>
-        <ul>
-          <li>개발도상국은 <span class="key">자급자족 비율이 높아</span> 가정 내 생산이 많지만 이는 GDP에 잡히지 않음 → GDP가 실제 생산 수준보다 <strong>과소 계산</strong></li>
-          <li>선진국은 시장 거래 비율이 높으므로 GDP가 상대적으로 정확하게 측정됨</li>
-          <li>따라서 GDP만으로 국가 간 생활수준을 비교하면 개도국의 후생이 실제보다 낮게 보이는 <span class="key">비교 왜곡</span> 발생</li>
-          <li>대안: <strong>구매력평가(PPP)</strong> 기준 GDP, HDI(인간개발지수) 등 활용</li>
-        </ul>
-      </div>
+  <!-- ══════════ SUMMARY ══════════ -->
+  <div class="summing-up" style="background:#eef6ff;border:1px solid var(--accent2);border-left:4px solid var(--accent2);padding:22px 26px;margin:32px 0;border-radius:0 4px 4px 0;">
+    <h4 style="font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">📋 Chapter Summary &nbsp;·&nbsp; 챕터 요약</h4>
+    <ul style="padding-left:20px;font-size:13.5px;line-height:1.85;color:#1a2e50;">
+      <li style="margin-bottom:10px;">All societies experience short-run economic fluctuations around long-run trends. These fluctuations are irregular and largely unpredictable. When recessions occur, real GDP and other measures of income, spending, and production fall, while unemployment rises.<br><span style="color:#4a5a78;">모든 사회는 장기 추세 주위에서 단기 경제 변동을 경험한다. 변동은 불규칙하고 대체로 예측 불가능하다. 경기침체 시 실질 GDP·소득·지출·생산이 하락하고 실업이 상승한다.</span></li>
+      <li style="margin-bottom:10px;">Classical economic theory assumes nominal variables do not influence real variables. Most economists believe this is accurate in the long run but not in the short run. Economists analyze short-run fluctuations using the model of aggregate demand and aggregate supply.<br><span style="color:#4a5a78;">고전 이론은 명목 변수가 실질 변수에 영향을 주지 않는다고 가정한다. 대부분의 경제학자는 이것이 장기에는 맞지만 단기에는 그렇지 않다고 본다. 단기 변동은 AD-AS 모형으로 분석한다.</span></li>
+      <li style="margin-bottom:10px;">The aggregate-demand curve slopes downward for three reasons: the wealth effect, the interest-rate effect, and the exchange-rate effect.<br><span style="color:#4a5a78;">총수요 곡선이 우하향하는 세 가지 이유: 부의 효과, 이자율 효과, 환율 효과.</span></li>
+      <li style="margin-bottom:10px;">Any event or policy that raises consumption, investment, government purchases, or net exports at a given price level increases aggregate demand; any that reduces them decreases aggregate demand.<br><span style="color:#4a5a78;">주어진 물가에서 소비·투자·정부구매·순수출을 늘리는 사건·정책은 총수요를 증가시키고, 줄이는 것은 감소시킨다.</span></li>
+      <li style="margin-bottom:10px;">The long-run aggregate-supply curve is vertical: in the long run, quantity supplied depends on labor, capital, natural resources, and technology, but not on the price level.<br><span style="color:#4a5a78;">장기 총공급 곡선은 수직: 장기 공급량은 노동·자본·천연자원·기술에 의존하고 물가 수준에는 의존하지 않는다.</span></li>
+      <li style="margin-bottom:10px;">Three theories explain the upward slope of the short-run aggregate-supply curve: sticky wages, sticky prices, and misperceptions. All three imply that output deviates from its natural level when the actual price level deviates from the expected price level.<br><span style="color:#4a5a78;">단기 총공급 곡선의 우상향을 설명하는 세 이론: 경직적 임금·경직적 가격·오인. 셋 모두 실제 물가가 예상 물가에서 벗어날 때 산출량이 자연 수준에서 벗어난다고 본다.</span></li>
+      <li style="margin-bottom:10px;">Events that alter the economy's ability to produce output (labor, capital, natural resources, technology) shift the short-run aggregate-supply curve (and may shift the long-run aggregate-supply curve as well). In addition, the position of the short-run aggregate-supply curve depends on the expected price level.<br><span style="color:#4a5a78;">생산 능력을 바꾸는 사건(노동·자본·자원·기술)은 SRAS를 이동시킨다(LRAS도 함께 이동 가능). 추가로 SRAS의 위치는 예상 물가 수준에 의존한다.</span></li>
+      <li style="margin-bottom:10px;">One possible cause of economic fluctuations is a shift in aggregate demand: in the short run output and prices fall (for a leftward shift); over time, as expectations adjust, the short-run aggregate-supply curve shifts and the economy returns to its natural level of output at a new, lower price level.<br><span style="color:#4a5a78;">경제 변동의 첫째 원인: 총수요 이동 — 단기에 산출량·물가가 함께 움직이고, 기대 조정 후 SRAS가 이동하여 산출량은 자연 수준으로 복귀하며 물가만 변한다.</span></li>
+      <li>A second possible cause is a shift in aggregate supply: a leftward shift produces stagflation—falling output and rising prices—a combination called stagflation. Over time, as wages, prices, and perceptions adjust, the economy returns to its original levels (if aggregate demand is held constant).<br><span style="color:#4a5a78;">둘째 원인: 총공급 이동 — 좌측 이동은 산출량 하락 + 물가 상승, 즉 스태그플레이션을 낳는다. 시간이 지나 임금·가격·인식이 조정되면 (총수요 불변 시) 경제는 원래 수준으로 복귀한다.</span></li>
+    </ul>
+  </div>
+
+  <!-- KEY CONCEPTS -->
+  <div style="background:var(--term-bg);color:var(--term-text);padding:22px 28px;margin:28px 0;border-radius:2px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:3px;color:var(--accent3);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);">KEY CONCEPTS · 핵심 개념</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">recession 경기침체</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">depression 공황</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">model of aggregate demand and aggregate supply 총수요·총공급 모형</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">aggregate-demand curve 총수요 곡선</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">aggregate-supply curve 총공급 곡선</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">natural level of output 자연 산출량 수준</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:16px;font-size:13px;">stagflation 스태그플레이션</span>
     </div>
   </div>
 
-  <!-- ===== Q11 ===== -->
-  <div class="problem" id="q11">
-    <div class="problem-header">
-      <span class="problem-number">Q 11</span>
-      <span class="problem-title">여성의 노동시장 참여와 GDP — 후생 측정</span>
+  <!-- QUESTIONS FOR REVIEW -->
+  <div class="table-wrap" style="background:#fffdf0;border:1px solid #e0c860;padding:24px 26px;margin:28px 0;">
+    <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent3);text-transform:uppercase;margin-bottom:3px;">Questions for Review</div>
+    <div style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e0c860;">복습 문제</div>
+    <ol style="padding-left:18px;font-size:13.5px;line-height:1.9;color:#2a2010;">
+      <li style="margin-bottom:10px;">Name two macroeconomic variables that decline when the economy goes into a recession. Name one macroeconomic variable that rises during a recession.<br><span style="font-size:13px;color:var(--muted);">경기침체 시 하락하는 거시경제 변수 둘과 상승하는 변수 하나를 말하라.</span></li>
+      <li style="margin-bottom:10px;">Draw a diagram with aggregate demand, short-run aggregate supply, and long-run aggregate supply. Be careful to label the axes correctly.<br><span style="font-size:13px;color:var(--muted);">AD·SRAS·LRAS가 모두 들어간 다이어그램을 그려라. 축 라벨에 주의할 것.</span></li>
+      <li style="margin-bottom:10px;">List and explain the three reasons the aggregate-demand curve slopes downward.<br><span style="font-size:13px;color:var(--muted);">총수요 곡선이 우하향하는 세 가지 이유를 나열하고 설명하라.</span></li>
+      <li style="margin-bottom:10px;">Explain why the long-run aggregate-supply curve is vertical.<br><span style="font-size:13px;color:var(--muted);">장기 총공급 곡선이 수직인 이유를 설명하라.</span></li>
+      <li style="margin-bottom:10px;">List and explain the three theories for why the short-run aggregate-supply curve slopes upward.<br><span style="font-size:13px;color:var(--muted);">단기 총공급 곡선이 우상향하는 세 가지 이론을 나열하고 설명하라.</span></li>
+      <li style="margin-bottom:10px;">What might shift the aggregate-demand curve to the left? Use the model of aggregate demand and aggregate supply to trace through the short-run and long-run effects of such a shift on output and the price level.<br><span style="font-size:13px;color:var(--muted);">총수요 곡선을 좌측으로 이동시키는 요인은? AD-AS 모형으로 그러한 이동의 단기·장기 효과를 산출량과 물가 수준에 대해 추적하라.</span></li>
+      <li>What might shift the aggregate-supply curve to the left? Use the model of aggregate demand and aggregate supply to trace through the short-run and long-run effects of such a shift on output and the price level.<br><span style="font-size:13px;color:var(--muted);">총공급 곡선을 좌측으로 이동시키는 요인은? AD-AS 모형으로 그러한 이동의 단기·장기 효과를 추적하라.</span></li>
+    </ol>
+  </div>
+
+  <div style="height:64px;"></div>
+
+  <!-- ══════════ PROBLEMS AND APPLICATIONS ══════════ -->
+  <div style="background:var(--dark);color:#f5e6c8;padding:24px 28px;margin:48px 0 0;border-radius:2px 2px 0 0;">
+    <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#fbbf24;text-transform:uppercase;margin-bottom:4px;">Problems and Applications</div>
+    <div style="font-size:14px;opacity:.75;">응용 문제 — 그래프 작성 및 심화 분석 연습</div>
+  </div>
+  <div style="background:var(--paper);border:1px solid var(--border);border-top:none;padding:28px;margin-bottom:32px;font-size:13.5px;line-height:1.95;color:#1a2010;">
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>1.</strong> Suppose the economy is in a long-run equilibrium.</div>
+      <ol style="padding-left:20px;margin-bottom:0;">
+        <li style="margin-bottom:8px;">Draw a diagram to illustrate the state of the economy. Be sure to show aggregate demand, short-run aggregate supply, and long-run aggregate supply.<br><span style="font-size:13px;color:var(--muted);">경제의 상태를 보여주는 다이어그램을 그려라. AD·SRAS·LRAS를 포함할 것.</span></li>
+        <li style="margin-bottom:8px;">Now suppose that a stock market crash causes aggregate demand to fall. Use your diagram to show what happens to output and the price level in the short run. What happens to the unemployment rate?<br><span style="font-size:13px;color:var(--muted);">주식 시장 폭락이 총수요 하락을 일으킨다면? 단기에 산출량·물가·실업률이 어떻게 되는지 그림으로 보여라.</span></li>
+        <li style="margin-bottom:8px;">Now show the new long-run equilibrium (call it point C). What causes the economy to move from point B to point C?<br><span style="font-size:13px;color:var(--muted);">새로운 장기 균형(점 C)를 보여라. 경제가 B에서 C로 이동하는 원인은?</span></li>
+        <li style="margin-bottom:8px;">According to the sticky-wage theory of aggregate supply, how do nominal wages at point A compare to nominal wages at point B? How do nominal wages at point B compare to nominal wages at point C?<br><span style="font-size:13px;color:var(--muted);">경직적 임금 이론에 따르면, 점 A·B·C에서의 명목 임금을 비교하라.</span></li>
+        <li style="margin-bottom:8px;">According to the sticky-wage theory, how do real wages at point A compare to real wages at point B? How do real wages at point A compare to real wages at point C?<br><span style="font-size:13px;color:var(--muted);">실질 임금은 어떻게 비교되는가?</span></li>
+        <li>Judging by the impact of the recession on nominal and real wages, is this analysis consistent with the proposition that money is neutral in the long run?<br><span style="font-size:13px;color:var(--muted);">경기침체가 명목·실질 임금에 미치는 영향으로 보아, 이것이 장기 화폐 중립성 명제와 일치하는가?</span></li>
+      </ol>
     </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          The participation of women in the U.S. labor force has risen dramatically since 1970.
-          a. How do you think this rise affected GDP?
-          b. Now imagine a measure of well-being that includes time spent working in the home and taking leisure. How do you think the rise in women's labor-force participation affected this measure of the economic well-being of U.S. families?
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          1970년 이후 미국 여성의 노동 참여율이 급격히 증가했다.<br>
-          a. 이것이 GDP에 어떤 영향을 미쳤는가?<br>
-          b. 가사 노동과 여가 시간을 포함하는 후생 지표에서는 어떤 영향을 미쳤는가?
-        </div>
-      </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">a. Effect on GDP</div>
-          <div class="sub-q-ko">a. GDP에 미친 영향</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>여성의 시장 노동 참여 증가 → <span class="key">GDP 상승</span>. 가정 내에서 하던 가사·육아가 시장 서비스(보육, 청소 등)로 전환되면서 시장 거래 증가 → GDP 추가 반영.</p>
-          </div>
-        </div>
-      </div>
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>2.</strong> Explain whether each of the following events will increase, decrease, or have no effect on long-run aggregate supply. Be sure to illustrate your answer with a diagram.</div>
+      <span style="font-size:13px;color:var(--muted);">각 사건이 장기 총공급을 증가·감소·무변화시키는지 설명하고 그림으로 나타내라.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li>The United States experiences a wave of immigration. <span style="font-size:13px;color:var(--muted);">(미국의 이민 증가)</span></li>
+        <li>Congress raises the minimum wage to $15 per hour. <span style="font-size:13px;color:var(--muted);">(최저임금 인상)</span></li>
+        <li>Intel invents a new and more powerful computer chip. <span style="font-size:13px;color:var(--muted);">(컴퓨터칩 기술 혁신)</span></li>
+        <li>A severe hurricane damages factories along the East Coast. <span style="font-size:13px;color:var(--muted);">(해안 공장 허리케인 피해)</span></li>
+      </ol>
+    </div>
 
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. Effect on a broader well-being measure (including home production and leisure)</div>
-          <div class="sub-q-ko">b. 가사 노동·여가 포함 후생 지표에서의 영향</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>반드시 향상되었다고 볼 수 없다. 가정 내 가사 노동의 가치는 GDP에 잡히지 않았지만 실질적인 가치가 있었으며, 이것이 <span class="key">시장 서비스로 대체</span>된 것뿐이다. 여가 시간 감소, 스트레스 증가 등 GDP에 반영되지 않는 후생 손실도 함께 고려해야 한다.</p>
-          </div>
-        </div>
-      </div>
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>3.</strong> Suppose an economy is in long-run equilibrium.</div>
+      <ol style="padding-left:20px;margin-bottom:0;">
+        <li style="margin-bottom:8px;">Use the model of aggregate demand and aggregate supply to illustrate the initial equilibrium (call it point A). Be sure to include both short-run and long-run aggregate supply.<br><span style="font-size:13px;color:var(--muted);">최초 장기 균형(점 A)을 그려라. SRAS·LRAS 모두 포함할 것.</span></li>
+        <li style="margin-bottom:8px;">The central bank raises the money supply by 5 percent. Use your diagram to show what happens to output and the price level as the economy moves from the initial equilibrium (call it point A) to the new short-run equilibrium (call it point B).<br><span style="font-size:13px;color:var(--muted);">중앙은행이 통화량을 5% 증가시킨다. A→B(단기 균형)로의 이동을 보여라.</span></li>
+        <li>Now show the new long-run equilibrium (call it point C). What causes the economy to move from point B to point C?<br><span style="font-size:13px;color:var(--muted);">새로운 장기 균형(점 C)을 보여라. B→C로 이동하는 원인은?</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>4.</strong> In 1939, with the U.S. economy not yet fully recovered from the Great Depression, President Roosevelt proclaimed that Thanksgiving would fall a week earlier than usual so that the shopping period before Christmas would be longer. Explain what President Roosevelt might have been trying to achieve, using the model of aggregate demand and aggregate supply.</div>
+      <span style="font-size:13px;color:var(--muted);">1939년 루즈벨트가 추수감사절을 일주일 앞당긴 이유를 AD-AS 모형으로 설명하라. (크리스마스 쇼핑 기간 연장 의도)</span>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>5.</strong> Explain why each of the following statements is false:</div>
+      <span style="font-size:13px;color:var(--muted);">다음 명제가 거짓인 이유를 설명하라.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li style="margin-bottom:8px;">"The aggregate-demand curve slopes downward because it is the horizontal sum of the demand curves for individual goods." <span style="font-size:13px;color:var(--muted);">(개별 재화 수요 곡선의 합?)</span></li>
+        <li style="margin-bottom:8px;">"The long-run aggregate-supply curve is vertical because economic forces do not affect long-run aggregate supply." <span style="font-size:13px;color:var(--muted);">(경제적 힘이 LRAS에 영향을 주지 않는가?)</span></li>
+        <li style="margin-bottom:8px;">"If firms adjusted their prices every day, then the short-run aggregate-supply curve would be horizontal." <span style="font-size:13px;color:var(--muted);">(가격이 매일 조정되면 SRAS가 수평?)</span></li>
+        <li>"Whenever the economy enters a recession, its long-run aggregate-supply curve shifts to the left." <span style="font-size:13px;color:var(--muted);">(경기침체 시 LRAS 좌측 이동?)</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>6.</strong> For each of the three theories for the upward slope of the short-run aggregate-supply curve, carefully explain the short-run and long-run effects on output and the price level, assuming policymakers take no action, of an increase in aggregate demand.</div>
+      <span style="font-size:13px;color:var(--muted);">SRAS가 우상향하는 세 이론 각각에 대해, 총수요 증가 시 정책이 없다고 가정할 때의 단기·장기 효과를 설명하라.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li>The sticky-wage theory <span style="font-size:13px;color:var(--muted);">(경직적 임금 이론)</span></li>
+        <li>The sticky-price theory <span style="font-size:13px;color:var(--muted);">(경직적 가격 이론)</span></li>
+        <li>The misperceptions theory <span style="font-size:13px;color:var(--muted);">(오인 이론)</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>7.</strong> The economy begins in long-run equilibrium. Then one day, the president appoints a new chair of the Federal Reserve. This new Fed chair is well known for her view that inflation is not a major problem for an economy.</div>
+      <span style="font-size:13px;color:var(--muted);">새 연준 의장이 인플레이션을 문제로 보지 않는 것으로 알려져 있다.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li style="margin-bottom:8px;">How would this news affect the price level that people would expect to prevail? <span style="font-size:13px;color:var(--muted);">(이 뉴스가 예상 물가에 미치는 영향?)</span></li>
+        <li style="margin-bottom:8px;">How would this change in the expected price level affect the nominal wage that workers and firms agree to in their new labor contracts? <span style="font-size:13px;color:var(--muted);">(예상 물가 상승이 임금 협상에 미치는 영향?)</span></li>
+        <li style="margin-bottom:8px;">How does this change in nominal wages affect the profitability of producing goods and services at any given price level? <span style="font-size:13px;color:var(--muted);">(명목임금 상승이 생산 수익성에 미치는 영향?)</span></li>
+        <li style="margin-bottom:8px;">How does this change in profitability affect the short-run aggregate-supply curve? <span style="font-size:13px;color:var(--muted);">(SRAS는 어떻게 이동?)</span></li>
+        <li style="margin-bottom:8px;">If aggregate demand is held constant, how does this shift in the short-run aggregate-supply curve affect the price level and the quantity of output? <span style="font-size:13px;color:var(--muted);">(AD 일정 시 산출량과 물가의 변화?)</span></li>
+        <li>Do you think this Fed chair was a good appointment? <span style="font-size:13px;color:var(--muted);">(이것이 좋은 인사였는가?)</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>8.</strong> Explain whether each of the following events shifts the short-run aggregate-supply curve, the aggregate-demand curve, both, or neither. For each event that does shift a curve, draw a diagram to illustrate the effect on the economy.</div>
+      <span style="font-size:13px;color:var(--muted);">각 사건이 SRAS·AD·둘 다·둘 다 아님 중 어느 것을 이동시키는지 설명하고 그림을 그려라.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li>Households decide to save a larger share of their income. <span style="font-size:13px;color:var(--muted);">(가계의 저축 증가)</span></li>
+        <li>Florida orange groves suffer a prolonged period of below-freezing temperatures. <span style="font-size:13px;color:var(--muted);">(플로리다 오렌지 작황 악화)</span></li>
+        <li>Increased job opportunities overseas cause many people to leave the country. <span style="font-size:13px;color:var(--muted);">(해외 이주로 인한 노동력 감소)</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid var(--border);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>9.</strong> For each of the following events, explain the short-run and long-run effects on output and the price level, assuming policymakers take no action.</div>
+      <span style="font-size:13px;color:var(--muted);">각 사건에 대해 정책이 없다고 가정할 때 단기·장기에서 산출량과 물가의 효과를 설명하라.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li>The stock market declines sharply, reducing consumers' wealth. <span style="font-size:13px;color:var(--muted);">(주가 폭락 → 가계 부 감소)</span></li>
+        <li>The federal government increases spending on national defense. <span style="font-size:13px;color:var(--muted);">(정부 국방 지출 증가)</span></li>
+        <li>A technological improvement raises productivity. <span style="font-size:13px;color:var(--muted);">(기술 혁신 → 생산성 향상)</span></li>
+        <li>A recession overseas causes foreigners to buy fewer U.S. goods. <span style="font-size:13px;color:var(--muted);">(해외 경기침체 → 미국 수출 감소)</span></li>
+      </ol>
+    </div>
+
+    <div style="margin-bottom:4px;">
+      <div style="font-weight:700;font-size:14px;margin-bottom:10px;"><strong>10.</strong> Suppose the economy is in long-run equilibrium. Then the Federal Reserve increases the money supply by 5 percent. Trace through the impacts assuming the economy begins at its natural rate of output.</div>
+      <span style="font-size:13px;color:var(--muted);">경제가 자연 산출량에서 장기 균형 상태에 있을 때, 연준이 통화량을 5% 증가시킨다.</span>
+      <ol style="padding-left:20px;margin-top:8px;margin-bottom:0;">
+        <li style="margin-bottom:8px;">What happens to the aggregate-demand curve? <span style="font-size:13px;color:var(--muted);">(AD 곡선의 변화?)</span></li>
+        <li style="margin-bottom:8px;">In the short run, what happens to output, unemployment, and the price level? <span style="font-size:13px;color:var(--muted);">(단기: 산출량·실업률·물가의 변화?)</span></li>
+        <li style="margin-bottom:8px;">Does the economy experience inflation, deflation, or neither? <span style="font-size:13px;color:var(--muted);">(인플레이션·디플레이션·중립?)</span></li>
+        <li style="margin-bottom:8px;">In the long run, what happens to output, unemployment, and the price level? <span style="font-size:13px;color:var(--muted);">(장기: 산출량·실업률·물가의 변화?)</span></li>
+        <li style="margin-bottom:8px;">Does the economy experience inflation, deflation, or neither? <span style="font-size:13px;color:var(--muted);">(인플레이션·디플레이션·중립?)</span></li>
+        <li>In this scenario, is money neutral? <span style="font-size:13px;color:var(--muted);">(화폐는 중립적인가?)</span></li>
+      </ol>
     </div>
   </div>
 
-  <!-- ===== Q12 ===== -->
-  <div class="problem" id="q12">
-    <div class="problem-header">
-      <span class="problem-number">Q 12</span>
-      <span class="problem-title">Barry the Barber — GDP, 국민소득 계정 체계</span>
-    </div>
-    <div class="problem-body">
-      <div class="q-wrap">
-        <div class="q-en">
-          <span class="q-en-label">EN</span><br>
-          One day, Barry the Barber, Inc. collects $400 for haircuts. Over this day, his equipment depreciates in value by $50. Of the remaining $350, Barry sends $220 in income taxes to the government, uses $100 to buy a new chair (investment), and retains $30 to add to his bank account. For purposes of the national income accounts, compute Barry's contribution to the following measures of income.
-        </div>
-        <div class="q-ko">
-          <span class="q-ko-label">KO</span><br>
-          Barry the Barber, Inc.가 하루에 이발비 $400을 받는다. 당일 장비 감가상각 $50, 나머지 $350 중 소득세 $220 납부, 새 의자 구매(투자) $100, 잔여 $30을 은행 계좌에 추가한다. 다음 국민소득 지표에 대한 Barry의 기여분을 계산하시오.
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">a. Gross domestic product</div>
-          <div class="sub-q-ko">a. 국내총생산 (GDP)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>GDP = 최종 서비스의 시장가치 = <span class="key">$400</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">b. Net national product</div>
-          <div class="sub-q-ko">b. 국민순생산 (NNP)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>NNP = GDP − 감가상각 = $400 − $50 = <span class="key">$350</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">c. National income</div>
-          <div class="sub-q-ko">c. 국민소득 (NI)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>단순화된 예시에서 NI ≈ NNP = <span class="key">$350</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">d. Personal income</div>
-          <div class="sub-q-ko">d. 개인소득 (PI)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>PI = Barry가 실제 수령하는 소득 = <span class="key">$350</span> (세전 기준; 투자분 $100 포함)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">e. Disposable personal income</div>
-          <div class="sub-q-ko">e. 가처분 개인소득 (DPI)</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer"><div class="answer-label">✔</div>
-            <p>DPI = PI − 세금 = $350 − $220 = <span class="key">$130</span> (실제 소비·저축 가능한 소득)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub">
-        <div class="sub-q">
-          <div class="sub-q-en">How would the change in this measure compare to the change in GDP? Can you construct a measure of well-being that includes labor-force participation and other aspects associated with the rise in women's labor-force participation?</div>
-          <div class="sub-q-ko">GDP 변화와의 비교 / 여성 노동 참여 관련 후생 지표 구성</div>
-        </div>
-        <div class="sub-body">
-          <div class="answer">
-            <div class="answer-label">✔ 추가 설명</div>
-            <ul>
-              <li>GDP 변화: 실질 GDP 성장률로 측정</li>
-              <li>GDP의 한계: <span class="key">소득 불평등, 환경 오염, 여가, 가사 노동, 범죄율</span> 등을 반영하지 못함</li>
-              <li>대안 지표: HDI(인간개발지수), GNH(국민총행복), OECD Better Life Index 등</li>
-              <li>여성 노동 참여 증가로 인한 GDP 상승 ≠ 반드시 후생 향상</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div style="text-align:center; color:var(--text-muted); font-size:0.78rem; padding-top:20px; border-top:1px solid var(--border);">
-    Principles of Economics · GDP 측정 · Problems &amp; Applications 완전 정답 해설<br>
-    Seoul Global High School — AP Macroeconomics
-  </div>
-
+  <div style="height:64px;"></div>
 </div>
+
+<script>
+function toggleAnswer2() {
+  const ans = document.getElementById('modelAnswer2');
+  const btn = document.getElementById('answerBtn2');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+function toggleAnswer() {
+  const ans = document.getElementById('modelAnswer');
+  const btn = document.getElementById('answerBtn');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+</script>
+
+
+
+<script>
+function toggleAnswer2() {
+  const ans = document.getElementById('modelAnswer2');
+  const btn = document.getElementById('answerBtn2');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+function toggleAnswer() {
+  const ans = document.getElementById('modelAnswer');
+  const btn = document.getElementById('answerBtn');
+  const label = btn.querySelector('.btn-label');
+  const isOpen = ans.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? '예시 답안 닫기' : '예시 답안 보기';
+  if (isOpen) setTimeout(() => ans.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+</script>
 </body>
 </html>
