@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond the Synthesis — AP Macroeconomics SGHS 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f0eee8; --paper:#f8f6f1; --dark:#0d1117; --navy:#1a2540;
+  --accent:#c22828; --accent2:#1f52a0; --accent3:#c97d10;
+  --green:#1e7a44; --purple:#6040b0; --teal:#127c8a;
+  --border:#ddd8cc; --muted:#666;
+  --mono:'Consolas','Menlo',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR','Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.75;}
+/* NAV */
+.top-nav{background:var(--navy);padding:0 36px;display:flex;align-items:center;gap:0;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.top-nav .logo{color:#f5e6c8;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 20px 14px 0;border-right:1px solid rgba(255,255,255,.15);margin-right:16px;white-space:nowrap;}
+.top-nav a{color:rgba(255,255,255,.7);font-size:11px;font-weight:600;text-decoration:none;padding:14px 12px;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
+.top-nav a:hover,.top-nav a.active{color:white;border-bottom-color:var(--accent3);}
+/* HERO */
+.hero{background:linear-gradient(150deg,#0d1117 0%,#1a2540 50%,#0f2030 100%);color:#f5e6c8;padding:72px 48px 56px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent3);margin-bottom:14px;}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.hero h1 span{color:var(--accent3);}
+.hero .subtitle{font-size:16px;opacity:.8;max-width:680px;line-height:1.7;}
+.hero-meta{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;}
+.hero-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:6px 16px;border-radius:20px;font-size:12px;color:rgba(255,255,255,.8);}
+/* CONTENT */
+.content{max-width:1000px;margin:0 auto;padding:48px 32px;}
+/* SECTION HEADER */
+.sec-header{background:var(--navy);color:#f5e6c8;padding:32px 40px;border-radius:4px 4px 0 0;position:relative;overflow:hidden;margin-top:56px;}
+.sec-header .watermark{position:absolute;right:32px;top:50%;transform:translateY(-50%);font-size:96px;font-weight:900;opacity:.06;font-family:'Inter',sans-serif;line-height:1;}
+.sec-header .tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent3);margin-bottom:6px;}
+.sec-header h2{font-size:26px;font-weight:800;margin-bottom:6px;}
+.sec-header .ko{font-size:14px;opacity:.7;}
+.sec-body{background:var(--paper);border:1px solid var(--border);border-top:none;padding:32px 40px;border-radius:0 0 4px 4px;margin-bottom:4px;}
+/* PARA BLOCK */
+.para-block{margin:16px 0;}
+.para-en{background:white;border:1px solid var(--border);border-left:4px solid var(--accent2);padding:14px 18px;border-radius:0 4px 0 0;font-size:14px;line-height:1.8;color:#1a1a2e;}
+.para-ko{background:#fffdf5;border:1px solid var(--border);border-left:4px solid var(--accent3);border-top:none;padding:12px 18px;border-radius:0 0 4px 4px;font-size:13.5px;line-height:1.8;color:#3a2e10;}
+/* CARDS */
+.card-row{display:grid;gap:18px;margin:20px 0;}
+.card-row.cols2{grid-template-columns:1fr 1fr;}
+.card-row.cols3{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:700px){.card-row.cols2,.card-row.cols3{grid-template-columns:1fr;}}
+.info-card{background:white;border:1px solid var(--border);border-radius:6px;padding:20px;}
+.info-card .card-title{font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--accent2);}
+.info-card .card-body{font-size:13px;line-height:1.8;}
+.info-card .card-ko{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.7;}
+/* HIGHLIGHT BOX */
+.hl-box{border-left:5px solid var(--accent);background:#fef2f2;padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0;}
+.hl-box.blue{border-color:var(--accent2);background:#eef4ff;}
+.hl-box.green{border-color:var(--green);background:#f0fdf4;}
+.hl-box.gold{border-color:var(--accent3);background:#fffbf0;}
+.hl-box.purple{border-color:var(--purple);background:#f5f0ff;}
+.hl-box .hl-title{font-weight:700;font-size:13.5px;margin-bottom:6px;}
+.hl-box .hl-body{font-size:13px;line-height:1.8;}
+/* TERM */
+.term{border-bottom:2px dashed var(--accent2);cursor:help;position:relative;}
+/* KEY TERM GRID */
+.key-terms{background:var(--dark);color:#f5e6c8;border-radius:6px;padding:22px 26px;margin:20px 0;}
+.key-terms h4{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent3);text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
+.kt-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 14px;border-radius:4px;font-size:12.5px;line-height:1.6;}
+.kt-chip strong{color:var(--accent3);display:block;font-size:12px;}
+/* SVG figure */
+.fig-wrap{background:white;border:1px solid var(--border);border-radius:6px;padding:20px;margin:20px 0;text-align:center;}
+.fig-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;}
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;}
+.tbl th{background:var(--navy);color:white;padding:10px 14px;text-align:left;}
+.tbl td{border:1px solid var(--border);padding:9px 14px;vertical-align:top;}
+.tbl tr:nth-child(even) td{background:#f7f5f0;}
+/* QUIZ */
+.quiz-wrap{background:var(--dark);color:#f5e6c8;padding:28px 32px;border-radius:6px;margin:24px 0;}
+.quiz-wrap .qtag{font-size:10px;font-weight:700;letter-spacing:2px;color:#4ade80;text-transform:uppercase;margin-bottom:12px;}
+.quiz-q{font-size:14px;font-weight:600;margin-bottom:10px;line-height:1.7;}
+.quiz-ko{font-size:13px;opacity:.7;margin-bottom:14px;}
+.quiz-options{font-size:13px;line-height:2.1;opacity:.9;}
+.quiz-ans-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;padding:8px 20px;border-radius:20px;cursor:pointer;font-size:12px;font-weight:600;margin-top:12px;transition:all .2s;}
+.quiz-ans-btn:hover{background:rgba(255,255,255,.2);}
+.quiz-answer{display:none;margin-top:14px;background:#f0fdf4;border-left:3px solid #4ade80;padding:12px 16px;border-radius:0 6px 6px 0;color:#1a2010;font-size:13px;}
+.quiz-answer.show{display:block;}
+/* TIMELINE */
+.timeline{position:relative;padding-left:24px;margin:20px 0;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--accent2);}
+.tl-item{position:relative;margin-bottom:20px;padding-left:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent2);border:2px solid white;box-shadow:0 0 0 2px var(--accent2);}
+.tl-year{font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+.tl-body{font-size:13.5px;line-height:1.75;}
+.tl-ko{font-size:13px;color:var(--muted);}
+/* SCHOOL CARDS */
+.school-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.school-card .sc-head{padding:14px 20px;font-weight:700;font-size:15px;color:white;}
+.school-card .sc-body{background:white;padding:18px 20px;font-size:13px;line-height:1.8;}
+.school-card .sc-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:10px;margin-bottom:4px;}
+/* FOOTER */
+.page-footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:32px;font-size:12px;margin-top:60px;}
+.page-footer strong{color:rgba(255,255,255,.8);}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="logo">AP Macro · SGHS 2026</div>
+  <a href="#s01">01 신고전파 종합</a>
+  <a href="#s02">02 스태그플레이션</a>
+  <a href="#s03">03 프리드먼·펠프스</a>
+  <a href="#s04">04 세 도전자</a>
+  <a href="#s05">05 루카스 비판</a>
+  <a href="#s06">06 신케인스</a>
+  <a href="#s07">07 새 종합</a>
+  <a href="#s08">08 2008 이후</a>
+  <a href="#quiz">QuizQuiz</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">AP Macroeconomics · SGHS 2026</div>
+  <h1>Beyond the <span>Synthesis</span></h1>
+  <p class="subtitle">How Stagflation Reshaped Modern Macroeconomics<br>
+  신고전파 종합에서 새로운 신고전파 종합까지 — 1960s to Present</p>
+  <div class="hero-meta">
+    <div class="hero-chip">📜 8 Sections</div>
+    <div class="hero-chip">📊 7 SVG Diagrams</div>
+    <div class="hero-chip">🔑 Key Terms · EN/KO</div>
+    <div class="hero-chip">❓ QuickQuiz</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ══════════ SECTION 01 ══════════ -->
+<div id="s01">
+<div class="sec-header">
+  <div class="watermark">01</div>
+  <div class="tag">01 / The Era of Confidence</div>
+  <h2>The Neoclassical Synthesis</h2>
+  <div class="ko">신고전파 종합 — 자신감의 시대 (1940s–1960s)</div>
+</div>
+<div class="sec-body">
+
+  <div class="card-row cols2">
+    <div class="info-card">
+      <div class="card-title">🏛 Classical View — 고전파 관점</div>
+      <div class="card-body"><strong>Long-run market stability:</strong> Markets self-correct over time through flexible prices and wages.<br><em>장기적 시장 안정성: 가격·임금의 신축적 조정으로 시장이 스스로 균형을 회복한다.</em></div>
+    </div>
+    <div class="info-card">
+      <div class="card-title">📈 Keynesian View — 케인스파 관점</div>
+      <div class="card-body"><strong>Short-run intervention:</strong> Government demand stimulus can smooth recessions — prices and wages are sticky in the short run.<br><em>단기 개입: 정부 수요 부양이 경기침체를 완화할 수 있다 — 단기에 가격·임금은 경직적이다.</em></div>
+    </div>
+  </div>
+
+  <div class="hl-box blue">
+    <div class="hl-title">The Policy Playbook — 정책 처방전</div>
+    <div class="hl-body">
+      • <strong>Slow economy → deficit spending</strong> (경기 침체 → 재정 지출 확대)<br>
+      • <strong>Inflation rising → tighten money supply</strong> (인플레이션 상승 → 통화량 긴축)<br><br>
+      <em>"We Are All Keynesians Now"</em> — Time Magazine, 1965. 경제학자들은 두 이론을 통합해 단기는 케인스 이론, 장기는 고전파 이론으로 설명하는 종합 체계를 완성했다고 믿었다.
+    </div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-title">📊 The Original Phillips Curve (1958) — 기존 필립스 곡선</div>
+    <svg viewBox="0 0 500 280" width="100%" style="max-width:480px;">
+      <line x1="60" y1="240" x2="460" y2="240" stroke="#555" stroke-width="2"/>
+      <line x1="60" y1="240" x2="60" y2="30" stroke="#555" stroke-width="2"/>
+      <polygon points="460,235 460,245 472,240" fill="#555"/>
+      <polygon points="55,30 65,30 60,18" fill="#555"/>
+      <text x="476" y="244" font-size="12" fill="#555">실업률(%)</text>
+      <text x="14" y="26" font-size="11" fill="#555">인플레이션(%)</text>
+      <!-- Phillips curve -->
+      <path d="M 90 60 Q 200 120 440 230" stroke="#c97d10" stroke-width="3.5" fill="none"/>
+      <!-- Labels on curve -->
+      <circle cx="140" cy="85" r="6" fill="#1f52a0"/>
+      <text x="148" y="80" font-size="11" fill="#1f52a0" font-weight="700">낮은 실업·높은 인플레이션</text>
+      <circle cx="360" cy="195" r="6" fill="#c22828"/>
+      <text x="280" y="225" font-size="11" fill="#c22828" font-weight="700">높은 실업·낮은 인플레이션</text>
+      <!-- Trade-off arrow -->
+      <path d="M 180 110 L 320 175" stroke="#777" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr1)"/>
+      <text x="200" y="155" font-size="10.5" fill="#555" transform="rotate(25,200,155)">정책 trade-off 선택 가능</text>
+      <defs><marker id="arr1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#777"/></marker></defs>
+    </svg>
+    <div style="font-size:12px;color:#666;margin-top:8px;">정책 입안자들은 인플레이션과 실업률 사이의 안정적인 교환 관계(trade-off)가 존재한다고 믿었다.</div>
+  </div>
+
+  <div class="key-terms">
+    <h4>🔑 Key Terms — Section 01</h4>
+    <div class="kt-grid">
+      <div class="kt-chip"><strong>Neoclassical Synthesis</strong>고전파 + 케인스파 통합. 장기는 고전파, 단기는 케인스파 이론 적용</div>
+      <div class="kt-chip"><strong>Phillips Curve</strong>인플레이션율과 실업률 간의 역의 관계를 나타내는 곡선 (A.W. Phillips, 1958)</div>
+      <div class="kt-chip"><strong>Demand Stimulus</strong>경기침체 시 정부 지출/통화량을 늘려 총수요를 높이는 정책</div>
+      <div class="kt-chip"><strong>Policy Trade-off</strong>두 정책 목표가 상충할 때 하나를 택하면 다른 하나를 포기해야 하는 관계</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 02 ══════════ -->
+<div id="s02">
+<div class="sec-header">
+  <div class="watermark">02</div>
+  <div class="tag">02 / The Shock of the 1970s</div>
+  <h2>Stagflation: The Crisis That Shattered Consensus</h2>
+  <div class="ko">스태그플레이션 — 컨센서스를 산산조각 낸 위기</div>
+</div>
+<div class="sec-body">
+
+  <div class="hl-box" style="background:#1a0000;border-color:#c22828;color:#fde8e8;border-radius:6px;padding:18px 22px;margin-bottom:22px;">
+    <div class="hl-title" style="color:#ff8080;font-size:15px;">🔥 STAGFLATION = High Inflation + High Unemployment (simultaneously)</div>
+    <div class="hl-body" style="color:#fde8e8;">스태그플레이션 = 높은 인플레이션 + 높은 실업률이 <strong>동시에</strong> 발생. 케인스 정책 처방으로는 해결 불가능한 상황.</div>
+  </div>
+
+  <div class="card-row cols3">
+    <div class="info-card" style="border-top:4px solid #c22828;">
+      <div class="card-title" style="color:#c22828;">🛢 Oil Shocks / 오일 쇼크</div>
+      <div class="card-body">1973 &amp; 1979 OPEC oil embargoes dramatically raised production costs worldwide.<br><br>
+      <em>1973·1979년 OPEC 오일 엠바고가 전 세계 생산 비용을 급격히 상승시켰다. 총공급 곡선 좌측 이동 → SRAS↓</em></div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent3);">
+      <div class="card-title" style="color:var(--accent3);">⚔ War Spending / 전쟁 지출</div>
+      <div class="card-body">Vietnam War expenditures and Great Society programs fueled inflationary pressure in the late 1960s.<br><br>
+      <em>베트남전 지출과 Great Society 프로그램이 1960년대 말 인플레이션 압력을 높였다. AD↑ → 물가 상승 압력</em></div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent2);">
+      <div class="card-title" style="color:var(--accent2);">🏦 Loose Monetary Policy / 느슨한 통화 정책</div>
+      <div class="card-body">The Fed kept interest rates too low for too long, allowing inflation to become entrenched.<br><br>
+      <em>연준이 금리를 너무 낮게 너무 오래 유지 → 인플레이션이 고착화되는 결과를 낳았다.</em></div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en">The Keynesian toolkit — stimulus for unemployment, tightening for inflation — could not address both at once. The dominant framework had reached its limits. When stagflation hit, policymakers faced an impossible choice: stimulate to reduce unemployment and worsen inflation, or tighten to fight inflation and deepen the recession.</div>
+    <div class="para-ko">케인스 정책 도구 — 실업에는 부양, 인플레이션에는 긴축 — 은 두 문제를 동시에 해결할 수 없었다. 지배적 프레임워크는 한계에 도달했다. 스태그플레이션이 닥쳤을 때, 정책 입안자들은 불가능한 선택에 직면했다: 실업 감소를 위해 부양하면 인플레이션이 악화되고, 인플레이션을 잡으려 긴축하면 경기침체가 심화된다.</div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-title">📊 AD-AS: Stagflation Mechanism — 스태그플레이션 발생 메커니즘</div>
+    <svg viewBox="0 0 520 270" width="100%" style="max-width:500px;">
+      <line x1="50" y1="230" x2="480" y2="230" stroke="#555" stroke-width="2"/>
+      <line x1="50" y1="230" x2="50" y2="25" stroke="#555" stroke-width="2"/>
+      <polygon points="480,225 480,235 492,230" fill="#555"/>
+      <polygon points="45,25 55,25 50,13" fill="#555"/>
+      <text x="496" y="234" font-size="11" fill="#555">Y(산출량)</text>
+      <text x="14" y="22" font-size="10" fill="#555">물가</text>
+      <!-- LRAS -->
+      <line x1="260" y1="225" x2="260" y2="30" stroke="#1e7a44" stroke-width="2.5"/>
+      <text x="210" y="24" font-size="9.5" font-weight="700" fill="#1e7a44">LRAS</text>
+      <!-- AS1 original -->
+      <path d="M 130 215 Q 260 135 400 50" stroke="#1f52a0" stroke-width="2.2" fill="none"/>
+      <text x="370" y="42" font-size="9.5" font-weight="700" fill="#1f52a0">AS₁</text>
+      <!-- AS2 shifted left (supply shock) -->
+      <path d="M 90 210 Q 210 128 345 44" stroke="#c22828" stroke-width="2.2" fill="none" stroke-dasharray="8,4"/>
+      <text x="320" y="36" font-size="9.5" font-weight="700" fill="#c22828">AS₂ (공급 충격)</text>
+      <path d="M 345 80 L 310 70" stroke="#c22828" stroke-width="1.5" marker-end="url(#ar3)"/>
+      <!-- AD -->
+      <path d="M 100 60 Q 260 145 430 215" stroke="#c97d10" stroke-width="2.2" fill="none"/>
+      <text x="380" y="225" font-size="9.5" font-weight="700" fill="#c97d10">AD</text>
+      <!-- Points A, B -->
+      <circle cx="260" cy="127" r="5" fill="#1f52a0" stroke="white" stroke-width="1.5"/>
+      <text x="268" y="140" font-size="12" font-weight="700" fill="#1f52a0">A</text>
+      <circle cx="215" cy="115" r="5" fill="#c22828" stroke="white" stroke-width="1.5"/>
+      <text x="200" y="108" font-size="12" font-weight="700" fill="#c22828">B</text>
+      <!-- Price labels -->
+      <line x1="50" y1="127" x2="260" y2="127" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="18" y="131" font-size="10" fill="#1f52a0">P₁</text>
+      <line x1="50" y1="115" x2="215" y2="115" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="18" y="119" font-size="10" fill="#c22828">P₂↑</text>
+      <!-- Y labels -->
+      <line x1="215" y1="230" x2="215" y2="115" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="205" y="245" font-size="10" fill="#c22828">Y₂↓</text>
+      <line x1="260" y1="230" x2="260" y2="127" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="252" y="245" font-size="10" fill="#1f52a0">Y*</text>
+      <!-- Result box -->
+      <rect x="290" y="155" width="175" height="50" rx="4" fill="#fff0f0" stroke="#c22828" stroke-width="1.5"/>
+      <text x="300" y="173" font-size="11" font-weight="700" fill="#c22828">STAGFLATION</text>
+      <text x="300" y="188" font-size="10" fill="#7a1a1a">산출량↓(Y₂&lt;Y*) + 물가↑(P₂&gt;P₁)</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#c22828"/></marker></defs>
+    </svg>
+    <div style="font-size:12px;color:#666;margin-top:8px;">공급 충격(SRAS 좌측 이동) → 산출량 감소 + 물가 상승이 동시에 발생 = 스태그플레이션</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 03 ══════════ -->
+<div id="s03">
+<div class="sec-header">
+  <div class="watermark">03</div>
+  <div class="tag">03 / The First Warning Signs</div>
+  <h2>Friedman &amp; Phelps: Expectations Matter</h2>
+  <div class="ko">프리드먼·펠프스: 기대(expectations)가 중요하다 (1968)</div>
+</div>
+<div class="sec-body">
+
+  <div class="hl-box blue">
+    <div class="hl-title">The Key Insight — 핵심 통찰 (late 1960s)</div>
+    <div class="hl-body">
+      If workers and firms <strong>expect higher inflation</strong>, they will demand higher wages and raise prices — <strong>shifting the Phillips Curve upward</strong>.<br><br>
+      <em>근로자와 기업이 높은 인플레이션을 예상하면, 더 높은 임금을 요구하고 가격을 올린다 — 이것이 필립스 곡선을 위로 이동시킨다. 즉, 인플레이션과 실업 간의 교환 관계(trade-off)는 기대 인플레이션이 변할 때마다 이동하므로 안정적이지 않다.</em>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en"><strong>The Expectations-Augmented Phillips Curve:</strong><br>
+    <em>Actual Inflation = Expected Inflation + (Response to Unemployment Gap)</em><br><br>
+    This meant the apparent trade-off in the original Phillips Curve was not stable — it would shift whenever inflation expectations changed. Friedman and Phelps predicted that any attempt to permanently reduce unemployment below the natural rate would result in accelerating inflation.</div>
+    <div class="para-ko"><strong>기대 강화 필립스 곡선:</strong><br>
+    <em>실제 인플레이션 = 예상 인플레이션 + (실업률 격차에 대한 반응)</em><br><br>
+    이는 기존 필립스 곡선의 겉보기 교환 관계가 안정적이지 않음을 의미한다 — 인플레이션 기대가 바뀔 때마다 곡선이 이동한다. 프리드먼과 펠프스는 자연실업률 이하로 실업률을 영구적으로 낮추려는 모든 시도가 인플레이션 가속화를 초래할 것이라 예측했다.</div>
+  </div>
+
+  <div class="fig-wrap">
+    <div class="fig-title">📊 Shifting Phillips Curves + Short-Run vs Long-Run</div>
+    <svg viewBox="0 0 540 320" width="100%" style="max-width:520px;">
+      <!-- Axes -->
+      <line x1="55" y1="280" x2="510" y2="280" stroke="#555" stroke-width="2"/>
+      <line x1="55" y1="280" x2="55" y2="25" stroke="#555" stroke-width="2"/>
+      <polygon points="510,275 510,285 522,280" fill="#555"/>
+      <polygon points="50,25 60,25 55,13" fill="#555"/>
+      <text x="525" y="284" font-size="11" fill="#555">실업률(%)</text>
+      <text x="8" y="22" font-size="10" fill="#555">인플레이션(%)</text>
+      <!-- Long-run Phillips Curve (vertical) -->
+      <line x1="245" y1="275" x2="245" y2="35" stroke="#c22828" stroke-width="3"/>
+      <text x="165" y="32" font-size="10" font-weight="700" fill="#c22828">장기 필립스 곡선 (LRPC)</text>
+      <text x="165" y="44" font-size="9.5" fill="#c22828">자연실업률에서 수직</text>
+      <!-- SRPC 1 - low expectations -->
+      <path d="M 90 70 Q 200 145 440 262" stroke="#4ade80" stroke-width="2" fill="none"/>
+      <text x="400" y="258" font-size="9.5" fill="#4ade80">PC₁ (낮은 기대)</text>
+      <!-- SRPC 2 -->
+      <path d="M 90 120 Q 200 185 410 255" stroke="#60a0ff" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+      <text x="375" y="252" font-size="9.5" fill="#60a0ff">PC₂ (높은 기대)</text>
+      <!-- SRPC 3 - stagflation -->
+      <path d="M 90 170 Q 195 225 390 268" stroke="#fbbf24" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+      <text x="350" y="268" font-size="9.5" fill="#fbbf24">PC₃ (스태그플레이션)</text>
+      <!-- Upward shift arrows -->
+      <line x1="340" y1="195" x2="340" y2="155" stroke="#888" stroke-width="1.2" marker-end="url(#au)"/>
+      <line x1="340" y1="248" x2="340" y2="210" stroke="#888" stroke-width="1.2" marker-end="url(#au)"/>
+      <text x="350" y="175" font-size="9" fill="#888">기대↑</text>
+      <!-- Points K, B, Y from slides -->
+      <!-- Point B (5%, 9%) -->
+      <circle cx="245" cy="215" r="6" fill="#4ade80" stroke="white" stroke-width="1.5"/>
+      <text x="253" y="220" font-size="12" font-weight="800" fill="#1a1a1a">B</text>
+      <!-- Point K (3%, 12%) -->
+      <circle cx="165" cy="165" r="6" fill="#fbbf24" stroke="white" stroke-width="1.5"/>
+      <text x="148" y="162" font-size="12" font-weight="800" fill="#1a1a1a">K</text>
+      <!-- Point Y (5%, 12%) -->
+      <circle cx="245" cy="165" r="6" fill="#fbbf24" stroke="white" stroke-width="1.5"/>
+      <text x="253" y="162" font-size="12" font-weight="800" fill="#1a1a1a">Y</text>
+      <!-- Dashed lines to B, K, Y -->
+      <line x1="55" y1="215" x2="245" y2="215" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="24" y="218" font-size="10" fill="#888">9%</text>
+      <line x1="55" y1="165" x2="245" y2="165" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="20" y="168" font-size="10" fill="#888">12%</text>
+      <line x1="165" y1="280" x2="165" y2="165" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="158" y="296" font-size="10" fill="#888">3%</text>
+      <line x1="245" y1="280" x2="245" y2="215" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="238" y="296" font-size="10" fill="#888">5%</text>
+      <!-- Arrows K→Y (short run: B→K shift) -->
+      <path d="M 170 165 L 238 165" stroke="#c22828" stroke-width="1.8" marker-end="url(#ar4)"/>
+      <path d="M 215 215 L 215 168" stroke="#c22828" stroke-width="1.8" marker-end="url(#ar4)"/>
+      <defs>
+        <marker id="au" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#888"/></marker>
+        <marker id="ar4" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#c22828"/></marker>
+      </defs>
+    </svg>
+    <div style="font-size:12px;color:#666;margin-top:8px;">인플레이션 기대가 상승할 때마다 단기 필립스 곡선이 위로 이동. 장기에는 자연실업률에서 수직선이 된다.</div>
+  </div>
+
+  <!-- Short run vs Long run panels -->
+  <div class="card-row cols2" style="margin-top:24px;">
+    <div class="hl-box blue">
+      <div class="hl-title">⚡ Short Run (B→K): "Money Illusion — The Mutual Misperception"</div>
+      <div class="hl-body">
+        정부가 통화량을 늘리면 예상치 못한 인플레이션 발생.<br><br>
+        <strong>🔵 Workers' Illusion (근로자의 착각):</strong> 명목 임금이 물가와 함께 상승하지만, 근로자들은 <em>생활비 전체도 비례해서 올랐다는 사실을 깨닫지 못한다.</em> 자신의 실질 구매력(실질 임금)이 실제로 올랐다고 <strong>착각</strong>하여 노동 공급↑.<br><br>
+        <strong>🏭 기업 측:</strong> 실질 임금이 하락하므로 노동 수요↑ → 더 많이 고용.<br><br>
+        <strong>⚡ Result:</strong> 기업은 노동을 더 수요하고, 근로자는 화폐 착각으로 더 공급하여 <strong>고용이 확대되고 실업률이 3%로 하락</strong>. 하지만 인플레이션은 9%로 상승 중.<br><br>
+        <em>B(실업5%, 인플레이션9%) → K(실업3%, 인플레이션12%)</em>
+      </div>
+    </div>
+    <div class="hl-box" style="border-color:#c97d10;background:#fffbf0;">
+      <div class="hl-title" style="color:#7a4f00;">⏰ Long Run (K→Y): "Adjusted Expectations"</div>
+      <div class="hl-body">
+        시간이 지나 근로자들이 현실을 인식.<br>
+        <strong>착각 해소:</strong> 실질 임금이 실제로 하락했음을 깨달음 → 더 높은 명목 임금 요구<br>
+        <strong>기업:</strong> 노동 비용 상승 → 고용 축소<br>
+        <strong>결과:</strong> 경제가 자연실업률(5%)로 복귀. 남은 것은 영구적으로 높은 인플레이션(12%)뿐.<br><br>
+        <em>K(실업3%, 인플레이션12%) → Y(실업5%, 인플레이션12%)</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="hl-box green">
+    <div class="hl-title">📌 Convergence to the Natural Rate of Unemployment</div>
+    <div class="hl-body">
+      <strong>자연실업률(Natural Rate of Unemployment)</strong>로의 수렴: 장기에서 경제의 실업률은 인플레이션율에 관계없이 항상 자연실업률로 돌아온다. 이 비율은 노동 시장의 구조적·마찰적 요인에 의해 결정되며, 통화 팽창으로는 바꿀 수 없다.<br><br>
+      <strong>화폐의 중립성(Neutrality of Money):</strong> 장기에 통화량 변화는 물가·인플레이션 같은 명목 변수에만 영향을 미치고, 실업률·실질 GDP 같은 실질 변수에는 지속적 영향을 주지 않는다. → 장기 필립스 곡선은 자연실업률에서 수직선.
+    </div>
+  </div>
+
+  <div class="key-terms">
+    <h4>🔑 Key Terms — Section 03</h4>
+    <div class="kt-grid">
+      <div class="kt-chip"><strong>Expectations-Augmented Phillips Curve</strong>기대 강화 필립스 곡선: 실제 인플레이션 = 예상 인플레이션 + 실업 격차 반응</div>
+      <div class="kt-chip"><strong>Natural Rate of Unemployment</strong>자연실업률: 인플레이션 안정적일 때의 실업률. 구조적·마찰적 요인으로 결정</div>
+      <div class="kt-chip"><strong>Money Illusion</strong>화폐 착각: 명목 변수 변화를 실질 변화로 오인하는 현상</div>
+      <div class="kt-chip"><strong>Long-Run Phillips Curve</strong>장기 필립스 곡선: 자연실업률에서의 수직선. 장기에 실업-인플레이션 trade-off 없음</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 04 ══════════ -->
+<div id="s04">
+<div class="sec-header">
+  <div class="watermark">04</div>
+  <div class="tag">04 / Three Challengers</div>
+  <h2>The Schools That Challenged Keynesianism</h2>
+  <div class="ko">케인스주의에 도전한 세 학파</div>
+</div>
+<div class="sec-body">
+
+  <div class="card-row cols3">
+    <div class="school-card">
+      <div class="sc-head" style="background:#7a3000;">Monetarism<br><small style="font-weight:400;font-size:12px;">Milton Friedman</small></div>
+      <div class="sc-body">
+        <div class="sc-label">Core Claim / 핵심 주장</div>
+        <p><strong>"Inflation is always and everywhere a monetary phenomenon."</strong><br>
+        <em>인플레이션은 언제 어디서나 화폐적 현상이다.</em> 통화량 과잉 공급이 인플레이션의 근본 원인.</p>
+        <div class="sc-label">Policy / 정책 처방</div>
+        <p>Fixed monetary growth rule — like cruise control for the money supply.<br>
+        <em>통화량 고정 증가 규칙 — 통화 공급의 자동 항법 장치처럼.</em> k% 룰: 경제 성장률에 맞춰 통화량을 일정하게 증가시킬 것.</p>
+        <div class="sc-label">Key Critique / 핵심 비판</div>
+        <p>Discretionary Keynesian fine-tuning is unpredictable and destabilizing.<br>
+        <em>재량적 케인스식 미세 조정은 예측 불가능하고 경제를 불안정하게 만든다.</em></p>
+      </div>
+    </div>
+    <div class="school-card">
+      <div class="sc-head" style="background:#1a4a1a;">New Classical Economics<br><small style="font-weight:400;font-size:12px;">Robert Lucas, Sargent &amp; Wallace</small></div>
+      <div class="sc-body">
+        <div class="sc-label">Core Claim / 핵심 주장</div>
+        <p><strong>Rational Expectations:</strong> people anticipate policy and adjust immediately.<br>
+        <em>합리적 기대: 사람들이 정책을 예상하고 즉각 조정한다.</em> 이용 가능한 모든 정보를 활용해 최선의 기대를 형성.</p>
+        <div class="sc-label">Policy / 정책 처방</div>
+        <p>Policy Ineffectiveness Proposition — predictable policy cannot systematically boost real output.<br>
+        <em>정책 무력성 명제 — 예측 가능한 정책은 실질 산출량을 체계적으로 증가시킬 수 없다.</em></p>
+        <div class="sc-label">Key Critique / 핵심 비판</div>
+        <p>Models must be built on individual decision-making (microfoundations).<br>
+        <em>모형은 개인 의사결정(미시적 기초)에 기반해야 한다.</em></p>
+      </div>
+    </div>
+    <div class="school-card">
+      <div class="sc-head" style="background:#3a0066;">Supply-Side Economics<br><small style="font-weight:400;font-size:12px;">Laffer, Mundell</small></div>
+      <div class="sc-body">
+        <div class="sc-label">Core Claim / 핵심 주장</div>
+        <p>Focus on <strong>incentives to produce</strong>, not just consumer demand.<br>
+        <em>소비 수요가 아닌 <strong>생산 유인</strong>에 집중하라.</em> 공급 측면의 개선이 장기 성장의 핵심.</p>
+        <div class="sc-label">Policy / 정책 처방</div>
+        <p>Tax cuts and deregulation raise investment and long-run output.<br>
+        <em>감세와 규제 완화가 투자와 장기 산출량을 늘린다.</em> → LRAS 우측 이동</p>
+        <div class="sc-label">Key Critique / 핵심 비판</div>
+        <p>Laffer Curve: cutting taxes from peak rates could raise total revenue.<br>
+        <em>래퍼 곡선: 정점 이상의 세율에서 감세하면 오히려 세수가 늘어날 수 있다.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fig-wrap" style="margin-top:24px;">
+    <div class="fig-title">📊 The Laffer Curve — 래퍼 곡선 (Tax Rate vs Government Revenue)</div>
+    <svg viewBox="0 0 520 280" width="100%" style="max-width:500px;">
+      <line x1="50" y1="245" x2="480" y2="245" stroke="#555" stroke-width="2"/>
+      <line x1="50" y1="245" x2="50" y2="25" stroke="#555" stroke-width="2"/>
+      <polygon points="480,240 480,250 492,245" fill="#555"/>
+      <polygon points="45,25 55,25 50,13" fill="#555"/>
+      <text x="496" y="249" font-size="11" fill="#555">세율(%)</text>
+      <text x="6" y="22" font-size="10" fill="#555">정부 세수</text>
+      <text x="54" y="258" font-size="10" fill="#555">0%</text>
+      <text x="475" y="258" font-size="10" fill="#555">100%</text>
+      <!-- Laffer curve (parabola-like) -->
+      <path d="M 55 245 Q 155 30 265 55 Q 380 80 480 245" stroke="#6040b0" stroke-width="3" fill="none"/>
+      <!-- Fill areas -->
+      <path d="M 55 245 Q 155 30 265 55 L 265 245 Z" fill="#c8f5d0" opacity="0.5"/>
+      <path d="M 265 55 Q 380 80 480 245 L 265 245 Z" fill="#ffd0d0" opacity="0.5"/>
+      <!-- Maximum point -->
+      <circle cx="265" cy="55" r="7" fill="#6040b0" stroke="white" stroke-width="2"/>
+      <line x1="265" y1="55" x2="265" y2="245" stroke="#6040b0" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="218" y="42" font-size="11" font-weight="700" fill="#6040b0">최대 세수</text>
+      <text x="210" y="56" font-size="10" fill="#6040b0">= 최적 세율</text>
+      <text x="272" y="255" font-size="9" fill="#6040b0">??%</text>
+      <!-- Left region labels -->
+      <text x="110" y="160" font-size="11" font-weight="700" fill="#1e7a44">BELOW</text>
+      <text x="110" y="174" font-size="11" font-weight="700" fill="#1e7a44">THE PEAK</text>
+      <text x="95" y="190" font-size="10" fill="#1e7a44">세율↑ → 세수↑</text>
+      <!-- Right region labels -->
+      <text x="330" y="160" font-size="11" font-weight="700" fill="#c22828">BEYOND</text>
+      <text x="330" y="174" font-size="11" font-weight="700" fill="#c22828">THE PEAK</text>
+      <text x="315" y="190" font-size="10" fill="#c22828">세율↑ → 세수↓</text>
+    </svg>
+    <div style="font-size:12px;color:#666;margin-top:8px;">세율 0%이면 세수 없음. 세율 100%이면 노동 유인 없어 세수 없음. 중간 어딘가에 세수를 극대화하는 최적 세율 존재.<br>공급 측면 경제학: 현재 세율이 정점 오른쪽이라면 감세 = 세수 증가 + 경제 성장.</div>
+  </div>
+
+  <table class="tbl" style="margin-top:20px;">
+    <tr>
+      <th>학파</th>
+      <th>필립스 곡선에 대한 입장</th>
+      <th>정책 권고</th>
+      <th>한계</th>
+    </tr>
+    <tr>
+      <td><strong>통화주의</strong></td>
+      <td>장기에 수직 (화폐 중립)</td>
+      <td>k% 통화량 증가 규칙</td>
+      <td>통화량과 물가의 관계가 불안정해질 수 있음</td>
+    </tr>
+    <tr>
+      <td><strong>새 고전파</strong></td>
+      <td>합리적 기대 → 즉각 이동</td>
+      <td>규칙 기반 정책 (재량 불가)</td>
+      <td>현실에서 완전한 합리적 기대는 어려움</td>
+    </tr>
+    <tr>
+      <td><strong>공급 측면</strong></td>
+      <td>주로 LRAS 중심 (수요 중시 안 함)</td>
+      <td>감세·규제 완화</td>
+      <td>세수 감소 우려, 소득 불평등 심화 가능성</td>
+    </tr>
+  </table>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 05 ══════════ -->
+<div id="s05">
+<div class="sec-header">
+  <div class="watermark">05</div>
+  <div class="tag">05 / The Lucas Critique</div>
+  <h2>Why Economic Models Break When Policy Changes</h2>
+  <div class="ko">루카스 비판 — 정책이 변하면 모형이 깨지는 이유</div>
+</div>
+<div class="sec-body">
+
+  <div class="para-block">
+    <div class="para-en"><strong>When policy changes, people do not merely change what they decide — they change how they decide.</strong><br><br>
+    Robert Lucas (1976) argued that economic models built on historical patterns will fail once policy changes, because rational agents will anticipate the new policy and adjust their behavior accordingly — invalidating the very relationships the model was built on.</div>
+    <div class="para-ko"><strong>정책이 변하면, 사람들은 단순히 결정하는 것을 바꾸는 게 아니라 결정하는 방식 자체를 바꾼다.</strong><br><br>
+    로버트 루카스(1976)는 역사적 패턴에 기반한 경제 모형은 정책이 변하면 실패할 것이라고 주장했다. 합리적 행위자들이 새로운 정책을 예상하고 행동을 조정하여, 모형이 기반으로 삼았던 관계 자체를 무효화하기 때문이다.</div>
+  </div>
+
+  <div class="card-row cols3">
+    <div class="info-card" style="border-top:4px solid var(--accent2);">
+      <div class="card-title">① Old Policy — 기존 정책</div>
+      <div class="card-body">Government observes historical data: when X happens, Y follows. Builds a predictive model.<br><em>정부가 역사 데이터를 관찰해 'X가 발생하면 Y가 따라온다'는 예측 모형을 구축한다.</em></div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent3);">
+      <div class="card-title">② New Policy Announced — 새 정책 발표</div>
+      <div class="card-body">The policy changes. Rational agents anticipate the new environment and adjust their behavior.<br><em>정책이 바뀐다. 합리적 행위자들이 새로운 환경을 예상하고 행동을 조정한다.</em></div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent);">
+      <div class="card-title">③ Model Breaks Down — 모형 붕괴</div>
+      <div class="card-body">The old model — fitted on old behavior — now gives wrong predictions. The underlying behavior has shifted.<br><em>과거 행동에 맞춰 구축된 기존 모형이 이제 잘못된 예측을 한다. 기저의 행동 자체가 바뀌었기 때문이다.</em></div>
+    </div>
+  </div>
+
+  <div class="hl-box gold">
+    <div class="hl-title">💡 Legacy — 루카스 비판의 유산</div>
+    <div class="hl-body">
+      The Lucas Critique pushed economists to build models grounded in individual and firm behavior (microfoundations), not just aggregate historical patterns. This gave birth to Dynamic Stochastic General Equilibrium (DSGE) models — the dominant framework in modern macroeconomics.<br><br>
+      <em>루카스 비판은 경제학자들이 단순히 집계적 역사 패턴이 아니라 개인과 기업 행동(미시적 기초)에 기반한 모형을 구축하도록 촉구했다. 이는 현대 거시경제학의 지배적 틀인 동적 확률적 일반균형(DSGE) 모형 탄생으로 이어졌다.</em>
+    </div>
+  </div>
+
+  <div class="hl-box purple">
+    <div class="hl-title">🧠 Policy Ineffectiveness Proposition — 정책 무력성 명제</div>
+    <div class="hl-body">
+      Sargent &amp; Wallace extended Lucas: if the public uses all available information to forecast policy, then systematic (predictable) monetary policy will be <strong>fully anticipated</strong> — wages and prices will adjust immediately, leaving real output unchanged.<br><br>
+      <em>새전트·월러스는 루카스를 확장: 대중이 정책을 완전히 예측한다면, 체계적(예측 가능한) 통화 정책은 완전히 선반영되어 — 임금과 가격이 즉각 조정되어 — 실질 산출량에 변화가 없다. 즉, 오직 예상치 못한(unanticipated) 정책만이 단기적 실질 효과를 가질 수 있다.</em>
+    </div>
+  </div>
+
+  <div style="background:white;border:2px solid #6040b0;border-radius:8px;padding:22px;margin:18px 0;">
+    <div style="font-size:12px;font-weight:700;color:#6040b0;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">📊 Policy Ineffectiveness: 5-Step Causal Chain — 5단계 인과 사슬</div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;align-items:stretch;gap:12px;margin-bottom:0;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#6040b0;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">1</div>
+          <div style="width:2px;flex:1;background:#d0b8f0;min-height:20px;"></div>
+        </div>
+        <div style="padding:4px 0 16px;font-size:13.5px;line-height:1.7;">
+          <strong>Government signals expansionary monetary policy</strong> (e.g., printing money)<br>
+          <span style="color:#666;">정부가 확장적 통화 정책 신호를 보낸다 (예: 통화 발행 증가)</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:12px;margin-bottom:0;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#6040b0;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">2</div>
+          <div style="width:2px;flex:1;background:#d0b8f0;min-height:20px;"></div>
+        </div>
+        <div style="padding:4px 0 16px;font-size:13.5px;line-height:1.7;">
+          <strong>Public anticipates inflation</strong> — using all available data (past trends, govt behavior, global news)<br>
+          <span style="color:#666;">대중이 모든 가용 정보를 사용하여 <em>인플레이션을 즉각 예상</em>한다 (합리적 기대)</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:12px;margin-bottom:0;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#6040b0;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">3</div>
+          <div style="width:2px;flex:1;background:#d0b8f0;min-height:20px;"></div>
+        </div>
+        <div style="padding:4px 0 16px;font-size:13.5px;line-height:1.7;">
+          <strong>Workers demand higher wages</strong> — immediately building expected inflation into new wage contracts<br>
+          <span style="color:#666;">근로자들이 즉시 예상 인플레이션을 반영해 <em>더 높은 명목 임금을 요구</em>한다</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:12px;margin-bottom:0;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#6040b0;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">4</div>
+          <div style="width:2px;flex:1;background:#d0b8f0;min-height:20px;"></div>
+        </div>
+        <div style="padding:4px 0 16px;font-size:13.5px;line-height:1.7;">
+          <strong>Firms increase prices</strong> — rising labor costs force firms to raise prices, generating the expected inflation<br>
+          <span style="color:#666;">기업들이 가격을 인상한다 — 상승한 인건비가 기업으로 하여금 가격을 올리게 하여 예상 인플레이션이 실현된다</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:12px;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#c22828;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;">✗</div>
+        </div>
+        <div style="padding:4px 0;font-size:13.5px;line-height:1.7;background:#fff0f0;border:2px dashed #c22828;border-radius:6px;padding:12px 16px;flex:1;">
+          <strong style="color:#c22828;">Output Boost — NULLIFIED</strong> (산출량 증가 — <em>무력화</em>)<br>
+          <span style="color:#666;">임금·가격이 동시에 상승하여 실질 임금과 실질 구매력에 변화가 없다. 화폐 착각이 없으므로 고용도 늘지 않는다. <strong>정책은 인플레이션만 남기고 실질 효과는 제로.</strong></span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#6040b0;margin-top:14px;font-style:italic;">핵심: 합리적 기대 하에서는 예측 가능한 정책이 즉각 선반영되어 Money Illusion이 발생하지 않는다 → 단기에도 실질 효과 없음 → 장·단기 모두 정책 무력화</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 06 ══════════ -->
+<div id="s06">
+<div class="sec-header">
+  <div class="watermark">06</div>
+  <div class="tag">06 / The Keynesian Counterattack</div>
+  <h2>New Keynesian Economics: Rational but Rigid</h2>
+  <div class="ko">신케인스 경제학: 합리적이지만 경직적</div>
+</div>
+<div class="sec-body">
+
+  <div class="hl-box blue" style="margin-bottom:20px;">
+    <div class="hl-title">⚡ Core Position: Accepted + Rejected</div>
+    <div class="hl-body">
+      <strong>✅ Accepted: Rational Expectations</strong> — 합리적 기대는 인정<br>
+      <strong>❌ Rejected: Instant Market Adjustment</strong> — 시장의 즉각적 조정은 거부<br><br>
+      <em>새 고전파처럼 합리적 기대를 받아들이되, 현실에서 가격과 임금은 즉각적으로 조정되지 않는다. 이 경직성(stickiness)이 단기 정책 개입의 여지를 만든다.</em>
+    </div>
+  </div>
+
+  <div class="card-row cols2">
+    <div class="info-card" style="border-top:4px solid var(--accent2);">
+      <div class="card-title">🍽 Menu Costs &amp; Price Stickiness — 메뉴 비용과 가격 경직성</div>
+      <div class="card-body">
+        Just as a restaurant cannot reprint its menu every time ingredient prices fluctuate, businesses face real costs — printing, advertising, renegotiating contracts — when changing prices.<br><br>
+        <em>식당이 재료 가격이 변동할 때마다 메뉴를 새로 인쇄할 수 없듯, 기업들은 가격을 변경할 때 실제 비용 — 인쇄, 광고, 계약 재협상 — 에 직면한다.</em><br><br>
+        Because of these menu costs, <strong>prices adjust slowly rather than instantly</strong>, creating room for short-run policy intervention.<br>
+        <em>이 메뉴 비용 때문에 <strong>가격은 즉각이 아니라 천천히 조정</strong>되어 단기 정책 개입의 여지가 생긴다.</em>
+      </div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent3);">
+      <div class="card-title">💰 Efficiency Wages &amp; Wage Stickiness — 효율임금과 임금 경직성</div>
+      <div class="card-body">
+        Firms often deliberately pay wages above the market-clearing rate to retain good workers, encourage effort, and reduce shirking.<br><br>
+        <em>기업들은 우수한 직원을 유지하고, 노력을 장려하며, 태만을 줄이기 위해 시장 청산 수준 이상의 임금을 의도적으로 지불한다.</em><br><br>
+        This means firms cannot simply cut wages during a recession — <strong>wages are "sticky" downward</strong>, so unemployment can persist even when the economy contracts.<br>
+        <em>이는 기업들이 경기침체 시 단순히 임금을 삭감할 수 없음을 의미한다 — <strong>임금은 하방 경직성</strong>을 가져 경제가 위축될 때도 실업이 지속될 수 있다.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="para-block">
+    <div class="para-en"><strong>Result:</strong> Even with rational agents, short-run government intervention can still affect real output and employment — because markets do not adjust instantly. New Keynesian economists showed that seemingly small frictions (menu costs, efficiency wages, long-term contracts) can have large macroeconomic effects.</div>
+    <div class="para-ko"><strong>결론:</strong> 합리적 행위자들이 있더라도, 단기 정부 개입이 실질 산출량과 고용에 여전히 영향을 미칠 수 있다 — 시장이 즉각적으로 조정되지 않기 때문이다. 신케인스 경제학자들은 겉으로 작아 보이는 마찰들(메뉴 비용, 효율임금, 장기 계약)이 큰 거시경제적 효과를 가질 수 있음을 보였다.</div>
+  </div>
+
+  <table class="tbl">
+    <tr><th>경직성 유형</th><th>원인</th><th>거시경제적 효과</th></tr>
+    <tr>
+      <td><strong>Price Stickiness</strong><br><em>가격 경직성</em></td>
+      <td>메뉴 비용, 계약, 브랜드 이미지 유지</td>
+      <td>AD 변화 시 산출량 변화. 가격 완전 조정 전 실질 효과 발생</td>
+    </tr>
+    <tr>
+      <td><strong>Wage Stickiness (Downward)</strong><br><em>임금 하방 경직성</em></td>
+      <td>효율임금, 노동 계약, 사기·생산성 우려</td>
+      <td>경기침체 시 임금이 떨어지지 않아 실업 지속</td>
+    </tr>
+    <tr>
+      <td><strong>Long-term Contracts</strong><br><em>장기 계약</em></td>
+      <td>임금·가격이 계약 기간 동안 고정</td>
+      <td>예상치 못한 충격에 즉각 대응 불가 → 경기변동 확대</td>
+    </tr>
+  </table>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 07 ══════════ -->
+<div id="s07">
+<div class="sec-header">
+  <div class="watermark">07</div>
+  <div class="tag">07 / The Modern Synthesis</div>
+  <h2>The New Neoclassical Synthesis</h2>
+  <div class="ko">새로운 신고전파 종합 — 현대 거시경제학의 체계</div>
+</div>
+<div class="sec-body">
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1940s–1960s</div>
+      <div class="tl-body"><strong>Neoclassical Synthesis</strong> — 신고전파 종합</div>
+      <div class="tl-ko">케인스 + 고전파 통합. 필립스 곡선 trade-off 믿음. "We are all Keynesians."</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#c22828;box-shadow:0 0 0 2px #c22828;"></div>
+      <div class="tl-year" style="color:#c22828;">1970s</div>
+      <div class="tl-body"><strong>Stagflation Crisis</strong> — 스태그플레이션 위기</div>
+      <div class="tl-ko">OPEC 오일 쇼크. 기존 케인스 처방 실패. 고인플레이션 + 고실업 동시 발생.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7a3000;box-shadow:0 0 0 2px #7a3000;"></div>
+      <div class="tl-year" style="color:#7a3000;">1976–1980s</div>
+      <div class="tl-body"><strong>Monetarism &amp; New Classical Economics</strong> — 통화주의와 새 고전파 부상</div>
+      <div class="tl-ko">프리드먼 k% 룰, 루카스 비판, 합리적 기대 혁명, 정책 무력성 명제. 레이거노믹스·공급 측면 경제학.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#1a4a1a;box-shadow:0 0 0 2px #1a4a1a;"></div>
+      <div class="tl-year" style="color:#1a4a1a;">Late 1980s</div>
+      <div class="tl-body"><strong>New Keynesian Economics</strong> — 신케인스 경제학</div>
+      <div class="tl-ko">메뉴 비용, 효율임금, 가격·임금 경직성의 미시적 기초 제공. 합리적 기대 + 시장 마찰 결합.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#6040b0;box-shadow:0 0 0 2px #6040b0;"></div>
+      <div class="tl-year" style="color:#6040b0;">Late 1990s–2000s</div>
+      <div class="tl-body"><strong>New Neoclassical Synthesis</strong> — 새로운 신고전파 종합</div>
+      <div class="tl-ko">새 고전파 + 신케인스 통합. DSGE 모형, 인플레이션 목표제, 중앙은행 독립성. 현대 중앙은행 정책의 토대.</div>
+    </div>
+  </div>
+
+  <div class="card-row cols2" style="margin-top:24px;">
+    <div class="hl-box" style="border-color:#1a4a1a;background:#f0fff4;">
+      <div class="hl-title" style="color:#1a4a1a;">From New Classical Economics — 새 고전파에서 가져온 것</div>
+      <div class="hl-body">
+        • Rules-based monetary policy (규칙 기반 통화 정책)<br>
+        • Long-run inflation targets — Fed formally adopted 2% target in 2012 (장기 인플레이션 목표)<br>
+        • Microfoundations in models (모형의 미시적 기초)<br>
+        • Rational expectations framework (합리적 기대 틀)
+      </div>
+    </div>
+    <div class="hl-box blue">
+      <div class="hl-title">From New Keynesian Economics — 신케인스에서 가져온 것</div>
+      <div class="hl-body">
+        • Interest rate adjustments in the short run (단기 금리 조정)<br>
+        • Price &amp; wage stickiness in models (가격·임금 경직성 반영)<br>
+        • Government intervention in downturns (경기침체 시 개입)<br>
+        • Aggregate demand management (총수요 관리)
+      </div>
+    </div>
+  </div>
+
+  <div class="hl-box green">
+    <div class="hl-title">🏦 Today's Central Banking = The New Neoclassical Synthesis in Action</div>
+    <div class="hl-body">
+      Today's major central banks — including the U.S. Federal Reserve — embody this synthesis: <strong>rules-based long-run targets</strong> (e.g., 2% inflation target) combined with <strong>short-run Keynesian tools</strong> (e.g., interest rate cuts during recessions).<br><br>
+      <em>오늘날 연준을 포함한 주요 중앙은행들이 이 종합을 구현하고 있다: <strong>규칙 기반 장기 목표</strong>(예: 2% 인플레이션 목표)와 <strong>단기 케인스식 도구</strong>(예: 경기침체 시 금리 인하)의 결합. 이것이 현대 통화 정책의 표준 체계이다.</em>
+    </div>
+  </div>
+
+  <div class="key-terms">
+    <h4>🔑 Key Terms — 종합 정리</h4>
+    <div class="kt-grid">
+      <div class="kt-chip"><strong>Rational Expectations</strong>합리적 기대: 이용 가능한 모든 정보를 활용해 체계적 오차 없이 미래를 예측</div>
+      <div class="kt-chip"><strong>Policy Ineffectiveness</strong>정책 무력성: 예측 가능한 통화 정책은 실질 변수에 영향 없음 (새 고전파)</div>
+      <div class="kt-chip"><strong>Menu Costs</strong>메뉴 비용: 가격 변경에 드는 실제 비용. 가격 경직성의 근거</div>
+      <div class="kt-chip"><strong>Efficiency Wages</strong>효율임금: 균형임금 위의 임금 지불이 오히려 기업 이윤 증대. 임금 하방 경직성 근거</div>
+      <div class="kt-chip"><strong>Microfoundations</strong>미시적 기초: 거시경제 모형을 개인·기업의 최적화 행동에서 도출하는 방법론</div>
+      <div class="kt-chip"><strong>DSGE Model</strong>동적 확률적 일반균형 모형: 합리적 기대 + 경직성을 결합한 현대 거시 표준 모형</div>
+      <div class="kt-chip"><strong>Inflation Targeting</strong>인플레이션 목표제: 중앙은행이 명시적 인플레이션 목표를 설정해 정책 수행 (연준 공식 목표 2%)</div>
+      <div class="kt-chip"><strong>Lucas Critique</strong>루카스 비판: 정책 변화 시 경제 행위자들이 적응하므로 과거 데이터 기반 모형 예측 신뢰 불가</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ SECTION 08 ══════════ -->
+<div id="s08">
+<div class="sec-header">
+  <div class="watermark">08</div>
+  <div class="tag">08 / Unfinished Business</div>
+  <h2>The 2008 Crisis &amp; What Comes Next</h2>
+  <div class="ko">2008 금융위기와 그 이후 — 진행 중인 과학</div>
+</div>
+<div class="sec-body">
+
+  <div class="card-row cols2">
+    <div class="hl-box" style="border-color:#c22828;background:#fff0f0;">
+      <div class="hl-title" style="color:#c22828;">⚠ The Blind Spot — 맹점</div>
+      <div class="hl-body">
+        Mainstream models paid too little attention to risks hidden inside the financial and banking system.<br><br>
+        <em>주류 모형들은 금융·은행 시스템 내부에 숨어 있던 위험에 너무 적은 주의를 기울였다.</em><br><br>
+        DSGE 모형은 금융 부문을 거의 무시. 레버리지, 담보 제약, 은행 도산 전파를 반영하지 못해 2008년 금융 위기를 예측·설명하는 데 실패.
+      </div>
+    </div>
+    <div class="hl-box green">
+      <div class="hl-title">✅ The Response — 대응</div>
+      <div class="hl-body">
+        Economists are now revising models to incorporate financial frictions, credit, leverage, and macroprudential policy.<br><br>
+        <em>경제학자들은 금융 마찰, 신용, 레버리지, 거시건전성 정책을 포함하도록 모형을 개정하고 있다.</em><br><br>
+        위기 이후 "금융 가속기(financial accelerator)" 모형, 가계 부채 모형, 네트워크 이론 등 새로운 분야가 급속히 발전.
+      </div>
+    </div>
+  </div>
+
+  <div class="card-row cols3">
+    <div class="info-card" style="border-top:4px solid var(--accent);">
+      <div class="card-title" style="color:var(--accent);">🔗 Financial Frictions — 금융 마찰</div>
+      <div class="card-body">Credit market imperfections — collateral constraints, information asymmetries — can amplify economic downturns far beyond what simple models predict.<br><br>
+      <em>담보 제약, 정보 비대칭 등 신용 시장 불완전성이 경기침체를 단순 모형이 예측하는 것보다 훨씬 크게 증폭시킬 수 있다.</em><br><br>
+      예: 주택 가격 하락 → 담보 가치 하락 → 대출 감소 → 소비·투자 감소 → 추가 자산 가격 하락의 악순환.</div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--accent2);">
+      <div class="card-title" style="color:var(--accent2);">🛡 Macroprudential Policy — 거시건전성 정책</div>
+      <div class="card-body">Regulatory tools aimed at systemwide (macro) risks — not just individual bank health. Includes capital buffers, leverage limits, and stress tests.<br><br>
+      <em>개별 은행 건전성이 아닌 시스템 전체(거시) 위험을 목표로 한 규제 도구. 자본 완충, 레버리지 한도, 스트레스 테스트 포함.</em><br><br>
+      미시건전성(개별 기관) vs <strong>거시건전성(시스템 전체)</strong>. 2008 이후 금융안정감독위원회(FSOC) 등 설립.</div>
+    </div>
+    <div class="info-card" style="border-top:4px solid var(--green);">
+      <div class="card-title" style="color:var(--green);">🔬 Macroeconomics as a Living Science — 살아있는 과학으로서의 거시경제학</div>
+      <div class="card-body">Just as the Depression gave birth to Keynesianism and stagflation elevated the New Classicals, each crisis reshapes the field. The work continues.<br><br>
+      <em>대공황이 케인스주의를 낳고 스태그플레이션이 새 고전파를 부상시켰듯, 각각의 위기가 이 분야를 재형성한다. 작업은 계속된다.</em><br><br>
+      "Macroeconomics is a living science — continuously refined by the crises it must explain."</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ KEY TAKEAWAYS ══════════ -->
+<div style="background:var(--navy);border-radius:4px;padding:34px 40px;margin-top:48px;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent3);text-transform:uppercase;margin-bottom:12px;">KEY TAKEAWAYS</div>
+  <h2 style="color:#f5e6c8;font-size:22px;margin-bottom:22px;">Macroeconomics is a Living Science</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:18px;">
+      <div style="font-size:24px;margin-bottom:8px;">1️⃣</div>
+      <div style="font-size:13.5px;color:#f5e6c8;line-height:1.75;">Each major crisis exposed the limits of the prevailing theory and gave rise to a new school of thought.<br><span style="color:rgba(255,255,255,.6);font-size:12.5px;">각 주요 위기는 지배적 이론의 한계를 드러내고 새로운 학파를 탄생시켰다.</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:18px;">
+      <div style="font-size:24px;margin-bottom:8px;">2️⃣</div>
+      <div style="font-size:13.5px;color:#f5e6c8;line-height:1.75;">No single framework has proven sufficient — today's synthesis borrows from multiple traditions.<br><span style="color:rgba(255,255,255,.6);font-size:12.5px;">어떤 단일 프레임워크도 충분하지 않음이 증명되었다 — 오늘날의 종합은 여러 전통에서 빌려온다.</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:18px;">
+      <div style="font-size:24px;margin-bottom:8px;">3️⃣</div>
+      <div style="font-size:13.5px;color:#f5e6c8;line-height:1.75;">The 2008 financial crisis reminds us that models must continue to evolve as the global economy grows more complex.<br><span style="color:rgba(255,255,255,.6);font-size:12.5px;">2008 금융위기는 세계 경제가 더 복잡해짐에 따라 모형도 계속 진화해야 함을 상기시켜 준다.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ QUICK QUIZ ══════════ -->
+<div id="quiz" style="margin-top:48px;">
+<div class="sec-header" style="margin-top:0;">
+  <div class="watermark">?</div>
+  <div class="tag">Quick Quiz</div>
+  <h2>Check Your Understanding</h2>
+  <div class="ko">핵심 개념 퀴즈 — 클릭하여 정답 확인</div>
+</div>
+<div class="sec-body">
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 1</div>
+  <div class="quiz-q">According to the Neoclassical Synthesis, what was the "policy playbook" for a slow economy?</div>
+  <div class="quiz-ko">신고전파 종합에 따르면, 경기 침체 시 '정책 처방전'은 무엇이었는가?</div>
+  <div class="quiz-options">a. Cut taxes and deregulate<br>b. Raise interest rates to control inflation<br>c. Increase government spending (deficit spending)<br>d. Let the market self-correct without intervention</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>c. Increase government spending (deficit spending)</strong><br>신고전파 종합의 처방: 경기 침체 → 재정 지출 확대(적자 지출). 케인스적 수요 부양 정책으로 AD를 오른쪽으로 이동시킨다.</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 2</div>
+  <div class="quiz-q">What does the Expectations-Augmented Phillips Curve imply about the original Phillips Curve trade-off?</div>
+  <div class="quiz-ko">기대 강화 필립스 곡선은 기존 필립스 곡선의 교환 관계에 대해 무엇을 시사하는가?</div>
+  <div class="quiz-options">a. The trade-off is permanent and reliable<br>b. The trade-off disappears entirely in both short and long run<br>c. The trade-off is unstable — it shifts whenever inflation expectations change<br>d. Higher unemployment always causes deflation</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>c. The trade-off is unstable — it shifts whenever inflation expectations change</strong><br>프리드먼·펠프스: 기대 인플레이션이 상승하면 단기 필립스 곡선이 위로 이동한다. 장기에는 수직이 되어 trade-off 자체가 사라진다.</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 3</div>
+  <div class="quiz-q">In the long run, after workers adjust their inflation expectations, what happens to the economy?</div>
+  <div class="quiz-ko">장기에서 근로자들이 인플레이션 기대를 조정하면 경제에 무슨 일이 일어나는가?</div>
+  <div class="quiz-options">a. Inflation falls back to zero<br>b. Unemployment falls further below the natural rate<br>c. The economy returns to the natural rate of unemployment with permanently higher inflation<br>d. Real wages continue to rise indefinitely</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>c. The economy returns to the natural rate of unemployment with permanently higher inflation</strong><br>슬라이드의 K→Y 이동: 기대 조정 후 경제는 자연실업률(5%)로 복귀하지만, 인플레이션은 영구적으로 높은 수준(12%)에 고착된다. 화폐 팽창은 장기적으로 인플레이션만 남긴다.</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 4</div>
+  <div class="quiz-q">What is the core message of the Lucas Critique?</div>
+  <div class="quiz-ko">루카스 비판의 핵심 메시지는 무엇인가?</div>
+  <div class="quiz-options">a. Government should always intervene in recessions<br>b. Inflation is purely a monetary phenomenon<br>c. Economic models break down when policy changes because people adjust how they decide, not just what they decide<br>d. Supply-side tax cuts always increase government revenue</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>c. Economic models break down when policy changes because people adjust how they decide, not just what they decide</strong><br>루카스 비판: 정책 변화 시 합리적 행위자들이 행동 방식 자체를 바꾸어, 과거 데이터에 기반한 모형의 예측이 무력화된다. 이는 DSGE 등 미시적 기초에 기반한 모형 개발을 촉진했다.</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 5</div>
+  <div class="quiz-q">Which of the following best explains why New Keynesian Economics allows for short-run policy effectiveness despite accepting rational expectations?</div>
+  <div class="quiz-ko">신케인스 경제학이 합리적 기대를 수용하면서도 단기 정책 효과를 인정하는 이유는?</div>
+  <div class="quiz-options">a. People are not truly rational in Keynesian models<br>b. Price and wage stickiness (menu costs, efficiency wages) prevent instant market adjustment<br>c. The government has more information than private agents<br>d. Monetary policy is always ineffective in New Keynesian models</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>b. Price and wage stickiness prevents instant market adjustment</strong><br>신케인스: 합리적 기대는 수용하되, 메뉴 비용·효율임금으로 인해 가격·임금이 즉각 조정되지 않는다. 이 경직성이 단기 정책 개입의 실질적 효과를 만들어낸다.</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="qtag">Question 6</div>
+  <div class="quiz-q">Which combination BEST characterizes the New Neoclassical Synthesis adopted by modern central banks like the Federal Reserve?</div>
+  <div class="quiz-ko">연준 같은 현대 중앙은행이 채택한 새로운 신고전파 종합을 가장 잘 특징짓는 조합은?</div>
+  <div class="quiz-options">a. Fixed money supply rules + complete laissez-faire<br>b. Discretionary fiscal policy + no monetary policy<br>c. Rules-based long-run inflation targets + short-run Keynesian interest rate adjustments<br>d. Supply-side tax cuts + balanced budget requirement</div>
+  <button class="quiz-ans-btn" onclick="toggleQ(this)">정답 확인</button>
+  <div class="quiz-answer">✅ <strong>c. Rules-based long-run inflation targets + short-run Keynesian interest rate adjustments</strong><br>새로운 신고전파 종합 = 새 고전파의 규칙 기반 장기 목표(예: 2% 인플레이션 목표) + 신케인스의 단기 금리 조정 도구. 이것이 연준·유럽중앙은행(ECB) 등 현대 중앙은행 정책의 표준 체계.</div>
+</div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <strong>Beyond the Synthesis: How Stagflation Reshaped Modern Macroeconomics</strong><br>
+  AP Macroeconomics · Seoul Global High School 2026<br>
+  From the Neoclassical Synthesis to the New Neoclassical Synthesis · 1960s – Present
+</div>
+
+</div><!-- end .content -->
+
+<script>
+function toggleQ(btn){
+  const ans=btn.nextElementSibling;
+  const isOpen=ans.classList.toggle('show');
+  btn.textContent=isOpen?'정답 닫기':'정답 확인';
+  if(isOpen)setTimeout(()=>ans.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+}
+</script>
+</body>
+</html>
