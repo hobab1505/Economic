@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Week 5 — Unions & Efficiency Wages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cream:   #F5F0E6;
+  --cream2:  #EDE7D8;
+  --navy:    #1F2D5A;
+  --navy2:   #162044;
+  --plum:    #6B3567;
+  --slate:   #3B4A6B;
+  --ink:     #1A1A1A;
+  --ink-mid: #3A3A3A;
+  --ink-soft:#6A6A6A;
+  --bar-h:   56px;
+
+  --green:   #166534;
+  --green-s: #D6EDDF;
+  --red:     #991B1B;
+  --red-s:   #FCEAEA;
+  --amber:   #7C3A0A;
+  --amber-s: #FDF0DC;
+  --teal:    #0F5F58;
+  --teal-s:  #D0F0EC;
+
+  --ko-bg:   #FFFBF0;
+  --ko-line: #D8C99A;
+  --ko-text: #5A440E;
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+body {
+  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+  background: #E8E2D4;
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── STICKY NAV ──────────────────────────────────────── */
+nav.toc {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy2);
+  padding: 0 24px;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+nav.toc::-webkit-scrollbar { height: 0; }
+.toc-inner {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+nav.toc a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.15s;
+  font-family: 'JetBrains Mono', monospace;
+}
+nav.toc a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* ── PAGE STREAM ─────────────────────────────────────── */
+.page-stream {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── SLIDE CARD ──────────────────────────────────────── */
+.slide {
+  background: var(--cream);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.06);
+  scroll-margin-top: 60px;
+}
+
+/* slide header (top label strip) */
+.slide-label {
+  background: var(--navy);
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.slide-label .week-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.slide-label .topic-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-left: auto;
+  background: rgba(255,255,255,0.12);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* slide body */
+.slide-body {
+  padding: 36px 40px 0;
+  min-height: 280px;
+}
+
+/* slide footer bar */
+.slide-bar {
+  height: 40px;
+  margin-top: 36px;
+}
+.bar-navy  { background: var(--navy); }
+.bar-plum  { background: var(--plum); }
+.bar-slate { background: var(--slate); }
+
+/* ── TITLE SLIDE ─────────────────────────────────────── */
+.slide-title-body {
+  padding: 52px 48px 0;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  min-height: 320px;
+}
+.title-text .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.title-text h1 {
+  font-family: 'Bebas Neue', 'Noto Sans', sans-serif;
+  font-size: clamp(42px, 6vw, 70px);
+  letter-spacing: 1px;
+  line-height: 0.95;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+.title-text .subtitle {
+  background: #E8A0AA;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.title-globe {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+}
+
+/* ── SECTION HEADING ─────────────────────────────────── */
+.slide-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 0.5px;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.slide-heading .ko-heading {
+  display: block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.38em;
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: -0.3px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.slide-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--navy);
+  margin: 16px 0 24px;
+  border-radius: 2px;
+}
+
+/* ── KO BLOCK ────────────────────────────────────────── */
+.ko-block {
+  background: var(--ko-bg);
+  border-left: 3px solid var(--ko-line);
+  padding: 10px 14px;
+  margin-top: 10px;
+  border-radius: 0 4px 4px 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--ko-text);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+/* ── BODY TEXT ───────────────────────────────────────── */
+.body-text {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.body-text strong { color: var(--ink); font-weight: 700; }
+
+/* ── DEF BOX ─────────────────────────────────────────── */
+.def-box {
+  border: 1.5px solid rgba(31,45,90,0.18);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.def-box-head {
+  background: var(--cream2);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(31,45,90,0.1);
+}
+.def-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.tag-navy   { background: var(--navy); color: #fff; }
+.tag-plum   { background: var(--plum); color: #fff; }
+.tag-green  { background: var(--green-s); color: var(--green); }
+.tag-red    { background: var(--red-s); color: var(--red); }
+.tag-amber  { background: var(--amber-s); color: var(--amber); }
+.tag-teal   { background: var(--teal-s); color: var(--teal); }
+.def-box-head h3 {
+  font-size: 18px; font-weight: 700; color: var(--ink);
+}
+.def-box-head .ko-inline {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; color: var(--ink-soft);
+  margin-left: 4px; font-weight: 400;
+}
+.def-box-body { padding: 20px; }
+.def-box-body p { font-size: 14.5px; color: var(--ink-mid); margin-bottom: 10px; }
+.def-box-body ul { list-style: none; }
+.def-box-body li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(31,45,90,0.08);
+  font-size: 14px; color: var(--ink-mid);
+  line-height: 1.55;
+}
+.def-box-body li:last-child { border-bottom: none; }
+.def-box-body li strong { color: var(--ink); font-weight: 600; }
+
+/* ── TWO-COL GRID ────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 4px;
+}
+@media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ── ITEM CARD ───────────────────────────────────────── */
+.item-card {
+  background: #fff;
+  border: 1.5px solid rgba(31,45,90,0.12);
+  border-radius: 6px;
+  padding: 20px;
+}
+.item-card .pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  background: var(--navy); color: #fff;
+  padding: 3px 9px; border-radius: 3px;
+  display: inline-block; margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+.item-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+.item-card .sub { font-size: 12px; color: var(--ink-soft); margin-bottom: 10px; }
+.item-card p { font-size: 13.5px; color: var(--ink-mid); line-height: 1.6; }
+
+/* ── PROCON ──────────────────────────────────────────── */
+.procon-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 4px;
+}
+@media (max-width: 580px) { .procon-pair { grid-template-columns: 1fr; } }
+.pc-card { border-radius: 6px; overflow: hidden; border: 1.5px solid transparent; }
+.pc-card.pro { border-color: var(--green); }
+.pc-card.con { border-color: var(--red); }
+.pc-head {
+  padding: 12px 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.pc-head.pro { background: var(--green-s); }
+.pc-head.con { background: var(--red-s); }
+.pc-head h3 { font-size: 15px; font-weight: 700; }
+.pc-head.pro h3 { color: var(--green); }
+.pc-head.con h3 { color: var(--red); }
+.pc-body { background: #fff; padding: 14px 18px; }
+.pc-body ul { list-style: none; }
+.pc-body li {
+  padding: 7px 0 7px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 13px; color: var(--ink-mid);
+  position: relative; line-height: 1.5;
+}
+.pc-body li:last-child { border-bottom: none; }
+.pc-body.pro li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.pc-body.con li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+/* ── EFF WAGE GRID ───────────────────────────────────── */
+.eff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 4px;
+}
+@media (max-width: 620px) { .eff-grid { grid-template-columns: 1fr; } }
+.eff-card {
+  background: #fff;
+  border: 1.5px solid var(--teal-s);
+  border-top: 3px solid var(--teal);
+  border-radius: 0 0 6px 6px;
+  padding: 20px;
+}
+.eff-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  background: var(--teal-s); color: var(--teal);
+  padding: 3px 9px; border-radius: 3px;
+  display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.eff-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+.eff-card .sub { font-size: 12px; color: var(--ink-soft); margin-bottom: 10px; }
+.eff-card p { font-size: 13.5px; color: var(--ink-mid); line-height: 1.6; }
+
+/* ── DIAGRAM ─────────────────────────────────────────── */
+.diagram-wrap {
+  background: #fff;
+  border: 1.5px solid rgba(31,45,90,0.12);
+  border-radius: 6px;
+  padding: 24px;
+  margin-top: 16px;
+  text-align: center;
+}
+.diagram-wrap svg { max-width: 100%; height: auto; }
+.diagram-cap { font-size: 12px; color: var(--ink-soft); margin-top: 10px; }
+
+/* ── ACTIVITY BOX ────────────────────────────────────── */
+.activity-box {
+  background: #fff;
+  border: 1.5px solid rgba(31,45,90,0.15);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.activity-box .act-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700; color: var(--navy);
+  letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px;
+}
+.activity-box h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.activity-box p { font-size: 13.5px; color: var(--ink-mid); }
+
+/* ── TIP BOX ─────────────────────────────────────────── */
+.tip-box {
+  background: var(--amber-s);
+  border: 1px solid #E6C88A;
+  border-left: 3px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+.tip-box .tip-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700; color: var(--amber);
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px;
+}
+.tip-box p { font-size: 13.5px; color: var(--ink); line-height: 1.6; }
+.tip-box strong { font-weight: 700; }
+
+/* ── SUMMARY TABLE ───────────────────────────────────── */
+.sum-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+.sum-table th {
+  background: var(--navy); color: #fff;
+  padding: 11px 14px; text-align: left;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.sum-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(31,45,90,0.1);
+  color: var(--ink-mid); vertical-align: top; line-height: 1.5;
+  background: #fff;
+}
+.sum-table tr:last-child td { border-bottom: none; }
+.badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 3px;
+  letter-spacing: 0.4px; text-transform: uppercase;
+}
+.badge-u { background: var(--navy); color: #fff; }
+.badge-e { background: var(--teal-s); color: var(--teal); }
+
+/* ── TERM CHIP ───────────────────────────────────────── */
+.term {
+  background: rgba(31,45,90,0.08);
+  color: var(--navy);
+  padding: 1px 6px; border-radius: 3px;
+  font-weight: 600; font-size: 0.92em;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 28px 24px 48px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+  .page-stream { padding: 0 16px 60px; margin-top: 24px; }
+  .slide-body { padding: 24px 22px 0; }
+  .slide-title-body { padding: 32px 24px 0; flex-direction: column; gap: 24px; }
+  .title-globe { width: 120px; height: 120px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s0">Intro</a>
+    <a href="#s1">Union</a>
+    <a href="#s2">Bargaining</a>
+    <a href="#s3">Economy</a>
+    <a href="#s4">Wagner</a>
+    <a href="#s5">For</a>
+    <a href="#s6">Against</a>
+    <a href="#s7">Eff. Wages</a>
+    <a href="#s8">4 Reasons</a>
+    <a href="#s9">Debate</a>
+    <a href="#s10">Summary</a>
+  </div>
+</nav>
+
+<div class="page-stream">
+
+<!-- ══════════════════════════════════════════
+     SLIDE 0 · TITLE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s0">
+  <div class="slide-label">
+    <span class="week-tag">Macroeconomics · Week 5</span>
+    <span class="topic-tag">Unions &amp; Efficiency Wages</span>
+  </div>
+  <div class="slide-title-body">
+    <div class="title-text">
+      <div class="eyebrow">Macroeconomics · Week 5 · Study Notes</div>
+      <h1>MACRO&shy;ECONOMICS</h1>
+      <div class="subtitle">Topic: <strong>Unions and Efficiency Wages</strong></div>
+      <div class="ko-block" style="margin-top:20px;">
+        노동조합과 효율임금 이론 — 왜 임금은 균형 수준 이상에 머무는가?
+      </div>
+    </div>
+    <!-- Globe SVG -->
+    <svg class="title-globe" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="90" cy="90" r="72" fill="#D4C97A" opacity="0.9"/>
+      <ellipse cx="90" cy="90" rx="72" ry="72" fill="none" stroke="#B8AD5A" stroke-width="1.5"/>
+      <path d="M30 90 Q90 50 150 90 Q90 130 30 90Z" fill="#5BA89A" opacity="0.7"/>
+      <path d="M60 50 Q90 30 120 55 Q100 70 80 65Z" fill="#5BA89A" opacity="0.7"/>
+      <circle cx="54" cy="88" r="10" fill="#E87070" opacity="0.85"/>
+      <circle cx="97" cy="62" r="8" fill="#7B5EA7" opacity="0.85"/>
+      <circle cx="120" cy="95" r="9" fill="#7B5EA7" opacity="0.85"/>
+      <circle cx="82" cy="118" r="7" fill="#E87070" opacity="0.85"/>
+    </svg>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 1 · WHAT IS A UNION?
+══════════════════════════════════════════════ -->
+<div class="slide" id="s1">
+  <div class="slide-label">
+    <span class="week-tag">Section 01</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">UNIONS AND COLLECTIVE BARGAINING<span class="ko-heading">노동조합과 단체교섭</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-navy">DEFINITION</span>
+        <h3>What is a Union? <span class="ko-inline">노동조합이란?</span></h3>
+      </div>
+      <div class="def-box-body">
+        <p>An <strong>association of workers</strong> that is meant to fight for their fair treatment in a certain industry or under a certain company.</p>
+        <div class="ko-block">특정 산업 또는 기업에서 근로자들이 공정한 대우를 받기 위해 조직한 단체.</div>
+        <ul style="margin-top:14px;">
+          <li>A union engages in <strong>collective bargaining</strong> with employers over workers' wages, benefits, and working conditions
+            <div class="ko-block">노동조합은 임금·복지·근무 조건에 대해 사용자와 <strong>단체교섭</strong>을 진행합니다.</div>
+          </li>
+          <li>Unionized workers earn <strong>10–20% more</strong> than non-unionized workers
+            <div class="ko-block">조합원은 비조합원보다 평균 <strong>10~20% 높은</strong> 임금을 받습니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 2 · STRIKE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-label">
+    <span class="week-tag">Section 02</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">UNION STRIKE<span class="ko-heading">파업 — 단체행동의 핵심 수단</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-red">STRIKE</span>
+        <h3>Union Strike <span class="ko-inline">파업</span></h3>
+      </div>
+      <div class="def-box-body">
+        <p>The <strong>organized withdrawal of labour</strong> from a firm by a union.</p>
+        <div class="ko-block">노동조합이 조직적으로 노동을 중단하는 행위.</div>
+        <ul style="margin-top:14px;">
+          <li>Workers collectively <strong>walk out on their jobs temporarily</strong> until they come to an agreement with their employer
+            <div class="ko-block">근로자들이 집단으로 일을 임시 중단하고, 사용자와 합의가 이뤄질 때까지 직장을 떠납니다.</div>
+          </li>
+          <li>Strike = <strong>leverage tool</strong> — threat alone often forces the employer to negotiate seriously
+            <div class="ko-block">파업 그 자체보다 <strong>위협</strong>이 사용자를 진지한 협상으로 이끄는 경우가 많습니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-tag">⚡ AP EXAM TIP</div>
+      <p><strong>Collective bargaining</strong> = the process of negotiation. <strong>Strike</strong> = what happens when bargaining fails. Know the difference — it's often tested.</p>
+    </div>
+  </div>
+  <div class="slide-bar bar-plum"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 3 · UNIONS & ECONOMY
+══════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-label">
+    <span class="week-tag">Section 03</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">UNION AND THE ECONOMY<span class="ko-heading">노동조합이 경제에 미치는 영향</span></h2>
+    <div class="slide-divider"></div>
+
+    <p class="body-text">When unions push wages <strong>above the equilibrium level</strong>, it creates a predictable chain of effects:</p>
+
+    <!-- Diagram -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px;">
+        <line x1="55" y1="16" x2="55" y2="258" stroke="#1A1A1A" stroke-width="1.8"/>
+        <line x1="55" y1="258" x2="495" y2="258" stroke="#1A1A1A" stroke-width="1.8"/>
+        <!-- Axis labels -->
+        <text x="26" y="140" font-size="11" fill="#6A6A6A" transform="rotate(-90,26,140)" text-anchor="middle" font-family="'Noto Sans',sans-serif">Wage 임금</text>
+        <text x="275" y="280" font-size="11" fill="#6A6A6A" text-anchor="middle" font-family="'Noto Sans',sans-serif">Quantity of Labour 고용량</text>
+        <!-- Supply -->
+        <line x1="90" y1="228" x2="420" y2="50" stroke="#166534" stroke-width="2.2"/>
+        <text x="427" y="50" font-size="13" fill="#166534" font-weight="700" font-family="'Noto Sans',sans-serif">S</text>
+        <!-- Demand -->
+        <line x1="90" y1="52" x2="430" y2="230" stroke="#991B1B" stroke-width="2.2"/>
+        <text x="435" y="234" font-size="13" fill="#991B1B" font-weight="700" font-family="'Noto Sans',sans-serif">D</text>
+        <!-- Equilibrium -->
+        <circle cx="260" cy="140" r="5" fill="#1F2D5A"/>
+        <line x1="55" y1="140" x2="260" y2="140" stroke="#1F2D5A" stroke-width="1.4" stroke-dasharray="5,4"/>
+        <text x="50" y="144" font-size="10.5" fill="#1F2D5A" text-anchor="end" font-family="'JetBrains Mono',monospace">W*</text>
+        <!-- Union wage -->
+        <line x1="55" y1="90" x2="440" y2="90" stroke="#7C3A0A" stroke-width="2" stroke-dasharray="7,4"/>
+        <text x="50" y="94" font-size="10.5" fill="#7C3A0A" text-anchor="end" font-family="'JetBrains Mono',monospace">Wᵤ</text>
+        <!-- Points on union wage -->
+        <circle cx="168" cy="90" r="4" fill="#991B1B"/>
+        <circle cx="352" cy="90" r="4" fill="#166534"/>
+        <!-- Surplus bracket -->
+        <line x1="168" y1="68" x2="352" y2="68" stroke="#7C3A0A" stroke-width="1.4"/>
+        <line x1="168" y1="63" x2="168" y2="73" stroke="#7C3A0A" stroke-width="1.4"/>
+        <line x1="352" y1="63" x2="352" y2="73" stroke="#7C3A0A" stroke-width="1.4"/>
+        <text x="260" y="60" font-size="10.5" fill="#7C3A0A" text-anchor="middle" font-family="'Noto Sans',sans-serif">Labour Surplus 노동 초과공급</text>
+        <!-- Labels -->
+        <text x="262" y="130" font-size="10" fill="#1F2D5A" font-family="'Noto Sans',sans-serif">Equilibrium</text>
+        <text x="298" y="84" font-size="10" fill="#7C3A0A" font-family="'Noto Sans',sans-serif">Union Wage (above W*)</text>
+      </svg>
+      <p class="diagram-cap">W* = 균형임금 | Wᵤ = 노조임금(균형 이상) → 노동 초과공급 → 실업 발생</p>
+    </div>
+
+    <div class="two-col" style="margin-top:20px;">
+      <div class="item-card">
+        <span class="pill">EFFECT 01</span>
+        <h3>Higher Pay for Members</h3>
+        <div class="sub">조합원 임금 상승</div>
+        <p>Unionized workers earn <strong>10–20% more</strong> than non-union counterparts — wages pushed above equilibrium.</p>
+        <div class="ko-block">조합원은 비조합원 대비 임금이 10~20% 높지만, 이는 균형 이상의 임금을 의미합니다.</div>
+      </div>
+      <div class="item-card">
+        <span class="pill">EFFECT 02</span>
+        <h3>Labour Surplus → Unemployment</h3>
+        <div class="sub">노동 초과공급 → 실업</div>
+        <p>Workers who cannot find union jobs must <strong>wait</strong> for an opening or take a lower-paying non-union position.</p>
+        <div class="ko-block">조합 일자리를 얻지 못한 근로자는 자리가 날 때까지 대기하거나, 더 낮은 비조합 일자리를 선택해야 합니다.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 4 · WAGNER ACT
+══════════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-label">
+    <span class="week-tag">Section 04</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">THE WAGNER ACT (1935)<span class="ko-heading">와그너법 — 노조 권리의 법적 토대</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-plum">LAW · 1935</span>
+        <h3>National Labour Relations Act <span class="ko-inline">전국노동관계법</span></h3>
+      </div>
+      <div class="def-box-body">
+        <p>Prevents employers from <strong>interfering when workers want to organize unions</strong>. Employers are required to engage in good-faith bargaining.</p>
+        <div class="ko-block">사용자가 노동조합 설립을 방해하는 것을 금지하며, 사용자는 <strong>성실 교섭</strong> 의무를 집니다.</div>
+        <ul style="margin-top:14px;">
+          <li><strong>NLRB (National Labour Relations Board)</strong> — The government body responsible for enforcing the right to unionize
+            <div class="ko-block">전국노동관계위원회 — 노조 결성 권리를 집행하는 연방 기관</div>
+          </li>
+          <li><strong>Good-faith bargaining</strong> — Both parties must genuinely attempt to reach an agreement, not merely pretend to negotiate
+            <div class="ko-block">성실 교섭 — 양측이 단순히 형식적으로만 협상하는 것이 아니라, 진정성 있게 합의를 도출해야 합니다.</div>
+          </li>
+          <li><strong>Protected activities</strong> — Organizing, joining a union, collective bargaining, and striking are all legally protected
+            <div class="ko-block">조직·가입·단체교섭·파업 모두 법적으로 보호되는 행위입니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-plum"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 5 · ARGUMENTS FOR
+══════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="slide-label">
+    <span class="week-tag">Section 05</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">ARGUMENTS FOR UNIONS<span class="ko-heading">노동조합을 지지하는 논거</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-green">PRO-UNION</span>
+        <h3>Three Core Arguments <span class="ko-inline">세 가지 핵심 논거</span></h3>
+      </div>
+      <div class="def-box-body">
+        <ul>
+          <li>
+            <strong>Countervailing power</strong> — Necessary to even out the market power of employers, especially in "company towns" where one firm dominates
+            <div class="ko-block">균형 권력론: 한 기업이 지배하는 기업도시 등에서 사용자의 독점적 시장력을 상쇄하기 위해 반드시 필요합니다.</div>
+          </li>
+          <li>
+            <strong>Voice mechanism</strong> — Help employers effectively respond to worker complaints, reducing costly turnover and improving communication
+            <div class="ko-block">발언 기제: 사용자가 근로자 불만에 효과적으로 대응하도록 도와 이직률을 낮추고 의사소통을 개선합니다.</div>
+          </li>
+          <li>
+            <strong>Productivity &amp; morale</strong> — Help to keep happy, healthy, and productive workplaces
+            <div class="ko-block">생산성·사기 향상: 행복하고 건강하며 생산적인 직장 환경을 유지하는 데 기여합니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6 · ARGUMENTS AGAINST
+══════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-label">
+    <span class="week-tag">Section 06</span>
+    <span class="topic-tag">Unions &amp; Collective Bargaining</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">ARGUMENTS AGAINST UNIONS<span class="ko-heading">노동조합을 반대하는 논거</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-red">ANTI-UNION</span>
+        <h3>Three Core Criticisms <span class="ko-inline">세 가지 핵심 비판</span></h3>
+      </div>
+      <div class="def-box-body">
+        <ul>
+          <li>
+            <strong>Unions are merely cartels</strong> — They collude to restrict labour supply and artificially raise wages above equilibrium (market collusion)
+            <div class="ko-block">카르텔 논거: 노조는 노동 공급을 제한하고 임금을 인위적으로 균형 이상으로 올리는 카르텔과 다를 바 없습니다.</div>
+          </li>
+          <li>
+            <strong>Unions are inequitable</strong> — They benefit <em>insiders</em> (members) at the expense of <em>outsiders</em> (non-union workers who earn less or can't find jobs)
+            <div class="ko-block">불평등 논거: 내부자(조합원)에게는 혜택을 주지만, 외부자(비조합원)는 낮은 임금과 적은 일자리로 피해를 입습니다.</div>
+          </li>
+          <li>
+            <strong>Unions are inefficient</strong> — Above-equilibrium wages reduce employment below the socially optimal level → decreased total output
+            <div class="ko-block">비효율 논거: 균형 이상의 임금은 고용을 사회적 최적 수준 이하로 떨어뜨려 전체 생산량이 감소합니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pro/Con side by side -->
+    <div class="procon-pair" style="margin-top:18px;">
+      <div class="pc-card pro">
+        <div class="pc-head pro"><span>✊</span><h3>FOR Unions</h3></div>
+        <div class="pc-body pro">
+          <ul>
+            <li>Balances employer market power</li>
+            <li>Improves worker voice &amp; communication</li>
+            <li>Raises morale and productivity</li>
+            <li>Historical role in worker rights</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pc-card con">
+        <div class="pc-head con"><span>⚖️</span><h3>AGAINST Unions</h3></div>
+        <div class="pc-body con">
+          <ul>
+            <li>Act like labour cartels</li>
+            <li>Create insider/outsider inequality</li>
+            <li>Reduce total employment</li>
+            <li>Lower overall economic efficiency</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-plum"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 7 · EFFICIENCY WAGES
+══════════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-label">
+    <span class="week-tag">Section 07</span>
+    <span class="topic-tag">Theory of Efficiency Wages</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">THE THEORY OF EFFICIENCY WAGES<span class="ko-heading">효율임금 이론</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="def-box">
+      <div class="def-box-head">
+        <span class="def-tag tag-teal">EFFICIENCY WAGES</span>
+        <h3>Definition <span class="ko-inline">정의</span></h3>
+      </div>
+      <div class="def-box-body">
+        <p><strong>Above-equilibrium wages</strong> paid by firms to increase worker productivity.</p>
+        <div class="ko-block">근로자의 생산성을 높이기 위해 기업이 <strong>자발적으로</strong> 균형 수준 이상으로 지급하는 임금.</div>
+        <ul style="margin-top:14px;">
+          <li><strong>Theory:</strong> Firms operate more efficiently if wages are above the equilibrium level
+            <div class="ko-block">이론: 임금이 균형 수준 이상일 때 기업이 더 효율적으로 운영됩니다.</div>
+          </li>
+          <li><strong>Key distinction from union wages:</strong> Efficiency wages are set <em>voluntarily by the firm</em> for internal incentive reasons — not from external union pressure
+            <div class="ko-block">노조 임금과의 핵심 차이: 효율임금은 기업이 내부 동기를 위해 <em>자발적으로</em> 선택하는 것이며, 외부 노조 압력에 의한 것이 아닙니다.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-tag">🔗 EXAM CONNECTION</div>
+      <p>Both <strong>union wages</strong> and <strong>efficiency wages</strong> result in wages above equilibrium → both cause unemployment. Same market outcome, different cause. The AP exam often asks you to identify both as sources of <span class="term">structural unemployment</span>.</p>
+    </div>
+    <div class="ko-block">
+      노조 임금과 효율임금 모두 균형 이상 임금 → 둘 다 실업을 유발합니다. 시장 효과는 동일하지만 원인이 다릅니다. AP 시험에서 둘 모두 <strong>구조적 실업</strong>의 원인으로 자주 출제됩니다.
+    </div>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 8 · 4 REASONS (JIGSAW)
+══════════════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-label">
+    <span class="week-tag">Section 08</span>
+    <span class="topic-tag">Efficiency Wages: Jigsaw Activity</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">EFFICIENCY WAGES: 4 REASONS<span class="ko-heading">효율임금을 지급하는 네 가지 이유 (Mankiw pp. 109–110)</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="activity-box">
+      <div class="act-tag">📖 Jigsaw Activity</div>
+      <h3>Each person reads one reason → teach your group</h3>
+      <p>Groups of 4. Each person reads <strong>one explanation</strong> from pp. 109–110 and explains it to the rest of the group. Cover: (1) the problem it solves, (2) how higher wages fix it, (3) an example.</p>
+    </div>
+
+    <div class="eff-grid">
+      <div class="eff-card">
+        <span class="eff-num">REASON 01</span>
+        <h3>Worker Health</h3>
+        <div class="sub">근로자 건강</div>
+        <p>Higher wages → workers can afford better nutrition → healthier workforce → higher productivity. Especially relevant in developing economies.</p>
+        <div class="ko-block">높은 임금 → 더 나은 영양 섭취 → 건강한 노동력 → 생산성 향상. 개발도상국에서 특히 중요한 이유입니다.</div>
+      </div>
+      <div class="eff-card">
+        <span class="eff-num">REASON 02</span>
+        <h3>Worker Turnover</h3>
+        <div class="sub">이직률 감소</div>
+        <p>Replacing workers is costly (recruiting + training). Higher wages → employees less likely to quit → lower turnover costs → experienced, productive team.</p>
+        <div class="ko-block">근로자 교체는 비용이 크고(채용+훈련), 높은 임금은 이직률을 줄여 비용을 낮추고 숙련된 인력을 유지합니다.</div>
+      </div>
+      <div class="eff-card">
+        <span class="eff-num">REASON 03</span>
+        <h3>Adverse Selection</h3>
+        <div class="sub">역선택 방지</div>
+        <p>At equilibrium wages, the best workers leave for better-paying firms. High wages attract and retain the highest-ability employees — avoiding adverse selection.</p>
+        <div class="ko-block">균형임금에서는 최고 역량의 근로자들이 이탈합니다. 높은 임금은 우수 인재를 유인·유지하여 역선택을 방지합니다.</div>
+      </div>
+      <div class="eff-card">
+        <span class="eff-num">REASON 04</span>
+        <h3>Worker Effort (Shirking)</h3>
+        <div class="sub">태업 방지 / 노력 극대화</div>
+        <p>Workers earning above-market wages <strong>fear losing their job far more</strong>. This fear eliminates shirking and maximizes effort on the job.</p>
+        <div class="ko-block">시장 이상의 임금을 받는 근로자는 해고를 훨씬 더 두려워합니다. 이 "해고 공포"가 태업을 없애고 노력을 극대화합니다.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-slate"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 9 · DEBATE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s9">
+  <div class="slide-label">
+    <span class="week-tag">Section 09</span>
+    <span class="topic-tag">Class Debate</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">CLASS DEBATE: MINIMUM WAGE<span class="ko-heading">수업 토론: 최저임금제는 사회에 이로운가?</span></h2>
+    <div class="slide-divider"></div>
+
+    <div class="activity-box">
+      <div class="act-tag">⏱ Debate Time — 5 minutes prep</div>
+      <h3>Is having a minimum wage good or bad for society?</h3>
+      <p>At least <strong>one person from each team on each side</strong> must speak (4 people per side). Use this week's material to support your arguments.</p>
+    </div>
+
+    <div class="procon-pair">
+      <div class="pc-card pro">
+        <div class="pc-head pro"><span>👍</span><h3>FOR Minimum Wage</h3></div>
+        <div class="pc-body pro">
+          <ul>
+            <li>Reduces poverty &amp; income inequality</li>
+            <li>Workers spend more → boosts aggregate demand</li>
+            <li>Offsets employer monopsony power</li>
+            <li>Card &amp; Krueger: minimal job loss evidence</li>
+            <li>Connects to efficiency wage logic</li>
+            <li>Improves worker dignity and morale</li>
+          </ul>
+          <div class="ko-block" style="margin-top:10px;">빈곤·불평등 감소 / 총수요 촉진 / 사용자 독점력 상쇄 / 효율임금 논리와 연결</div>
+        </div>
+      </div>
+      <div class="pc-card con">
+        <div class="pc-head con"><span>👎</span><h3>AGAINST Minimum Wage</h3></div>
+        <div class="pc-body con">
+          <ul>
+            <li>Wage above equilibrium → unemployment</li>
+            <li>Hurts small &amp; low-margin businesses</li>
+            <li>May reduce hours or benefits instead</li>
+            <li>Disrupts labour market price signals</li>
+            <li>Not well-targeted (helps teens, not just poor)</li>
+            <li>Accelerates automation risk</li>
+          </ul>
+          <div class="ko-block" style="margin-top:10px;">균형 이상 임금 → 실업 / 소규모 기업 타격 / 근로시간·복지 삭감 / 자동화 가속 위험</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-bar bar-plum"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 10 · SUMMARY
+══════════════════════════════════════════════ -->
+<div class="slide" id="s10">
+  <div class="slide-label">
+    <span class="week-tag">Section 10</span>
+    <span class="topic-tag">Week 5 Summary</span>
+  </div>
+  <div class="slide-body">
+    <h2 class="slide-heading">WEEK 5 SUMMARY<span class="ko-heading">5주차 핵심 정리</span></h2>
+    <div class="slide-divider"></div>
+
+    <p class="body-text">Both unions and efficiency wages explain why wages stay <strong>above equilibrium</strong> — and thus why <span class="term">structural unemployment</span> persists.</p>
+    <div class="ko-block">노동조합과 효율임금 모두 임금이 균형 이상에 지속적으로 머무는 이유를 설명하며, 이는 구조적 실업이 지속되는 핵심 원인입니다.</div>
+
+    <table class="sum-table" style="margin-top:20px;">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>한국어</th>
+          <th>Why above equilibrium?</th>
+          <th>Labour market effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-u">UNION</span> Collective Bargaining</td>
+          <td>단체교섭</td>
+          <td>Union negotiates wages up</td>
+          <td>Labour surplus → unemployment</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-u">UNION</span> Strike threat</td>
+          <td>파업 위협</td>
+          <td>Fear of work stoppage → employer concedes</td>
+          <td>Higher wages → fewer jobs</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-e">EFF</span> Worker Health</td>
+          <td>근로자 건강</td>
+          <td>Firm pays for healthier workers</td>
+          <td>Higher productivity; less absence</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-e">EFF</span> Reduced Turnover</td>
+          <td>이직률 감소</td>
+          <td>Firm reduces rehiring costs</td>
+          <td>More experienced, stable workforce</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-e">EFF</span> Adverse Selection</td>
+          <td>역선택 방지</td>
+          <td>Firm attracts higher-ability workers</td>
+          <td>Better talent pool</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-e">EFF</span> Shirking / Effort</td>
+          <td>태업 방지</td>
+          <td>Fear of job loss motivates effort</td>
+          <td>Less shirking; higher output</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box" style="margin-top:20px;">
+      <div class="tip-tag">🎯 KEY TAKEAWAY</div>
+      <p>Regardless of cause — unions, minimum wage, or efficiency wages — whenever wages are <strong>above equilibrium</strong>, quantity of labour supplied exceeds quantity demanded → <strong>structural unemployment</strong>. Know both the cause and the market mechanism.</p>
+    </div>
+    <div class="ko-block">
+      원인이 노동조합이든, 최저임금법이든, 효율임금이든 — 임금이 균형 이상이면 노동 공급량 &gt; 노동 수요량 → <strong>구조적 실업</strong>. 원인과 시장 메커니즘 모두 설명할 수 있어야 합니다.
+    </div>
+  </div>
+  <div class="slide-bar bar-navy"></div>
+</div>
+
+</div><!-- /page-stream -->
+
+<footer>
+  Macroeconomics · Week 5 · Unions &amp; Efficiency Wages · Study Notes<br>
+  <span style="opacity:0.6;">Based on Mankiw, Principles of Macroeconomics, Ch. 6 (pp. 109–110)</span>
+</footer>
+
+</body>
+</html>
