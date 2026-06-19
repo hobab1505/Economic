@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Plaza Accord (1985) & South Korea's Three Lows Boom — Annotated Slide Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cambria&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy: #1B3A5C;
+  --navy-dark: #142D49;
+  --gold: #C8923A;
+  --gold-light: #E8C988;
+  --cream: #F7F4EC;
+  --white: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-mid: #41403A;
+  --ink-soft: #767368;
+  --rust: #B0492F;
+  --rust-soft: #F7E3DC;
+  --teal: #1F6F66;
+  --teal-soft: #DCEFEA;
+  --slate: #3B4A6B;
+  --light-blue: #DCE7F2;
+  --line: #E2DFD3;
+
+  --orig-bg: #F4F1E8;
+  --orig-border: #D8D0B8;
+  --ko-bg: #EEF3F7;
+  --ko-border: #C7D6E3;
+  --note-bg: #FBF6E9;
+  --note-border: #E2D49A;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth; scroll-padding-top:60px}
+body{
+  font-family:'Noto Sans','Noto Sans KR',sans-serif;
+  background:#EDEAE0;
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ── */
+nav.toc{
+  position:sticky; top:0; z-index:100;
+  background:var(--navy-dark);
+  padding:0 20px; height:50px;
+  display:flex; align-items:center;
+  overflow-x:auto; white-space:nowrap;
+}
+nav.toc::-webkit-scrollbar{height:0}
+.toc-inner{display:flex; gap:2px; max-width:1000px; margin:0 auto; width:100%;}
+nav.toc a{
+  color:rgba(255,255,255,0.62); text-decoration:none;
+  padding:6px 11px; font-size:11px; font-weight:600;
+  border-radius:5px; transition:.15s;
+  font-family:'JetBrains Mono',monospace; letter-spacing:0.3px;
+}
+nav.toc a:hover{background:rgba(255,255,255,0.12); color:#fff;}
+
+/* ── SLIDE STREAM ── */
+.deck{
+  max-width:980px; margin:0 auto;
+  padding:36px 22px 90px;
+  display:flex; flex-direction:column; gap:34px;
+}
+
+/* ── SLIDE CARD ── */
+.slide{
+  background:var(--white);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 3px 14px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.05);
+  scroll-margin-top:60px;
+}
+.slide-num-tag{
+  position:relative;
+  background:var(--navy-dark);
+  color:var(--gold-light);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px; font-weight:700; letter-spacing:1px;
+  padding:8px 26px; text-transform:uppercase;
+}
+.slide-head{
+  padding:26px 32px 22px;
+}
+.slide-head.bg-navy{ background:var(--navy); color:#fff; }
+.slide-head.bg-gold{ background:var(--gold); color:var(--navy-dark); }
+.slide-head.bg-slate{ background:var(--slate); color:#fff; }
+.slide-head.bg-cream{ background:var(--cream); color:var(--navy); }
+.slide-head h2{
+  font-family:'Cambria',serif;
+  font-size:clamp(22px,3vw,30px);
+  font-weight:700; letter-spacing:-0.3px;
+}
+.slide-head .sub{
+  margin-top:6px; font-size:14px; opacity:0.88; font-weight:400;
+}
+.slide-body{ padding:30px 32px 8px; }
+
+/* ── ORIGINAL CONTENT RECREATION (visual layout matching slide) ── */
+.recreate-zone{
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:24px;
+  margin-bottom:8px;
+}
+.recreate-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; font-weight:700; color:var(--ink-soft);
+  letter-spacing:1px; text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+/* ── PARAGRAPH UNIT: original -> translation -> explanation ── */
+.unit{ margin:22px 0; }
+.unit-tag{
+  font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700;
+  color:var(--ink-soft); margin-bottom:8px; letter-spacing:0.5px;
+}
+.orig-block{
+  background:var(--orig-bg);
+  border:1px solid var(--orig-border);
+  border-radius:6px 6px 0 0;
+  padding:16px 20px;
+}
+.orig-block .tag{
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  color:var(--gold); letter-spacing:0.8px; text-transform:uppercase;
+  margin-bottom:8px; display:block;
+}
+.orig-block p, .orig-block li{
+  font-family:'Noto Serif',serif;
+  font-size:14.5px; color:var(--ink); line-height:1.7;
+}
+.orig-block strong{font-weight:700;}
+.orig-block ul{ list-style:none; }
+.orig-block li{ padding:4px 0; }
+
+.ko-block{
+  background:var(--ko-bg);
+  border:1px solid var(--ko-border);
+  border-top:none;
+  padding:14px 20px;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.ko-block .tag{
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  color:var(--navy); letter-spacing:0.8px; text-transform:uppercase;
+  margin-bottom:8px; display:block;
+}
+.ko-block p{font-size:14px; color:var(--ink-mid); line-height:1.75;}
+.ko-block strong{color:var(--navy); font-weight:700;}
+
+.note-block{
+  background:var(--note-bg);
+  border:1px solid var(--note-border);
+  border-top:none;
+  border-radius:0 0 6px 6px;
+  padding:14px 20px;
+}
+.note-block .tag{
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  color:var(--gold); letter-spacing:0.8px; text-transform:uppercase;
+  margin-bottom:8px; display:flex; align-items:center; gap:6px;
+}
+.note-block p{font-size:13px; color:var(--ink-mid); line-height:1.7;}
+.note-block p + p{margin-top:8px;}
+.note-block strong{color:var(--ink); font-weight:700;}
+.note-block .term{
+  background:var(--light-blue); color:var(--navy);
+  padding:1px 6px; border-radius:3px; font-weight:600; font-size:0.93em;
+}
+
+/* ── visual recreation pieces (cards, flow boxes, etc reused across slides) ── */
+.flow-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.flow-box{
+  flex:1; min-width:140px;
+  border-radius:6px; padding:14px 16px; color:#fff;
+}
+.flow-box h4{ font-size:13.5px; font-weight:700; margin-bottom:4px; }
+.flow-box p{ font-size:11.5px; opacity:0.92; line-height:1.4; }
+.flow-arrow{ font-size:18px; color:var(--ink-soft); font-weight:700; flex:0 0 auto; }
+
+.country-row{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.country-card{
+  flex:1; min-width:110px; background:#fff; border:1px solid var(--line);
+  border-radius:8px; padding:16px 10px; text-align:center;
+}
+.country-circle{
+  width:54px; height:54px; border-radius:50%; margin:0 auto 10px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:700; font-size:15px;
+}
+.country-card .name{ font-size:12.5px; font-weight:700; color:var(--ink); }
+.country-card .role{ font-size:10px; color:var(--ink-soft); margin-top:3px; }
+
+.causes-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0; }
+@media (max-width:680px){ .causes-grid{ grid-template-columns:1fr; } }
+.causes-list .cause-item{
+  border-left:3px solid var(--gold); padding:6px 0 10px 14px; margin-bottom:6px;
+}
+.causes-list .cause-item h4{ font-size:13.5px; font-weight:700; color:var(--navy); margin-bottom:3px; }
+.causes-list .cause-item p{ font-size:12px; color:var(--ink-mid); }
+.deficit-card{
+  background:var(--rust-soft); border-radius:6px; padding:14px 16px; margin-bottom:10px;
+}
+.deficit-card h4{ font-size:13.5px; font-weight:700; color:var(--rust); margin-bottom:4px; }
+.deficit-card p{ font-size:12px; color:var(--ink-mid); }
+
+.chart-bars{ display:flex; align-items:flex-end; gap:14px; height:160px; margin:18px 0 6px; padding:0 6px; }
+.bar-col{ flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; }
+.bar-val{ font-size:11px; font-weight:700; color:var(--ink); }
+.bar-rect{ width:100%; max-width:36px; background:var(--navy); border-radius:3px 3px 0 0; }
+.bar-label{ font-size:10px; color:var(--ink-soft); text-align:center; line-height:1.2; }
+
+.step-row{ display:flex; gap:10px; margin:14px 0; flex-wrap:wrap; }
+.step-card{
+  flex:1; min-width:130px; border-radius:6px; padding:16px 12px; color:#fff; text-align:center;
+}
+.step-circle{
+  width:38px; height:38px; border-radius:50%; background:#fff; margin:0 auto 10px;
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;
+}
+.step-card h4{ font-size:13px; font-weight:700; margin-bottom:6px; }
+.step-card p{ font-size:10.5px; opacity:0.92; line-height:1.4; }
+
+.lows-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:14px 0; }
+@media (max-width:760px){ .lows-grid{ grid-template-columns:1fr; } }
+.low-card{ border-radius:8px; padding:16px; color:#fff; }
+.low-card .tag2{ font-size:10px; font-weight:700; opacity:0.75; letter-spacing:1px; }
+.low-card h4{ font-family:'Cambria',serif; font-size:17px; margin:4px 0 10px; }
+.low-card .stat{
+  background:var(--gold-light); color:var(--navy-dark); border-radius:5px;
+  padding:6px 10px; text-align:center; font-size:12.5px; font-weight:700; margin-bottom:10px;
+}
+.low-card p{ font-size:11.5px; line-height:1.5; opacity:0.95; }
+
+.wrong-list .wrong-item{ display:flex; gap:12px; margin-bottom:14px; }
+.wrong-icon{
+  flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--rust);
+  color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px;
+}
+.wrong-item h4{ font-size:13.5px; font-weight:700; color:var(--navy); margin-bottom:3px; }
+.wrong-item p{ font-size:12px; color:var(--ink-mid); }
+.lesson-box{
+  background:var(--navy); color:#fff; border-radius:8px; padding:20px; text-align:center;
+}
+.lesson-box .tag3{ font-size:11px; font-weight:700; color:var(--gold-light); letter-spacing:1.5px; margin-bottom:8px; }
+.lesson-box h4{ font-family:'Cambria',serif; font-size:18px; margin-bottom:10px; }
+.lesson-box p{ font-size:12px; opacity:0.9; line-height:1.6; }
+.lesson-box .italic-line{ font-style:italic; color:var(--gold-light); margin-top:10px; }
+
+.comp-table{ width:100%; border-collapse:collapse; margin:14px 0; font-size:12.5px; }
+.comp-table th{ background:var(--navy); color:#fff; padding:9px 12px; text-align:left; font-size:11px; }
+.comp-table td{ padding:9px 12px; border-bottom:1px solid var(--line); color:var(--ink-mid); }
+.comp-table tr:nth-child(even) td{ background:#FBF9F2; }
+.comp-table td:first-child{ font-weight:700; color:var(--navy); }
+
+.concept-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0; }
+@media (max-width:680px){ .concept-grid{ grid-template-columns:1fr; } }
+.concept-mini{ background:var(--cream); border-radius:6px; padding:14px 16px; }
+.concept-mini h4{ font-size:13.5px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.concept-mini p{ font-size:11.5px; color:var(--ink-mid); }
+
+.q-list .q-item{ display:flex; gap:12px; margin-bottom:14px; align-items:flex-start; }
+.q-num{
+  flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--gold);
+  color:var(--navy-dark); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;
+}
+.q-item p{ font-size:13px; color:var(--ink); padding-top:4px; }
+
+/* ── footer ── */
+footer{
+  text-align:center; padding:28px 24px 50px; color:var(--ink-soft);
+  font-size:12px; font-family:'JetBrains Mono',monospace;
+}
+
+.term-pill{
+  background:var(--light-blue); color:var(--navy); padding:1px 7px; border-radius:3px;
+  font-weight:600; font-size:0.93em;
+}
+
+@media (max-width:600px){
+  .slide-body{ padding:22px 18px 6px; }
+  .slide-head{ padding:20px 18px 18px; }
+  .recreate-zone{ padding:16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#sl1">Title</a>
+    <a href="#sl2">G5</a>
+    <a href="#sl3">Big Picture</a>
+    <a href="#sl4">Background</a>
+    <a href="#sl5">Plaza Accord</a>
+    <a href="#sl6">Japan</a>
+    <a href="#sl7">Korea</a>
+    <a href="#sl8">Limits</a>
+    <a href="#sl9">Comparison</a>
+    <a href="#sl10">Concepts</a>
+    <a href="#sl11">Discussion</a>
+  </div>
+</nav>
+
+<div class="deck">
+
+<!-- ══════════════════════════════════════
+     SLIDE 1 — TITLE
+══════════════════════════════════════════ -->
+<div class="slide" id="sl1">
+  <div class="slide-num-tag">SLIDE 01 / 11</div>
+  <div class="slide-head bg-navy">
+    <h2>The Plaza Accord (1985) &amp; South Korea's "Three Lows" Boom</h2>
+    <div class="sub">How one international currency agreement changed the fate of two Asian economies</div>
+  </div>
+  <div class="slide-body">
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>The Butterfly Effect of Global Imbalances<br>AP Macroeconomics (2026) / SGHS (17th)</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>글로벌 불균형의 나비효과<br>AP 거시경제학 (2026) / 서울국제고등학교 (17기)</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 발표는 1985년 플라자 합의라는 단 하나의 국제 환율 합의가 어떻게 일본과 한국이라는 두 아시아 경제의 운명을 정반대로 갈라놓았는지를 다룹니다. 부제인 "나비효과(Butterfly Effect)"는 한 지역(미국, 뉴욕)에서의 작은 정책 결정이 멀리 떨어진 다른 경제(일본의 버블 붕괴, 한국의 호황)에 거대한 파급효과를 일으켰다는 의미를 담고 있습니다. 발표 전체를 관통하는 핵심 질문은 "왜 동일한 외부 충격이 나라마다 전혀 다른 결과를 낳았는가"입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 2 — G5 GROUP
+══════════════════════════════════════════ -->
+<div class="slide" id="sl2">
+  <div class="slide-num-tag">SLIDE 02 / 11</div>
+  <div class="slide-head bg-cream">
+    <h2>The Plaza Accord</h2>
+    <div class="sub">September 22, 1985 · Plaza Hotel, New York</div>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: G5 finance ministers</div>
+      <div class="country-row">
+        <div class="country-card"><div class="country-circle" style="background:var(--navy)">US</div><div class="name">United States</div><div class="role">G5 Finance Minister</div></div>
+        <div class="country-card"><div class="country-circle" style="background:var(--rust)">JP</div><div class="name">Japan</div><div class="role">G5 Finance Minister</div></div>
+        <div class="country-card"><div class="country-circle" style="background:var(--slate)">DE</div><div class="name">West Germany</div><div class="role">G5 Finance Minister</div></div>
+        <div class="country-card"><div class="country-circle" style="background:var(--teal)">UK</div><div class="name">United Kingdom</div><div class="role">G5 Finance Minister</div></div>
+        <div class="country-card"><div class="country-circle" style="background:var(--gold)">FR</div><div class="name">France</div><div class="role">G5 Finance Minister</div></div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE CAPTION</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Finance ministers from five major economies met in secret to coordinate a historic intervention in global currency markets.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>5개 주요국의 재무장관들이 비밀리에 모여 전 세계 환율시장에 대한 역사적인 공동 개입을 조율했습니다.</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 회의가 "비밀리에" 진행되었다는 점이 중요합니다 — 시장에 사전 정보가 노출되면 투기적 거래로 효과가 반감될 수 있기 때문입니다. G5(Group of Five)는 미국, 일본, 서독, 영국, 프랑스의 5개 선진국을 가리키며, 이들이 모여 <span class="term-pill">중앙은행 공동 개입(coordinated central bank intervention)</span>이라는, 시장 원리에 정부가 직접 손을 대는 이례적인 결정을 내렸습니다. 평소 환율은 외환시장의 수요-공급에 따라 자유롭게 결정되지만, 이 경우는 정부 간 합의를 통해 인위적으로 조정한 사례라는 점에서 경제사적으로 매우 중요합니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 3 — THE BIG PICTURE
+══════════════════════════════════════════ -->
+<div class="slide" id="sl3">
+  <div class="slide-num-tag">SLIDE 03 / 11</div>
+  <div class="slide-head bg-cream">
+    <h2>THE BIG PICTURE</h2>
+    <div class="sub">How a U.S. Policy Decision Reshaped the World Economy</div>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: 3-step flow</div>
+      <div class="flow-row">
+        <div class="flow-box" style="background:var(--navy)">
+          <h4>United States</h4>
+          <p>Twin Deficits Crisis (Budget + Trade)</p>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box" style="background:var(--gold); color:var(--navy-dark)">
+          <h4>Plaza Hotel</h4>
+          <p>G5 Currency Agreement, September 1985</p>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box" style="background:var(--teal)">
+          <h4>Japan &amp; Korea</h4>
+          <p>Opposite Outcomes: Bubble vs. Boom</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Flow diagram labels</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <ul>
+          <li>United States — Twin Deficits Crisis (Budget + Trade)</li>
+          <li>Plaza Hotel — G5 Currency Agreement, September 1985</li>
+          <li>Japan &amp; Korea — Opposite Outcomes: Bubble vs. Boom</li>
+        </ul>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>미국 — 쌍둥이 적자 위기(재정+무역) / 플라자 호텔 — G5 환율 합의, 1985년 9월 / 일본과 한국 — 정반대의 결과: 버블 vs. 호황</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 3단계 흐름이 발표 전체의 로드맵입니다. ① 미국이 겪은 위기(쌍둥이 적자) → ② 그 위기를 해결하기 위한 정책적 해법(플라자 합의) → ③ 그 해법이 일본과 한국에 미친 정반대의 영향. 이후 슬라이드들은 이 세 단계를 각각 상세히 풀어서 설명하는 구조입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Key Question box</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>[Key Question] How can a single currency agreement in New York trigger boom in Seoul and bust in Tokyo?</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>[핵심 질문] 뉴욕에서 이루어진 단 하나의 환율 합의가 어떻게 서울에는 호황을, 도쿄에는 불황을 촉발할 수 있었을까요?</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 질문은 발표 전체가 답하고자 하는 핵심 화두입니다. 동일한 정책적 사건(플라자 합의)이 지리적으로 가까운 두 나라(일본, 한국)에 정반대의 결과를 가져온 이유를 이해하려면, 각국의 환율 제도, 통화정책 대응, 자금의 용도(투기 vs. 생산적 투자) 등 국내 구조적 차이를 함께 살펴봐야 합니다. 이는 단순히 "정책 X가 결과 Y를 낳았다"는 식의 단선적 인과관계가 아니라, 동일한 충격도 받는 쪽의 구조에 따라 다른 결과를 낳을 수 있다는 개방경제 거시경제학의 중요한 통찰입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 4 — BACKGROUND: US CRISIS
+══════════════════════════════════════════ -->
+<div class="slide" id="sl4">
+  <div class="slide-num-tag">SLIDE 04 / 11</div>
+  <div class="slide-head bg-navy">
+    <h2>BACKGROUND: U.S. Macroeconomic Crisis (Early 1980s)</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — "What caused the problem?"</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <ul>
+          <li><strong>Volcker's Tight Money</strong> — Fed raised rates to ~20% to fight 1970s inflation</li>
+          <li><strong>Reaganomics</strong> — Big defense spending + tax cuts → massive fiscal deficit</li>
+          <li><strong>Crowding-Out Effect</strong> — Gov't borrowing raised rates, squeezing private investment</li>
+          <li><strong>Super Dollar Era</strong> — High rates attracted global capital → dollar surged</li>
+        </ul>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>볼커의 긴축 통화정책</strong> — 연준이 1970년대 인플레이션을 잡기 위해 금리를 약 20%까지 인상<br>
+        <strong>레이거노믹스</strong> — 대규모 국방비 지출 + 세금 감면 → 막대한 재정적자<br>
+        <strong>구축효과</strong> — 정부 차입이 금리를 끌어올려 민간투자를 압박<br>
+        <strong>슈퍼 달러 시대</strong> — 높은 금리가 전 세계 자본을 끌어들여 달러가 급등</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 4가지 항목은 시간 순서대로 이어지는 하나의 인과 사슬입니다. 먼저 ① 연준 의장 폴 볼커가 인플레이션을 잡기 위해 금리를 약 20%까지 인상했고(1979년 말부터), ② 1981년부터는 레이건 행정부가 정반대 방향인 확장적 재정정책(감세+국방비 증액)을 펼쳤습니다. ③ 정부가 막대한 재정적자를 메우려고 국채를 대량 발행하자 대출가능자금시장에서 자금 수요가 늘어 금리가 더 올랐고, 그 결과 민간 기업들이 자금을 구하기 어려워지는 <span class="term-pill">구축효과(Crowding-out Effect)</span>가 발생했습니다. ④ 이렇게 높아진 미국 금리는 전 세계 투자자들을 끌어들여 달러 수요를 폭증시키고 달러 가치를 급등시켰습니다("슈퍼 달러"). 핵심은 긴축 통화정책과 확장 재정정책이 동시에 진행되며 서로 다른 방향에서 같은 결과(고금리·강달러)를 만들어냈다는 점입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — "Twin Deficits"</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>① Budget Deficit — Government spends more than it collects in taxes. Funded by issuing Treasury bonds.<br><br>
+        ② Trade Deficit — Strong dollar made U.S. exports expensive abroad. Americans bought cheap Japanese/German imports.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>① 재정적자 — 정부가 세금으로 거둔 것보다 더 많이 지출함. 국채 발행으로 자금을 조달.<br><br>
+        ② 무역적자 — 달러 강세로 미국 수출품이 해외에서 비싸짐. 미국인들은 저렴한 일본/독일산 수입품을 구매.</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 두 적자를 합쳐 <span class="term-pill">쌍둥이 적자(Twin Deficits)</span>라고 부릅니다. 재정적자와 무역적자는 별개의 현상처럼 보이지만 실제로는 서로 긴밀히 연결되어 있습니다: 재정적자 확대 → 정부의 국채 발행 증가 → 금리 상승 → 해외 자본 유입 → 달러 강세 → 미국 상품의 가격 경쟁력 약화 → 무역적자 확대. 즉 재정적자가 환율을 통해 무역적자를 만들어내는 구조입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Bottom note</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Mundell-Fleming Model: Tight monetary + loose fiscal policy → higher interest rates → capital inflow → stronger currency</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>먼델-플레밍 모형: 긴축 통화정책 + 완화적 재정정책 → 금리 상승 → 자본 유입 → 통화 강세</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p><span class="term-pill">먼델-플레밍 모형(Mundell-Fleming Model)</span>은 개방경제(open economy)에서 통화정책·재정정책이 환율과 자본 흐름에 미치는 영향을 설명하는 이론입니다. 이 모형에 따르면, 긴축 통화정책(고금리)과 확장 재정정책(정부지출 확대)이 결합되면 국내 금리가 오르고, 높은 수익을 좇아 해외 자본이 유입되며, 그 결과 자국 통화가 강세를 보입니다. 1980년대 초 미국이 정확히 이 패턴을 따라갔다는 것이 이 슬라이드의 핵심 논지입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 5 — PLAZA ACCORD + CHART
+══════════════════════════════════════════ -->
+<div class="slide" id="sl5">
+  <div class="slide-num-tag">SLIDE 05 / 11</div>
+  <div class="slide-head bg-gold">
+    <h2>THE PLAZA ACCORD — September 1985</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — "What happened?"</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <ul>
+          <li>G5 nations (U.S., Japan, W. Germany, UK, France) met at Plaza Hotel, New York</li>
+          <li>Agreed to coordinate central bank intervention to weaken the dollar</li>
+          <li>Central banks sold massive amounts of dollars in FX markets</li>
+          <li>Yen: ~240 → ~120 per dollar within 2 years (doubled in value)</li>
+        </ul>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>G5 국가(미국, 일본, 서독, 영국, 프랑스)가 뉴욕 플라자 호텔에 모임 / 중앙은행의 공동 개입을 통해 달러를 약세로 만들기로 합의 / 중앙은행들이 외환시장에서 막대한 양의 달러를 매도 / 엔화: 2년 안에 달러당 약 240엔 → 약 120엔 (가치 2배 상승)</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>중앙은행이 외환시장에서 <strong>달러를 매도</strong>한다는 것은 시장에 달러 공급을 늘리는 행위입니다 — 수요-공급 모형으로 보면, 달러의 공급이 늘어나면 달러의 가격(여기서는 엔/달러 환율)이 떨어집니다. "엔화가 240엔→120엔이 되었다"는 것은 1달러를 사는 데 필요한 엔화가 줄었다는 뜻이므로, <strong>엔화의 가치가 상승</strong>했다는 의미입니다(숫자가 작아질수록 엔화는 강세). 시장 자율이 아닌 정부 간 합의로 환율을 인위적으로 움직인 이례적인 사례라는 점이 핵심입니다.</p>
+      </div>
+    </div>
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: USD/JPY Rate chart</div>
+      <div class="chart-bars">
+        <div class="bar-col"><div class="bar-val">226</div><div class="bar-rect" style="height:108px"></div><div class="bar-label">1980</div></div>
+        <div class="bar-col"><div class="bar-val">249</div><div class="bar-rect" style="height:120px"></div><div class="bar-label">1982</div></div>
+        <div class="bar-col"><div class="bar-val">237</div><div class="bar-rect" style="height:114px"></div><div class="bar-label">1984</div></div>
+        <div class="bar-col"><div class="bar-val">238</div><div class="bar-rect" style="height:114px;background:var(--gold)"></div><div class="bar-label">1985<br>(Plaza)</div></div>
+        <div class="bar-col"><div class="bar-val">168</div><div class="bar-rect" style="height:80px"></div><div class="bar-label">1986</div></div>
+        <div class="bar-col"><div class="bar-val">144</div><div class="bar-rect" style="height:68px"></div><div class="bar-label">1987</div></div>
+      </div>
+      <p style="font-size:11px;color:var(--ink-soft);text-align:center;margin-top:4px;">↑ Higher = weaker yen &nbsp;|&nbsp; ↓ Lower = stronger yen</p>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Chart data</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>USD/JPY Rate: 1980 — 226, 1982 — 249, 1984 — 237, 1985 (Plaza) — 238, 1986 — 168, 1987 — 144</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>달러/엔 환율: 1980년 — 226엔, 1982년 — 249엔, 1984년 — 237엔, 1985년(플라자) — 238엔, 1986년 — 168엔, 1987년 — 144엔</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>1985년까지는 환율이 226~249엔 사이에서 큰 변동 없이 유지되었지만, 플라자 합의가 체결된 1985년 직후부터 1986~1987년에 걸쳐 급격히 하락(엔화 강세)하는 패턴을 보입니다. 이는 합의가 실제로 시장에 즉각적이고 강력한 영향을 미쳤음을 보여주는 실증적 증거입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — "Pricing-to-Market" note</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>"Pricing-to-Market": Japanese firms absorbed some of the currency shock by cutting profit margins to keep market share — prices in the U.S. rose, but not by the full 100%.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>"프라이싱-투-마켓": 일본 기업들은 시장 점유율을 지키기 위해 이윤 마진을 줄여 환율 충격의 일부를 흡수했습니다 — 미국 내 가격은 올랐지만, 환율 변동분 100%만큼 오르지는 않았습니다.</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이론적으로 엔화 가치가 2배가 되었다면 일본 제품의 달러 가격도 2배가 되어야 합니다. 하지만 실제로는 그렇지 않았습니다. 일본 수출기업들이 <span class="term-pill">프라이싱-투-마켓(pricing-to-market)</span> 전략, 즉 환율 변동을 가격에 전부 반영하지 않고 이윤 마진을 줄여서 흡수하는 방식을 택했기 때문입니다. 이를 <span class="term-pill">환율 전가율(exchange rate pass-through)</span>이 100%보다 낮았다고 표현하기도 합니다. 그 결과 미국 내 일본 제품 가격은 일부만 상승했고, 대신 일본 기업들의 수익성이 크게 악화되었습니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 6 — IMPACT ON JAPAN
+══════════════════════════════════════════ -->
+<div class="slide" id="sl6">
+  <div class="slide-num-tag">SLIDE 06 / 11</div>
+  <div class="slide-head bg-slate">
+    <h2>IMPACT ON JAPAN: The Asset Bubble &amp; "Lost Decades"</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: 4-step causal flow</div>
+      <div class="step-row">
+        <div class="step-card" style="background:var(--rust)"><div class="step-circle" style="color:var(--rust)">1</div><h4>Yen Shock</h4><p>Sudden yen appreciation hurt exporters; "Endaka Fukyo" (Yen-High Recession)</p></div>
+        <div class="step-card" style="background:var(--gold)"><div class="step-circle" style="color:var(--gold)">2</div><h4>BOJ Cuts Rates</h4><p>Bank of Japan slashed interest rates to offset recession; kept at 2.5% until 1989</p></div>
+        <div class="step-card" style="background:var(--navy)"><div class="step-circle" style="color:var(--navy)">3</div><h4>Cheap Money + Speculation</h4><p>Low rates → lending shifted to real estate; "Zaitech" financial engineering replaced production</p></div>
+        <div class="step-card" style="background:var(--slate)"><div class="step-circle" style="color:var(--slate)">4</div><h4>Bubble Bursts (1990)</h4><p>Nikkei peaked Dec 1989; collapsed through 1990. Land prices followed. "Lost Decades" began.</p></div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Step 1: Yen Shock</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Sudden yen appreciation hurt exporters; "Endaka Fukyo" (Yen-High Recession)</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>급격한 엔화 강세가 수출기업들에 타격을 입힘; "엔고 불황(円高不況)"</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>엔화 가치가 2배로 오르자, 일본 제품은 해외 시장에서 가격 경쟁력을 잃었습니다. 이로 인해 발생한 수출 부진형 불황을 일본에서는 <span class="term-pill">엔고 불황(Endaka Fukyo)</span>이라고 부릅니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Step 2: BOJ Cuts Rates</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Bank of Japan slashed interest rates to offset recession; kept at 2.5% until 1989</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>일본은행이 불황에 대응해 금리를 대폭 인하; 1989년까지 2.5%로 유지</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 자체는 정상적인 경기 부양책이었습니다. 문제는 1987년 루브르 합의(Louvre Accord, G5가 추가적인 달러 약세를 막기로 한 후속 합의)의 압박까지 더해지면서, 일본이 이 저금리를 1989년까지 매우 오랫동안 유지했다는 점입니다. 적절한 시점에 금리를 정상화하지 못한 것이 이후 버블 형성의 핵심 원인이 되었습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Step 3: Cheap Money + Speculation</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Low rates → lending shifted to real estate; "Zaitech" financial engineering replaced production</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>저금리 → 대출이 부동산으로 이동; "재테크(財テク)" 금융공학이 실물 생산을 대체</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>저금리로 풀린 막대한 자금은 제조업 생산설비 투자로 가지 않고 부동산과 주식 시장으로 흘러갔습니다. <span class="term-pill">재테크(Zaitech)</span>는 기업이 본업(제조·생산)보다 금융투자로 수익을 추구하는 행위를 가리키는 일본식 용어입니다. 이는 자본이 실물경제가 아닌 자산시장으로 쏠리며 버블을 키우는 핵심 메커니즘이었습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Step 4: Bubble Bursts (1990)</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Nikkei peaked Dec 1989; collapsed through 1990. Land prices followed. "Lost Decades" began.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>니케이 지수는 1989년 12월 정점을 찍고 1990년 내내 붕괴; 토지 가격도 뒤이어 하락. "잃어버린 수십 년"이 시작됨.</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>자산 가격(주식, 부동산)이 실물 경제의 펀더멘털과 무관하게 부풀려진 거품은 결국 터질 수밖에 없습니다. 1990년 버블 붕괴 이후 일본은 장기간의 경제 침체기로 접어들었고, 이는 처음에는 "잃어버린 10년(Lost Decade)"이라 불렸으나 침체가 예상보다 훨씬 오래 지속되어 현재는 흔히 "잃어버린 수십 년(Lost Decades)"이라고 부릅니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Bottom note</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Marginal Efficiency of Capital (Keynesian): With strong yen, expected return on new factory investment plummeted → capital flowed into speculation instead of production</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>자본의 한계효율(케인즈 개념): 엔화 강세로 신규 공장 투자의 기대수익률이 급락 → 자본이 생산 대신 투기로 흘러감</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p><span class="term-pill">자본의 한계효율(Marginal Efficiency of Capital)</span>은 케인즈 경제학에서 기업이 추가적인 투자 단위로부터 기대하는 수익률을 의미합니다. 기업은 이 기대수익률과 자금조달 비용(금리)을 비교해 투자 여부를 결정합니다. 일본의 경우 금리는 낮아졌지만(자금조달 비용↓), 엔화 강세로 제조업의 기대수익률 자체가 너무 낮아져서(MEC↓), 결국 낮은 금리에도 불구하고 자금이 생산적 투자로 가지 않고 자산시장으로 흘러갔습니다. 이것이 "저금리인데도 왜 투자가 늘지 않았는가"에 대한 케인즈적 설명입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 7 — IMPACT ON KOREA
+══════════════════════════════════════════ -->
+<div class="slide" id="sl7">
+  <div class="slide-num-tag">SLIDE 07 / 11</div>
+  <div class="slide-head bg-gold">
+    <h2>IMPACT ON SOUTH KOREA: The "Three Lows" Boom (1986–1988)</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: 3 "Lows" cards</div>
+      <div class="lows-grid">
+        <div class="low-card" style="background:var(--navy)">
+          <div class="tag2">LOW 1</div><h4>Low Dollar</h4>
+          <div class="stat">JPY/KRW Rate ↑</div>
+          <p>Yen doubled vs. dollar; Won appreciated only modestly. Korean goods became far cheaper than Japanese in U.S. markets → exports surged</p>
+        </div>
+        <div class="low-card" style="background:var(--teal)">
+          <div class="tag2">LOW 2</div><h4>Low Oil Prices</h4>
+          <div class="stat">Production Costs ↓</div>
+          <p>Global oil prices plunged mid-1980s, cutting costs for Korea's energy-intensive manufacturing sector and boosting real household incomes</p>
+        </div>
+        <div class="low-card" style="background:var(--slate)">
+          <div class="tag2">LOW 3</div><h4>Low Interest Rates</h4>
+          <div class="stat">Debt Burden ↓</div>
+          <p>Post-Plaza, U.S. lowered rates → global borrowing costs fell. Korea, heavily indebted from industrialization, gained dramatic relief</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Low 1: Low Dollar</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Yen doubled vs. dollar; Won appreciated only modestly. Korean goods became far cheaper than Japanese in U.S. markets → exports surged</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>엔화는 달러 대비 2배 상승; 원화는 소폭만 상승. 미국 시장에서 한국 제품이 일본 제품보다 훨씬 저렴해짐 → 수출 급증</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>핵심은 원-달러 환율이 아니라 <span class="term-pill">원-엔 교차환율(won-yen cross rate)</span>입니다. 당시 한국 원화는 복수통화바스켓 제도로 관리되어 달러 대비로는 크게 변하지 않았지만, 엔화가 달러 대비 2배나 오르면서 자동으로 원화는 엔화 대비 상대적으로 크게 저평가된 효과가 발생했습니다. 그 결과 미국 등 제3국 시장에서 한국산 자동차·선박·전자제품이 일본산보다 훨씬 저렴해졌고, 이는 한국이 의도한 정책이 아니라 엔화 강세의 "간접 수혜"였다는 점이 중요합니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Low 2: Low Oil Prices</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Global oil prices plunged mid-1980s, cutting costs for Korea's energy-intensive manufacturing sector and boosting real household incomes</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>1980년대 중반 세계 유가가 급락하며 에너지 집약적인 한국 제조업의 생산비를 낮추고 가계의 실질 소득을 높임</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>한국은 원유를 전량 수입에 의존하기 때문에 유가 하락은 곧바로 생산비 절감으로 이어집니다. 이는 기업의 이윤 증가와 동시에 국내 물가 안정에도 기여하여 가계의 실질 구매력을 높였습니다. 거시경제학적으로는 생산비 하락이 총공급(AS) 곡선을 우측으로 이동시켜, 물가 안정과 실질 GDP 증가를 동시에 가능케 하는 효과로 설명할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Low 3: Low Interest Rates</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Post-Plaza, U.S. lowered rates → global borrowing costs fell. Korea, heavily indebted from industrialization, gained dramatic relief</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>플라자 합의 이후 미국이 금리를 낮춤 → 전 세계 차입 비용이 하락. 산업화 과정에서 외채에 크게 의존했던 한국은 극적인 부담 완화를 얻음</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>1980년대 한국은 중화학공업화 등 산업화 자금을 마련하기 위해 외채에 크게 의존했습니다. 국제 금리가 낮아지자 이자 부담이 크게 줄었고, 기업들은 재무구조를 개선하면서 동시에 새로운 기술에 재투자할 여력을 얻었습니다. 이는 한국이 직접 통제할 수 없는 외부 요인(미국의 금리 정책)이 우연히 한국에 유리하게 작용한 사례입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Result</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Result: First major current account surplus (1986) + 3 consecutive years of double-digit growth (1986–1988) → foundation for semiconductor &amp; IT industries</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>결과: 1986년 첫 대규모 경상수지 흑자 + 1986~1988년 3년 연속 두 자릿수 성장 → 반도체 및 IT 산업의 토대 마련</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>저달러·저유가·저금리라는 세 가지 외부 요인이 동시에 맞아떨어지면서, 한국은 사상 최초로 큰 규모의 <span class="term-pill">경상수지(Current Account)</span> 흑자를 기록했습니다. 더 중요한 것은 이 시기에 축적된 자본과 수출 경험이 단기 호황으로 끝나지 않고, 이후 반도체·정보기술(IT) 같은 고부가가치 산업으로 도약하는 발판이 되었다는 점입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 8 — THE LIMITS
+══════════════════════════════════════════ -->
+<div class="slide" id="sl8">
+  <div class="slide-num-tag">SLIDE 08 / 11</div>
+  <div class="slide-head bg-slate">
+    <h2>THE LIMITS: Why the Boom Faded After 1988</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: "What went wrong?" list + Key Lesson box</div>
+      <div class="wrong-list">
+        <div class="wrong-item"><div class="wrong-icon">!</div><div><h4>Won Appreciated</h4><p>Export surpluses created upward pressure on won, eroding the exchange-rate advantage</p></div></div>
+        <div class="wrong-item"><div class="wrong-icon">!</div><div><h4>Wages Surged</h4><p>The Great Workers' Struggle of 1987 unleashed pent-up labor demands → rising production costs</p></div></div>
+        <div class="wrong-item"><div class="wrong-icon">!</div><div><h4>Oil &amp; Interest Rates Normalized</h4><p>External tailwinds that had driven the boom gradually reversed</p></div></div>
+        <div class="wrong-item"><div class="wrong-icon">!</div><div><h4>Export Growth Slowed</h4><p>By 1989, growth had sharply decelerated</p></div></div>
+      </div>
+      <div class="lesson-box">
+        <div class="tag3">KEY LESSON</div>
+        <h4>Exogenous Tailwinds<br>vs.<br>Endogenous Capability</h4>
+        <p>A boom driven by external conditions (cheap currency, low oil, low rates) is NOT the same as one driven by genuine productivity gains and technological capability.</p>
+        <p class="italic-line">The "Three Lows" era showed Korea BOTH the opportunity AND the warning.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — "What went wrong?"</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <ul>
+          <li><strong>Won Appreciated</strong> — Export surpluses created upward pressure on won, eroding the exchange-rate advantage</li>
+          <li><strong>Wages Surged</strong> — The Great Workers' Struggle of 1987 unleashed pent-up labor demands → rising production costs</li>
+          <li><strong>Oil &amp; Interest Rates Normalized</strong> — External tailwinds that had driven the boom gradually reversed</li>
+          <li><strong>Export Growth Slowed</strong> — By 1989, growth had sharply decelerated</li>
+        </ul>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>원화 강세</strong> — 무역흑자가 누적되며 원화에 상승 압력이 생겨 환율상의 이점이 약화됨<br>
+        <strong>임금 급등</strong> — 1987년 노동자 대투쟁이 억눌렸던 노동 요구를 터뜨려 생산비가 상승<br>
+        <strong>유가·금리의 정상화</strong> — 호황을 이끌었던 외부 순풍이 점차 역전됨<br>
+        <strong>수출 성장 둔화</strong> — 1989년에는 성장이 급격히 둔화됨</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 4가지는 3저 호황을 무너뜨린 요인들입니다. 특히 첫 번째 항목인 "원화 강세"는 <strong>자기 교정적 메커니즘</strong>을 보여줍니다 — 무역흑자가 쌓이면 그 자체로 원화에 상승 압력을 가하고, 원화가 강세를 보이면 가격 경쟁력이 약해져 다시 무역흑자가 줄어드는 식으로 시장이 스스로 균형을 찾아갑니다. 여기에 1987년 노동자 대투쟁으로 인한 임금 상승, 그리고 애초에 호황을 만들었던 저유가·저금리 환경 자체가 정상화되며 사라진 것까지 겹쳐, 1989년에는 수출 성장이 뚜렷하게 둔화되었습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Key Lesson box</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Exogenous Tailwinds vs. Endogenous Capability — A boom driven by external conditions (cheap currency, low oil, low rates) is NOT the same as one driven by genuine productivity gains and technological capability. The "Three Lows" era showed Korea BOTH the opportunity AND the warning.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>외생적 순풍 vs. 내생적 역량 — 외부 환경(저달러·저유가·저금리)에 의한 호황은 진정한 생산성 향상과 기술 역량에 의한 호황과 동일하지 않습니다. "3저" 시대는 한국에게 기회와 경고를 동시에 보여주었습니다.</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 슬라이드의 핵심 메시지입니다. <span class="term-pill">외생적(exogenous)</span> 요인은 한 나라가 통제할 수 없는 외부에서 주어진 환경(환율, 유가, 국제 금리)을 가리키고, <span class="term-pill">내생적(endogenous)</span> 역량은 그 나라가 스스로 키운 생산성과 기술력을 가리킵니다. 3저 호황은 명백히 외생적 요인에 크게 의존했고, 그 요인들이 1988년 이후 정상화되면서 호황도 끝났습니다. 이는 외부 환경에만 기댄 성장은 지속가능하지 않으며, 장기적인 경제 발전에는 반드시 내생적 역량(기술·생산성)의 축적이 뒤따라야 한다는 교훈을 줍니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 9 — COMPARISON TABLE
+══════════════════════════════════════════ -->
+<div class="slide" id="sl9">
+  <div class="slide-num-tag">SLIDE 09 / 11</div>
+  <div class="slide-head bg-cream">
+    <h2>COMPARISON: Japan vs. South Korea After the Plaza Accord</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: comparison table</div>
+      <table class="comp-table">
+        <thead><tr><th>Factor</th><th>Japan</th><th>South Korea</th></tr></thead>
+        <tbody>
+          <tr><td>Currency impact</td><td>Yen doubled → export shock</td><td>Won appreciated modestly → competitive edge</td></tr>
+          <tr><td>Policy response</td><td>BOJ cut rates sharply</td><td>Benefited from falling global rates</td></tr>
+          <tr><td>Capital flow</td><td>Into real estate &amp; stocks (bubble)</td><td>Into export industries</td></tr>
+          <tr><td>Economic result</td><td>Asset bubble → Lost Decades</td><td>Double-digit growth 1986–1988</td></tr>
+          <tr><td>Long-term lesson</td><td>Structural fragility exposed</td><td>Foundation for high-tech industries</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Table contents</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Currency impact — Japan: Yen doubled → export shock / Korea: Won appreciated modestly → competitive edge<br><br>
+        Policy response — Japan: BOJ cut rates sharply / Korea: Benefited from falling global rates<br><br>
+        Capital flow — Japan: Into real estate &amp; stocks (bubble) / Korea: Into export industries<br><br>
+        Economic result — Japan: Asset bubble → Lost Decades / Korea: Double-digit growth 1986–1988<br><br>
+        Long-term lesson — Japan: Structural fragility exposed / Korea: Foundation for high-tech industries</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>환율 영향 — 일본: 엔화 2배 상승 → 수출 충격 / 한국: 원화 소폭 상승 → 경쟁력 확보<br><br>
+        정책 대응 — 일본: 일본은행이 금리를 급격히 인하 / 한국: 국제 금리 하락의 수혜를 받음<br><br>
+        자금 흐름 — 일본: 부동산·주식으로 유입(버블) / 한국: 수출산업으로 유입<br><br>
+        경제적 결과 — 일본: 자산버블 → 잃어버린 수십 년 / 한국: 1986~1988년 두 자릿수 성장<br><br>
+        장기적 교훈 — 일본: 구조적 취약성이 드러남 / 한국: 첨단산업의 토대 마련</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 표는 발표 전체의 핵심을 한눈에 정리합니다. 가장 중요한 차이는 "자금 흐름" 행입니다 — 일본은 저금리 자금이 부동산·주식 투기로 흘러갔고, 한국은 저달러·저유가·저금리의 혜택을 수출산업의 생산 확대에 활용했습니다. 즉 동일한 외부 충격(플라자 합의)을 받았더라도, <strong>그 자금이 투기로 가는지 생산으로 가는지</strong>에 따라 장기적 결과가 완전히 달라졌다는 것이 핵심 통찰입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Bottom banner</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Same external shock → completely different outcomes based on domestic structures and policy responses.</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>동일한 외부 충격 → 국내 경제구조와 정책 대응의 차이에 따라 완전히 다른 결과</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>이 발표 전체를 한 문장으로 압축한 결론입니다. 외부에서 오는 충격(여기서는 플라자 합의로 인한 환율 변동)은 모든 나라에 동일하게 작용하지 않습니다 — 그 충격을 받아들이는 나라의 환율 제도, 통화정책 대응, 산업구조, 그리고 자금이 어디로 흘러가는지에 따라 결과는 천차만별일 수 있습니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 10 — KEY CONCEPTS
+══════════════════════════════════════════ -->
+<div class="slide" id="sl10">
+  <div class="slide-num-tag">SLIDE 10 / 11</div>
+  <div class="slide-head bg-gold">
+    <h2>KEY ECONOMIC CONCEPTS IN THIS TOPIC</h2>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: 6 concept cards</div>
+      <div class="concept-grid">
+        <div class="concept-mini"><h4>Crowding-Out Effect</h4><p>Government borrowing raises interest rates, reducing private investment</p></div>
+        <div class="concept-mini"><h4>Mundell-Fleming Model</h4><p>Open economy model: tight money + loose fiscal → higher rates → capital inflow → stronger currency</p></div>
+        <div class="concept-mini"><h4>Pricing-to-Market</h4><p>Exporters absorb exchange-rate changes in profit margins to defend market share</p></div>
+        <div class="concept-mini"><h4>Marginal Efficiency of Capital</h4><p>Expected return on additional investment; when it falls, firms invest less in production</p></div>
+        <div class="concept-mini"><h4>Exogenous vs. Endogenous Growth</h4><p>Growth from external conditions (luck) vs. internal capability-building (real strength)</p></div>
+        <div class="concept-mini"><h4>Twin Deficits</h4><p>Simultaneous budget deficit + trade deficit — linked by the Mundell-Fleming mechanism</p></div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 1</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Crowding-Out Effect</strong> — Government borrowing raises interest rates, reducing private investment</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>구축효과</strong> — 정부의 차입이 금리를 끌어올려 민간투자를 줄어들게 함</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>정부가 재정적자를 메우기 위해 국채를 발행하면 대출가능자금시장에서 자금 수요가 늘어 금리가 상승하고, 그 결과 민간 기업의 투자가 줄어듭니다. 이는 4번 슬라이드(미국의 위기 배경)에서 다룬 핵심 메커니즘입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 2</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Mundell-Fleming Model</strong> — Open economy model: tight money + loose fiscal → higher rates → capital inflow → stronger currency</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>먼델-플레밍 모형</strong> — 개방경제 모형: 긴축통화+완화재정 → 금리상승 → 자본유입 → 통화강세</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>개방경제에서 통화·재정정책의 조합이 환율에 미치는 영향을 설명하는 모형으로, 1980년대 초 미국의 "슈퍼 달러" 현상을 설명하는 핵심 이론입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 3</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Pricing-to-Market</strong> — Exporters absorb exchange-rate changes in profit margins to defend market share</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>프라이싱-투-마켓</strong> — 수출기업이 시장 점유율을 지키기 위해 환율 변동을 이윤 마진으로 흡수함</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>일본 기업들이 엔화 강세 충격을 가격에 전부 반영하지 않고 마진을 줄여 대응한 행동으로, 5번 슬라이드에서 다룬 환율 전가(pass-through)의 핵심 개념입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 4</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Marginal Efficiency of Capital</strong> — Expected return on additional investment; when it falls, firms invest less in production</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>자본의 한계효율</strong> — 추가적인 투자에서 기대되는 수익률; 이것이 낮아지면 기업은 생산적 투자를 줄임</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>케인즈 경제학의 핵심 투자 결정 개념으로, 일본에서 저금리에도 불구하고 자금이 생산이 아닌 투기로 흘러간 이유를 설명하는 데 사용되었습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 5</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Exogenous vs. Endogenous Growth</strong> — Growth from external conditions (luck) vs. internal capability-building (real strength)</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>외생적 vs. 내생적 성장</strong> — 외부 환경(운)에 의한 성장 vs. 내부 역량 구축(실력)에 의한 성장</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>한국의 3저 호황이 왜 1988년 이후 지속되지 못했는지를 설명하는 핵심 개념으로, 8번 슬라이드의 "Key Lesson"과 직결됩니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Concept 6</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p><strong>Twin Deficits</strong> — Simultaneous budget deficit + trade deficit — linked by the Mundell-Fleming mechanism</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p><strong>쌍둥이 적자</strong> — 재정적자와 무역적자가 동시에 발생하는 현상 — 먼델-플레밍 메커니즘으로 연결됨</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>1980년대 초 미국이 처했던 상황을 가리키는 용어로, 재정적자가 환율 경로를 통해 무역적자로 전이되는 과정이 플라자 합의의 직접적인 배경이 되었습니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SLIDE 11 — DISCUSSION & REVIEW
+══════════════════════════════════════════ -->
+<div class="slide" id="sl11">
+  <div class="slide-num-tag">SLIDE 11 / 11</div>
+  <div class="slide-head bg-navy">
+    <h2>DISCUSSION &amp; REVIEW</h2>
+    <div class="sub">Think Critically About Global Interdependence</div>
+  </div>
+  <div class="slide-body">
+
+    <div class="recreate-zone">
+      <div class="recreate-label">Visual on slide: 4 discussion questions</div>
+      <div class="q-list">
+        <div class="q-item"><div class="q-num">1</div><p>Why did Japan and South Korea respond so differently to the same external shock?</p></div>
+        <div class="q-item"><div class="q-num">2</div><p>Could South Korea have achieved the same growth without the Plaza Accord's tailwinds?</p></div>
+        <div class="q-item"><div class="q-num">3</div><p>What does "exogenous tailwinds vs. endogenous capability" mean for a country's long-term development?</p></div>
+        <div class="q-item"><div class="q-num">4</div><p>Can you think of a recent example of one country's policy creating a "butterfly effect" elsewhere?</p></div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Question 1</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Why did Japan and South Korea respond so differently to the same external shock?</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>일본과 한국은 왜 동일한 외부 충격에 그렇게 다르게 반응했을까요?</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>답변의 핵심은 환율 제도의 차이(자유변동 엔화 vs. 관리되는 원화)와 자금의 용도 차이(일본=투기, 한국=생산적 투자)입니다. 9번 슬라이드의 비교표를 참고해 답하면 좋습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Question 2</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Could South Korea have achieved the same growth without the Plaza Accord's tailwinds?</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>한국이 플라자 합의로 인한 외부 순풍 없이도 동일한 성장을 이룰 수 있었을까요?</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>8번 슬라이드의 "외생적 순풍 vs. 내생적 역량" 개념을 적용해 토론할 수 있는 질문입니다. 단기적 호황의 규모는 달랐겠지만, 장기적 산업 고도화의 가능성에 대해 생각해볼 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Question 3</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>What does "exogenous tailwinds vs. endogenous capability" mean for a country's long-term development?</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>"외생적 순풍 vs. 내생적 역량"은 한 나라의 장기적 발전에 어떤 의미를 가질까요?</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>장기적인 경제발전은 외부 환경에만 의존할 수 없으며, 생산성·기술력 같은 내생적 역량을 갖추어야 지속가능하다는 점을 논의하는 질문입니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Question 4</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>Can you think of a recent example of one country's policy creating a "butterfly effect" elsewhere?</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>최근 한 나라의 정책이 다른 나라에 "나비효과"를 일으킨 사례를 생각해볼 수 있나요?</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>최근 사례로는 미국 연준의 금리 정책이 신흥국 환율과 자본 흐름에 미치는 영향, 또는 주요국의 반도체·공급망 정책이 다른 나라 경제에 미치는 파급효과 등을 떠올려볼 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="unit">
+      <div class="unit-tag">SLIDE TEXT — Closing quote</div>
+      <div class="orig-block">
+        <span class="tag">Original</span>
+        <p>"Modern macroeconomics is not a collection of isolated national events, but a manifestation of global interdependence."</p>
+      </div>
+      <div class="ko-block">
+        <span class="tag">번역</span>
+        <p>"현대 거시경제학은 각국에서 일어나는 고립된 사건들의 집합이 아니라, 전 세계적 상호의존성의 발현입니다."</p>
+      </div>
+      <div class="note-block">
+        <span class="tag">💡 설명</span>
+        <p>발표 전체를 마무리하는 결론으로, 첫 슬라이드의 "나비효과(Butterfly Effect)" 개념으로 다시 돌아갑니다(수미상관 구조). 한 국가의 정책이 의도치 않게 다른 나라 경제에 영향을 미치는 현상은 개방경제 거시경제학의 핵심 주제이며, 이는 시험에서 종합적인 서술형 문제로 자주 출제될 수 있는 주제입니다.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<footer>
+  Seoul Global High School · AP Macroeconomics (2026) · 17th<br>
+  <span style="opacity:0.65;">The Plaza Accord (1985) &amp; South Korea's "Three Lows" Boom — Slide-by-Slide Notes (Original · Translation · Explanation)</span>
+</footer>
+
+</body>
+</html>
